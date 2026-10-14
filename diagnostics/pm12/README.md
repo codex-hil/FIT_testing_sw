@@ -121,3 +121,11 @@ IP networking remain unimplemented.
 [ADC diagnostic](adc/README.md) adds temporary SRAM gateware for the 12 CPLDs,
 EV-chain A/B selection, ADC-clock forwarding, 12 Kintex trace buffers and
 Ethernet acquisition control. See its measured validation status before use.
+
+
+## MCU and FPGA control
+
+[MCU/SPI diagnostics](mcu/README.md) add PG startup timing, read-only device
+checks, an original-protocol FPGA SPI slave and explicit config-flash read /
+FPGA boot requests. Native tests, GHDL and Vivado builds pass; physical MCU
+UART/SPI/configuration tests remain NOT_RUN. Config inspection resets FPGA SRAM.

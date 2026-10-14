@@ -1,8 +1,8 @@
 diff --git a/development/Makefile b/development/Makefile
-index c075892..1c08bf7 100644
+index c075892..03cd7e6 100644
 --- a/development/Makefile
 +++ b/development/Makefile
-@@ -3,9 +3,12 @@ all:
+@@ -3,9 +3,14 @@ all:
  	python3 tools/build.py
  check: all
  	python3 tests/check_bridge.py
@@ -14,14 +14,56 @@ index c075892..1c08bf7 100644
  	build/check_commands
 +	cc -std=c99 -Wall -Wextra -Werror -Isrc src/hw_drivers.c tests/check_hw_drivers.c -o build/check_hw_drivers
 +	build/check_hw_drivers
++	cc -std=c99 -Wall -Wextra -Werror -Isrc src/extension.c src/hw_commands.c src/hw_drivers.c tests/check_fpga_flash.c -o build/check_fpga_flash
++	build/check_fpga_flash
  clean:
  	rm -rf build
+diff --git a/development/README.md b/development/README.md
+index 1d39b57..04ff988 100644
+--- a/development/README.md
++++ b/development/README.md
+@@ -105,3 +105,35 @@ I2C operation still require device validation.
+ The agreed additive TWI/UART stage and subsequent measured legacy-function
+ replacement stage are described in [hardware development tracks](../docs/hardware_development_tracks.md).
+ Keep binary-different development replacements separate from the exact baseline.
++
++
++## MCU–FPGA SPI and configuration diagnostic
++
++`@FPGA` reads diagnostic registers 40–44. `@FPGATEST` verifies IDs 504D/5350,
++then writes and reads 32 walking-one/zero patterns at register 40, restoring and
++reading back its initial value. It refuses writes if the image IDs do not match.
++The Kintex diagnostic derives its active-low CS protocol from the original
++`SCKI/SPI_CS` slave, not the unrelated `HSCK/HSEL` interface. SPIC uses MSB-first
++mode 0; each operation is a 16-bit header plus 16-bit word. PLL/DAC select lines
++must be inactive. Each transaction restores SPIC control and releases CS.
++
++`@CFG` reports raw PORTD input/output (INIT_B bit 2, DONE bit 3, PROGRAM_B output
++bit 1). `@CFG HOLD` asserts PROGRAM_B, **destroys FPGA SRAM configuration**, and
++makes SPIE own the configuration bus. Once DONE reads low, `@FLASHID` sends 9F;
++`@FLASHREAD 000000 10` sends 03 and reads at most 16 bytes. No WREN, programming
++or erase commands exist. `@CFG BOOT` disables SPIE, releases its GPIO outputs
++and raises PROGRAM_B. Its reply confirms a request, not successful configuration;
++poll INIT/DONE and apply a deadline before reporting success. Flash contents may
++be unknown, so arrange JTAG restoration of the known diagnostic before this test.
++
++The recovered power/FPGA retry state machine remains active, including its
++roughly five-second retry. HOLD is therefore a short inspection operation, not
++a persistent programming mode. Verify ownership on every read; a lost lease
++returns ERR CONFIG OWNERSHIP. Perform these operations under the PM12 board
++lock. Do not run them through the default read-only UART capture script.
++
++Host tests cover read/write framing, both interrupt states, every byte timeout,
++CS/controller restoration, image guard and read-only flash opcodes. GHDL tests
++the slave; Vivado implementation of the combined SPI/Ethernet/I2C diagnostic
++passed. MCU programming, physical SPI, flash ownership and boot completion
++remain NOT_RUN until the identified UART is connected.
 diff --git a/development/diagnostic_contract.json b/development/diagnostic_contract.json
 new file mode 100644
-index 0000000..a931868
+index 0000000..b84adb7
 --- /dev/null
 +++ b/development/diagnostic_contract.json
-@@ -0,0 +1,110 @@
+@@ -0,0 +1,123 @@
 +{
 +  "firmware_source_checkout": "/home/codex-hil/fit-pm12-mcu-diag",
 +  "source_branch": "pm12-hardware-diagnostics",
@@ -36,7 +78,12 @@ index 0000000..a931868
 +    "@TEMP": "ADT7311 status/config/raw temperature/ID, no sensor writes",
 +    "@TDC <0..2> <two hex digits>": "THS788 register read; 83 is chip ID",
 +    "@PLL": "CDCE62005 0x8e readback only; no clock profile change",
-+    "@PGTIME": "First PG assertion after EN, or original shutdown: state/ticks/overflow/nominal microseconds"
++    "@PGTIME": "First PG assertion after EN, or original shutdown: state/ticks/overflow/nominal microseconds",
++    "@FPGA": "read diagnostic SPI registers 40..44",
++    "@FPGATEST": "verify diagnostic IDs, 32 walking-bit write/read patterns, restore and verify initial scratch value",
++    "@CFG [HOLD|BOOT]": "raw INIT/DONE/PROGRAM status; explicitly reset FPGA or request boot with bus release",
++    "@FLASHID": "read JEDEC ID only while FPGA held and SPIE owned",
++    "@FLASHREAD <six hex address> <two hex count>": "read 1..16 config-flash bytes; no write/erase opcodes"
 +  },
 +  "preserved": [
 +    "startup",
@@ -58,7 +105,9 @@ index 0000000..a931868
 +  "transaction_limits": {
 +    "spi_polls_per_byte": 128,
 +    "spi_bytes_per_pll_command": 8,
-+    "interrupt_policy": "short bounded critical section, restore original SREG; hardware latency NOT_RUN"
++    "interrupt_policy": "short bounded critical section, restore original SREG; hardware latency NOT_RUN",
++    "spi_bytes_per_fpga_operation": 4,
++    "spi_bytes_per_flash_read_max": 20
 +  },
 +  "tests": {
 +    "development_checks": "PASS",
@@ -66,17 +115,21 @@ index 0000000..a931868
 +    "physical_uart": "NOT_RUN",
 +    "physical_peripherals": "NOT_RUN",
 +    "programmed_board": false,
-+    "pg_instrumentation": "PASS decoded instruction models + original fault-path comparison"
++    "pg_instrumentation": "PASS decoded instruction models + original fault-path comparison",
++    "spi_flash_host": "PASS framing, walking patterns/restoration, image guard, ownership, every byte timeout, PSU-preserving GPIO whitelist",
++    "fpga_spi_simulation": "PASS GHDL; Vivado 2025.2 Kintex implementation PASS",
++    "physical_fpga_spi": "NOT_RUN",
++    "physical_flash_boot": "NOT_RUN"
 +  },
 +  "layout": {
 +    "acceptance": "planned development differences only; NOT binary-exact PM.hex",
 +    "golden_sha256": "e80e8612f7114caff6d7a2494ad0f51010182f2c2c83fdfb3047c9f8a34663c0",
-+    "development_sha256": "c3cc9fbe6f917ea6c314269ce18d6cf48bb528e1413f14aa5f80ef824df11f80",
-+    "differing_bytes": 3942,
++    "development_sha256": "56fe5ccb19340b05a8810d93beb5cb496d24e7c1f7e0418828923b30ad2806d9",
++    "differing_bytes": 6161,
 +    "gate_start": 4842,
 +    "gate_length": 6,
 +    "extension_start": 16384,
-+    "extension_size": 3940,
++    "extension_size": 6191,
 +    "extension_limit": 32768,
 +    "legacy_symbols_preserved": 4657,
 +    "bootloader_unchanged": true,
@@ -96,16 +149,18 @@ index 0000000..a931868
 +    "ram_globals": "rejected by linker; no unverified SRAM reservation"
 +  },
 +  "images": {
-+    "development.hex": "d2c309f9c16c9535cb8196ee583bdea39b3b9c7333f8ef6566297e86f2791a23",
-+    "development.bin": "c3cc9fbe6f917ea6c314269ce18d6cf48bb528e1413f14aa5f80ef824df11f80",
-+    "development.elf": "bcf57735551bd06c9a3aa3771b6693ec9cc78cc08dae6fc85ff72468c29479be"
++    "development.hex": "8c460c0eb100dd353be430fef899a005103910d7d36ed5327b6cc7bc1c99d276",
++    "development.bin": "56fe5ccb19340b05a8810d93beb5cb496d24e7c1f7e0418828923b30ad2806d9",
++    "development.elf": "de776a6759756a97884539af903a5b2139f4a56b7347934167b5a992b7bed206"
 +  },
 +  "coverage_limits": [
 +    "No physical programming or UART trial yet",
 +    "IRQ critical-section latency not measured on hardware",
 +    "DAC8554 is write-only; analog verification needs FPGA ADC/generator setup",
-+    "FPGA control link and external serial FLASH require a separate ownership/restore test",
-+    "Temperature is reported as raw register data; ID/status checked by host interpretation"
++    "Temperature is reported as raw register data; ID/status checked by host interpretation",
++    "FPGA SPI/flash ownership/boot software implemented; physical tests NOT_RUN",
++    "CFG HOLD destroys volatile FPGA image; recovered retry state machine may supersede ownership after roughly 5 seconds",
++    "CFG BOOT reports request only: INIT/DONE deadline and JTAG restoration required"
 +  ],
 +  "power_timing": {
 +    "timer": "TCE0, no timer IRQ or output pins enabled",
@@ -133,10 +188,10 @@ index 0000000..a931868
 +  }
 +}
 diff --git a/development/src/extension.h b/development/src/extension.h
-index cd95623..6a62652 100644
+index cd95623..60c7f56 100644
 --- a/development/src/extension.h
 +++ b/development/src/extension.h
-@@ -15,7 +15,17 @@ void pm_extension_dispatch(void);
+@@ -15,7 +15,27 @@ void pm_extension_dispatch(void);
  /* Stateless handlers: new commands live here, not in recovered_exact. */
  void pm_command_ping(const char *arguments);
  void pm_command_help(const char *arguments);
@@ -145,6 +200,11 @@ index cd95623..6a62652 100644
 +void pm_command_temp(const char *arguments);
 +void pm_command_tdc(const char *arguments);
 +void pm_command_pll(const char *arguments);
++void pm_command_fpga(const char *arguments);
++void pm_command_fpgatest(const char *arguments);
++void pm_command_cfg(const char *arguments);
++void pm_command_flashid(const char *arguments);
++void pm_command_flashread(const char *arguments);
  #define PM_COMMANDS(X) \
      X("PING", pm_command_ping) \
 -    X("HELP", pm_command_help)
@@ -153,21 +213,27 @@ index cd95623..6a62652 100644
 +    X("TEMP", pm_command_temp) \
 +    X("TDC", pm_command_tdc) \
 +    X("PLL", pm_command_pll) \
-+    X("PGTIME", pm_command_pgtime)
++    X("PGTIME", pm_command_pgtime) \
++    X("FPGA", pm_command_fpga) \
++    X("FPGATEST", pm_command_fpgatest) \
++    X("CFG", pm_command_cfg) \
++    X("FLASHID", pm_command_flashid) \
++    X("FLASHREAD", pm_command_flashread)
  #endif
 diff --git a/development/src/hw_commands.c b/development/src/hw_commands.c
 new file mode 100644
-index 0000000..4300f46
+index 0000000..37cd141
 --- /dev/null
 +++ b/development/src/hw_commands.c
-@@ -0,0 +1,54 @@
+@@ -0,0 +1,106 @@
 +#include "extension.h"
 +#include "hw_diag.h"
 +static const PM_FLASH char earg[]="ERR ARGUMENTS\r\n";
 +static const PM_FLASH char off[]="ERR POWER\r\n",busy[]="ERR BUSY\r\n",timeout[]="ERR TIMEOUT\r\n";
++static const PM_FLASH char config_error[]="ERR CONFIG OWNERSHIP\r\n";
 +static void hex(uint32_t v,uint8_t digits) { while(digits){uint8_t n=(v>>(--digits*4))&15;pm_console_putc(n<10?'0'+n:'A'+n-10);} }
 +static void line(void){pm_console_putc('\r');pm_console_putc('\n');}
-+static uint8_t result(uint8_t s){if(s==PM_DIAG_OK)return 1;pm_console_write(s==PM_DIAG_POWER?off:s==PM_DIAG_BUSY?busy:s==PM_DIAG_TIMEOUT?timeout:earg);return 0;}
++static uint8_t result(uint8_t s){if(s==PM_DIAG_OK)return 1;pm_console_write(s==PM_DIAG_POWER?off:s==PM_DIAG_BUSY?busy:s==PM_DIAG_TIMEOUT?timeout:s==PM_DIAG_CONFIG?config_error:earg);return 0;}
 +void pm_command_hw(const char *args)
 +{
 + if(*args){pm_console_write(earg);return;}
@@ -215,19 +281,73 @@ index 0000000..4300f46
 + static const PM_FLASH char o[]=" OVF=";pm_console_write(o);hex(overflow,2);
 + static const PM_FLASH char u[]=" US_NOMINAL=";pm_console_write(u);hex((uint32_t)ticks*32u,8);line();
 +}
++
++void pm_command_fpga(const char *args)
++{
++ if(*args){pm_console_write(earg);return;}
++ static const PM_FLASH char label[]="FPGA REG=";
++ for(uint8_t a=0x40;a<=0x44;++a){uint16_t v=0;if(!result(pm_diag_fpga(0,a,&v)))return;pm_console_write(label);hex(a,2);pm_console_putc(' ');hex(v,4);line();}
++}
++void pm_command_fpgatest(const char *args)
++{
++ if(*args){pm_console_write(earg);return;}
++ uint16_t v=0,original=0;
++ if(!result(pm_diag_fpga(0,0x41,&v)))return;
++ if(v!=0x504d)goto wrong_image;
++ if(!result(pm_diag_fpga(0,0x42,&v)))return;
++ if(v!=0x5350)goto wrong_image;
++ if(!result(pm_diag_fpga(0,0x40,&original)))return;
++ uint8_t failure=0;
++ for(uint8_t n=0;n<32;++n){uint16_t pattern=(uint16_t)1<<(n&15);if(n>=16)pattern=(uint16_t)~pattern;v=pattern;
++  uint8_t status=pm_diag_fpga(1,0x40,&v);if(!status)status=pm_diag_fpga(0,0x40,&v);
++  if(status || v!=pattern){failure=1;break;}}
++ v=original;if(pm_diag_fpga(1,0x40,&v) || pm_diag_fpga(0,0x40,&v) || v!=original)failure=1;
++ {static const PM_FLASH char good[]="FPGA TEST PASS 32 RESTORED\r\n",bad[]="ERR FPGA TEST OR RESTORE\r\n";pm_console_write(failure?bad:good);}return;
++wrong_image:
++ {static const PM_FLASH char message[]="ERR FPGA IMAGE\r\n";pm_console_write(message);}
++}
++void pm_command_cfg(const char *args)
++{
++ if(!args[0]){uint8_t irq=pm_irq_enter(),in=pm_read8(0x668),out=pm_read8(0x664);pm_irq_leave(irq);
++  static const PM_FLASH char message[]="CFG PORTD IN=";pm_console_write(message);hex(in,2);pm_console_putc(' ');hex(out,2);line();return;}
++ if(args[0]=='H'&&args[1]=='O'&&args[2]=='L'&&args[3]=='D'&&!args[4]){if(result(pm_diag_config(1))){static const PM_FLASH char message[]="CFG HELD FPGA SRAM LOST\r\n";pm_console_write(message);}return;}
++ if(args[0]=='B'&&args[1]=='O'&&args[2]=='O'&&args[3]=='T'&&!args[4]){if(result(pm_diag_config(0))){static const PM_FLASH char message[]="CFG BOOT REQUESTED CHECK INIT DONE\r\n";pm_console_write(message);}return;}
++ pm_console_write(earg);
++}
++void pm_command_flashid(const char *args)
++{
++ if(*args){pm_console_write(earg);return;}uint8_t data[3];if(!result(pm_diag_flash(1,0,data,3)))return;
++ static const PM_FLASH char message[]="FLASH JEDEC=";pm_console_write(message);for(uint8_t n=0;n<3;++n)hex(data[n],2);line();
++}
++void pm_command_flashread(const char *args)
++{
++ uint32_t address=0;uint8_t count=0,data[16];
++ for(uint8_t n=0;n<9;++n){uint8_t c=args[n],v;
++  if(n==6){if(c!=' ')goto invalid;continue;}
++  if(c>='0'&&c<='9')v=c-'0';else if(c>='A'&&c<='F')v=c-'A'+10;else goto invalid;
++  if(n<6)address=(address<<4)|v;else count=(count<<4)|v;
++ }
++ if(args[9] || !count || count>16)goto invalid;
++ if(!result(pm_diag_flash(0,address,data,count)))return;
++ {static const PM_FLASH char message[]="FLASH DATA=";pm_console_write(message);for(uint8_t n=0;n<count;++n)hex(data[n],2);line();}return;
++invalid:pm_console_write(earg);
++}
 diff --git a/development/src/hw_diag.h b/development/src/hw_diag.h
 new file mode 100644
-index 0000000..274ba17
+index 0000000..091d439
 --- /dev/null
 +++ b/development/src/hw_diag.h
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,23 @@
 +#ifndef PM_HW_DIAG_H
 +#define PM_HW_DIAG_H
 +#include <stdint.h>
-+enum pm_diag_result { PM_DIAG_OK, PM_DIAG_POWER, PM_DIAG_BUSY, PM_DIAG_TIMEOUT, PM_DIAG_ARGUMENT };
++enum pm_diag_result { PM_DIAG_OK, PM_DIAG_POWER, PM_DIAG_BUSY, PM_DIAG_TIMEOUT, PM_DIAG_ARGUMENT, PM_DIAG_CONFIG };
 +uint8_t pm_diag_temp(uint8_t reg,uint16_t *value);
 +uint8_t pm_diag_tdc(uint8_t chip,uint8_t reg,uint16_t *value);
 +uint8_t pm_diag_pll(uint32_t *value);
++uint8_t pm_diag_fpga(uint8_t write,uint8_t address,uint16_t *word);
++uint8_t pm_diag_config(uint8_t hold);
++uint8_t pm_diag_flash(uint8_t id,uint32_t address,uint8_t *data,uint8_t count);
 +#ifdef __AVR__
 +#include <avr/io.h>
 +static inline uint8_t pm_read8(uint16_t a) { return *(volatile uint8_t *)a; }
@@ -243,12 +363,12 @@ index 0000000..274ba17
 +#endif
 diff --git a/development/src/hw_drivers.c b/development/src/hw_drivers.c
 new file mode 100644
-index 0000000..eabab10
+index 0000000..81b6e09
 --- /dev/null
 +++ b/development/src/hw_drivers.c
-@@ -0,0 +1,86 @@
-+/* Read-only device operations, main-loop only. No reset, DAC, power, EEPROM,
-+ * flash or I2C writes. IRQ masking serializes against the recovered PLL ISR;
+@@ -0,0 +1,134 @@
++/* Main-loop diagnostics. Config commands explicitly reset the FPGA and transfer
++ * config-bus ownership. No DAC, PSU, EEPROM, flash-content or I2C writes. IRQ masking serializes against the recovered PLL ISR;
 + * each transaction is finite, with at most 128 SPI polls per byte. Hardware
 + * interrupt latency and electrical ownership still need validation. */
 +#include "hw_diag.h"
@@ -310,17 +430,18 @@ index 0000000..eabab10
 + }
 + pm_irq_leave(irq);return result;
 +}
-+static uint8_t spi_byte(uint8_t tx,uint8_t *rx)
++static uint8_t spi_at(uint16_t base,uint8_t tx,uint8_t *rx)
 +{
-+ pm_write8(PM_SPIC+3,tx);
-+ for(uint8_t n=0;n<128;++n)if(pm_read8(PM_SPIC+2)&128){*rx=pm_read8(PM_SPIC+3);return PM_DIAG_OK;}
++ pm_write8(base+3,tx);
++ for(uint8_t n=0;n<128;++n)if(pm_read8(base+2)&128){*rx=pm_read8(base+3);return PM_DIAG_OK;}
 + return PM_DIAG_TIMEOUT;
 +}
++static uint8_t spi_byte(uint8_t tx,uint8_t *rx){return spi_at(PM_SPIC,tx,rx);}
 +uint8_t pm_diag_pll(uint32_t *value)
 +{
 + uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK,old=pm_read8(PM_SPIC),out=pm_read8(F+OUT),rx=0;
 + if(!powered())result=PM_DIAG_POWER;
-+ else if(!(out&16) || (pm_read8(C+OUT)&7)!=7 || !(old&0x40))result=PM_DIAG_BUSY;
++ else if(!(out&16) || (pm_read8(C+OUT)&7)!=7 || !(old&0x40) || !(pm_read8(0x664)&1))result=PM_DIAG_BUSY;
 + else {
 +  /* Same 0x8e readback request as recovered FUN_code_001267. No PLL profile writes. */
 +  pm_write8(PM_SPIC,0xf1);pm_write8(F+CLR,16);
@@ -330,6 +451,53 @@ index 0000000..eabab10
 +  if(result==PM_DIAG_OK){pm_write8(F+CLR,16);for(uint8_t n=0;n<4 && result==PM_DIAG_OK;++n){result=spi_byte(0,&rx);v|=(uint32_t)rx<<(n*8);}}
 +  pm_write8(F+SET,16);pm_write8(PM_SPIC,old);
 +  if(result==PM_DIAG_OK)*value=v;
++ }
++ pm_irq_leave(irq);return result;
++}
++
++uint8_t pm_diag_fpga(uint8_t write,uint8_t address,uint16_t *word)
++{
++ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK;
++ uint8_t old=pm_read8(PM_SPIC),rx=0,high=0;
++ if(!powered() || !(pm_read8(0x668)&8) || !(pm_read8(0x664)&2))result=PM_DIAG_POWER;
++ else if(!(pm_read8(0x664)&1) || !(pm_read8(F+OUT)&16) || (pm_read8(C+OUT)&7)!=7)result=PM_DIAG_BUSY;
++ else {
++  pm_write8(PM_SPIC,0xd1);pm_write8(0x666,1);
++  result=spi_byte((address>>2)|(write?0:0x80),&rx);
++  if(!result)result=spi_byte((uint8_t)(address<<6),&rx);
++  if(!result)result=spi_byte(write?(*word>>8):0,&high);
++  if(!result)result=spi_byte(write?(uint8_t)*word:0,&rx);
++  pm_write8(0x665,1);pm_write8(PM_SPIC,old);
++  if(!result && !write)*word=((uint16_t)high<<8)|rx;
++ }
++ pm_irq_leave(irq);return result;
++}
++uint8_t pm_diag_config(uint8_t hold)
++{
++ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK;
++ if(!powered())result=PM_DIAG_POWER;
++ else if(!(pm_read8(0x660)&2))result=PM_DIAG_CONFIG;
++ else if(hold){
++  /* Original flash interface: PROGRAM_B LOW, CS HIGH, MCU SPIE owns the bus. */
++  pm_write8(0xac0,0);pm_write8(0x666,2);pm_write8(E+SET,16);
++  pm_write8(E+DIRSET,0xb0);pm_write8(0xac0,0x50);
++ }else{
++  /* Release config bus before PROGRAM_B. Original IRQ/state machine handles DONE. */
++  pm_write8(E+SET,16);pm_write8(0xac0,0);pm_write8(E+DIRCLR,0xb0);pm_write8(0x665,2);
++ }
++ pm_irq_leave(irq);return result;
++}
++uint8_t pm_diag_flash(uint8_t id,uint32_t address,uint8_t *data,uint8_t count)
++{
++ if(!count || count>16 || address>0xffffffUL || address+count>0x1000000UL)return PM_DIAG_ARGUMENT;
++ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK,rx=0;
++ if(!powered())result=PM_DIAG_POWER;
++ else if((pm_read8(0x664)&2) || (pm_read8(0x668)&8) || (pm_read8(E+DIR)&0xb0)!=0xb0 || !(pm_read8(0xac0)&0x40) || !(pm_read8(E+OUT)&16))result=PM_DIAG_CONFIG;
++ else {
++  pm_write8(E+CLR,16);result=spi_at(0xac0,id?0x9f:0x03,&rx);
++  if(!id)for(uint8_t n=3;n && !result;--n)result=spi_at(0xac0,(uint8_t)(address>>((n-1)*8)),&rx);
++  for(uint8_t n=0;n<count && !result;++n)result=spi_at(0xac0,0,data+n);
++  pm_write8(E+SET,16);
 + }
 + pm_irq_leave(irq);return result;
 +}
@@ -481,10 +649,10 @@ index 0000000..407bfd5
 + jmp pm_pg_restart_hook
 + jmp pm_pg_reset_hook
 diff --git a/development/tests/check_commands.c b/development/tests/check_commands.c
-index 3f12acd..3f3eaa2 100644
+index 3f12acd..00d1475 100644
 --- a/development/tests/check_commands.c
 +++ b/development/tests/check_commands.c
-@@ -12,12 +12,25 @@ static void check(const char *request, const char *reply)
+@@ -12,12 +12,35 @@ static void check(const char *request, const char *reply)
      input=request; used=0; output[0]=0;
      pm_extension_dispatch(); assert(!*input); assert(strcmp(output,reply)==0);
  }
@@ -496,7 +664,7 @@ index 3f12acd..3f3eaa2 100644
  {
      check("PING\r", "PONG\r\n");
 -    check("HELP\r", "@PING\r\n@HELP\r\n");
-+    check("HELP\r", "@PING\r\n@HELP\r\n@HW\r\n@TEMP\r\n@TDC\r\n@PLL\r\n@PGTIME\r\n");
++    check("HELP\r", "@PING\r\n@HELP\r\n@HW\r\n@TEMP\r\n@TDC\r\n@PLL\r\n@PGTIME\r\n@FPGA\r\n@FPGATEST\r\n@CFG\r\n@FLASHID\r\n@FLASHREAD\r\n");
      check("PING   \r", "PONG\r\n");
      check("PING 1\r", "ERR ARGUMENTS\r\n");
 +    check("PGTIME\r", "PGTIME STATE=00 TICKS=0000 OVF=00 US_NOMINAL=00000000\r\n");
@@ -507,16 +675,86 @@ index 3f12acd..3f3eaa2 100644
 +    check("TDC 3 83\r", "ERR ARGUMENTS\r\n");
 +    check("TDC 0 8G\r", "ERR ARGUMENTS\r\n");
 +    check("TDC 0 8\r", "ERR ARGUMENTS\r\n");
++    check("FPGA\r", "ERR POWER\r\n");
++    check("FPGATEST\r", "ERR POWER\r\n");
++    check("FLASHID\r", "ERR POWER\r\n");
++    check("FLASHREAD 000000 10\r", "ERR POWER\r\n");
++    check("FLASHREAD 000000 00\r", "ERR ARGUMENTS\r\n");
++    check("FLASHREAD FFFFFF 02\r", "ERR ARGUMENTS\r\n");
++    check("FLASHREAD 0\r", "ERR ARGUMENTS\r\n");
++    check("CFG HOLD\r", "ERR POWER\r\n");
++    check("CFG BOOT\r", "ERR POWER\r\n");
++    check("CFG H\r", "ERR ARGUMENTS\r\n");
 +    check("HW 1\r", "ERR ARGUMENTS\r\n");
      check("NOPE\r", "ERR UNKNOWN\r\n");
      check("\r", "ERR UNKNOWN\r\n");
      char maximum[49]; memset(maximum,'X',47);maximum[47]='\r';maximum[48]=0;
+diff --git a/development/tests/check_fpga_flash.c b/development/tests/check_fpga_flash.c
+new file mode 100644
+index 0000000..567a869
+--- /dev/null
++++ b/development/tests/check_fpga_flash.c
+@@ -0,0 +1,54 @@
++#include "hw_diag.h"
++#include "extension.h"
++#include <assert.h>
++#include <stdio.h>
++#include <string.h>
++static uint8_t mem[0x2500],irq,wire[32],n,fail,rx,selected;
++static uint16_t registers[256];
++static unsigned writes,polls,scratch_writes;
++static char output[512];static unsigned used;static const char *input;
++uint8_t pm_console_getc(void){assert(*input);return *input++;}
++void pm_console_putc(uint8_t c){assert(used+1<sizeof output);output[used++]=c;output[used]=0;}
++uint8_t pm_irq_enter(void){uint8_t s=irq;irq=0;return s;}
++void pm_irq_leave(uint8_t s){assert(!irq);irq=s;}
++uint8_t pm_read8(uint16_t a){assert(!irq);if(a==0x8c2||a==0xac2){++polls;return fail&&n>=fail?0:128;}if(a==0x8c3||a==0xac3)return rx;return mem[a];}
++void pm_write8(uint16_t a,uint8_t v){
++ assert(!irq);++writes;
++ if(a==0x8c0||a==0xac0){mem[a]=v;return;}
++ if(a==0x8c3||a==0xac3){assert(selected && n<sizeof wire);wire[n++]=v;rx=0;
++  if(a==0x8c3 && n>=3){uint8_t addr=((wire[0]&0x7f)<<2)|(wire[1]>>6);assert(addr>=0x40&&addr<=0x44);
++   if(wire[0]&128)rx=n==3?registers[addr]>>8:registers[addr];
++   else if(n==4 && !(fail&&n>=fail)){assert(addr==0x40);registers[addr]=((uint16_t)wire[2]<<8)|v;++scratch_writes;}
++  }else if(a==0xac3){assert(wire[0]==0x9f||wire[0]==3);rx=0xa0+n;}
++  return;}
++ uint16_t port=a&0xffe0;uint8_t off=a-port;
++ assert((port==0x660 && !(v&~3)) || (port==0x680 && !(v&~0xb0)));
++ assert(off==1||off==2||off==5||off==6);
++ uint16_t target=port+(off<4?0:4);
++ if(off==1||off==5)mem[target]|=v;else mem[target]&=~v;
++ if((a==0x666 && (v&1))||(a==0x686 && (v&16))){assert(!selected);selected=1;n=0;}
++ if((a==0x665 && (v&1))||(a==0x685 && (v&16)))selected=0;
++}
++static void init(uint8_t s){memset(mem,0,sizeof mem);irq=s;fail=n=selected=0;writes=polls=scratch_writes=0;
++ mem[0x684]=4|16;mem[0x688]=10;mem[0x660]=3;mem[0x664]=3;mem[0x668]=12;mem[0x644]=7;mem[0x6a4]=16;mem[0x8c0]=0xf1;
++ registers[0x40]=0xbeef;registers[0x41]=0x504d;registers[0x42]=0x5350;
++}
++static void command(const char *in,const char *out){input=in;used=0;output[0]=0;pm_extension_dispatch();assert(!*input);assert(!strcmp(output,out));}
++int main(void){for(uint8_t s=0;s<2;++s){uint16_t word;uint8_t data[16];
++ init(s);word=0;assert(!pm_diag_fpga(0,0x40,&word)&&word==0xbeef&&wire[0]==0x90&&wire[1]==0&&n==4&&mem[0x8c0]==0xf1&&mem[0x664]==3&&irq==s);
++ init(s);word=0x1234;assert(!pm_diag_fpga(1,0x40,&word)&&registers[0x40]==0x1234&&wire[0]==0x10&&wire[2]==0x12&&wire[3]==0x34);
++ for(uint8_t f=1;f<=4;++f){init(s);fail=f;word=0xcafe;assert(pm_diag_fpga(0,0x40,&word)==PM_DIAG_TIMEOUT&&word==0xcafe&&irq==s&&mem[0x664]==3&&mem[0x8c0]==0xf1&&polls==127u+f);}
++ init(s);mem[0x644]=6;assert(pm_diag_fpga(0,0x40,&word)==PM_DIAG_BUSY&&!writes);
++ init(s);assert(pm_diag_flash(1,0,data,3)==PM_DIAG_CONFIG&&!writes);
++ init(s);assert(!pm_diag_config(1)&&mem[0x664]==1&&mem[0x684]==20&&mem[0x680]==0xb0&&mem[0xac0]==0x50&&irq==s);
++ mem[0x668]=0;assert(!pm_diag_flash(1,0,data,3)&&wire[0]==0x9f&&n==4&&data[0]==0xa2&&data[2]==0xa4&&mem[0x684]==20);
++ assert(!pm_diag_flash(0,0x123456,data,16)&&n==20&&wire[0]==3&&wire[1]==0x12&&wire[2]==0x34&&wire[3]==0x56);
++ for(uint8_t f=1;f<=20;++f){fail=f;assert(pm_diag_flash(0,0x123456,data,16)==PM_DIAG_TIMEOUT&&!selected&&mem[0x684]==20&&irq==s);}
++ fail=0;assert(!pm_diag_config(0)&&mem[0x664]==3&&mem[0x680]==0&&mem[0xac0]==0&&mem[0x684]==20&&irq==s);
++ init(s);mem[0x688]=0;assert(pm_diag_config(1)==PM_DIAG_POWER&&!writes);
++ init(s);mem[0x660]=1;assert(pm_diag_config(1)==PM_DIAG_CONFIG&&!writes);
++ init(s);command("FPGATEST\r","FPGA TEST PASS 32 RESTORED\r\n");assert(registers[0x40]==0xbeef&&scratch_writes==33&&irq==s);
++ init(s);registers[0x41]=0;command("FPGATEST\r","ERR FPGA IMAGE\r\n");assert(!scratch_writes);
++ }
++ puts("PASS FPGA headers, walking bits/restoration/image guard; flash read-only opcodes, ownership, reset/release, all byte timeouts and PSU-preserving GPIO whitelist");
++}
 diff --git a/development/tests/check_hw_drivers.c b/development/tests/check_hw_drivers.c
 new file mode 100644
-index 0000000..ea5e576
+index 0000000..d0c833c
 --- /dev/null
 +++ b/development/tests/check_hw_drivers.c
-@@ -0,0 +1,60 @@
+@@ -0,0 +1,61 @@
 +#include "hw_diag.h"
 +#include <assert.h>
 +#include <stdio.h>
@@ -554,7 +792,7 @@ index 0000000..ea5e576
 + memset(mem,0,sizeof mem);irq=s;timeout=spi_count=bit_count=tx_count=0;polls=writes=steps=0;
 + mem[0x684]=4;mem[0x688]=10;mem[0x600]=0x1a;mem[0x604]=0xfa;
 + mem[0x620]=0xbf;mem[0x624]=0xbc;mem[0x628]=64;
-+ mem[0x644]=7;mem[0x6a4]=0xf0;mem[0x8c0]=0xd5;temp_stream=0x00c30000;
++ mem[0x664]=3;mem[0x644]=7;mem[0x6a4]=0xf0;mem[0x8c0]=0xd5;temp_stream=0x00c30000;
 +}
 +int main(void)
 +{
@@ -571,6 +809,7 @@ index 0000000..ea5e576
 +  assert(pm_diag_pll(&p)==PM_DIAG_POWER && writes==0 && irq==s);
 +  init(s);mem[0x604]&=~16;assert(pm_diag_temp(3,&v)==PM_DIAG_BUSY && writes==0 && irq==s);
 +  init(s);mem[0x624]&=~4;assert(pm_diag_tdc(1,0x83,&v)==PM_DIAG_BUSY && writes==0 && irq==s);
++  init(s);mem[0x664]=2;assert(pm_diag_pll(&p)==PM_DIAG_BUSY && writes==0 && irq==s);
 +  init(s);mem[0x644]=6;assert(pm_diag_pll(&p)==PM_DIAG_BUSY && writes==0 && irq==s);
 +  init(s);assert(pm_diag_temp(4,&v)==PM_DIAG_ARGUMENT && writes==0 && irq==s);
 +  assert(pm_diag_tdc(3,0x83,&v)==PM_DIAG_ARGUMENT && writes==0 && irq==s);

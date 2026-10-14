@@ -14,6 +14,7 @@ make -C "$2" exact-check
 # UART console: @PING, @HW, @TEMP, @TDC 0 83, @TDC 1 83,
 # @TDC 2 83, @PLL, @PGTIME, terminated by CR.
 # PG timer uses TCE0, preserves original timeout and power-off branches.
-# No write-test commands included.
+# FPGA scratch write-test and explicit config reset/boot commands are included.
+# Flash commands read only; no flash programming or erasing.
 # Before physical testing: identify UART/PDI, back up MCU FLASH/EEPROM/fuses,
 # preserve board power/restart behavior, hold the shared PM12 hardware lease.

@@ -1,5 +1,5 @@
-/* Read-only device operations, main-loop only. No reset, DAC, power, EEPROM,
- * flash or I2C writes. IRQ masking serializes against the recovered PLL ISR;
+/* Main-loop diagnostics. Config commands explicitly reset the FPGA and transfer
+ * config-bus ownership. No DAC, PSU, EEPROM, flash-content or I2C writes. IRQ masking serializes against the recovered PLL ISR;
  * each transaction is finite, with at most 128 SPI polls per byte. Hardware
  * interrupt latency and electrical ownership still need validation. */
 #include "hw_diag.h"
@@ -61,17 +61,18 @@ uint8_t pm_diag_tdc(uint8_t chip,uint8_t reg,uint16_t *value)
  }
  pm_irq_leave(irq);return result;
 }
-static uint8_t spi_byte(uint8_t tx,uint8_t *rx)
+static uint8_t spi_at(uint16_t base,uint8_t tx,uint8_t *rx)
 {
- pm_write8(PM_SPIC+3,tx);
- for(uint8_t n=0;n<128;++n)if(pm_read8(PM_SPIC+2)&128){*rx=pm_read8(PM_SPIC+3);return PM_DIAG_OK;}
+ pm_write8(base+3,tx);
+ for(uint8_t n=0;n<128;++n)if(pm_read8(base+2)&128){*rx=pm_read8(base+3);return PM_DIAG_OK;}
  return PM_DIAG_TIMEOUT;
 }
+static uint8_t spi_byte(uint8_t tx,uint8_t *rx){return spi_at(PM_SPIC,tx,rx);}
 uint8_t pm_diag_pll(uint32_t *value)
 {
  uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK,old=pm_read8(PM_SPIC),out=pm_read8(F+OUT),rx=0;
  if(!powered())result=PM_DIAG_POWER;
- else if(!(out&16) || (pm_read8(C+OUT)&7)!=7 || !(old&0x40))result=PM_DIAG_BUSY;
+ else if(!(out&16) || (pm_read8(C+OUT)&7)!=7 || !(old&0x40) || !(pm_read8(0x664)&1))result=PM_DIAG_BUSY;
  else {
   /* Same 0x8e readback request as recovered FUN_code_001267. No PLL profile writes. */
   pm_write8(PM_SPIC,0xf1);pm_write8(F+CLR,16);
@@ -81,6 +82,53 @@ uint8_t pm_diag_pll(uint32_t *value)
   if(result==PM_DIAG_OK){pm_write8(F+CLR,16);for(uint8_t n=0;n<4 && result==PM_DIAG_OK;++n){result=spi_byte(0,&rx);v|=(uint32_t)rx<<(n*8);}}
   pm_write8(F+SET,16);pm_write8(PM_SPIC,old);
   if(result==PM_DIAG_OK)*value=v;
+ }
+ pm_irq_leave(irq);return result;
+}
+
+uint8_t pm_diag_fpga(uint8_t write,uint8_t address,uint16_t *word)
+{
+ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK;
+ uint8_t old=pm_read8(PM_SPIC),rx=0,high=0;
+ if(!powered() || !(pm_read8(0x668)&8) || !(pm_read8(0x664)&2))result=PM_DIAG_POWER;
+ else if(!(pm_read8(0x664)&1) || !(pm_read8(F+OUT)&16) || (pm_read8(C+OUT)&7)!=7)result=PM_DIAG_BUSY;
+ else {
+  pm_write8(PM_SPIC,0xd1);pm_write8(0x666,1);
+  result=spi_byte((address>>2)|(write?0:0x80),&rx);
+  if(!result)result=spi_byte((uint8_t)(address<<6),&rx);
+  if(!result)result=spi_byte(write?(*word>>8):0,&high);
+  if(!result)result=spi_byte(write?(uint8_t)*word:0,&rx);
+  pm_write8(0x665,1);pm_write8(PM_SPIC,old);
+  if(!result && !write)*word=((uint16_t)high<<8)|rx;
+ }
+ pm_irq_leave(irq);return result;
+}
+uint8_t pm_diag_config(uint8_t hold)
+{
+ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK;
+ if(!powered())result=PM_DIAG_POWER;
+ else if(!(pm_read8(0x660)&2))result=PM_DIAG_CONFIG;
+ else if(hold){
+  /* Original flash interface: PROGRAM_B LOW, CS HIGH, MCU SPIE owns the bus. */
+  pm_write8(0xac0,0);pm_write8(0x666,2);pm_write8(E+SET,16);
+  pm_write8(E+DIRSET,0xb0);pm_write8(0xac0,0x50);
+ }else{
+  /* Release config bus before PROGRAM_B. Original IRQ/state machine handles DONE. */
+  pm_write8(E+SET,16);pm_write8(0xac0,0);pm_write8(E+DIRCLR,0xb0);pm_write8(0x665,2);
+ }
+ pm_irq_leave(irq);return result;
+}
+uint8_t pm_diag_flash(uint8_t id,uint32_t address,uint8_t *data,uint8_t count)
+{
+ if(!count || count>16 || address>0xffffffUL || address+count>0x1000000UL)return PM_DIAG_ARGUMENT;
+ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK,rx=0;
+ if(!powered())result=PM_DIAG_POWER;
+ else if((pm_read8(0x664)&2) || (pm_read8(0x668)&8) || (pm_read8(E+DIR)&0xb0)!=0xb0 || !(pm_read8(0xac0)&0x40) || !(pm_read8(E+OUT)&16))result=PM_DIAG_CONFIG;
+ else {
+  pm_write8(E+CLR,16);result=spi_at(0xac0,id?0x9f:0x03,&rx);
+  if(!id)for(uint8_t n=3;n && !result;--n)result=spi_at(0xac0,(uint8_t)(address>>((n-1)*8)),&rx);
+  for(uint8_t n=0;n<count && !result;++n)result=spi_at(0xac0,0,data+n);
+  pm_write8(E+SET,16);
  }
  pm_irq_leave(irq);return result;
 }

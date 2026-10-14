@@ -12,7 +12,12 @@
     "@TEMP": "ADT7311 status/config/raw temperature/ID, no sensor writes",
     "@TDC <0..2> <two hex digits>": "THS788 register read; 83 is chip ID",
     "@PLL": "CDCE62005 0x8e readback only; no clock profile change",
-    "@PGTIME": "First PG assertion after EN, or original shutdown: state/ticks/overflow/nominal microseconds"
+    "@PGTIME": "First PG assertion after EN, or original shutdown: state/ticks/overflow/nominal microseconds",
+    "@FPGA": "read diagnostic SPI registers 40..44",
+    "@FPGATEST": "verify diagnostic IDs, 32 walking-bit write/read patterns, restore and verify initial scratch value",
+    "@CFG [HOLD|BOOT]": "raw INIT/DONE/PROGRAM status; explicitly reset FPGA or request boot with bus release",
+    "@FLASHID": "read JEDEC ID only while FPGA held and SPIE owned",
+    "@FLASHREAD <six hex address> <two hex count>": "read 1..16 config-flash bytes; no write/erase opcodes"
   },
   "preserved": [
     "startup",
@@ -34,7 +39,9 @@
   "transaction_limits": {
     "spi_polls_per_byte": 128,
     "spi_bytes_per_pll_command": 8,
-    "interrupt_policy": "short bounded critical section, restore original SREG; hardware latency NOT_RUN"
+    "interrupt_policy": "short bounded critical section, restore original SREG; hardware latency NOT_RUN",
+    "spi_bytes_per_fpga_operation": 4,
+    "spi_bytes_per_flash_read_max": 20
   },
   "tests": {
     "development_checks": "PASS",
@@ -42,17 +49,21 @@
     "physical_uart": "NOT_RUN",
     "physical_peripherals": "NOT_RUN",
     "programmed_board": false,
-    "pg_instrumentation": "PASS decoded instruction models + original fault-path comparison"
+    "pg_instrumentation": "PASS decoded instruction models + original fault-path comparison",
+    "spi_flash_host": "PASS framing, walking patterns/restoration, image guard, ownership, every byte timeout, PSU-preserving GPIO whitelist",
+    "fpga_spi_simulation": "PASS GHDL; Vivado 2025.2 Kintex implementation PASS",
+    "physical_fpga_spi": "NOT_RUN",
+    "physical_flash_boot": "NOT_RUN"
   },
   "layout": {
     "acceptance": "planned development differences only; NOT binary-exact PM.hex",
     "golden_sha256": "e80e8612f7114caff6d7a2494ad0f51010182f2c2c83fdfb3047c9f8a34663c0",
-    "development_sha256": "c3cc9fbe6f917ea6c314269ce18d6cf48bb528e1413f14aa5f80ef824df11f80",
-    "differing_bytes": 3942,
+    "development_sha256": "56fe5ccb19340b05a8810d93beb5cb496d24e7c1f7e0418828923b30ad2806d9",
+    "differing_bytes": 6161,
     "gate_start": 4842,
     "gate_length": 6,
     "extension_start": 16384,
-    "extension_size": 3940,
+    "extension_size": 6191,
     "extension_limit": 32768,
     "legacy_symbols_preserved": 4657,
     "bootloader_unchanged": true,
@@ -72,16 +83,18 @@
     "ram_globals": "rejected by linker; no unverified SRAM reservation"
   },
   "images": {
-    "development.hex": "d2c309f9c16c9535cb8196ee583bdea39b3b9c7333f8ef6566297e86f2791a23",
-    "development.bin": "c3cc9fbe6f917ea6c314269ce18d6cf48bb528e1413f14aa5f80ef824df11f80",
-    "development.elf": "bcf57735551bd06c9a3aa3771b6693ec9cc78cc08dae6fc85ff72468c29479be"
+    "development.hex": "8c460c0eb100dd353be430fef899a005103910d7d36ed5327b6cc7bc1c99d276",
+    "development.bin": "56fe5ccb19340b05a8810d93beb5cb496d24e7c1f7e0418828923b30ad2806d9",
+    "development.elf": "de776a6759756a97884539af903a5b2139f4a56b7347934167b5a992b7bed206"
   },
   "coverage_limits": [
     "No physical programming or UART trial yet",
     "IRQ critical-section latency not measured on hardware",
     "DAC8554 is write-only; analog verification needs FPGA ADC/generator setup",
-    "FPGA control link and external serial FLASH require a separate ownership/restore test",
-    "Temperature is reported as raw register data; ID/status checked by host interpretation"
+    "Temperature is reported as raw register data; ID/status checked by host interpretation",
+    "FPGA SPI/flash ownership/boot software implemented; physical tests NOT_RUN",
+    "CFG HOLD destroys volatile FPGA image; recovered retry state machine may supersede ownership after roughly 5 seconds",
+    "CFG BOOT reports request only: INIT/DONE deadline and JTAG restoration required"
   ],
   "power_timing": {
     "timer": "TCE0, no timer IRQ or output pins enabled",
@@ -107,5 +120,5 @@
     "software_validation": "2048 decoded gate cases; full original GPIO PG ISR and timer deadline paths compared with golden",
     "physical_validation": "NOT_RUN"
   },
-  "diagnostic_source_commit": "7eb8470"
+  "diagnostic_source_commit": "f9869c97d3fba882ac4b8d729d8ba21ce290d132"
 }
