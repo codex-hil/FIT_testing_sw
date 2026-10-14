@@ -7,7 +7,7 @@
   "physical_config_flash": "NOT_RUN",
   "physical_boot": "NOT_RUN",
   "sources": {
-    "pm12_mcu_spi.vhd": "dd3c22862fa557578c2430bcb9c87fb4fd5535c73745fe00f074fef57d3d1560",
+    "pm12_mcu_spi.vhd": "6c2f1885175bb48a5b5a3feff421e6ab5ceb395ed0c1a73632285deef7b16926",
     "pm12_mcu_spi_diag.v": "83d685573f7f164c88f3cb468dd6c2e82e29837c0765a46026da1feab35eb675",
     "pins.xdc": "0ba3870fc807799d2561ab98ce2a73d4169079dbdcefed65d6cd878bb3f0b0e1"
   },
@@ -15,5 +15,6 @@
     "litex-eth-check": "1c019732b7eb959a6fc741e46af46d4eeb706dbd",
     "liteeth-eth-check": "cb101652f69fab0979cfa1f9afbcfdf185fe662e",
     "liteiclink-eth-check": "6e69216944e94c69f5a7d58d5c6d75dc3d754242"
-  }
+  },
+  "note": "Whitespace normalized after original build; VHDL behavior unchanged and GHDL rerun PASS."
 }

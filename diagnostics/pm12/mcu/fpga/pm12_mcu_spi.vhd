@@ -30,23 +30,23 @@ if (SPI_CS='1') then spi_bit_count<="00000"; cnt_rd<='0'; spibuf_wr<='0'; spibuf
 if (SCKI'event and SCKI='1') then
 
         if (spi_bit_count="11111") then spi_bit_count<="10000"; spi_na<='1';
-          if  (spi_rd='0') then  
+          if  (spi_rd='0') then
             if (spi_addr(7 downto 0) = x"F5") then timestamp_lo <= SPI_DATA(14 downto 0) & MOSII; end if;
             if (spi_addr(7 downto 0) = x"F6") then timestamp_hi <= SPI_DATA(14 downto 0) & MOSII;  end if;
-            spi_wr_data<=SPI_DATA(14 downto 0) & MOSII;  
+            spi_wr_data<=SPI_DATA(14 downto 0) & MOSII;
             if (spi_addr(7)='0') then  spi_wr_rdy<='1'; else if (spi_addr(6)='0') then spibuf_wr<='1'; end if; end if;
           end if;
-         else 
-         spi_bit_count<=std_logic_vector(unsigned(spi_bit_count)+1); 
+         else
+         spi_bit_count<=std_logic_vector(unsigned(spi_bit_count)+1);
         end if;
         if (spi_bit_count="10000") then spi_wr_rdy<='0'; spibuf_wr<='0'; if (spi_rd='0') and (spi_na='1') then spi_addr <= spi_addr+1; end if; end if;
         if (spi_bit_count="00000") then spi_rd <= MOSII; end if;
         if (spi_bit_count="01001") then spi_addr <= unsigned(SPI_DATA(7 downto 0) & MOSII); end if;
         if (spi_bit_count="01110") and (spi_rd='1') and (spi_addr(7 downto 0)=x"C0") then cnt_rd<='1'; end if;
-        
-        if (spi_bit_count(3 downto 0)="1110") and (spi_rd='1') and (spi_addr(7 downto 6)="10") then spibuf_rd<='1'; end if; 
-                     
-        if (rd_lock_spi='1') then  spibuf_rd<='0'; spi_addr <= spi_addr+1; 
+
+        if (spi_bit_count(3 downto 0)="1110") and (spi_rd='1') and (spi_addr(7 downto 6)="10") then spibuf_rd<='1'; end if;
+
+        if (rd_lock_spi='1') then  spibuf_rd<='0'; spi_addr <= spi_addr+1;
 
           case to_integer(unsigned(spi_addr(7 downto 0))) is
             when 16#40# => SPI_DATA<=scratch;
@@ -56,9 +56,9 @@ if (SCKI'event and SCKI='1') then
             when 16#44# => SPI_DATA<=std_logic_vector(writes);
             when others => SPI_DATA<=x"0000";
           end case;
-        else SPI_DATA<=SPI_DATA(14 downto 0) & MOSII; 
+        else SPI_DATA<=SPI_DATA(14 downto 0) & MOSII;
         end if;
-         
+
 end if;
 end if;
 end process;

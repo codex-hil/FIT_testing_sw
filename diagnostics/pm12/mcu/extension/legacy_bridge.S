@@ -325,4 +325,3 @@ pm_console_putc:
     pop r1
     pop r0
     ret
-
