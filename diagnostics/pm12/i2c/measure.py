@@ -1,7 +1,7 @@
 """INA3221 read-only telemetry. Shunt values from PM12 v1.1, not calibrated."""
 import time,statistics
 from client import Bus
-CHANNELS={4:[('P1V0_LDO',.010,'R53'),('P1V2_LDO',.010,'R55'),('P1V8_LDO',.010,'R56')],5:[('P3V8',.001,'R15'),('P3V3',.001,'R92'),('P1V8',.001,'R84')],6:[('P1V0',.001,'R74'),('P5V5',.001,'R216'),('TP1/TP2',None,None)]}
+CHANNELS={4:[('P1V0_LDO',.010,'R53'),('P1V2_LDO',.010,'R55'),('P1V8_LDO',.010,'R56')],5:[('P3V8',None,'R15 (not populated)'),('P3V3',.001,'R92'),('P1V8',.001,'R84')],6:[('P1V0',.001,'R74'),('P5V5',.001,'R216'),('TP1/TP2',None,None)]}
 def signed_code(raw):
  return (raw-65536 if raw&32768 else raw)>>3
 def decode(shunt,bus,resistance):
