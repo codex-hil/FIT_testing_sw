@@ -11,3 +11,5 @@ vivado -mode batch -nolog -nojournal -source "$here/build.tcl"
 # UDP 192.168.2.240:40000, I2C1 protocol; one-second automatic line release.
 # test_hardware.py holds board lease and restores link diagnostic FPGA SRAM.
 # No CPLD, AVR, power-controller, PLL, flash or OTP writes.
+# Voltage/current telemetry: python3 test_hardware.py --container <id> --measure
+# Uses schematic shunts (LDO: 10 mOhm, bucks: 1 mOhm); no calibration claimed.

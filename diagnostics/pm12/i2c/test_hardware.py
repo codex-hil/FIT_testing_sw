@@ -4,7 +4,7 @@ sys.path.insert(0,'/home/codex-hil/fit-testing-publish/diagnostics/pm12')
 from test_board import payload
 from client import run
 root=Path(__file__).resolve().parent
-parser=argparse.ArgumentParser();parser.add_argument('--container',default='e11a7123de2e');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--measure',action='store_true');parser.add_argument('--container',default='e11a7123de2e');args=parser.parse_args()
 out=root/'evidence'/time.strftime('%Y%m%d-%H%M%S');out.mkdir(parents=True)
 def tcl(name,vec,bits):
  log=out/(name+'.log')
@@ -19,9 +19,14 @@ with open('/home/codex-hil/.cache/pm12-210249A73E43.lock','a+') as lease:
  status={'serial':'210249A73E43','nonvolatile_writes':False,'fpga_sha256':hashlib.sha256(bit.read_bytes()).hexdigest()}
  try:
   print('LOAD',out,flush=True);tcl('load_fpga.tcl',diag,db);time.sleep(3)
-  status['i2c']=run()
-  r=status['i2c'];monitors=[x for x in r.get('routes',[]) if 'ina3221' in x]
-  status['digital_pass']=r.get('reset_pass',False) and len(r.get('routes',[]))==16 and len(monitors)==3
+  if args.measure:
+   from measure import run as measure_run
+   status['telemetry']=measure_run()
+   status['digital_pass']=len(status['telemetry']['monitors'])==3
+  else:
+   status['i2c']=run()
+   r=status['i2c'];monitors=[x for x in r.get('routes',[]) if 'ina3221' in x]
+   status['digital_pass']=r.get('reset_pass',False) and len(r.get('routes',[]))==16 and len(monitors)==3
   if not status['digital_pass']:raise RuntimeError('I2C expected topology/reset checks failed')
  except Exception as e:status['error']=repr(e);raise
  finally:
