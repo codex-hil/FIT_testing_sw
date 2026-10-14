@@ -12,6 +12,8 @@ make -C "$2" development-check
 make -C "$2" exact-check
 # Firmware: <worktree>/development/build/development.hex
 # UART console: @PING, @HW, @TEMP, @TDC 0 83, @TDC 1 83,
-# @TDC 2 83, @PLL, terminated by CR. No write-test commands included.
+# @TDC 2 83, @PLL, @PGTIME, terminated by CR.
+# PG timer uses TCE0, preserves original timeout and power-off branches.
+# No write-test commands included.
 # Before physical testing: identify UART/PDI, back up MCU FLASH/EEPROM/fuses,
 # preserve board power/restart behavior, hold the shared PM12 hardware lease.

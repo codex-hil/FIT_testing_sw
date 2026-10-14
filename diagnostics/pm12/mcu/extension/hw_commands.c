@@ -12,7 +12,7 @@ void pm_command_hw(const char *args)
  for(uint8_t n=0;n<6;++n)ports[n]=pm_read8(0x608u+n*32u);
  for(uint8_t n=0;n<12;++n)state[n]=pm_read8(0x2157u+n);
  pm_irq_leave(saved);
- static const PM_FLASH char banner[]="HW V1 PORTS A..F=";pm_console_write(banner);
+ static const PM_FLASH char banner[]="HW V2 PORTS A..F=";pm_console_write(banner);
  for(uint8_t n=0;n<6;++n)hex(ports[n],2);
  static const PM_FLASH char label[]=" STATE 2157..2162=";pm_console_write(label);
  for(uint8_t n=0;n<12;++n)hex(state[n],2);
@@ -37,4 +37,18 @@ void pm_command_pll(const char *args)
 {
  if(*args){pm_console_write(earg);return;}uint32_t v=0;if(!result(pm_diag_pll(&v)))return;
  static const PM_FLASH char label[]="CDCE62005 ";pm_console_write(label);hex(v,8);line();
+}
+
+void pm_command_pgtime(const char *args)
+{
+ if(*args){pm_console_write(earg);return;}
+ uint8_t irq=pm_irq_enter();
+ uint8_t state=pm_read8(0x0a2a),overflow=pm_read8(0x0a2b);
+ uint16_t ticks=pm_read8(0x0a28);ticks|=(uint16_t)pm_read8(0x0a29)<<8;
+ if(state==1){ticks=pm_read8(0x0a20);ticks|=(uint16_t)pm_read8(0x0a21)<<8;}
+ pm_irq_leave(irq);
+ static const PM_FLASH char label[]="PGTIME STATE=";pm_console_write(label);hex(state,2);
+ static const PM_FLASH char t[]=" TICKS=";pm_console_write(t);hex(ticks,4);
+ static const PM_FLASH char o[]=" OVF=";pm_console_write(o);hex(overflow,2);
+ static const PM_FLASH char u[]=" US_NOMINAL=";pm_console_write(u);hex((uint32_t)ticks*32u,8);line();
 }

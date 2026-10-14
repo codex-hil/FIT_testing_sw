@@ -11,7 +11,8 @@
     "@HW": "atomic input GPIO + original power/status RAM snapshot",
     "@TEMP": "ADT7311 status/config/raw temperature/ID, no sensor writes",
     "@TDC <0..2> <two hex digits>": "THS788 register read; 83 is chip ID",
-    "@PLL": "CDCE62005 0x8e readback only; no clock profile change"
+    "@PLL": "CDCE62005 0x8e readback only; no clock profile change",
+    "@PGTIME": "First PG assertion after EN, or original shutdown: state/ticks/overflow/nominal microseconds"
   },
   "preserved": [
     "startup",
@@ -40,26 +41,40 @@
     "baseline_exact_check": "PASS zero differing bytes",
     "physical_uart": "NOT_RUN",
     "physical_peripherals": "NOT_RUN",
-    "programmed_board": false
+    "programmed_board": false,
+    "pg_instrumentation": "PASS decoded instruction models + original fault-path comparison"
   },
   "layout": {
     "acceptance": "planned development differences only; NOT binary-exact PM.hex",
     "golden_sha256": "e80e8612f7114caff6d7a2494ad0f51010182f2c2c83fdfb3047c9f8a34663c0",
-    "development_sha256": "3f46c53112cb054de6697d41a778465d614438ec81deade1f7761000e48f01d2",
-    "differing_bytes": 2959,
+    "development_sha256": "c3cc9fbe6f917ea6c314269ce18d6cf48bb528e1413f14aa5f80ef824df11f80",
+    "differing_bytes": 3942,
     "gate_start": 4842,
     "gate_length": 6,
     "extension_start": 16384,
-    "extension_size": 2996,
+    "extension_size": 3940,
     "extension_limit": 32768,
     "legacy_symbols_preserved": 4657,
     "bootloader_unchanged": true,
+    "power_instrumentation_sites": [
+      "0x106a",
+      "0x662",
+      "0xac",
+      "0x68e",
+      "0x5e6",
+      "0xad4",
+      "0xbcc",
+      "0xc0c",
+      "0x1446",
+      "0x1550",
+      "0x1c3e"
+    ],
     "ram_globals": "rejected by linker; no unverified SRAM reservation"
   },
   "images": {
-    "development.hex": "34865dfd29b17cbe45f07addd9f211b5e05d5ba41b67ce01ba7fd110474e1dfb",
-    "development.bin": "3f46c53112cb054de6697d41a778465d614438ec81deade1f7761000e48f01d2",
-    "development.elf": "7b43c107c254ecad7f70058f5ff95a934ad8caa189d2368439fe2c0901738b9d"
+    "development.hex": "d2c309f9c16c9535cb8196ee583bdea39b3b9c7333f8ef6566297e86f2791a23",
+    "development.bin": "c3cc9fbe6f917ea6c314269ce18d6cf48bb528e1413f14aa5f80ef824df11f80",
+    "development.elf": "bcf57735551bd06c9a3aa3771b6693ec9cc78cc08dae6fc85ff72468c29479be"
   },
   "coverage_limits": [
     "No physical programming or UART trial yet",
@@ -67,5 +82,30 @@
     "DAC8554 is write-only; analog verification needs FPGA ADC/generator setup",
     "FPGA control link and external serial FLASH require a separate ownership/restore test",
     "Temperature is reported as raw register data; ID/status checked by host interpretation"
-  ]
+  ],
+  "power_timing": {
+    "timer": "TCE0, no timer IRQ or output pins enabled",
+    "source_clock_nominal_hz": 32000000,
+    "prescaler": 1024,
+    "tick_us_nominal": 32,
+    "overflow_seconds_nominal": 2.097152,
+    "legacy_pg_deadline_ticks": 1000,
+    "legacy_tcc0_per": 125,
+    "legacy_tcc0_divider": 256,
+    "legacy_pg_deadline_seconds_nominal": 1.008,
+    "states": {
+      "0": "NOT_STARTED",
+      "1": "WAITING",
+      "2": "PG_OBSERVED",
+      "3": "ORIGINAL_TIMEOUT",
+      "4": "PG_ALREADY_HIGH",
+      "5": "OTHER_SHUTDOWN"
+    },
+    "measurement_scope": "EN write to PG GPIO ISR observation, includes IRQ latency; no rise measurement if PG already high or timer overflow",
+    "new_sram_bytes": 0,
+    "startup_and_fault_logic": "Preserved by exact replay at fixed four-byte instrumentation gates; shutdown GPIO write runs before telemetry",
+    "software_validation": "2048 decoded gate cases; full original GPIO PG ISR and timer deadline paths compared with golden",
+    "physical_validation": "NOT_RUN"
+  },
+  "diagnostic_source_commit": "7eb8470"
 }
