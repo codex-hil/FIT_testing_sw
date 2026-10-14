@@ -1,0 +1,372 @@
+diff --git a/development/Makefile b/development/Makefile
+index c075892..3e2902c 100644
+--- a/development/Makefile
++++ b/development/Makefile
+@@ -5,7 +5,9 @@ check: all
+ 	python3 tests/check_bridge.py
+ 	python3 tests/check_layout_guards.py
+ 	python3 tests/check_ram_guard.py
+-	cc -std=c99 -Wall -Wextra -Werror -Isrc src/extension.c tests/check_commands.c -o build/check_commands
++	cc -std=c99 -Wall -Wextra -Werror -Isrc src/extension.c src/hw_commands.c src/hw_drivers.c tests/check_commands.c -o build/check_commands
+ 	build/check_commands
++	cc -std=c99 -Wall -Wextra -Werror -Isrc src/hw_drivers.c tests/check_hw_drivers.c -o build/check_hw_drivers
++	build/check_hw_drivers
+ clean:
+ 	rm -rf build
+diff --git a/development/diagnostic_contract.json b/development/diagnostic_contract.json
+new file mode 100644
+index 0000000..8d20ac2
+--- /dev/null
++++ b/development/diagnostic_contract.json
+@@ -0,0 +1,71 @@
++{
++  "firmware_source_checkout": "/home/codex-hil/fit-pm12-mcu-diag",
++  "source_branch": "pm12-hardware-diagnostics",
++  "reference_commit": "30dec0a",
++  "target": "ATxmega128A3U",
++  "uart": "USARTF0 PF2 RX / PF3 TX; PF1 RTS / PF0 CTS, verify wiring before running",
++  "baud_default": 115200,
++  "terminator": "CR",
++  "commands": {
++    "@PING": "firmware extension identification",
++    "@HW": "atomic input GPIO + original power/status RAM snapshot",
++    "@TEMP": "ADT7311 status/config/raw temperature/ID, no sensor writes",
++    "@TDC <0..2> <two hex digits>": "THS788 register read; 83 is chip ID",
++    "@PLL": "CDCE62005 0x8e readback only; no clock profile change"
++  },
++  "preserved": [
++    "startup",
++    "power control",
++    "power/thermal IRQs",
++    "bootloader",
++    "legacy console",
++    "original RAM layout"
++  ],
++  "never_written": [
++    "PSU enable PE2",
++    "THS reset PB5",
++    "PLL reset/sync PF5",
++    "DAC registers",
++    "EEPROM",
++    "flash",
++    "I2C signals"
++  ],
++  "transaction_limits": {
++    "spi_polls_per_byte": 128,
++    "spi_bytes_per_pll_command": 8,
++    "interrupt_policy": "short bounded critical section, restore original SREG; hardware latency NOT_RUN"
++  },
++  "tests": {
++    "development_checks": "PASS",
++    "baseline_exact_check": "PASS zero differing bytes",
++    "physical_uart": "NOT_RUN",
++    "physical_peripherals": "NOT_RUN",
++    "programmed_board": false
++  },
++  "layout": {
++    "acceptance": "planned development differences only; NOT binary-exact PM.hex",
++    "golden_sha256": "e80e8612f7114caff6d7a2494ad0f51010182f2c2c83fdfb3047c9f8a34663c0",
++    "development_sha256": "3f46c53112cb054de6697d41a778465d614438ec81deade1f7761000e48f01d2",
++    "differing_bytes": 2959,
++    "gate_start": 4842,
++    "gate_length": 6,
++    "extension_start": 16384,
++    "extension_size": 2996,
++    "extension_limit": 32768,
++    "legacy_symbols_preserved": 4657,
++    "bootloader_unchanged": true,
++    "ram_globals": "rejected by linker; no unverified SRAM reservation"
++  },
++  "images": {
++    "development.hex": "34865dfd29b17cbe45f07addd9f211b5e05d5ba41b67ce01ba7fd110474e1dfb",
++    "development.bin": "3f46c53112cb054de6697d41a778465d614438ec81deade1f7761000e48f01d2",
++    "development.elf": "7b43c107c254ecad7f70058f5ff95a934ad8caa189d2368439fe2c0901738b9d"
++  },
++  "coverage_limits": [
++    "No physical programming or UART trial yet",
++    "IRQ critical-section latency not measured on hardware",
++    "DAC8554 is write-only; analog verification needs FPGA ADC/generator setup",
++    "FPGA control link and external serial FLASH require a separate ownership/restore test",
++    "Temperature is reported as raw register data; ID/status checked by host interpretation"
++  ]
++}
+diff --git a/development/src/extension.h b/development/src/extension.h
+index cd95623..8abbd1b 100644
+--- a/development/src/extension.h
++++ b/development/src/extension.h
+@@ -15,7 +15,15 @@ void pm_extension_dispatch(void);
+ /* Stateless handlers: new commands live here, not in recovered_exact. */
+ void pm_command_ping(const char *arguments);
+ void pm_command_help(const char *arguments);
++void pm_command_hw(const char *arguments);
++void pm_command_temp(const char *arguments);
++void pm_command_tdc(const char *arguments);
++void pm_command_pll(const char *arguments);
+ #define PM_COMMANDS(X) \
+     X("PING", pm_command_ping) \
+-    X("HELP", pm_command_help)
++    X("HELP", pm_command_help) \
++    X("HW", pm_command_hw) \
++    X("TEMP", pm_command_temp) \
++    X("TDC", pm_command_tdc) \
++    X("PLL", pm_command_pll)
+ #endif
+diff --git a/development/src/hw_commands.c b/development/src/hw_commands.c
+new file mode 100644
+index 0000000..bd6526e
+--- /dev/null
++++ b/development/src/hw_commands.c
+@@ -0,0 +1,40 @@
++#include "extension.h"
++#include "hw_diag.h"
++static const PM_FLASH char earg[]="ERR ARGUMENTS\r\n";
++static const PM_FLASH char off[]="ERR POWER\r\n",busy[]="ERR BUSY\r\n",timeout[]="ERR TIMEOUT\r\n";
++static void hex(uint32_t v,uint8_t digits) { while(digits){uint8_t n=(v>>(--digits*4))&15;pm_console_putc(n<10?'0'+n:'A'+n-10);} }
++static void line(void){pm_console_putc('\r');pm_console_putc('\n');}
++static uint8_t result(uint8_t s){if(s==PM_DIAG_OK)return 1;pm_console_write(s==PM_DIAG_POWER?off:s==PM_DIAG_BUSY?busy:s==PM_DIAG_TIMEOUT?timeout:earg);return 0;}
++void pm_command_hw(const char *args)
++{
++ if(*args){pm_console_write(earg);return;}
++ uint8_t saved=pm_irq_enter();uint8_t ports[6],state[12];
++ for(uint8_t n=0;n<6;++n)ports[n]=pm_read8(0x608u+n*32u);
++ for(uint8_t n=0;n<12;++n)state[n]=pm_read8(0x2157u+n);
++ pm_irq_leave(saved);
++ static const PM_FLASH char banner[]="HW V1 PORTS A..F=";pm_console_write(banner);
++ for(uint8_t n=0;n<6;++n)hex(ports[n],2);
++ static const PM_FLASH char label[]=" STATE 2157..2162=";pm_console_write(label);
++ for(uint8_t n=0;n<12;++n)hex(state[n],2);
++ line();
++}
++void pm_command_temp(const char *args)
++{
++ if(*args){pm_console_write(earg);return;}
++ static const PM_FLASH char label[]="ADT7311 REG=";
++ for(uint8_t reg=0;reg<4;++reg){uint16_t v=0;if(!result(pm_diag_temp(reg,&v)))return;pm_console_write(label);hex(reg,2);pm_console_putc(' ');hex(v,reg==2?4:2);line();}
++}
++void pm_command_tdc(const char *args)
++{
++ /* Chip decimal 0..2, followed by exactly two uppercase hex address digits. */
++ if(args[0]<'0'||args[0]>'2'||args[1]!=' '||!args[2]||!args[3]||args[4]){pm_console_write(earg);return;}
++ uint8_t address=0;
++ for(uint8_t n=2;n<4;++n){uint8_t c=args[n],v;if(c>='0'&&c<='9')v=c-'0';else if(c>='A'&&c<='F')v=c-'A'+10;else{pm_console_write(earg);return;}address=(address<<4)|v;}
++ uint16_t v=0;if(!result(pm_diag_tdc(args[0]-'0',address,&v)))return;
++ static const PM_FLASH char label[]="THS788 ";pm_console_write(label);pm_console_putc(args[0]);pm_console_putc(' ');hex(address,2);pm_console_putc(' ');hex(v,4);line();
++}
++void pm_command_pll(const char *args)
++{
++ if(*args){pm_console_write(earg);return;}uint32_t v=0;if(!result(pm_diag_pll(&v)))return;
++ static const PM_FLASH char label[]="CDCE62005 ";pm_console_write(label);hex(v,8);line();
++}
+diff --git a/development/src/hw_diag.h b/development/src/hw_diag.h
+new file mode 100644
+index 0000000..274ba17
+--- /dev/null
++++ b/development/src/hw_diag.h
+@@ -0,0 +1,20 @@
++#ifndef PM_HW_DIAG_H
++#define PM_HW_DIAG_H
++#include <stdint.h>
++enum pm_diag_result { PM_DIAG_OK, PM_DIAG_POWER, PM_DIAG_BUSY, PM_DIAG_TIMEOUT, PM_DIAG_ARGUMENT };
++uint8_t pm_diag_temp(uint8_t reg,uint16_t *value);
++uint8_t pm_diag_tdc(uint8_t chip,uint8_t reg,uint16_t *value);
++uint8_t pm_diag_pll(uint32_t *value);
++#ifdef __AVR__
++#include <avr/io.h>
++static inline uint8_t pm_read8(uint16_t a) { return *(volatile uint8_t *)a; }
++static inline void pm_write8(uint16_t a,uint8_t v) { *(volatile uint8_t *)a=v; }
++static inline uint8_t pm_irq_enter(void) { uint8_t s=SREG;asm volatile("cli" ::: "memory");return s; }
++static inline void pm_irq_leave(uint8_t s) { asm volatile("" ::: "memory");SREG=s; }
++#else
++uint8_t pm_read8(uint16_t a);
++void pm_write8(uint16_t a,uint8_t v);
++uint8_t pm_irq_enter(void);
++void pm_irq_leave(uint8_t s);
++#endif
++#endif
+diff --git a/development/src/hw_drivers.c b/development/src/hw_drivers.c
+new file mode 100644
+index 0000000..eabab10
+--- /dev/null
++++ b/development/src/hw_drivers.c
+@@ -0,0 +1,86 @@
++/* Read-only device operations, main-loop only. No reset, DAC, power, EEPROM,
++ * flash or I2C writes. IRQ masking serializes against the recovered PLL ISR;
++ * each transaction is finite, with at most 128 SPI polls per byte. Hardware
++ * interrupt latency and electrical ownership still need validation. */
++#include "hw_diag.h"
++#define A 0x600u
++#define B 0x620u
++#define C 0x640u
++#define E 0x680u
++#define F 0x6a0u
++#define PM_SPIC 0x8c0u
++#define DIR 0u
++#define DIRSET 1u
++#define DIRCLR 2u
++#define OUT 4u
++#define SET 5u
++#define CLR 6u
++#define IN 8u
++static uint8_t powered(void) { return (pm_read8(E+OUT)&4) && (pm_read8(E+IN)&10)==10; }
++static void restore_bits(uint16_t port,uint8_t mask,uint8_t out)
++{ pm_write8(port+CLR,mask & (uint8_t)~out);pm_write8(port+SET,mask & out); }
++static uint8_t temp_byte(uint8_t tx)
++{
++ uint8_t rx=0;
++ for(uint8_t n=0;n<8;++n) {
++  pm_write8(A+CLR,2);pm_write8(A+((tx&128)?SET:CLR),8);
++  pm_write8(A+SET,2);rx=(uint8_t)((rx<<1)|((pm_read8(A+IN)>>2)&1));tx<<=1;
++ }
++ return rx;
++}
++uint8_t pm_diag_temp(uint8_t reg,uint16_t *value)
++{
++ if(reg>3)return PM_DIAG_ARGUMENT;
++ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK;
++ uint8_t old=pm_read8(A+OUT);
++ if(!powered())result=PM_DIAG_POWER;
++ else if((pm_read8(A+DIR)&0x1a)!=0x1a || !(old&16))result=PM_DIAG_BUSY;
++ else {
++  pm_write8(A+CLR,16);(void)temp_byte((uint8_t)(0x40|(reg<<3)));
++  uint16_t v=temp_byte(0);if(reg==2)v=(uint16_t)((v<<8)|temp_byte(0));
++  pm_write8(A+SET,16);restore_bits(A,0x1a,old);*value=v;
++ }
++ pm_irq_leave(irq);return result;
++}
++static void clock_tdc(void) { pm_write8(B+SET,1);pm_write8(B+CLR,1); }
++static void send_tdc_bit(uint8_t bit) { pm_write8(B+(bit?SET:CLR),2);clock_tdc(); }
++uint8_t pm_diag_tdc(uint8_t chip,uint8_t reg,uint16_t *value)
++{
++ if(chip>2)return PM_DIAG_ARGUMENT;
++ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK;
++ uint8_t old=pm_read8(B+OUT),dir=pm_read8(B+DIR),select=(uint8_t)(4u<<chip);
++ if(!powered() || !(old&32) || !(pm_read8(B+IN)&64))result=PM_DIAG_POWER;
++ else if((old&0x1c)!=0x1c || (dir&0x1f)!=0x1f)result=PM_DIAG_BUSY;
++ else {
++  pm_write8(B+CLR,select);send_tdc_bit(1);send_tdc_bit(0);
++  for(uint8_t n=0;n<8;++n){send_tdc_bit(reg&128);reg<<=1;}
++  pm_write8(B+DIRCLR,2);clock_tdc();uint16_t v=0;
++  for(uint8_t n=0;n<16;++n){pm_write8(B+SET,1);v=(uint16_t)((v<<1)|((pm_read8(B+IN)>>1)&1));pm_write8(B+CLR,1);}
++  pm_write8(B+SET,select);pm_write8(B+DIRSET,2);clock_tdc();clock_tdc();
++  restore_bits(B,0x1f,old);*value=v;
++ }
++ pm_irq_leave(irq);return result;
++}
++static uint8_t spi_byte(uint8_t tx,uint8_t *rx)
++{
++ pm_write8(PM_SPIC+3,tx);
++ for(uint8_t n=0;n<128;++n)if(pm_read8(PM_SPIC+2)&128){*rx=pm_read8(PM_SPIC+3);return PM_DIAG_OK;}
++ return PM_DIAG_TIMEOUT;
++}
++uint8_t pm_diag_pll(uint32_t *value)
++{
++ uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK,old=pm_read8(PM_SPIC),out=pm_read8(F+OUT),rx=0;
++ if(!powered())result=PM_DIAG_POWER;
++ else if(!(out&16) || (pm_read8(C+OUT)&7)!=7 || !(old&0x40))result=PM_DIAG_BUSY;
++ else {
++  /* Same 0x8e readback request as recovered FUN_code_001267. No PLL profile writes. */
++  pm_write8(PM_SPIC,0xf1);pm_write8(F+CLR,16);
++  for(uint8_t n=0;n<4 && result==PM_DIAG_OK;++n)result=spi_byte(n?0:0x8e,&rx);
++  pm_write8(F+SET,16);
++  uint32_t v=0;
++  if(result==PM_DIAG_OK){pm_write8(F+CLR,16);for(uint8_t n=0;n<4 && result==PM_DIAG_OK;++n){result=spi_byte(0,&rx);v|=(uint32_t)rx<<(n*8);}}
++  pm_write8(F+SET,16);pm_write8(PM_SPIC,old);
++  if(result==PM_DIAG_OK)*value=v;
++ }
++ pm_irq_leave(irq);return result;
++}
+diff --git a/development/tests/check_commands.c b/development/tests/check_commands.c
+index 3f12acd..0fa4e9b 100644
+--- a/development/tests/check_commands.c
++++ b/development/tests/check_commands.c
+@@ -12,12 +12,23 @@ static void check(const char *request, const char *reply)
+     input=request; used=0; output[0]=0;
+     pm_extension_dispatch(); assert(!*input); assert(strcmp(output,reply)==0);
+ }
++uint8_t pm_read8(uint16_t a) { (void)a;return 0; }
++void pm_write8(uint16_t a,uint8_t v) { (void)a;(void)v;assert(0); }
++uint8_t pm_irq_enter(void) { return 0; }
++void pm_irq_leave(uint8_t s) { assert(s==0); }
+ int main(void)
+ {
+     check("PING\r", "PONG\r\n");
+-    check("HELP\r", "@PING\r\n@HELP\r\n");
++    check("HELP\r", "@PING\r\n@HELP\r\n@HW\r\n@TEMP\r\n@TDC\r\n@PLL\r\n");
+     check("PING   \r", "PONG\r\n");
+     check("PING 1\r", "ERR ARGUMENTS\r\n");
++    check("TEMP\r", "ERR POWER\r\n");
++    check("PLL\r", "ERR POWER\r\n");
++    check("TDC 0 83\r", "ERR POWER\r\n");
++    check("TDC 3 83\r", "ERR ARGUMENTS\r\n");
++    check("TDC 0 8G\r", "ERR ARGUMENTS\r\n");
++    check("TDC 0 8\r", "ERR ARGUMENTS\r\n");
++    check("HW 1\r", "ERR ARGUMENTS\r\n");
+     check("NOPE\r", "ERR UNKNOWN\r\n");
+     check("\r", "ERR UNKNOWN\r\n");
+     char maximum[49]; memset(maximum,'X',47);maximum[47]='\r';maximum[48]=0;
+diff --git a/development/tests/check_hw_drivers.c b/development/tests/check_hw_drivers.c
+new file mode 100644
+index 0000000..ea5e576
+--- /dev/null
++++ b/development/tests/check_hw_drivers.c
+@@ -0,0 +1,60 @@
++#include "hw_diag.h"
++#include <assert.h>
++#include <stdio.h>
++#include <string.h>
++static uint8_t mem[0x2500],irq,timeout,spi_count,bit_count,tx[12],tx_count;
++static unsigned polls,writes,steps;
++static uint32_t temp_stream;
++uint8_t pm_irq_enter(void){uint8_t s=irq;irq=0;return s;}
++void pm_irq_leave(uint8_t s){assert(irq==0);irq=s;}
++uint8_t pm_read8(uint16_t a)
++{
++ assert(!irq);++steps;
++ if(a==0x8c2){++polls;return (timeout && spi_count>=timeout)?0:128;}
++ if(a==0x8c3)return spi_count>4?(uint8_t)(0x11*(spi_count-4)):0;
++ if(a==0x608){uint8_t bit=(temp_stream>>(31-bit_count++))&1;return (mem[a]&~4)|(bit<<2);}
++ if(a==0x628 && !(mem[0x620]&2) && (mem[0x624]&1)){
++  uint8_t bit=(0xa55au>>(15-bit_count++))&1;return 64|(bit<<1);
++ }
++ return mem[a];
++}
++void pm_write8(uint16_t a,uint8_t v)
++{
++ assert(!irq);++steps;++writes;
++ if(a==0x8c0){mem[a]=v;return;}
++ if(a==0x8c3){++spi_count;mem[a]=v;return;}
++ uint16_t port=a&0xffe0;uint8_t off=a-port;
++ assert((port==0x600 && !(v&~0x1a)) || (port==0x620 && !(v&~0x1f)) || (port==0x6a0 && !(v&~0x10)));
++ assert(off==1||off==2||off==5||off==6);
++ if(port==0x620 && off==5 && (v&1) && (mem[port]&2) && (mem[port+4]&0x1c)!=0x1c && tx_count<12)tx[tx_count++]=(mem[port+4]>>1)&1;
++ uint16_t target=port+(off<4?0:4);
++ if(off==1||off==5)mem[target]|=v;else mem[target]&=(uint8_t)~v;
++}
++static void init(uint8_t s)
++{
++ memset(mem,0,sizeof mem);irq=s;timeout=spi_count=bit_count=tx_count=0;polls=writes=steps=0;
++ mem[0x684]=4;mem[0x688]=10;mem[0x600]=0x1a;mem[0x604]=0xfa;
++ mem[0x620]=0xbf;mem[0x624]=0xbc;mem[0x628]=64;
++ mem[0x644]=7;mem[0x6a4]=0xf0;mem[0x8c0]=0xd5;temp_stream=0x00c30000;
++}
++int main(void)
++{
++ for(uint8_t s=0;s<2;++s){
++  uint16_t v=0xbeef;uint32_t p=0;
++  init(s);assert(pm_diag_temp(3,&v)==PM_DIAG_OK && v==0xc3 && irq==s && mem[0x604]==0xfa);
++  init(s);assert(pm_diag_tdc(2,0x83,&v)==PM_DIAG_OK && v==0xa55a && irq==s && mem[0x624]==0xbc && mem[0x620]==0xbf);
++  assert(tx_count==10 && tx[0]==1 && tx[1]==0);
++  for(unsigned n=0;n<8;++n)assert(tx[n+2]==((0x83>>(7-n))&1));
++  init(s);assert(pm_diag_pll(&p)==PM_DIAG_OK && p==0x44332211 && irq==s && mem[0x8c0]==0xd5 && mem[0x6a4]==0xf0);
++  for(uint8_t fail=1;fail<=8;++fail){init(s);timeout=fail;p=0xcafebabe;assert(pm_diag_pll(&p)==PM_DIAG_TIMEOUT && polls==127u+fail && spi_count==fail && p==0xcafebabe && irq==s && mem[0x8c0]==0xd5 && mem[0x6a4]==0xf0);}
++  init(s);mem[0x688]=0;assert(pm_diag_temp(3,&v)==PM_DIAG_POWER && writes==0 && irq==s);
++  assert(pm_diag_tdc(0,0x83,&v)==PM_DIAG_POWER && writes==0 && irq==s);
++  assert(pm_diag_pll(&p)==PM_DIAG_POWER && writes==0 && irq==s);
++  init(s);mem[0x604]&=~16;assert(pm_diag_temp(3,&v)==PM_DIAG_BUSY && writes==0 && irq==s);
++  init(s);mem[0x624]&=~4;assert(pm_diag_tdc(1,0x83,&v)==PM_DIAG_BUSY && writes==0 && irq==s);
++  init(s);mem[0x644]=6;assert(pm_diag_pll(&p)==PM_DIAG_BUSY && writes==0 && irq==s);
++  init(s);assert(pm_diag_temp(4,&v)==PM_DIAG_ARGUMENT && writes==0 && irq==s);
++  assert(pm_diag_tdc(3,0x83,&v)==PM_DIAG_ARGUMENT && writes==0 && irq==s);
++ }
++ puts("PASS device serial framing, readbacks, IRQ restoration, bounded timeout, GPIO restoration, power/busy guards and write whitelist");
++}

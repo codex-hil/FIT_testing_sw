@@ -1,0 +1,71 @@
+{
+  "firmware_source_checkout": "/home/codex-hil/fit-pm12-mcu-diag",
+  "source_branch": "pm12-hardware-diagnostics",
+  "reference_commit": "30dec0a",
+  "target": "ATxmega128A3U",
+  "uart": "USARTF0 PF2 RX / PF3 TX; PF1 RTS / PF0 CTS, verify wiring before running",
+  "baud_default": 115200,
+  "terminator": "CR",
+  "commands": {
+    "@PING": "firmware extension identification",
+    "@HW": "atomic input GPIO + original power/status RAM snapshot",
+    "@TEMP": "ADT7311 status/config/raw temperature/ID, no sensor writes",
+    "@TDC <0..2> <two hex digits>": "THS788 register read; 83 is chip ID",
+    "@PLL": "CDCE62005 0x8e readback only; no clock profile change"
+  },
+  "preserved": [
+    "startup",
+    "power control",
+    "power/thermal IRQs",
+    "bootloader",
+    "legacy console",
+    "original RAM layout"
+  ],
+  "never_written": [
+    "PSU enable PE2",
+    "THS reset PB5",
+    "PLL reset/sync PF5",
+    "DAC registers",
+    "EEPROM",
+    "flash",
+    "I2C signals"
+  ],
+  "transaction_limits": {
+    "spi_polls_per_byte": 128,
+    "spi_bytes_per_pll_command": 8,
+    "interrupt_policy": "short bounded critical section, restore original SREG; hardware latency NOT_RUN"
+  },
+  "tests": {
+    "development_checks": "PASS",
+    "baseline_exact_check": "PASS zero differing bytes",
+    "physical_uart": "NOT_RUN",
+    "physical_peripherals": "NOT_RUN",
+    "programmed_board": false
+  },
+  "layout": {
+    "acceptance": "planned development differences only; NOT binary-exact PM.hex",
+    "golden_sha256": "e80e8612f7114caff6d7a2494ad0f51010182f2c2c83fdfb3047c9f8a34663c0",
+    "development_sha256": "3f46c53112cb054de6697d41a778465d614438ec81deade1f7761000e48f01d2",
+    "differing_bytes": 2959,
+    "gate_start": 4842,
+    "gate_length": 6,
+    "extension_start": 16384,
+    "extension_size": 2996,
+    "extension_limit": 32768,
+    "legacy_symbols_preserved": 4657,
+    "bootloader_unchanged": true,
+    "ram_globals": "rejected by linker; no unverified SRAM reservation"
+  },
+  "images": {
+    "development.hex": "34865dfd29b17cbe45f07addd9f211b5e05d5ba41b67ce01ba7fd110474e1dfb",
+    "development.bin": "3f46c53112cb054de6697d41a778465d614438ec81deade1f7761000e48f01d2",
+    "development.elf": "7b43c107c254ecad7f70058f5ff95a934ad8caa189d2368439fe2c0901738b9d"
+  },
+  "coverage_limits": [
+    "No physical programming or UART trial yet",
+    "IRQ critical-section latency not measured on hardware",
+    "DAC8554 is write-only; analog verification needs FPGA ADC/generator setup",
+    "FPGA control link and external serial FLASH require a separate ownership/restore test",
+    "Temperature is reported as raw register data; ID/status checked by host interpretation"
+  ]
+}
