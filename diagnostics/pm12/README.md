@@ -129,3 +129,10 @@ Ethernet acquisition control. See its measured validation status before use.
 checks, an original-protocol FPGA SPI slave and explicit config-flash read /
 FPGA boot requests. Native tests, GHDL and Vivado builds pass; physical MCU
 UART/SPI/configuration tests remain NOT_RUN. Config inspection resets FPGA SRAM.
+
+## Integrated IPbus ADC capture
+
+[IPbus ADC diagnostic](ipbus_adc/README.md) combines the twelve ADC trace buffers,
+original MCU SPI diagnostic and input-only passive I2C event analyzer. It uses
+the actual CERN IPbus controller and the official uHAL address table/client.
+See its separate measured validation and current-state record.
