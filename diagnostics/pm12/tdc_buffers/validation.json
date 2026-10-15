@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-10-15T21:01:28.694857+00:00",
+  "scope": "OFFLINE simulations; serial coarse/FIFO stubbed and counter power-up explicitly modeled; no board programming",
+  "passed": true,
+  "results": [
+    {
+      "command": [
+        "/srv/codex-hil-data/artiq-zynqmp/venv/bin/python",
+        "/home/codex-hil/artifacts/pm12-tdc-buffer-source/diagnostics/pm12/tdc_buffers/test_buffers.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS 12 independent event buffers: three asynchronous source clocks, full/freeze/rearm, repeated identical timestamps, busy rejection and empty stop\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/srv/codex-hil-data/artiq-zynqmp/venv/bin/python",
+        "/home/codex-hil/artifacts/pm12-tdc-buffer-source/diagnostics/pm12/tdc_buffers/test_ipbus.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS TDC IPbus: continuous-strobe bursts, 12 raw banks, bounds, empty STOP, stale-generation rejection, timeout fail-closed, legacy scratch\nPASS frontend lock loss: sticky fault, no stale read or rearm after relock\nPASS missing result clocks: bounded start timeout, invalid bank and rearm rejection\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/srv/codex-hil-data/artiq-zynqmp/venv/bin/python",
+        "/home/codex-hil/artifacts/pm12-tdc-buffer-source/diagnostics/pm12/tdc_buffers/test_receiver_ghdl.py",
+        "--ghdl",
+        "/home/codex-hil/coolrunner2-recovery/tools/ghdl"
+      ],
+      "returncode": 0,
+      "stdout": "/home/codex-hil/artifacts/pm12-tdc-buffer-source/diagnostics/pm12/tdc_buffers/test_receiver.vhd:74:5:@30716ns:(report note): PASS original serial receiver:128 values, raw commit timing, early/sticky ready and raw lock; coarse/FIFO STUBBED\nsimulation stopped @30716ns\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/srv/codex-hil-data/artiq-zynqmp/venv/bin/python",
+        "/home/codex-hil/artifacts/pm12-tdc-buffer-source/diagnostics/pm12/ipbus_adc/test_registers.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS IPbus burst/nonincrementing/error/side-effect semantics,12 buffers pattern A/B/A and raw inputs,freeze,MMCM loss/recovery,independent passive trace/JTAG access,arbitrary USER2 scans preserve frozen trace and explicit IPbus ARM rearms\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "ipbus_adc/registers.py": "504af8cf08280d7411e25b3dc4f3fb226e8f5314e7f7d8f64197e46dc7e9b65e",
+    "tdc_buffers/buffers.py": "c97c788b9f517ae52f59238aae91b7d9bd7aa051edc804f09bc8971ba19f17e7",
+    "tdc_buffers/generate_component.py": "d64e0f3653f8a73e14ccf401eee034fb5200241987f1c5e1b9942f41fad2ff84",
+    "tdc_buffers/instrument_receiver.py": "0ee48158be13796008580632152a9df53931b1da6ea14c960791a912966afb18",
+    "tdc_buffers/ipbus.py": "e89bf43d643bdbc56dc196f4c559983ec4f3d924fc9ba94c55b4c49118ee237a",
+    "tdc_buffers/receiver.py": "348e085f750593d9f94a13aae56ace48e537b8e831b5757fdc3549f1661150c4",
+    "tdc_buffers/run_tests.py": "90f7fde952554dfca4feba0d9cbedaa093f3d028d0a1211a69c7f6515cec2663",
+    "tdc_buffers/synth_core.py": "1dec8f36acd08b52fd8f27caef4135e6c152f6183f28f097e13bed7f82fc93b6",
+    "tdc_buffers/test_buffers.py": "2cc371c27f7f8b33b8db0e9f4c0a1b61f77aeada69b3ac6bc12c43ac28759d2f",
+    "tdc_buffers/test_ipbus.py": "63b715933871739c78942556f9eadd7ceab78cabc52d736b3bceb4f92debaa27",
+    "tdc_buffers/test_receiver.vhd": "745b1c4c7d473d2145419931abb0058022cc040f682796f6d3c87197754b385d",
+    "tdc_buffers/test_receiver_ghdl.py": "561556d275478ced838eeb512e9d19f5145e970b7405af6c4ee5ea19acc6cf96"
+  },
+  "prior_core_synthesis": {
+    "report": "reports/core-utilization.txt",
+    "report_sha256": "10598b06abfb758e49047065d6de22ca0bee4bb784003d970d62d6e6e7433e4d",
+    "scope": "prior checkpoint report inspected; synthesis not rerun in this continuation",
+    "part": "xc7k160tffg676-3",
+    "ramb36": 12,
+    "ramb18": 12,
+    "bram36_equivalents": 18
+  }
+}
