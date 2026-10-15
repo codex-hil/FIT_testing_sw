@@ -11,13 +11,20 @@ requests are dropped. JTAG USER1 signature is `504d5a02`. Original MCU SPI slave
 and fixed 1000BASE-X networking remain present.
 
 Offline Vivado implementation/bitstream and generated-port checks PASS.
-Physical loading and shared-bus tests NOT_RUN. This image alone does not add
-INA3221 support to the MCU or serialize its legacy temperature clock on PA1.
-A compatible MCU software-I2C/temperature ownership implementation is required
-before direct MCU sensor testing. It is absent from both current MCU diagnostic
-f9869c9 and recovery release pm12-dev-001-timer-relocated.
+On 2026-10-15 physical SRAM loading/signature, ten Ethernet line queries and
+five denied nonzero-drive requests with subsequent recovery PASS. SDA/SCL/RESET
+were all HIGH; reported drive mask was zero. Original MCU status still reported
+power ON/OK, NORMAL temperature and INTERNAL/PLL LOCKED after loading.
+Raw evidence is in `evidence/`. This input-only image remains in FPGA SRAM;
+no configuration flash or MCU memory was written.
 
-The latest physical attempt found no PM12 HS2 cable210249A73E43 and no identified
-PDI programmer, with original UART RS timing out during user rewiring. No MCU,
-FPGA or persistent memory was programmed. Confirm wiring/power/identities before
-resuming under the shared PM12 lease.
+This image alone does not add INA3221 support to the MCU or serialize its legacy
+temperature clock on PA1. A compatible MCU software-I2C/temperature ownership
+implementation is required before direct MCU sensor testing. It is absent from
+both current diagnostic f9869c9 and recovery pm12-dev-001-timer-relocated.
+
+HS2 210249A73E43 and original UART recovered after user rewiring. Atmel-ICE
+J41800043065 was identified, but USB permissions blocked PDI before MCU access.
+MCU backup/programming, SPI walking-pattern tests and MCU INA3221 reads remain
+NOT_RUN. Current FPGA input-only operation is not validation of power-off
+isolation or MCU ownership transitions. All hardware work uses the PM12 lease.
