@@ -28,3 +28,10 @@ J41800043065 was identified, but USB permissions blocked PDI before MCU access.
 MCU backup/programming, SPI walking-pattern tests and MCU INA3221 reads remain
 NOT_RUN. Current FPGA input-only operation is not validation of power-off
 isolation or MCU ownership transitions. All hardware work uses the PM12 lease.
+
+
+Superseding MCU checkpoint2026-10-15: Atmel-ICE permissions were restored;
+MCU diagnostic f9869c9 was programmed and verified, and672 SPI patterns plus
+read-only config-flash ownership/JEDEC/data/release passed. The matching
+passive FPGA was reloaded after config tests and remains in SRAM. See the
+parent MCU evidence summary for the current board state and pending scopes.
