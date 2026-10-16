@@ -1,0 +1,133 @@
+{
+  "scope": "Offline routed DCP audit, not a new hardware measurement",
+  "dcp_sha256": "c5863a5d7339a3a48ccee4b4aea4476ccd197f5059c01571dd5dcaee623512bf",
+  "serial_bit_counter_flip_flops_zero_init": 36,
+  "i2c_pads_input_only": true,
+  "clocks": [
+    {
+      "chip": 1,
+      "pin": "CLKOUT0",
+      "period_ns": 1.667,
+      "waveform_ns": [
+        -0.208,
+        0.625
+      ]
+    },
+    {
+      "chip": 1,
+      "pin": "CLKOUT1",
+      "period_ns": 1.667,
+      "waveform_ns": [
+        0.208,
+        1.042
+      ]
+    },
+    {
+      "chip": 1,
+      "pin": "CLKOUT2",
+      "period_ns": 3.333,
+      "waveform_ns": [
+        -0.208,
+        1.458
+      ]
+    },
+    {
+      "chip": 2,
+      "pin": "CLKOUT0",
+      "period_ns": 1.667,
+      "waveform_ns": [
+        -0.208,
+        0.625
+      ]
+    },
+    {
+      "chip": 2,
+      "pin": "CLKOUT1",
+      "period_ns": 1.667,
+      "waveform_ns": [
+        0.208,
+        1.042
+      ]
+    },
+    {
+      "chip": 2,
+      "pin": "CLKOUT2",
+      "period_ns": 3.333,
+      "waveform_ns": [
+        -0.208,
+        1.458
+      ]
+    },
+    {
+      "chip": 3,
+      "pin": "CLKOUT0",
+      "period_ns": 1.667,
+      "waveform_ns": [
+        -0.208,
+        0.625
+      ]
+    },
+    {
+      "chip": 3,
+      "pin": "CLKOUT1",
+      "period_ns": 1.667,
+      "waveform_ns": [
+        0.208,
+        1.042
+      ]
+    },
+    {
+      "chip": 3,
+      "pin": "CLKOUT2",
+      "period_ns": 3.333,
+      "waveform_ns": [
+        -0.208,
+        1.458
+      ]
+    }
+  ],
+  "differential_negative_pins": {
+    "MCLK1_N": "AA2",
+    "MCLK2_N": "AB9",
+    "MCLK3_N": "AC16",
+    "TDCCLK1_N": "AC2",
+    "TDCCLK2_N": "AD9",
+    "TDCCLK3_N": "AC17",
+    "INA1_N": "Y1",
+    "INA2_N": "AD8",
+    "INA3_N": "AF15",
+    "INB1_N": "Y2",
+    "INB2_N": "W8",
+    "INB3_N": "W16",
+    "INC1_N": "AE1",
+    "INC2_N": "AE10",
+    "INC3_N": "AA18",
+    "IND1_N": "AD3",
+    "IND2_N": "AF9",
+    "IND3_N": "Y18",
+    "RDA1_N": "Y5",
+    "RDA2_N": "AF7",
+    "RDA3_N": "AD14",
+    "RDB1_N": "AB5",
+    "RDB2_N": "AF8",
+    "RDB3_N": "Y16",
+    "RDC1_N": "AE2",
+    "RDC2_N": "W11",
+    "RDC3_N": "AD18",
+    "RDD1_N": "AC3",
+    "RDD2_N": "AB10",
+    "RDD3_N": "V17",
+    "RSA1_N": "W3",
+    "RSA2_N": "AC7",
+    "RSA3_N": "AB15",
+    "RSB1_N": "AB4",
+    "RSB2_N": "W9",
+    "RSB3_N": "AE15",
+    "RSC1_N": "AF2",
+    "RSC2_N": "AC11",
+    "RSC3_N": "AF17",
+    "RSD1_N": "AC1",
+    "RSD2_N": "Y10",
+    "RSD3_N": "AE16"
+  }
+}
