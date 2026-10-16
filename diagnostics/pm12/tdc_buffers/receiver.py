@@ -27,7 +27,7 @@ class TdcAcquisition(Module):
         self.comb += w.frontend_ready.eq(self.frontend_ready)
         for ch in range(12):
             group = ch // 4
-            self.specials += Instance('TDCCHAN',
+            self.specials += Instance('TDCCHAN', name='TDC%d_CH%s' % (group+1, 'ABCD'[ch%4]),
                 i_pin_in=self.cfd[ch],
                 i_clk300=self.clk300[group], i_clk600=self.clk600[group],
                 i_clk600_90=self.clk600_90[group], i_reset=self.receiver_reset,

@@ -1,0 +1,21 @@
+{
+  "generation": 4,
+  "status": 25,
+  "counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "acquired": false,
+  "format": "little-endian u16; raw bits12:0, fine=raw&127,coarse=(raw>>7)&63; no time calibration",
+  "read_retries": []
+}

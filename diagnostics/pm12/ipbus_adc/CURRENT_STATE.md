@@ -1,4 +1,8 @@
-# PM12 current state,2026-10-15
+# PM12 ADC reference qualification,2026-10-15
+
+Hardware was subsequently loaded with the integrated ADC/TDC diagnostic on
+2026-10-16. See [current FPGA state](../tdc_buffers/CURRENT_STATE.md).
+The following is the archived ADC reference state, not the currently resident image.
 
 - Board S/N1803, cable210249A73E43; both PM12/Atmel-ICE leases are released after tests.
 - Integrated FPGA SRAM image: build`882901f6`, USER1`504d5a04`.

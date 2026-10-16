@@ -19,6 +19,7 @@ class TdcWindow(Module):
         self.error = Signal()
         self.rdata = Signal(32)
         self.frontend_ready = Signal()
+        self.frontend_status = Signal(32)
         self.fault = Signal()
         self.valid = Signal()
         self.arm = Signal()
@@ -33,7 +34,7 @@ class TdcWindow(Module):
         memory = (self.address >= 0x20000) & (self.address < 0x2c000)
         counts = (self.address >= 0x220) & (self.address < 0x22c)
         control = self.address == 0x200
-        known = control | (self.address == 0x201) | (self.address == 0x202) | (self.address == 0x203) | (self.address == 0x204) | counts | memory
+        known = control | (self.address == 0x201) | (self.address == 0x202) | (self.address == 0x203) | (self.address == 0x204) | (self.address == 0x205) | counts | memory
         self.comb += [
             self.selected.eq(known),
             self.valid.eq(buffers.valid & ~self.fault),
@@ -44,6 +45,7 @@ class TdcWindow(Module):
             Case(self.address, {
                 0x201: self.rdata.eq(Cat(self.valid, buffers.busy, buffers.started,
                                         arm_ok, self.frontend_ready, self.fault)),
+                0x205: self.rdata.eq(self.frontend_status),
                 0x202: self.rdata.eq(buffers.capture_id),
                 0x203: self.rdata.eq(1 << len(buffers.address)),
                 0x204: self.rdata.eq(len(buffers.data)),

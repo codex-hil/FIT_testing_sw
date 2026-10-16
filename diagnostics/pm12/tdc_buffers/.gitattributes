@@ -1,0 +1,3 @@
+# Preserve vendor reports/logs byte-for-byte, including trailing blank lines.
+reports/*.txt -whitespace
+measured/*.log -whitespace
