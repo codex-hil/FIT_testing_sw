@@ -1,0 +1,23 @@
+{
+  "rejected": {
+    "directory": "hardware",
+    "exit_code": 1,
+    "error": "NameError(words) in result construction, before first SPI frame",
+    "restored": true
+  },
+  "clamp_matched": {
+    "directory": "hardware02",
+    "launcher_exit_code": 143,
+    "captures_complete": true,
+    "restored": true,
+    "adc_pass": true,
+    "note": "Saved data/postflight complete; following fresh identity and final tailcheck confirm healthy restoration. Launcher status is retained separately."
+  },
+  "reset_only": {
+    "directory": "reset_only",
+    "exit_code": 0,
+    "captures_complete": true,
+    "restored": true,
+    "adc_pass": true
+  }
+}

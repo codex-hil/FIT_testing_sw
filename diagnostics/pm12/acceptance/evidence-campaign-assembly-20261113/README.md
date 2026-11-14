@@ -1,3 +1,10 @@
+Latest within-image reset-only reversal: [full data and controls](../../system/evidence-spi-ab-20261115/README.md).
+Reset-only R1/R2:0/12; resetting bit cleared in A1/A3:12/12. Independent active
+parser/MISO0 control:0/6; removing clamp:6/6. All stages in one30096dcc image
+at601/read0. Separate matched-clamp cohort confirms MISO0 suppression without
+reset. Physical cause remains open. Exactc7531465 restored, Kasli unchanged,
+ADC/power/frontend/final tailcheckPASS. Raw/failed attempts retained separately.
+
 Latest direct SPI-state/clock correlation: [four reset traces and netlist audit](../../system/evidence-spi-state-20261114/README.md).
 All four SYS resets occur with parserIDLE9.6–10.2nominal ms after frame end;
 fixedMMCMLOCK falls withRST/PWR0, CAP/GTXLOCK1.600:0/6,601:4/6 (small ordered
@@ -34,7 +41,7 @@ correct-clock TDC qualification. USB stimulus still on PM10.
 
 # Assembly verification, fitted group9–12 — 2026-11-13
 
-[63-page report](report.pdf), editable [template](report.tex), [findings](assembly-findings.tex), [content](content.tex), [connection table](assembly-connections.tex), [monitor plot](monitor-assembly.png), [raw campaign](campaign-raw.tar.gz).
+[66-page report](report.pdf), editable [template](report.tex), [findings](assembly-findings.tex), [content](content.tex), [connection table](assembly-connections.tex), [monitor plot](monitor-assembly.png), [raw campaign](campaign-raw.tar.gz).
 
 Board PM12-K7-3A17A1B402212223. USB stimulus stays on physical10. This is assembly verification, not an unconditional board release: 30 selected cases,28 PASS,2 FAIL,59 NOT_MEASURED.
 

@@ -1,0 +1,414 @@
+{
+  "captured_windows": 44,
+  "stimulated_frames": 42,
+  "completed": true,
+  "restored": true,
+  "baseline_reproduced": true,
+  "chosen": {
+    "divider": 601,
+    "address": 0
+  },
+  "groups": {
+    "search": {
+      "frames": 6,
+      "sys_resets": 5,
+      "lock_triggers": 5,
+      "bad_signatures": 0
+    },
+    "C1-clamp-only": {
+      "frames": 6,
+      "sys_resets": 0,
+      "lock_triggers": 0,
+      "bad_signatures": 0
+    },
+    "B1-reset-clamped": {
+      "frames": 6,
+      "sys_resets": 0,
+      "lock_triggers": 0,
+      "bad_signatures": 0
+    },
+    "C2-clamp-only": {
+      "frames": 6,
+      "sys_resets": 0,
+      "lock_triggers": 0,
+      "bad_signatures": 0
+    },
+    "B2-reset-clamped": {
+      "frames": 6,
+      "sys_resets": 0,
+      "lock_triggers": 0,
+      "bad_signatures": 0
+    },
+    "C3-clamp-only": {
+      "frames": 6,
+      "sys_resets": 0,
+      "lock_triggers": 0,
+      "bad_signatures": 0
+    },
+    "A-return-normal": {
+      "frames": 6,
+      "sys_resets": 6,
+      "lock_triggers": 6,
+      "bad_signatures": 0
+    }
+  },
+  "cases": [
+    {
+      "label": "idle-before",
+      "stage": "idle",
+      "mode": 0,
+      "sck_edges": 0,
+      "sys_reset": false,
+      "events": 2
+    },
+    {
+      "label": "search-d601-0",
+      "stage": "search",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 105
+    },
+    {
+      "label": "search-d601-1",
+      "stage": "search",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 108
+    },
+    {
+      "label": "search-d601-2",
+      "stage": "search",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 107
+    },
+    {
+      "label": "search-d601-3",
+      "stage": "search",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 106
+    },
+    {
+      "label": "search-d601-4",
+      "stage": "search",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 109
+    },
+    {
+      "label": "search-d601-5",
+      "stage": "search",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 104
+    },
+    {
+      "label": "C1-clamp-only-0",
+      "stage": "C1-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C1-clamp-only-1",
+      "stage": "C1-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C1-clamp-only-2",
+      "stage": "C1-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C1-clamp-only-3",
+      "stage": "C1-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C1-clamp-only-4",
+      "stage": "C1-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C1-clamp-only-5",
+      "stage": "C1-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "B1-reset-clamped-0",
+      "stage": "B1-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B1-reset-clamped-1",
+      "stage": "B1-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B1-reset-clamped-2",
+      "stage": "B1-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B1-reset-clamped-3",
+      "stage": "B1-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B1-reset-clamped-4",
+      "stage": "B1-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B1-reset-clamped-5",
+      "stage": "B1-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "C2-clamp-only-0",
+      "stage": "C2-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C2-clamp-only-1",
+      "stage": "C2-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C2-clamp-only-2",
+      "stage": "C2-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C2-clamp-only-3",
+      "stage": "C2-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C2-clamp-only-4",
+      "stage": "C2-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C2-clamp-only-5",
+      "stage": "C2-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "B2-reset-clamped-0",
+      "stage": "B2-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B2-reset-clamped-1",
+      "stage": "B2-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B2-reset-clamped-2",
+      "stage": "B2-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B2-reset-clamped-3",
+      "stage": "B2-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B2-reset-clamped-4",
+      "stage": "B2-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "B2-reset-clamped-5",
+      "stage": "B2-reset-clamped",
+      "mode": 3,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 68
+    },
+    {
+      "label": "C3-clamp-only-0",
+      "stage": "C3-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C3-clamp-only-1",
+      "stage": "C3-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C3-clamp-only-2",
+      "stage": "C3-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C3-clamp-only-3",
+      "stage": "C3-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C3-clamp-only-4",
+      "stage": "C3-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "C3-clamp-only-5",
+      "stage": "C3-clamp-only",
+      "mode": 2,
+      "sck_edges": 64,
+      "sys_reset": false,
+      "events": 101
+    },
+    {
+      "label": "A-return-normal-0",
+      "stage": "A-return-normal",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 105
+    },
+    {
+      "label": "A-return-normal-1",
+      "stage": "A-return-normal",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 106
+    },
+    {
+      "label": "A-return-normal-2",
+      "stage": "A-return-normal",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 106
+    },
+    {
+      "label": "A-return-normal-3",
+      "stage": "A-return-normal",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 106
+    },
+    {
+      "label": "A-return-normal-4",
+      "stage": "A-return-normal",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 106
+    },
+    {
+      "label": "A-return-normal-5",
+      "stage": "A-return-normal",
+      "mode": 0,
+      "sck_edges": 64,
+      "sys_reset": true,
+      "events": 106
+    },
+    {
+      "label": "idle-after",
+      "stage": "idle",
+      "mode": 0,
+      "sck_edges": 0,
+      "sys_reset": false,
+      "events": 2
+    }
+  ],
+  "control_flags_verified": true,
+  "reset_only_reversal_observed": false,
+  "adc_validated": true,
+  "conclusion": "MISO clamp alone suppressed observed resets. Reset-only may also suppress via its constant MISO consequence; a parser-specific cause is not established.",
+  "limitations": "Logical source MISO matching, not continuous electrical pad observation; common watch/reference stop invisible; sampled multibit SPI fields not atomic."
+}

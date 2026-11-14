@@ -30,6 +30,6 @@
   "spi_outputs_held": true,
   "previous_fallback_build": "c7c42d28",
   "previous_fallback_clock_qualification": false,
-  "latest_followup": "Direct SPI-state observer:4 SYS resets among12 saved frames, all parserIDLE9.608\u201310.219nominal ms after frame. SYS MMCMLOCK falls, RST/PWR0; CAP/GTXLOCK1.600:0/6,601:4/6, partial sweep. No SPI alias in audited reset/clock cone. Exactc7531465 restored; Kasli unchanged/driven; ADC/power/frontendPASS. Fault remains open.",
+  "latest_followup": "Within-image30096dcc reset-only:0/12 resets while held,12/12 on the two reset releases. Clamp-only control0/6 with active parser; its release6/6. Separate matched-clamp cohort C0/18,B0/12,normal return6/6. MISO-dependent behavior; parser-specific/electrical root cause not established. Exactc7531465 restored, Kasli unchanged/driven, ADC/power/frontendPASS.",
   "additional_observation": "Onech01 ADC capture stability failure at selected position1255; raw retained. Fresh leased all12 ADC bankA postflight PASS."
 }

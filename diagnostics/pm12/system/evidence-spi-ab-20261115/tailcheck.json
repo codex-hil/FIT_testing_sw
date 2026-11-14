@@ -1,0 +1,22 @@
+{
+  "identity": [
+    1347228162,
+    65538,
+    3344110693
+  ],
+  "frontend": 4095,
+  "enable": 1,
+  "state": 9,
+  "pgood": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=8900000100000046016A0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2125
+  },
+  "mcu": {
+    "command": "RS",
+    "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    36.2 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+    "duration_s": 0.2121
+  },
+  "pass": true,
+  "finished_utc": "2026-11-14T23:21:54.584171+00:00"
+}

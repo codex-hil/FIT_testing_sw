@@ -1,3 +1,9 @@
+Latest within-image reversal: [reset-only and independent MISO control](evidence-spi-ab-20261115/README.md).
+Reset-only blocks0/12; two reset releases12/12. Active parser with MISO0 also
+suppresses(0/6), and removing clamp reproduces6/6. Reset not necessary for
+suppression; MISO-dependent behavior observed, physical cause remains open.
+Both completed cohorts restore exactc7531465; Kasli unchanged/driven, ADC PASS.
+
 Latest direct correlation: [four reset traces and netlist audit](evidence-spi-state-20261114/README.md).
 All four resets occur with parserIDLE9.6–10.2nominal ms after frame; fixed
 MMCMLOCK falls while its reset/powerdown controls remain0. No unintended SPI

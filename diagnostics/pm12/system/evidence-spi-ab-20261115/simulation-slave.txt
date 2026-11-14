@@ -1,0 +1,2 @@
+PASS normal/clamp/held/clamp/normal, parser activity and physical MISO data matching, release recovery
+diagnostics/pm12/system/spi_ab/tb_slave.v:17: $finish called at 1472000 (1ps)
