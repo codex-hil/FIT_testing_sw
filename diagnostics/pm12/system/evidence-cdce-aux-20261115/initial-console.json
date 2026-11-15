@@ -1,0 +1,44 @@
+{
+  "pgood": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000007500710103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000009202710103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2123
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=89000001000000C600710103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=89000001000000E402710103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2117
+    }
+  ],
+  "RS": {
+    "command": "RS",
+    "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    36.9 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+    "duration_s": 0.212
+  },
+  "@PLL": {
+    "command": "@PLL",
+    "reply": "CDCE62005 20009D38\r\n",
+    "duration_s": 0.2123
+  },
+  "@PLL ALL": {
+    "command": "@PLL ALL",
+    "reply": "ERR ARGUMENTS\r\n",
+    "duration_s": 0.2115
+  },
+  "@HELP": {
+    "command": "@HELP",
+    "reply": "@PING\r\n@HELP\r\n@HW\r\n@TEMP\r\n@TDC\r\n@PLL\r\n@PGTIME\r\n@FPGA\r\n@FPGATEST\r\n@CFG\r\n@FLASHID\r\n@FLASHREAD\r\n@I2C\r\n@INA\r\n@POWER\r\n@CFD\r\n@DAC\r\n",
+    "duration_s": 0.2122
+  }
+}

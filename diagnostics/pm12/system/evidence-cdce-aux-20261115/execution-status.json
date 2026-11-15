@@ -1,0 +1,114 @@
+{
+  "hardware": {
+    "mcu_patch": null,
+    "program_attempted": null,
+    "protected_memories": null,
+    "aux_error": null,
+    "mcu_restored": null,
+    "aux_retained": null,
+    "fallback_sram_restored": null,
+    "finished_utc": null
+  },
+  "hardware02": {
+    "mcu_patch": {
+      "address": 2809,
+      "before": 239,
+      "after": 227,
+      "original_sha256": "f49643c80c6189afebdaa3f7301f4ecebacb55645e60456f66831106d38b9464",
+      "patched_sha256": "0424ad8ba1607086fe9752f4f690d8fb8334ffb96bfddf6ba9763a8576e0ec2e",
+      "r5_before": "40040FF5",
+      "r5_after": "40040F35",
+      "meaning": "PRI/SEC/AUX auto -> forced AUX; same output dividers"
+    },
+    "program_attempted": true,
+    "protected_memories": {
+      "boot": true,
+      "eeprom": true,
+      "fuse0": true,
+      "fuse1": true,
+      "fuse2": true,
+      "fuse4": true,
+      "fuse5": true,
+      "lock": true,
+      "usersig": true,
+      "prodsig": true,
+      "signature": true
+    },
+    "aux_error": "TimeoutError('PM identity')",
+    "mcu_restored": true,
+    "aux_retained": null,
+    "fallback_sram_restored": true,
+    "finished_utc": "2026-11-15T14:53:12.913618+00:00"
+  },
+  "hardware03": {
+    "mcu_patch": {
+      "address": 2809,
+      "before": 239,
+      "after": 227,
+      "original_sha256": "f49643c80c6189afebdaa3f7301f4ecebacb55645e60456f66831106d38b9464",
+      "patched_sha256": "0424ad8ba1607086fe9752f4f690d8fb8334ffb96bfddf6ba9763a8576e0ec2e",
+      "r5_before": "40040FF5",
+      "r5_after": "40040F35",
+      "meaning": "PRI/SEC/AUX auto -> forced AUX; same output dividers"
+    },
+    "program_attempted": true,
+    "protected_memories": {
+      "boot": true,
+      "eeprom": true,
+      "fuse0": true,
+      "fuse1": true,
+      "fuse2": true,
+      "fuse4": true,
+      "fuse5": true,
+      "lock": true,
+      "usersig": true,
+      "prodsig": true,
+      "signature": true
+    },
+    "aux_error": "AssertionError()",
+    "mcu_restored": true,
+    "aux_retained": null,
+    "fallback_sram_restored": true,
+    "finished_utc": "2026-11-15T15:07:43.597776+00:00"
+  },
+  "hardware04": {
+    "mcu_patch": {
+      "addresses": [
+        6725,
+        6728
+      ],
+      "before": [
+        227,
+        73
+      ],
+      "after": [
+        226,
+        65
+      ],
+      "original_sha256": "f49643c80c6189afebdaa3f7301f4ecebacb55645e60456f66831106d38b9464",
+      "patched_sha256": "7f37fd0f0555789a0b598ab9e63becff712d015618139158c5669bf9e394b5ea",
+      "r5_before": "40040FF5",
+      "r5_after": "40040F35",
+      "meaning": "PC command sends one existing AUX R5 word only, no EEPROM copy; startup AUTO/PSU unchanged"
+    },
+    "program_attempted": true,
+    "protected_memories": {
+      "boot": true,
+      "eeprom": true,
+      "fuse0": true,
+      "fuse1": true,
+      "fuse2": true,
+      "fuse4": true,
+      "fuse5": true,
+      "lock": true,
+      "usersig": true,
+      "prodsig": true,
+      "signature": true
+    },
+    "aux_error": "AssertionError()",
+    "mcu_restored": true,
+    "aux_retained": null,
+    "fallback_sram_restored": true,
+    "finished_utc": "2026-11-15T15:17:41.335270+00:00"
+  }
+}

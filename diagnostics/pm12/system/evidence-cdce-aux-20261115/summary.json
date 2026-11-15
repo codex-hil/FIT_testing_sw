@@ -1,0 +1,22 @@
+{
+  "groups": {
+    "jtag_primary": {
+      "frames": 6,
+      "counter_discontinuities": 4,
+      "all_signatures_correct": true,
+      "approximate_sys_hz": 40079211.088005275
+    },
+    "jtag_aux": {
+      "frames": 12,
+      "counter_discontinuities": 0,
+      "all_signatures_correct": true,
+      "approximate_sys_hz": 39999997.503342405
+    }
+  },
+  "completed_clock_measurements": true,
+  "aux_retained": false,
+  "mcu_restored": true,
+  "trial_error": "AssertionError()",
+  "adc_aux": "NOT_MEASURED",
+  "limitations": "Sparse read-only JTAG counter pairs detect SYS counter restarts, not analog clock noise or every short LOCK excursion. Temperature initialization did not qualify; original MCU restored. Clock rates are uncalibrated estimates."
+}

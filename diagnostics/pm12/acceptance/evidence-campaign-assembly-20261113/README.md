@@ -1,3 +1,9 @@
+Latest clock isolation: [PRIMARY versus AUX and final rollback](../../system/evidence-cdce-aux-20261115/README.md).
+JTAG counter restarts PRIMARY4/6, AUX0/12, all replies correct. AUX not retained:
+PM Ethernet unavailable and ADT initialization unqualified (also failed on PRIMARY
+in a later candidate). Original MCU/AUTO-PRIMARY restored; FPGA71ac56fb, ADT C3,
+ADC12/12/power/frontend PASS, Ethernet works. Clock fault remains OPEN.
+
 Latest quiet-write implementation: [comparison and installation evidence](../../system/evidence-write-quiet-20261115/README.md).
 Resident71ac56fb, default CSR305=4: no MISO echo during writes. Reduced comparison
 quiet0/24 resets, raw control1/1; all25 commits correct. Three read replies correct

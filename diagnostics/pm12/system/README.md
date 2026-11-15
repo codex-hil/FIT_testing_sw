@@ -1,3 +1,8 @@
+Current clock source: restored AUTO/PRIMARY after [AUX isolation test](evidence-cdce-aux-20261115/README.md).
+Original MCU fully restored, FPGA71ac56fb retained. AUX test0/12 versus PRIMARY4/6
+SYS counter restarts; AUX operational acceptance failed, all raw/error data retained.
+Final original-clock ADT C3/ADC12/power/frontend/PM Ethernet PASS.
+
 Latest resident image: [quiet MISO during write frames](evidence-write-quiet-20261115/README.md).
 71ac56fb retained in SRAM after final24 quiet writes and ADC12/12/power/frontend
 PASS. Default quiet-write CSR305=4; generator306=0. Read-induced SYS clock loss
