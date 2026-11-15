@@ -1,3 +1,8 @@
+Latest MISO drive comparison: [raw captures and restored state](../../system/evidence-miso-drive-20261115/README.md).
+Matched SPI read0/divider601:12mA6/6 SYS resets,4mA12/12,12mA return12/12.
+All replies correct; minimum FPGA drive does not suppress the issue. DD29 still
+drives HDMI. Exactc7531465 restored; ADC12/12, power and frontend PASS.
+
 Latest within-image reset-only reversal: [full data and controls](../../system/evidence-spi-ab-20261115/README.md).
 Reset-only R1/R2:0/12; resetting bit cleared in A1/A3:12/12. Independent active
 parser/MISO0 control:0/6; removing clamp:6/6. All stages in one30096dcc image

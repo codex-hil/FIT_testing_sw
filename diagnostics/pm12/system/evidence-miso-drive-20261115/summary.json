@@ -1,0 +1,29 @@
+{
+  "groups": {
+    "A12-search": {
+      "frames": 6,
+      "resets": 6,
+      "bad_spi_replies": 0
+    },
+    "B4-primary": {
+      "frames": 12,
+      "resets": 12,
+      "bad_spi_replies": 0
+    },
+    "B4-functional": {
+      "frames": 18,
+      "resets": 12,
+      "bad_spi_replies": 0
+    },
+    "A12-return": {
+      "frames": 12,
+      "resets": 12,
+      "bad_spi_replies": 0
+    }
+  },
+  "completed": true,
+  "restored": true,
+  "adc_validated": true,
+  "baseline_reproduced": true,
+  "chosen_divider": 601
+}
