@@ -1,0 +1,2 @@
+PASS quiet writes at every sample/edge, exact commits, read0/1/2/scratch, raw comparison where enabled
+diagnostics/pm12/system/write_quiet/tb.v:33: $finish called at 3237000 (1ps)

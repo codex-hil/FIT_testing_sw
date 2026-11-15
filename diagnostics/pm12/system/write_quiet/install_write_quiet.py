@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""MISO OE reversal and restricted write-only scratch diagnostics."""
+import sys,subprocess
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from hold_spi import *
+from station import jtag_command,read_dna,load_dependencies
+sys.path.insert(0,str(BASE));from test_board import payload
+class DiagnosticWrites(HeldAdapter):
+ def transfer(self,read,address,value=0):
+  if read:return super().transfer(read,address,value)
+  if address!=0x40 or value not in (0,0xffff,0x5555,0x0f0f):raise ValueError('Only fixed diagnostic scratch writes qualified')
+  packet=(address<<22)|value
+  # These fixed packets contain neither MCU sync bytes nor AA reset bytes.
+  assert not set(packet.to_bytes(4,'big'))&set(bytes.fromhex('7856341298badcfeaa'))
+  before=self.d.read(0x158);self.d.write(0x148,packet);deadline=time.monotonic()+1
+  while self.d.read(0x158)==before:
+   if self.d.read(0x150)&4:raise RuntimeError('HDMI SPI error')
+   if time.monotonic()>deadline:raise TimeoutError('HDMI SPI timeout')
+  assert self.d.read(0x158)==(before+1)&0xffffffff
+  return self.d.read(0x14c)&65535
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work',type=Path,required=True);p.add_argument('--output-name',default='hardware');args=p.parse_args();root=args.work;out=root/args.output_name;out.mkdir(exist_ok=False);(out/'executed.py').write_bytes(Path(__file__).read_bytes())
+cfg=json.loads(Path('/srv/codex-hil-nvme/pm12-campaigns/PM12-K7-3A17A1B402212223/four-cfd-20261113/staging/board-station.json').read_text());cfg['jtag_workspace']=str(root/'jtag-work');load_dependencies(cfg)
+new=root/'candidate/pm12_ipbus_adc.bit';gold=Path('/srv/codex-hil-nvme/pm12-tdc-clock40-20261114/candidate/pm12_ipbus_adc.bit');assert hashlib.sha256(gold.read_bytes()).hexdigest()=='4f0b3edba1271eed41757bc7f21845e43a4ecb2e2c023abe28f3b5770abc8c16'
+q=json.loads((root/'candidate/qualification.json').read_text());assert q['pass'] and hashlib.sha256(new.read_bytes()).hexdigest()==q['bit_sha256'];newid=int(q['build_id'],16)
+r=dict(started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),qualification=q,blocks=[])
+def save():(out/'result.json').write_text(json.dumps(r,indent=2)+'\n')
+def connect(expected):
+ c=system.Client();end=time.monotonic()+20
+ while True:
+  try:
+   if c.read(0,3)==[0x504d1202,0x10002,expected]:return c
+  except TimeoutError:pass
+  if time.monotonic()>end:c.close();raise TimeoutError('PM identity')
+  time.sleep(.1)
+with contextlib.ExitStack() as st:
+ for n in sorted(['atmel-ice-J41800043065','pm12-210249A73E43','kasli-diot-00001']):st.enter_context(acquire(Path.home()/'.cache'/(n+'.lock')))
+ d=system.GatePhaseIPbusDevice();st.callback(d.close);a=DiagnosticWrites(d);a.stop();assert d.read(0xe0)==0
+ r['kasli']=dict(cfd=d.read(0xd8),map=d.read(0x15c),enable=d.read(0x144),state=d.read(0x150));r['old_divider']=d.read(0x154);d.write(0x154,600)
+ with console(cfg) as preflight_uart:
+  pg=wait_power_good(preflight_uart,capture);mcu=capture(preflight_uart,'RS');assert 'Board S/N: 1803'in mcu['reply']
+ preflight=connect(0xc7531465)
+ try:
+  before=preflight.read(5,2);dna=read_dna(cfg,out);after=preflight.read(5,2);assert int(dna,16)==int('3A17A1B402212223',16);assert after[0]+(after[1]<<32)>=before[0]+(before[1]<<32)
+  r['identity_before']=dict(uid='PM12-K7-3A17A1B402212223',dna=dna,fpga=preflight.read(0,3),mcu=mcu,pgood=pg)
+ finally:preflight.close()
+ save()
+ with console(cfg) as u:
+  r['pgood_before']=wait_power_good(u,capture)
+  with jtag_command(cfg,out) as prefix:
+   s=(BASE/'adc/tools/load_fpga.tcl').read_text().replace('source [file join [file dirname [info script]] common.tcl]','source '+str(BASE/'adc/tools/common.tcl')).replace('0x504dad01','0x504d5a04');(out/'load.tcl').write_text(s)
+   def load(bit,label):
+    bits=payload(bit,out/'payload.hex')
+    with (out/(label+'.log')).open('w') as log:subprocess.run(prefix+['-mode','batch','-nolog','-nojournal','-notrace','-source',str(out/'load.tcl'),'-tclargs',cfg['jtag_cable'],cfg['hw_server'],str(out/'payload.hex'),str(bits)],stdout=log,stderr=subprocess.STDOUT,check=True,timeout=300)
+    (out/'payload.hex').unlink();assert 'LOAD_PASS'in(out/(label+'.log')).read_text()
+   c=None
+   try:
+    load(new,'generator-load')
+    c=connect(newid);c.s.settimeout(.1);native=c.read;r['read_recoveries']=[]
+    def recovered(address,count=1,increment=True):
+     deadline=time.monotonic()+8;failures=0
+     while True:
+      try:
+       value=native(address,count,increment)
+       if failures:r['read_recoveries'].append(dict(address=address,failures=failures));save()
+       return value
+      except TimeoutError:
+       failures+=1
+       if time.monotonic()>deadline:raise
+       time.sleep(.02)
+    c.read=recovered
+    assert c.read(0x306)==[0x474e0000]and c.read(0x305)==[0x53520004]and c.read(0x384)==[0x30005]
+    r.pop('blocks');r['trials']=[]
+    def trace(label,stage,genmode,parserhold,address=None,read=True,value=0):
+     global c,native
+     c.close();c=connect(newid);c.s.settimeout(.1);native=c.read;c.read=recovered
+     a.stop();assert d.read(0x150)==9
+     assert parserhold in (0,4)
+     for attempt in range(4):
+      if c.read(0x305)==[0x53520000|parserhold]:break
+      try:c.write(0x305,[parserhold])
+      except TimeoutError:pass
+     assert c.read(0x305)==[0x53520000|parserhold]
+     row=dict(label=label,stage=stage,generator_mode=genmode,parser_hold=parserhold,address=address,read=read,value=value,divider=d.read(0x154),host_start=time.monotonic());r['trials'].append(row);save()
+     if c.read(0x306)!=[0x474e0000|genmode]:
+      try:c.write(0x306,[genmode])
+      except TimeoutError:row['mode_ack_timeout']=True
+      assert c.read(0x306)==[0x474e0000|genmode]
+     time.sleep(.05)
+     seen=c.read(0x381)[0]&4096
+     row['arm_attempts']=[];deadline=time.monotonic()+12;next_attempt=0
+     while True:
+      status=c.read(0x381)[0]
+      if status&4096!=seen:
+       if status&1:break
+       if status&2:raise RuntimeError('Capture froze before stimulus')
+      now=time.monotonic()
+      if now>deadline:raise TimeoutError('ARM')
+      if now>=next_attempt:
+       row['arm_attempts'].append(dict(host_time=now));save()
+       try:c.write(0x380,[0x41524d31])
+       except TimeoutError:row['arm_attempts'][-1]['ack_timeout']=True;save()
+       next_attempt=time.monotonic()+.5
+      time.sleep(.005)
+     if address is not None:
+      if not read:row['writes_before']=c.read(0x304)[0]
+      row['signature']=a.transfer(read,address,value)
+      if read:row['signature_ok']=row['signature']==[0x4844,0x4d49,1][address]
+     while True:
+      status=c.read(0x381)[0]
+      if status&2:break
+      if time.monotonic()>deadline:raise TimeoutError('freeze')
+      time.sleep(.01)
+     count=c.read(0x382)[0];assert 1<=count<=512
+     row.update(status=status,count=count,raw_words_partial=[]);save()
+     for offset in range(0,count*3,128):row['raw_words_partial']+=c.read(0x8000+offset,min(128,count*3-offset));save()
+     assert c.read(0x381)==[status]and c.read(0x382)==[count]
+     if address is not None and not read:
+      row['writes_after']=c.read(0x304)[0];row['scratch_after']=c.read(0x303)[0]
+      row['write_committed']=(row['writes_after']==(row['writes_before']+1)&65535 and row['scratch_after']==value)
+     row['raw_words']=row.pop('raw_words_partial');row['generator_after']=c.read(0x306)[0];row['parser_after']=c.read(0x305)[0]
+     assert row['generator_after']==0x474e0000|genmode and row['parser_after']==0x53520000|parserhold
+     samples=[(row['raw_words'][i],row['raw_words'][i+1])for i in range(0,len(row['raw_words']),3)if row['raw_words'][i]>8]
+     row['sys_reset_observed']=any(w&4 for t,w in samples);row['lock_loss_observed']=any(not(w&1)or w&128 for t,w in samples)
+     row['miso_edges']=sum(bool(x[1]&64)!=bool(y[1]&64)for x,y in zip(samples,samples[1:]));row['watch_span_ticks']=samples[-1][0]-samples[0][0]if samples else 0
+     row['oe_samples_high']=sum(bool(w&8192)for t,w in samples);row['samples']=len(samples)
+     row['oe_mismatches']=sum(bool(w&8192)!=(True if genmode>=4 else bool(w&8))for t,w in samples)
+     if genmode>=4:assert row['oe_mismatches']==0, 'Forced output enable not observed'
+     (out/(label+'.json')).write_text(json.dumps(row,indent=2)+'\n');save();print(label,'RESET'if row['sys_reset_observed']else'stable','edges',row['miso_edges'],flush=True);return row
+    d.write(0x154,601)
+    for value in [0,0xffff,0x5555,0x0f0f]:
+     for rep in range(3):trace(f'QUIET-before-v{value:04x}-{rep}','QUIET-before',0,4,0x40,False,value)
+    for value in [0,0xffff,0x5555,0x0f0f]:
+     for rep in range(3):trace(f'QUIET-return-v{value:04x}-{rep}','QUIET-return',0,4,0x40,False,value)
+    r['completed']=True;save()
+   except BaseException as e:r['error']=repr(e);save();raise
+   finally:
+    if c:c.close()
+    r['retained_candidate']=False
+    def postflight(client,label):
+     r['identity_after']=client.read(0,3);r['frontend_ready']=client.read(0x205)[0];assert r['frontend_ready']==0xfff
+     r['pgood_after']=require_power_good(u,capture)
+     from client import save_capture
+     r['adc_attempts']=[];r['adc_final']=None
+     for attempt in range(2):
+      gen,status=client.acquire(0,False);raw=client.download(gen)
+      try:
+       r['adc_final']=save_capture(out/f'{label}-adc-{attempt}',raw,0,False,gen,status);r['adc_attempts'].append(dict(pass_=True));break
+      except ValueError as error:r['adc_attempts'].append(dict(pass_=False,error=str(error)));save()
+     r['adc_validated']=bool(r.get('adc_final'));r.setdefault('postflight',{})[label]=dict(adc_attempts=list(r['adc_attempts']),adc_validated=r['adc_validated'],frontend_ready=r['frontend_ready']);save();assert r['adc_validated']
+    try:
+     quiet_rows=[t for t in r.get('trials',[])if t['stage'].startswith('QUIET')]
+     read_rows=[t for t in r.get('trials',[])if t['stage'].startswith('READ')]
+     write_rows=[t for t in r.get('trials',[])if t.get('read')is False]
+     qualified=r.get('completed')and len(quiet_rows)==24 and all(t.get('write_committed')and not t.get('sys_reset_observed')for t in quiet_rows)and len(write_rows)==24 and all(t.get('write_committed')for t in write_rows)
+     if qualified:
+      try:
+       c=connect(newid);r['candidate_mode_readback']=c.read(0x305);r['candidate_generator_readback']=c.read(0x306);save();assert r['candidate_mode_readback']==[0x53520004]and r['candidate_generator_readback']==[0x474e0000];postflight(c,'candidate');r['retained_candidate']=True;r['resident_sha256']=q['bit_sha256'];save()
+      except BaseException as error:r['candidate_postflight_error']=repr(error);r['candidate_failure_snapshot']={k:r.get(k)for k in ['identity_after','frontend_ready','pgood_after','adc_attempts']};save()
+      finally:
+       if c:c.close();c=None
+     if not r['retained_candidate']:
+      load(gold,'golden-restore');c=connect(0xc7531465);r['restored']=True;postflight(c,'golden')
+     d.write(0x154,r['old_divider']);a.stop()
+    finally:
+     if c:c.close()
+     r['finished_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();save();a.stop()

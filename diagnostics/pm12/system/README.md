@@ -1,3 +1,8 @@
+Latest resident image: [quiet MISO during write frames](evidence-write-quiet-20261115/README.md).
+71ac56fb retained in SRAM after final24 quiet writes and ADC12/12/power/frontend
+PASS. Default quiet-write CSR305=4; generator306=0. Read-induced SYS clock loss
+remains open; do not classify the board as fully accepted.
+
 Latest within-image reversal: [reset-only and independent MISO control](evidence-spi-ab-20261115/README.md).
 Reset-only blocks0/12; two reset releases12/12. Active parser with MISO0 also
 suppresses(0/6), and removing clamp reproduces6/6. Reset not necessary for

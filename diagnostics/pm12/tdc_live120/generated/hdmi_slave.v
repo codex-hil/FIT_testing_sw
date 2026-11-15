@@ -4,7 +4,8 @@
 module hdmi_slave(input clk,sel,mosi,input locked,output miso,output [15:0] scratch_out,output [15:0] writes_out);
  reg [4:0] count=0;reg reading=0;reg [7:0] address=0;
  reg [15:0] data=0,scratch=0,writes=0;
- assign miso=data[15];assign scratch_out=scratch;assign writes_out=writes;
+ // Write frames must not echo the receive shift register onto MISO.
+ assign miso=reading?data[15]:1'b0;assign scratch_out=scratch;assign writes_out=writes;
  function [15:0] contents(input [7:0] a);
  begin case(a)
   0:contents=16'h4844;1:contents=16'h4d49;2:contents={15'b0,locked};

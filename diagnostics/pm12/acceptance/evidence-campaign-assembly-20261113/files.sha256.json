@@ -1,5 +1,5 @@
 {
-  "README.md": "b5046618e9d34e495a1300fb4e5901938445dfbd376d5d721ebc50d0a4d18a36",
+  "README.md": "3e5a6effc1b58d3daa87a264f13f6bee461def73ffafdccd632633f227cded7e",
   "acceptance-tests.txt": "a17fe729a276d81c7836fd65d3fee0c8e91e81c96338ea69d37af1a6f71d8fe4",
   "assembly-connections.tex": "1a8aedf046282bbbdcda4f264fb2da677bc3b7ce3388b412ad8f520c7bd6b7f6",
   "assembly-findings.tex": "670926a151a87fcf9f2adcfa4cf37789215ec23ca470b9f6cbc1fb20757f5f06",
@@ -172,8 +172,8 @@
   "miso-oe.png": "1dc65ad778b5c3ceb9b5d5d403c88ccb6914204fafa3e5660df97873210463f4",
   "monitor-assembly.pdf": "d13f350a72f707cb5e53f5fab18c43207e3d27defdcdc672eb62b3dad154cb7c",
   "monitor-assembly.png": "fa18e0947581fd267e951d9bc2060b64007b4b9cd380dbea51a85dfe3a31c401",
-  "report.pdf": "c7129af658f90637cde027e3d5ed93ca0ff6322f6d6bc5d3d878255d73309819",
-  "report.tex": "daa58118089fd21abcbea036f0bf7d58cc20a5704e81e6d7a42c184f07653ef1",
+  "report.pdf": "fe4a70c3f98a4a6c6de842c30c3f7efa98fc2568367aa89f611dcf8ec811942c",
+  "report.tex": "5657509a9f47ef2bd1875a443a74d783dfb6aa7e61cf5e021604dfb7c0da99a4",
   "selective-latex-build.txt": "92313e417f2989caac0ddd8ce79bde734cc054fd0b6a06312d93062b7f792d9b",
   "selective-spi-followup.tex": "1e45f33ffe5796d496f92954d73cf3259e1a6bb226cef5d8e5c9dd7a2875a311",
   "selective-spi.pdf": "4925adade9d79e6e53c5e1060888154679e862a9f311653f0cf72c6b3f20750b",
@@ -190,5 +190,7 @@
   "spi-state-latex-build.txt": "c88b1f86ac9ec4e0a2a3dbc6beca1f1e9ceb1e4db18c4c2645bfd2f4e8f9cfca",
   "spi-writes.png": "6acedafebf80dc22cd91ab66e9bb59d8de5818824d51a3865d59c30f29509786",
   "tdc-clock40-followup.tex": "9e480a0b6d2f19273098d0d81eddf881789cbe1ffce5fd90049bc227127ba155",
-  "tdc-clock40-phase.pdf": "27574a66121b91b9fac79762df4a549c4f5e2598cdd48225baf5ed49d81729ff"
+  "tdc-clock40-phase.pdf": "27574a66121b91b9fac79762df4a549c4f5e2598cdd48225baf5ed49d81729ff",
+  "write-quiet-followup.tex": "967f54e6b3455a60600559585188b556eb78ebd7a779b7b51b4b14e05adad7d9",
+  "write-quiet.png": "2421dff19dc945c101bf12f4087d26f9a81935e620cdb631690b13ad3fce8d27"
 }

@@ -1,3 +1,10 @@
+Latest quiet-write implementation: [comparison and installation evidence](../../system/evidence-write-quiet-20261115/README.md).
+Resident71ac56fb, default CSR305=4: no MISO echo during writes. Reduced comparison
+quiet0/24 resets, raw control1/1; all25 commits correct. Three read replies correct
+but3/3 clock resets: read fault remains OPEN. Separate fresh-load installation
+quiet24/24 commits/no resets and ADC12/12/power/frontend PASS, candidate retained.
+Earlier partial/failed postflight cohorts explicitly separate. No flash writes.
+
 Latest write-only/OE evidence: [completed series and partial-run limits](../../system/evidence-miso-oe-20261115/README.md).
 Normal writes8/12 resets; same writes with MISO0 clamp0/12; normal return11/12.
 All36 scratch writes verified via IPbus, no SPI readback. Normal/always-OE/normal
