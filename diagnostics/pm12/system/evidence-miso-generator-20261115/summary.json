@@ -1,0 +1,599 @@
+{
+  "completed": true,
+  "restored": true,
+  "adc_validated": true,
+  "groups": {
+    "SPI-before": {
+      "windows": 6,
+      "sys_resets": 6,
+      "lock_losses": 6,
+      "miso_edges": 88,
+      "bad_spi_replies": 0
+    },
+    "LOW1": {
+      "windows": 6,
+      "sys_resets": 0,
+      "lock_losses": 0,
+      "miso_edges": 0,
+      "bad_spi_replies": 0
+    },
+    "PULSE1": {
+      "windows": 12,
+      "sys_resets": 0,
+      "lock_losses": 0,
+      "miso_edges": 6108,
+      "bad_spi_replies": 0
+    },
+    "HIGH": {
+      "windows": 6,
+      "sys_resets": 0,
+      "lock_losses": 0,
+      "miso_edges": 0,
+      "bad_spi_replies": 0
+    },
+    "PULSE2": {
+      "windows": 12,
+      "sys_resets": 0,
+      "lock_losses": 0,
+      "miso_edges": 6108,
+      "bad_spi_replies": 0
+    },
+    "LOW2": {
+      "windows": 6,
+      "sys_resets": 0,
+      "lock_losses": 0,
+      "miso_edges": 0,
+      "bad_spi_replies": 0
+    },
+    "SPI-after": {
+      "windows": 6,
+      "sys_resets": 6,
+      "lock_losses": 6,
+      "miso_edges": 96,
+      "bad_spi_replies": 0
+    }
+  },
+  "windows": [
+    {
+      "label": "A-before-0",
+      "stage": "SPI-before",
+      "miso_edges": 8,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-before-1",
+      "stage": "SPI-before",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-before-2",
+      "stage": "SPI-before",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-before-3",
+      "stage": "SPI-before",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-before-4",
+      "stage": "SPI-before",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-before-5",
+      "stage": "SPI-before",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "LOW1-0",
+      "stage": "LOW1",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW1-1",
+      "stage": "LOW1",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW1-2",
+      "stage": "LOW1",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW1-3",
+      "stage": "LOW1",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW1-4",
+      "stage": "LOW1",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW1-5",
+      "stage": "LOW1",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "PULSE1-0",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-1",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-2",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-3",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-4",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-5",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-6",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-7",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-8",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-9",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-10",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE1-11",
+      "stage": "PULSE1",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "HIGH-0",
+      "stage": "HIGH",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "HIGH-1",
+      "stage": "HIGH",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "HIGH-2",
+      "stage": "HIGH",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "HIGH-3",
+      "stage": "HIGH",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "HIGH-4",
+      "stage": "HIGH",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "HIGH-5",
+      "stage": "HIGH",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "PULSE2-0",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-1",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-2",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-3",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-4",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-5",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-6",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-7",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-8",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-9",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-10",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "PULSE2-11",
+      "stage": "PULSE2",
+      "miso_edges": 509,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": 20039.0,
+      "min_spacing_ticks": 20039,
+      "max_spacing_ticks": 20039
+    },
+    {
+      "label": "LOW2-0",
+      "stage": "LOW2",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW2-1",
+      "stage": "LOW2",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW2-2",
+      "stage": "LOW2",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW2-3",
+      "stage": "LOW2",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW2-4",
+      "stage": "LOW2",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "LOW2-5",
+      "stage": "LOW2",
+      "miso_edges": 0,
+      "sys_reset": false,
+      "lock_loss": false,
+      "median_half_period_ticks": null,
+      "min_spacing_ticks": null,
+      "max_spacing_ticks": null
+    },
+    {
+      "label": "A-after-0",
+      "stage": "SPI-after",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-after-1",
+      "stage": "SPI-after",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-after-2",
+      "stage": "SPI-after",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-after-3",
+      "stage": "SPI-after",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-after-4",
+      "stage": "SPI-after",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    },
+    {
+      "label": "A-after-5",
+      "stage": "SPI-after",
+      "miso_edges": 16,
+      "sys_reset": true,
+      "lock_loss": true,
+      "median_half_period_ticks": 401,
+      "min_spacing_ticks": 401,
+      "max_spacing_ticks": 1603
+    }
+  ],
+  "limitations": "MISO is sampled logical source, not pad voltage. Generator and observer use MCLK1 and cannot prove behavior during a complete common reference stop. Static captures are sparse, not duration records."
+}

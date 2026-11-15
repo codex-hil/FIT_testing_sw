@@ -1,0 +1,2 @@
+PASS: default, static low/high, 20039-tick half-period, stop and normal mode
+diagnostics/pm12/system/miso_generator/tb.v:22: $finish called at 1002300000 (1ps)

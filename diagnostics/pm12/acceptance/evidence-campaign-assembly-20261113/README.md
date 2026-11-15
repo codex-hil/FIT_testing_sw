@@ -1,3 +1,9 @@
+Latest standalone MISO test: [raw traces and results](../../system/evidence-miso-generator-20261115/README.md).
+1kHz continuously driven MISO:0/24 SYS resets or lock losses,12216 sampled edges.
+Static low0/12, high0/6. Normal SPI controls12/12 resets, all replies correct.
+Clock integrity and output-enable/Hi-Z effects remain open. Exactc753 restored;
+ADC12/12, power and frontend PASS.
+
 Latest MISO drive comparison: [raw captures and restored state](../../system/evidence-miso-drive-20261115/README.md).
 Matched SPI read0/divider601:12mA6/6 SYS resets,4mA12/12,12mA return12/12.
 All replies correct; minimum FPGA drive does not suppress the issue. DD29 still
