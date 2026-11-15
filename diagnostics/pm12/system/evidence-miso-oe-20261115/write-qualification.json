@@ -1,0 +1,16 @@
+{
+  "mcu_reference_sha256": "e80e8612f7114caff6d7a2494ad0f51010182f2c2c83fdfb3047c9f8a34663c0",
+  "mcu_sync_offset": "0x2b76",
+  "mcu_sync8": "7856341298badcfe",
+  "mcu_reset_sequence": "aaaaaaaaaaaaaaaa",
+  "fixed_write_packets": [
+    "10000000",
+    "1000ffff",
+    "10005555",
+    "10000f0f"
+  ],
+  "no_sync_or_reset_bytes": true,
+  "global_read_only_guard_retained": true,
+  "fpga_diagnostic_register": "0x40 scratch only; no peripheral controls",
+  "verification": "Scratch and write counter read through IPbus303/304; no SPI readback transactions in write blocks"
+}

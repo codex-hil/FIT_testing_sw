@@ -1,3 +1,10 @@
+Latest write-only/OE evidence: [completed series and partial-run limits](../../system/evidence-miso-oe-20261115/README.md).
+Normal writes8/12 resets; same writes with MISO0 clamp0/12; normal return11/12.
+All36 scratch writes verified via IPbus, no SPI readback. Normal/always-OE/normal
+read controls6/6 each; removing Hi-Z does not suppress. Mode5 unmeasured after
+failed readback; full planned protocol incomplete, all errors/raw retained.
+Exactc753 restored; ADC12/12/power/frontend PASS.
+
 Latest standalone MISO test: [raw traces and results](../../system/evidence-miso-generator-20261115/README.md).
 1kHz continuously driven MISO:0/24 SYS resets or lock losses,12216 sampled edges.
 Static low0/12, high0/6. Normal SPI controls12/12 resets, all replies correct.

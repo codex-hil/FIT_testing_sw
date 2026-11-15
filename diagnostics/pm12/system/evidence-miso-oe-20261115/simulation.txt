@@ -1,0 +1,2 @@
+PASS actual routing: identical selected SPI replies, mode0 idle Hi-Z, mode4 unchanged data/continuous OE, mode5 idle0, normal return
+/srv/codex-hil-nvme/pm12-miso-oe-20261115/simulation/tb.v:28: $finish called at 9860000 (1ps)
