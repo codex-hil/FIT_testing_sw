@@ -1,0 +1,2 @@
+PASS clock ratios, ring wrap/readout, dropped MCLK edges, async SYS reset freeze, invalid RX flag, frozen retention, rearm and source-counter wrap
+diagnostics/pm12/system/rx_clock_counter/tb.v:33: $finish called at 1112738500 (1ps)

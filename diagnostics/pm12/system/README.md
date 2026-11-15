@@ -1,3 +1,9 @@
+Latest resident state: **ff2f746c**, recovered-RX clock counter, original MCU/AUTO-PRIMARY.
+[Raw counter/status evidence](evidence-rx-clock-counter-20261115/README.md).
+Idle counts exact; read0/read1 SYS resets with at most one-count deviations.
+R8 PRIMARY/locked before/after; short loss or switching not excluded. ADC12/12 PASS.
+Historical resident-image statements below describe their dated cohorts.
+
 Current clock source: restored AUTO/PRIMARY after [AUX isolation test](evidence-cdce-aux-20261115/README.md).
 Original MCU fully restored, FPGA71ac56fb retained. AUX test0/12 versus PRIMARY4/6
 SYS counter restarts; AUX operational acceptance failed, all raw/error data retained.

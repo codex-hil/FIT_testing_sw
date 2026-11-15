@@ -1,3 +1,11 @@
+[Current 78-page PDF](report.pdf).
+
+Latest resident state: **ff2f746c**, recovered-RX clock counter, original MCU/AUTO-PRIMARY.
+[Raw counter/status evidence](../../system/evidence-rx-clock-counter-20261115/README.md).
+Idle counts exact; read0/read1 SYS resets with at most one-count deviations.
+R8 PRIMARY/locked before/after; short loss or switching not excluded. ADC12/12 PASS.
+Historical resident-image statements below describe their dated cohorts.
+
 Latest clock isolation: [PRIMARY versus AUX and final rollback](../../system/evidence-cdce-aux-20261115/README.md).
 JTAG counter restarts PRIMARY4/6, AUX0/12, all replies correct. AUX not retained:
 PM Ethernet unavailable and ADT initialization unqualified (also failed on PRIMARY

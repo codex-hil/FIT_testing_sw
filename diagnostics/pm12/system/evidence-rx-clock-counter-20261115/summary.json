@@ -1,0 +1,200 @@
+{
+  "completed": true,
+  "retained_candidate": true,
+  "restored": null,
+  "adc_validated": true,
+  "postflight_error": null,
+  "error": null,
+  "trials": [
+    {
+      "label": "idle-before",
+      "record_count": 2048,
+      "valid_full_windows": 2047,
+      "triggered": false,
+      "status": 74,
+      "clocks": {
+        "mclk": {
+          "min": 256,
+          "max": 256,
+          "mean": 256,
+          "expected": 256,
+          "more_than_one_count_off": 0,
+          "mean_hz": 40078700.0
+        },
+        "gtref": {
+          "min": 640,
+          "max": 640,
+          "mean": 640,
+          "expected": 640,
+          "more_than_one_count_off": 0,
+          "mean_hz": 100196750.0
+        },
+        "sys": {
+          "min": 256,
+          "max": 256,
+          "mean": 256,
+          "expected": 256,
+          "more_than_one_count_off": 0,
+          "mean_hz": 40078700.0
+        }
+      },
+      "cdce_before": {
+        "wire_word": "20009d38",
+        "payload": "20009d3",
+        "pll_lock_pin": true,
+        "selected_source": "PRIMARY",
+        "source_code": 1,
+        "status_is_sticky": false
+      },
+      "cdce_after": {
+        "wire_word": "20009d38",
+        "payload": "20009d3",
+        "pll_lock_pin": true,
+        "selected_source": "PRIMARY",
+        "source_code": 1,
+        "status_is_sticky": false
+      },
+      "signature_ok": null,
+      "last_record": {
+        "label": "idle-before",
+        "index": 2047,
+        "physical": 1319,
+        "tick": 6011805,
+        "mclk": 179,
+        "gtref": 448,
+        "sys": 179,
+        "flags": 187,
+        "length": 269,
+        "window_id": 15655,
+        "valid_full": false
+      }
+    },
+    {
+      "label": "read0",
+      "record_count": 1634,
+      "valid_full_windows": 1633,
+      "triggered": true,
+      "status": 86,
+      "clocks": {
+        "mclk": {
+          "min": 256,
+          "max": 257,
+          "mean": 256.0012247397428,
+          "expected": 256,
+          "more_than_one_count_off": 0,
+          "mean_hz": 40078891.7420966
+        },
+        "gtref": {
+          "min": 640,
+          "max": 641,
+          "mean": 640.0018371096143,
+          "expected": 640,
+          "more_than_one_count_off": 0,
+          "mean_hz": 100197037.6131449
+        },
+        "sys": {
+          "min": 255,
+          "max": 257,
+          "mean": 256.0006123698714,
+          "expected": 256,
+          "more_than_one_count_off": 0,
+          "mean_hz": 40078795.8710483
+        }
+      },
+      "cdce_before": {
+        "wire_word": "20009d38",
+        "payload": "20009d3",
+        "pll_lock_pin": true,
+        "selected_source": "PRIMARY",
+        "source_code": 1,
+        "status_is_sticky": false
+      },
+      "cdce_after": {
+        "wire_word": "20009d38",
+        "payload": "20009d3",
+        "pll_lock_pin": true,
+        "selected_source": "PRIMARY",
+        "source_code": 1,
+        "status_is_sticky": false
+      },
+      "signature_ok": true,
+      "last_record": {
+        "label": "read0",
+        "index": 1633,
+        "physical": 1633,
+        "tick": 627141,
+        "mclk": 35,
+        "gtref": 88,
+        "sys": 36,
+        "flags": 251,
+        "length": 53,
+        "window_id": 1633,
+        "valid_full": false
+      }
+    },
+    {
+      "label": "read1",
+      "record_count": 1617,
+      "valid_full_windows": 1616,
+      "triggered": true,
+      "status": 94,
+      "clocks": {
+        "mclk": {
+          "min": 256,
+          "max": 257,
+          "mean": 256.0012376237624,
+          "expected": 256,
+          "more_than_one_count_off": 0,
+          "mean_hz": 40078893.759185486
+        },
+        "gtref": {
+          "min": 639,
+          "max": 641,
+          "mean": 640.0018564356436,
+          "expected": 640,
+          "more_than_one_count_off": 0,
+          "mean_hz": 100197040.63877824
+        },
+        "sys": {
+          "min": 256,
+          "max": 257,
+          "mean": 256.00061881188117,
+          "expected": 256,
+          "more_than_one_count_off": 0,
+          "mean_hz": 40078796.87959275
+        }
+      },
+      "cdce_before": {
+        "wire_word": "20009d38",
+        "payload": "20009d3",
+        "pll_lock_pin": true,
+        "selected_source": "PRIMARY",
+        "source_code": 1,
+        "status_is_sticky": false
+      },
+      "cdce_after": {
+        "wire_word": "20009d38",
+        "payload": "20009d3",
+        "pll_lock_pin": true,
+        "selected_source": "PRIMARY",
+        "source_code": 1,
+        "status_is_sticky": false
+      },
+      "signature_ok": true,
+      "last_record": {
+        "label": "read1",
+        "index": 1616,
+        "physical": 1616,
+        "tick": 620562,
+        "mclk": 1,
+        "gtref": 3,
+        "sys": 1,
+        "flags": 251,
+        "length": 2,
+        "window_id": 1616,
+        "valid_full": false
+      }
+    }
+  ],
+  "limitations": "Relative edge counts, not analog glitch/phase measurement. Endpoint quantization and CDR/local-reference coupling limit interpretation; partial and invalid-reference records excluded."
+}
