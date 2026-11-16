@@ -1,0 +1,18 @@
+{
+  "README.md": "4d6caa8a75723c4ef5b81290951589e78208314a1200597bcb8ad04fb514aebc",
+  "adc-dc-campaign-result.json": "7c296b2139ded63512304cc03cbfa4896870c250c1b29e40cb7d35cd1c5a2a9c",
+  "adc-dc-validation.json": "d4b023e74a4f394d387ded6a8199d8cade2a89c3597c202b7d32e6b3ec6acace",
+  "adc-lines-campaign-result.json": "96d8215f2fc177ffe13aca586c77856211d8edcaad29ab63beed6a40ea2bab79",
+  "adc-lines-validation.json": "d4b023e74a4f394d387ded6a8199d8cade2a89c3597c202b7d32e6b3ec6acace",
+  "adc-response-09-12.png": "c4a8a6bb91c0741ad9dbc4ead951d2e90d4be6dc4a6c662e2775cf7b2f2e6301",
+  "channel09-raw.tar.gz": "e1e1d48f0ad2a905aca71107e7d99ec88465aa7d18358d5faaa1aa3292a7f292",
+  "executed-report-generator.py": "d8b2603d8ee296fbae62e7d29c77874fb8946b5bc25de165879e094bec40338c",
+  "integrator-balance.png": "c2115e0a56d444ffc4c8305491e5bfc421ef934fa5be5bc50ced0febcb6c5ec6",
+  "integrator-campaign-result.json": "568f41f86af867bc6b101982cd9e1fe7ae7f5816bceb30bb2cdb24fc3d66951c",
+  "integrator-response-09-12.png": "7f0fcfabe2e83358610af85103251bb7fb505bd45e5afc326b5c0b656d401f91",
+  "integrator-validation.json": "37982f4555dbe5e60d9b06029dcd05e8a9928a4688acaccbb2b029d1987de840",
+  "integrator-waveforms.png": "3948c9bc5d57796dbfd8d36322165c644e8737da3bc97609912a2d0264300b8e",
+  "ramp-points.csv": "b7828f8651669656a193555896aab1086cc1c9194fbb10ade912171fe84c7190",
+  "software-tests.txt": "e4ee2b86c19f6f97ea33081818f77e2e3e0155fd17f408a01e3be52a83bd67c5",
+  "summary.json": "80528eed0e1d95ddbdd3483e519c91ace1780d78ab5276682147a6ca3a1c7284"
+}

@@ -18,13 +18,13 @@ from validate_adc_lines import validate as validate_adc_raw
 from integrator_analysis import integration_pair
 
 
-def context(root,bid,channel):
+def context(root,bid,channel,pm_build=0xc7c42d28):
     c=Campaign(root)
     with c.locked():
         directory,batch=c.batch(bid);c.check_identity(directory,batch)
         if channel not in batch['channels']:raise ValueError('Physical channel is not fitted')
         cfg=read(directory/'station.json')
-        hardware=dict(pm_build='c7c42d28',kasli_build=dict(ABI='CFD4',expected_bit_sha256=cfg['measurement_configuration']['kasli_bit_sha256']),
+        hardware=dict(pm_build=f'{pm_build:08x}',kasli_build=dict(ABI='CFD4',expected_bit_sha256=cfg['measurement_configuration']['kasli_bit_sha256']),
                       clock_profile=dict(reference_mhz=cfg['measurement_configuration']['reference_mhz'],adc_rate='2x reference',kasli_rate='3x reference'),cpld_gate_mode='original INTA/INTB enabled, nominal20MHz')
         return c.data['board_uid'],batch['assignments'][str(channel)],hardware
 
@@ -47,7 +47,7 @@ def analysis_sources(output):
 
 def adc(source,output,root,bid,kind):
     report=read(source/'scan/status.json');channel=report['channel']
-    uid,fixture,hardware=context(root,bid,channel)
+    uid,fixture,hardware=context(root,bid,channel,report['fpga_identity'][2])
     raw_check=validate_adc_raw(source/'scan')
     line=analyze_report(report)
     existing=read(source/'line-test.json')
@@ -107,7 +107,10 @@ def integrator(source,analysis,output,root,bid):
     reports={name:read(source/name/'status.json') for name in runs}
     channels={r['physical_channel'] for r in reports.values()}
     if len(channels)!=1:raise ValueError('Integrator inputs mix physical channels')
-    channel=channels.pop();uid,fixture,hardware=context(root,bid,channel)
+    channel=channels.pop()
+    builds={r['fpga'][2] for r in reports.values()}
+    if len(builds)!=1:raise ValueError('Integrator inputs mix FPGA builds')
+    uid,fixture,hardware=context(root,bid,channel,builds.pop())
     if not all(r['pass_'] for r in reports.values()):raise ValueError('Incomplete integrator acquisition')
     for r in reports.values():
         if not all(r['dac_before'][i]==r['dac_final'][i] for i in range(8) if i not in r['dac_channels']):raise ValueError('Unselected DAC changed in integrator stage')

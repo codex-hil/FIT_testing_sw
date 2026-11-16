@@ -51,7 +51,7 @@ def acquire(c,bank,out,label,channel=12,strict_edges=False):
   strobe_period_samples=sum(period*count for period,count in timing['interval_counts'].items())/sum(timing['interval_counts'].values()),strobe_timing=timing)
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--afe',type=int,choices=range(1,13),default=12);p.add_argument('--board-serial',required=False,default='1803');p.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);p.add_argument('--strict-edges',action='store_true',help='Separate strict phase-alignment diagnostic; requires all STR intervals4');p.add_argument('--probe',action='store_true');p.add_argument('--differences',type=float,nargs='+');a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--afe',type=int,choices=range(1,13),default=12);p.add_argument('--board-serial',required=False,default='1803');p.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);p.add_argument('--strict-edges',action='store_true',help='Separate strict phase-alignment diagnostic; requires all STR intervals4');p.add_argument('--expected-build',type=lambda v:int(v,16),help='Explicitly checked FPGA build; defaults to legacy qualified images');p.add_argument('--probe',action='store_true');p.add_argument('--differences',type=float,nargs='+');a=p.parse_args()
  if len(set(a.dac_channels))!=2 or any(c not in range(8) for c in a.dac_channels):p.error('Two distinct DAC channels0..7 required')
  if a.probe and a.differences:p.error('--probe and --differences are exclusive')
  differences=a.differences if a.differences else ([-.02,-.01,0,.01,.02] if a.probe else [round(-1+i*.02,4) for i in range(101)])
@@ -69,7 +69,7 @@ def main():
    u=serial.Serial(port=None,baudrate=115200,timeout=.03,write_timeout=1,rtscts=True,exclusive=True);u.dtr=False;u.rts=True;u.port=PORT;u.open();u.read(4096)
    report['pgood']=wait_power_good(u,capture);report['identity']=capture(u,'RS');assert re.search(r'Board S/N:\s*'+re.escape(a.board_serial)+r'\b',report['identity']['reply'])
    c=Client();report['fpga_identity']=c.read(0,3)
-   assert report['fpga_identity'][:2]==[0x504d1202,0x10002] and report['fpga_identity'][2] in (0xa27baa3e,0xc7c42d28)
+   assert report['fpga_identity'][:2]==[0x504d1202,0x10002] and report['fpga_identity'][2] in ((a.expected_build,) if a.expected_build is not None else (0xa27baa3e,0xc7c42d28))
    assert c.read(0x13,2)==[4096,12]
    bus=ConsoleI2C(u,capture)
    with bus.routed(*afe_route(a.afe)):

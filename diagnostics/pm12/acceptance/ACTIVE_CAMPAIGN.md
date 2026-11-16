@@ -1,3 +1,23 @@
+## Current2026-11-16 — analog USB on physical9, group9–12 complete
+
+Owner moved both USB pairs10→9; voltage-response probe confirmed both ADC paths.
+ADC A/B257-point transfer and adjacent-bit checks PASS. Integrator balance,
+independent revisits and±5mV signed controls PASS. Actual FPGA ff2f746c unchanged;
+no programming, PLL profile or SMU changes. USB0/1→J8 direct ADC,2/3→J6 integrator.
+All four channels9–12 now have analog functional observations;9 uses the new
+clock40 diagnostic revision while10–12 retain their original c7c42d28 data.
+Frozen parent source contracts remain unchanged. New registry:
+`/srv/codex-hil-nvme/pm12-campaigns/PM12-K7-3A17A1B402212223/four-cfd-clock40-20261116`.
+Combined plots label the differing hardware versions; no fresh10–12 retest claimed.
+[Channel9 raw/normalized evidence](evidence-campaign-ch09-20261116/README.md),
+[82-page cumulative report](evidence-campaign-assembly-20261113/report.pdf).
+
+Final0/1=1/1V,2/3=1.0264/2.0456V (shared compromise, not simultaneous A/B zero).
+Channel9 amplifiers enabled, direct ADC bypass inhibited, all four monitor muxes
+inhibited and both TCA masks0. Other fitted channels isolated at preflight.
+Kasli output directions unchanged; all local/remote DAC and board leases released.
+Earlier wiring/build/coverage statements below are dated history.
+
 **Current 2026-11-14:** corrected-clock SRAM build `c7531465` retained; TDC9–12 repeat PASS (19,268 events), ADC digital regression all12/both banks PASS. HDMI/SPI SYS restarts persist (8/12 reads). [Evidence](../tdc_live120/evidence-clock40-20261114/README.md). No external PLL profile was changed. Slot6 SPI outputs must remain driven. Historical c7c42d28 results below are not correct-clock qualification.
 
 # Active PM12 campaign — 2026-11-13

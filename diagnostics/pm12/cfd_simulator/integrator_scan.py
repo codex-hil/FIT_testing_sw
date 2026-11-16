@@ -12,7 +12,7 @@ from channel_settings import adc_address,require_serial_reply,snapshot_sources
 from console import ConsoleI2C,Registers
 from mcp23017 import afe_route
 from mod_dac28 import DAC,remote_lease,voltage
-ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,required=True);ap.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);ap.add_argument('--afe',type=int,choices=range(1,13),default=12);ap.add_argument('--board-serial',default='1803');ap.add_argument('--offsets',type=float,nargs='+',default=[-.02,-.01,0,.01,.02]);ap.add_argument('--repeats',type=int,default=4);ap.add_argument('--park',type=float,nargs=2);ap.add_argument('--base',type=float,nargs=2,default=[2.048,1.024]);ap.add_argument('--pairs',nargs='+',help='Explicit CH0:CH1 voltages');args=ap.parse_args()
+ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,required=True);ap.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);ap.add_argument('--afe',type=int,choices=range(1,13),default=12);ap.add_argument('--board-serial',default='1803');ap.add_argument('--offsets',type=float,nargs='+',default=[-.02,-.01,0,.01,.02]);ap.add_argument('--repeats',type=int,default=4);ap.add_argument('--park',type=float,nargs=2);ap.add_argument('--base',type=float,nargs=2,default=[2.048,1.024]);ap.add_argument('--pairs',nargs='+',help='Explicit CH0:CH1 voltages');ap.add_argument('--expected-build',type=lambda v:int(v,16),default=0xc7c42d28);args=ap.parse_args()
 if len(set(args.dac_channels))!=2 or any(c not in range(8) for c in args.dac_channels):ap.error('Two distinct DAC channels0..7 required')
 points=[tuple(map(float,p.split(':'))) for p in args.pairs] if args.pairs else [(round(args.base[0]+d/2,4),round(args.base[1]-d/2,4)) for d in args.offsets]
 for pair in points:
@@ -36,7 +36,7 @@ with contextlib.ExitStack() as st:
  remote=st.enter_context(remote_lease());dac=DAC(remote,channels=args.dac_channels);st.callback(dac.close)
  u=st.enter_context(console({'uart':'/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0'}));bus=ConsoleI2C(u,capture);c=Client();st.callback(c.close);changed=False;regs=None
  try:
-  r['pgood']=wait_power_good(u,capture);r['mcu']=capture(u,'RS');require_serial_reply(r['mcu']['reply'],args.board_serial);r['fpga']=c.read(0,3);assert r['fpga']==[0x504d1202,0x10002,0xc7c42d28]
+  r['pgood']=wait_power_good(u,capture);r['mcu']=capture(u,'RS');require_serial_reply(r['mcu']['reply'],args.board_serial);r['fpga']=c.read(0,3);assert r['fpga']==[0x504d1202,0x10002,args.expected_build]
   r['dac_before']=dac.snapshot()
   with bus.routed(*afe_route(args.afe)):
    require_power_good(u,capture);regs=Registers(bus);assert regs.read(10)==regs.read(11) and not regs.read(10)&128

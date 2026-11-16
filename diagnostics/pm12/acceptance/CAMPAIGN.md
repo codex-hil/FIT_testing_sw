@@ -210,3 +210,18 @@ Only when **every required case** is PASS is coverage
 `COMPLETE_SELECTED_PROTOCOL`. Numerical acceptance limits and board release
 remain a separate engineering disposition. The default campaign has not measured
 anything merely because its folders/template exist.
+
+## FPGA-build provenance after the clock40 diagnostic update
+
+ADC DC, ADC line and integrator runners accept `--expected-build HEX` for an
+explicit resident-build check. Legacy defaults remain unchanged. The guard also
+checks the existing ADC ABI/buffer geometry; the option does not qualify arbitrary
+firmware. The normalizer records the actual acquisition build and rejects mixed
+builds within an integrator sequence. Changing the build guard/source snapshots
+changes a frozen comparison contract: use a new campaign revision, preserving
+prior results and contracts. Cross-revision plots must label the hardware versions.
+
+Channel9 acquired2026-11-16 uses ff2f746c and the independent
+`four-cfd-clock40-20261116` registry. Its same-fitting metadata/identity are retained
+verbatim from the original9-12 fitting; live preflight and the new USB routing
+receipt are archived. Earlier10-12 measurements remain in the original registry.
