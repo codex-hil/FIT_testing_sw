@@ -1,3 +1,8 @@
+Latest cable comparison2026-11-16: **0/14 SYS-loss triggers, 14/14 correct SPI signatures**, versus prior2/2 triggers.
+Original MCU/AUTO-PRIMARY and ff2f746c unchanged; ADC12/12 PASS.
+Before/after observation, not proof of a HEC shield defect or completed A/B/A.
+[Raw comparison](evidence-hdmi-cable-20261116/README.md).
+
 Latest resident state: **ff2f746c**, recovered-RX clock counter, original MCU/AUTO-PRIMARY.
 [Raw counter/status evidence](evidence-rx-clock-counter-20261115/README.md).
 Idle counts exact; read0/read1 SYS resets with at most one-count deviations.

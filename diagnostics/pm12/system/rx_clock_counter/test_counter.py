@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""MISO DRIVE12→4→12 output-only ECO, same placed/routed logic, direct reset capture."""
+"""Recovered-RX clock counter comparison with driven Kasli SPI and CDCE snapshots."""
 import sys,subprocess
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from hold_spi import *
 from station import jtag_command,read_dna,load_dependencies
 sys.path.insert(0,str(BASE));from test_board import payload
-p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work',type=Path,required=True);p.add_argument('--output-name',default='hardware');args=p.parse_args();root=args.work;out=root/args.output_name;out.mkdir(exist_ok=False);(out/'executed.py').write_bytes(Path(__file__).read_bytes())
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work',type=Path,required=True);p.add_argument('--output-name',default='hardware');p.add_argument('--repetitions',type=int,default=1);p.add_argument('--expected-resident',type=lambda s:int(s,16),default=0x71ac56fb);args=p.parse_args();root=args.work;out=root/args.output_name;out.mkdir(exist_ok=False);(out/'executed.py').write_bytes(Path(__file__).read_bytes())
 cfg=json.loads(Path('/srv/codex-hil-nvme/pm12-campaigns/PM12-K7-3A17A1B402212223/four-cfd-20261113/staging/board-station.json').read_text());cfg['jtag_workspace']=str(root/'jtag-work');load_dependencies(cfg)
 new=root/'candidate-v2/pm12_ipbus_adc.bit';gold=Path('/srv/codex-hil-nvme/pm12-write-quiet-20261115/candidate/pm12_ipbus_adc.bit');assert hashlib.sha256(gold.read_bytes()).hexdigest()=='0407f67e189a25bfee0f6fe02bc6d805c79eedc8b75ce1cca24d2a6dca06daf1'
 q=json.loads((root/'candidate-v2/qualification.json').read_text());assert q['pass']and hashlib.sha256(new.read_bytes()).hexdigest()==q['bit_sha256'];newid=int(q['build_id'],16)
@@ -30,7 +30,7 @@ with contextlib.ExitStack() as st:
  r['kasli']=dict(cfd=d.read(0xd8),map=d.read(0x15c),enable=d.read(0x144),state=d.read(0x150));r['old_divider']=d.read(0x154);d.write(0x154,600)
  with console(cfg) as preflight_uart:
   pg=wait_power_good(preflight_uart,capture);mcu=capture(preflight_uart,'RS');assert 'Board S/N: 1803'in mcu['reply']
- preflight=connect(0x71ac56fb)
+ preflight=connect(args.expected_resident)
  try:
   before=preflight.read(5,2);dna=read_dna(cfg,out);after=preflight.read(5,2);assert int(dna,16)==int('3A17A1B402212223',16);assert after[0]+(after[1]<<32)>=before[0]+(before[1]<<32)
   r['identity_before']=dict(uid='PM12-K7-3A17A1B402212223',dna=dna,fpga=preflight.read(0,3),mcu=mcu,pgood=pg)
@@ -62,7 +62,7 @@ with contextlib.ExitStack() as st:
      try:row['decoded']=decode(int(match.group(1),16))if match else None
      except ValueError as error:row['decoded']=None;row['decode_error']=str(error)
      return row
-    for label,address in [('idle-before',None),('read0',0),('read1',1)]:
+    for label,address in [('idle-before',None)]+[(('read%d'%address)+('-%02d'%i if args.repetitions>1 else ''),address)for i in range(args.repetitions)for address in (0,1)]:
      if c:c.close()
      c=attach();a.stop();d.write(0x154,601)
      row=dict(label=label,address=address,cdce_before=pll(),host_start=time.monotonic());r['trials'].append(row);save()

@@ -1,0 +1,17 @@
+{
+  "board": "PM12-K7-3A17A1B402212223",
+  "image": "ff2f746c",
+  "spi_reads": 14,
+  "sys_triggers": 0,
+  "correct_signatures": 14,
+  "idle_triggers": 0,
+  "cdce_r8": "20009d38",
+  "adc_final_pass": true,
+  "cable_identity": "User-supplied replacement cable; photographed label389G1848DAA1400NEH. Actual HEC shielding and cable change not independently instrumented.",
+  "previous": {
+    "date": "2026-11-15",
+    "spi_reads": 2,
+    "sys_triggers": 2
+  },
+  "limitations": "Before/after comparison, not controlled A/B/A. No proof of shielding defect. Non-triggered capture retains final13ms of100ms run, not initial SPI; global extrema/sticky reset span capture."
+}

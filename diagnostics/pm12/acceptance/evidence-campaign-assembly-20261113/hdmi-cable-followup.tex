@@ -1,0 +1,38 @@
+\clearpage
+\section{HDMI cable comparison: 16 November 2026}
+The same PM12 board and FPGA build \texttt{ff2f746c} were tested following the
+user's replacement-cable request. The photographed label is
+\texttt{389G1848DAA1400NEH}. The physical change and internal HEC shielding are
+not independently instrumented. MCU and AUTO/PRIMARY clock profile are unchanged.
+
+\begin{center}\begin{tabular}{lrrr}\toprule
+Cohort & SPI reads & Correct signatures & SYS-loss triggers\\\midrule
+15 November baseline & 2 & 2 & 2\\
+16 November initial & 2 & 2 & 0\\
+16 November repeat & 12 & 12 & 0\\\bottomrule
+\end{tabular}\end{center}
+Both idle controls had no SYS-loss trigger. All before/after CDCE R8 snapshots
+were \texttt{20009D38}: PRIMARY selected, PLL lock pin high.
+Each run observes 100 milliseconds unless triggered sooner.
+
+\subsection{Interpretation and capture limits}
+The 14 reads without a SYS-loss trigger contrast with the previous two triggering
+reads. This supports sensitivity to the cable/connector path. It does not establish
+that HEC shielding is missing or that MISO crosstalk is the unique cause.
+This is a before/after comparison, not controlled A/B/A; contact reseating and
+elapsed time are uncontrolled. The clock-loss finding remains open pending
+stronger repeat/reversal evidence.
+
+For a non-triggering run the circular buffer retains the final approximately
+13 milliseconds of the 100-millisecond capture. The initial SPI frame has been
+overwritten. Global extrema and the sticky SYS-loss flag span the armed interval;
+the frozen RAM is not a waveform around SPI in these no-trigger captures.
+The recovered-clock reference and CDC endpoint limitations still apply.
+
+\subsection{Final hardware state and evidence}
+Both cohorts completed and freshly reloaded the same diagnostic SRAM. Physical
+ADC bank A passed on all 12 channels; frontend mask was \texttt{0xfff}, ADT identity
+C3 and power checks passed. Kasli outputs remained driven, SPI divider 600 restored,
+and leases released. No MCU, CPLD, flash, EEPROM or CDCE profile programming.
+Raw data and exact executed scripts are archived under the system diagnostics'
+dated HDMI-cable evidence. No heavy build was needed.

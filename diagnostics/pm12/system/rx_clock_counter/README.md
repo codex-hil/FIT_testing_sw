@@ -80,3 +80,13 @@ See [2026-11-15 frozen raw data and qualification](../evidence-rx-clock-counter-
 Resident ff2f746c retained; idle exact, read0/read1 SYS triggers with at most
 one-count deviations in valid windows. R8 PRIMARY/locked before/after; transient
 loss or switching remains unexcluded. Final physical ADC12/12 PASS.
+
+## Cable comparison repeats
+
+Use `--expected-resident ff2f746c` when this counter image is already resident.
+`--repetitions 6` collects an idle control followed by six reads of each signature.
+Use a fresh `--output-name` for each cohort. Non-triggering acquisitions time out
+after100ms and retain only the final approximately13ms in the circular RAM:
+the original SPI frame is overwritten. Sticky SYS-loss and global extrema span
+the complete armed interval; do not interpret this final RAM as SPI-time samples.
+See [cable comparison](../evidence-hdmi-cable-20261116/README.md).
