@@ -1,3 +1,10 @@
+Latest diagnostic: PM2 INTB held HIGH for two independent P/N DC sweeps.
+Nominal effective B reset resistance P68.5/N137.2 ohm (430-ohm input, nominal
+2000code/V ADC). All162 buffers decode. Only CPLD2 altered, then original
+restored: all984 rows match baseline. Phase0 and external23=1.024/2.048V
+restored; amps/bypass/monitor inhibited, TCA0, leases released.
+[Reset-resistance evidence](../cfd_simulator/evidence-reset-rdson-20261117/README.md).
+
 Latest phase-shape diagnostic: PM2, ten DAC-A codes 0..65535 at fixed
 DAC23=1.034/2.038V; all60 buffers coherent, no ADC clipping. Amplitude A
 154.09..156.15/B67.00..71.56 codes. Restored phase0 and DAC23=1.024/2.048V;

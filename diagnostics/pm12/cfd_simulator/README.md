@@ -1,3 +1,9 @@
+# Continuous-reset resistance diagnostic —2026-11-17
+
+PM2 integrator B: separate P/N sweeps with reset held high. Conditional effective
+resistances68.5/137.2 ohm; original CPLD image restored and all rows verified.
+[Method, limits, data and reproduction](evidence-reset-rdson-20261117/README.md).
+
 # Integrator common-shift diagnostic —2026-11-17
 
 Physical channel 2: hold the relative differential stimulus at 20 mV and
