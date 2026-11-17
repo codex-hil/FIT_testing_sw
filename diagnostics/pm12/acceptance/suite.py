@@ -102,9 +102,33 @@ def execute_step(step, directory, variables, fds):
     return record
 
 
+def validate_production_plan(plan):
+    """Only reviewed non-CPLD-programming entry points belong in this runner."""
+    if plan.get('mode','PRODUCTION') != 'PRODUCTION':
+        raise ValueError('Diagnostic gateware changes require a separate explicit diagnostic runner')
+    allowed={
+        'diagnostics/pm12/acceptance/station.py',
+        'diagnostics/pm12/acceptance/boundary.py',  # FPGA SRAM only, no CPLD programming
+        'diagnostics/pm12/acceptance/production_integrator.py',
+        'diagnostics/pm12/cfd_simulator/phase_scan.py',
+        'diagnostics/pm12/cfd_simulator/adc_line_test.py',
+        'diagnostics/pm12/cfd_simulator/adc_dc_scan.py',
+        'diagnostics/pm12/cfd_simulator/balance20.py',
+    }
+    for step in plan['steps']:
+        command=step.get('command',[])
+        if not command and step.get('blocked'):continue
+        if len(command)<2 or command[0]!='{python}':
+            raise ValueError('Production plan needs a reviewed Python entry point')
+        script=Path(command[1].replace('{repo}',str(REPO))).resolve()
+        if not script.is_relative_to(REPO.resolve()) or str(script.relative_to(REPO.resolve())) not in allowed:
+            raise ValueError('Entry point is not approved for production without CPLD programming: '+str(script))
+
+
 def collect(station_path, plan_path, output, channels):
     cfg = json.loads(station_path.read_text())
     plan = json.loads(plan_path.read_text())
+    validate_production_plan(plan)
     if not cfg.get('board_uid'): raise ValueError('Enroll hardware DNA first; EEPROM/cable serial is insufficient')
     if not channels or len(set(channels)) != len(channels) or len(channels)>4 or any(x not in range(1,13) for x in channels):
         raise ValueError('A CFD acquisition batch contains 1..4 distinct channels in 1..12')
@@ -128,7 +152,7 @@ def collect(station_path, plan_path, output, channels):
                   source_fingerprint=hashlib.sha256(json.dumps(files_manifest(output/'sources'),sort_keys=True).encode()).hexdigest())
     write(output/'run.json', result)
     variables = dict(repo=REPO, python=cfg['python'], station=output/'station.json',
-                     board_serial=cfg['board_serial'], kasli_root=cfg['kasli_root'])
+                     board_serial=cfg['board_serial'], board_uid=cfg['board_uid'], kasli_root=cfg['kasli_root'])
     failed = False
     # Own the actual hardware locks for the entire sequential run; children inherit
     # their open descriptions. Independently started threads see these as busy.
@@ -153,6 +177,8 @@ def collect(station_path, plan_path, output, channels):
                         variables['lanes'] = ','.join(map(str,wiring.get('phase_lanes', [])))
                         if spec['id'] == 'adc-lines' and not wiring.get('analog_connected'):
                             reason = 'External DAC pair not declared connected to this channel'
+                        if spec['id'] == 'integrator-balance20' and (not wiring.get('integrator_connected') or cfg.get('stimulated_channel')!=channel):
+                            reason = 'Integrator J6 route is not confirmed for this channel'
                         if spec['id'] == 'gate-phase' and not wiring.get('phase_lanes'):
                             reason = 'No confirmed phase-input mapping for this channel'
                     if failed: reason = 'Earlier failure; later hardware tests inhibited'

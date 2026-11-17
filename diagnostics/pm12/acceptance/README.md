@@ -1,3 +1,6 @@
+[Production workflow: automatic board/channel tests without CPLD programming](PRODUCTION_WORKFLOW.md).
+Reset/2MHz image changes are explicit diagnostics only.
+
 [Separate reporting-thread assignment and evidence handoff](REPORTING_HANDOFF.md).
 Hardware acquisition publishes receipts; report assembly is an offline task.
 

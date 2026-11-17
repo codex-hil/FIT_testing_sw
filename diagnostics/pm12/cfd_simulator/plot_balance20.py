@@ -27,7 +27,7 @@ def main():
     assert start==cap['pair']['pair_start_mod4'] and abs(change-cap['pair']['mean_change_code'])<1e-12
     differences.append(change);valid+=1
    assert len(differences)==3
-   rows.append(dict(point_index=point['index'],stage=point['stage'],target_bank=point['target_bank'],bank='AB'[bank],delta_V=point['delta_V'],common_translation_V=point['common_translation_V'],DAC2_V=point['setpoints_V'][0],DAC3_V=point['setpoints_V'][1],mean_change_code=statistics.mean(differences),repeat_std_code=statistics.pstdev(differences)))
+   rows.append(dict(point_index=point['index'],stage=point['stage'],target_bank=point['target_bank'],bank='AB'[bank],delta_V=point['delta_V'],common_translation_V=point['common_translation_V'],positive_setpoint_V=point['setpoints_V'][0],negative_setpoint_V=point['setpoints_V'][1],mean_change_code=statistics.mean(differences),repeat_std_code=statistics.pstdev(differences)))
  fig,axes=plt.subplots(2,2,figsize=(11,8),layout='constrained');fits={};common_fits={};returns={}
  for bank,label in enumerate('AB'):
   selected=[v for v in rows if v['stage']=='fine' and v['target_bank']==bank and v['bank']==label]
@@ -46,7 +46,8 @@ def main():
   axes[1,1].plot(range(4),w,'o-',label=f'{label}, delta={point["delta_V"]*1000:g}mV')
  axes[1,0].axhline(0,color='gray',ls='--');axes[1,0].set(title='Translate both input setpoints, delta fixed',xlabel='Common translation (mV)',ylabel='Integration-pair change (code)');axes[1,0].legend();axes[1,0].grid(alpha=.25)
  axes[1,1].set(title='Independent return: four sample means',xlabel='Registered sample position (0/1 integration pair)',ylabel='ADC code');axes[1,1].set_xticks(range(4));axes[1,1].legend();axes[1,1].grid(alpha=.25)
- fig.suptitle(f'PM{r["physical_channel"]}: fine balance at normal20MHz gates, phase DAC32768\nDAC2=1.024V+delta+c; DAC3=2.048V+c. Sampled-pair zero, not a calibrated DC-current null.')
+ dac_channels=r.get('dac_channels',[2,3])
+ fig.suptitle(f'PM{r["physical_channel"]}: fine balance at normal20MHz gates, phase DAC32768\nDAC{dac_channels[0]}=1.024V+delta+c; DAC{dac_channels[1]}=2.048V+c. Sampled-pair zero, not a calibrated DC-current null.')
  for ext in ['png','pdf']:fig.savefig(a.out/f'balance20.{ext}',dpi=160)
  with (a.out/'measurements.csv').open('w',newline='') as f:
   w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)

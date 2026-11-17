@@ -1,0 +1,9 @@
+{
+  "hardware_access": false,
+  "cpld_programming": false,
+  "production_policy_tests": 51,
+  "balance_estimator_tests": 5,
+  "archived_ADC_buffers_replayed": 450,
+  "fit_results_unchanged": true,
+  "scope": "Software/dry-run only; original physical acquisition remains separate"
+}

@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "name": "Explicit CPLD-reset diagnostic campaign; not production",
+  "groups": [
+    [
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      5,
+      6,
+      7,
+      8
+    ],
+    [
+      9,
+      10,
+      11,
+      12
+    ]
+  ],
+  "tests": [
+    {
+      "id": "integrator-reset",
+      "scope": "channel",
+      "title": "Integrator A/B reset resistance and normal waveform correlation",
+      "required": true,
+      "required_observables": [
+        {
+          "name": "reset_R_P",
+          "bank": "A"
+        },
+        {
+          "name": "reset_R_N",
+          "bank": "A"
+        },
+        {
+          "name": "reset_R_P",
+          "bank": "B"
+        },
+        {
+          "name": "reset_R_N",
+          "bank": "B"
+        },
+        {
+          "name": "during_reset_A_normal-before_amplitude",
+          "bank": "A"
+        },
+        {
+          "name": "during_reset_A_normal-before_amplitude",
+          "bank": "B"
+        }
+      ]
+    }
+  ],
+  "hardware_configuration_fields": [
+    "pm_build",
+    "kasli_build",
+    "clock_profile",
+    "cpld_gate_mode"
+  ],
+  "mode": "DIAGNOSTIC"
+}

@@ -57,8 +57,10 @@ def main():
  p.add_argument('--afe',type=int,choices=range(1,13),required=True);a=p.parse_args()
  cfg=json.loads(a.station.read_text());route=cfg['channels'][str(a.afe)]
  if cfg['stimulated_channel']!=a.afe or not route.get('integrator_connected'):raise ValueError('Confirm J6 route')
+ dac_channels=route.get('integrator_dac_channels',[2,3])
+ if len(dac_channels)!=2 or len(set(dac_channels))!=2 or any(type(v) is not int or not 0<=v<8 for v in dac_channels):raise ValueError('Configure two distinct integrator DAC outputs0..7')
  out=a.out.resolve();out.mkdir(parents=True,exist_ok=False)
- r=dict(physical_channel=a.afe,board_uid=cfg['board_uid'],started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),points=[],phase_uart=[],complete=False,
+ r=dict(dac_channels=dac_channels,physical_channel=a.afe,board_uid=cfg['board_uid'],started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),points=[],phase_uart=[],complete=False,
         protocol='reference-registered sampled integration pair; P-only delta grid100uV; common translates both outputs',adc_phase_code=32768)
  r['sources']=snapshot_sources(out,['__main__','lease','station','console','mcp23017','phase_scan','pm12_console_regression','pm12_power','channel_settings','mod_dac28','client','adc_decode','host.gate_phase_ipbus'])
  def save():(out/'status.json').write_text(json.dumps(r,indent=2)+'\n')
@@ -74,7 +76,7 @@ def main():
   for row in gates['channels']:
    bits=[(w>>k)&1 for w in row['words'] for k in range(8)];edges=[i for i in range(1,len(bits)) if bits[i] and not bits[i-1]]
    assert len(edges)>500 and all(abs(b-a-48)<=1 for a,b in zip(edges,edges[1:])), 'Normal20MHz gate verification failed'
-  remote=st.enter_context(remote_lease());dac=DAC(remote,channels=[2,3]);st.callback(dac.close)
+  remote=st.enter_context(remote_lease());dac=DAC(remote,channels=dac_channels);st.callback(dac.close)
   bus=ConsoleI2C(u,capture);phase=ConsoleDAC(u,a.afe,capture,r['phase_uart'].append);references={}
   def measure(stage,delta,common=0.,target=None):
    settings=pair(delta,common);delta=round(settings[0]-settings[1]+1.024,4);common=round(settings[1]-2.048,4)

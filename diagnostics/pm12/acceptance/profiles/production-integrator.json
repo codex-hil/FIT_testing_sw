@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "name": "Automatic resident20MHz integrator characterization; no CPLD writes",
+  "mode": "PRODUCTION",
+  "cpld_programming": false,
+  "automatic_gateware_fallback": false,
+  "steps": [
+    {
+      "id": "integrator-balance20",
+      "title": "Fine integrator balance and common translation",
+      "per_channel": true,
+      "command": [
+        "{python}",
+        "{repo}/diagnostics/pm12/acceptance/production_integrator.py",
+        "--board",
+        "{board_uid}",
+        "--channel",
+        "{channel}",
+        "--station",
+        "{station}",
+        "--out",
+        "{output}"
+      ],
+      "checks": [
+        {
+          "file": "data/result.json",
+          "key": "status",
+          "equals": "COMPLETE"
+        },
+        {
+          "file": "data/result.json",
+          "key": "cpld_programming",
+          "equals": false
+        }
+      ],
+      "procedure": "Verify board identity, normal resident gates and confirmed J6 route; fine100uV single-leg scan, common shifts and independent returns; validate raw buffers and restore analog settings.",
+      "limits": "Characterization completion; numerical manufacturing limits separate. No CPLD programming or automatic2MHz/reset fallback.",
+      "timeout_s": 3600
+    }
+  ]
+}

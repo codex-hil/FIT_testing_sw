@@ -1,9 +1,10 @@
-# Standard integrator reset characterization
+# Optional integrator reset diagnostic — excluded from production
 
-Run after the normal integrator/DC acquisition while J6 remains connected to
-that same physical PM channel. Refit four CFDs as usual; repeat for every
-channel before moving the USB stimulus. The default **new** four-CFD campaign
-profile requires `integrator-reset`. Existing sealed protocols are not edited.
+Owner correction: production scripts must not program CPLDs or switch gate
+images automatically. This procedure changes CPLD gateware and is therefore
+**diagnostic only**. It is absent from the default production campaign.
+Use the separate campaign-reset-diagnostic.json protocol when explicitly
+performing this experiment. Existing sealed protocols/evidence are retained.
 
 Version 1 holds **A and B separately** in reset and keeps the other gate running.
 It measures all four reset branches independently and records normal A/B amplitudes before and after the
@@ -14,7 +15,7 @@ shift, gate configuration or clock epoch.
 
 ```
 # Use the hardware Python for the orchestrator; scientific Python is separate.
-python run_integrator_reset.py --root CAMPAIGN --batch FITTING_ID --channel 2 \
+python diagnostic_integrator_reset.py --root CAMPAIGN --batch FITTING_ID --channel 2 \
   --vectors-root /srv/codex-hil-nvme/pm12-reset-standard-vectors-20261117 --out NEW_OUTPUT
 ```
 

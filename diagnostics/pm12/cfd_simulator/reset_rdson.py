@@ -1,4 +1,4 @@
-"""PM12 channel continuous integrator reset; separate DAC input sweeps with verified rollback."""
+"""Explicit diagnostic that reprograms CPLDs; PM12 continuous integrator reset; separate DAC input sweeps with verified rollback."""
 import argparse,contextlib,datetime,hashlib,json,re,shutil,struct,subprocess,sys,time
 from pathlib import Path
 parser=argparse.ArgumentParser(description=__doc__)

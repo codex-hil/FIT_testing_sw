@@ -1,3 +1,10 @@
+Owner policy correction: production tests do not program CPLDs or automatically
+load2MHz/held-reset images. Optional CPLD diagnostics are separate. Default
+production scope excludes integrator-reset; old sealed evidence retained.
+Production integrator entry selects board UID/channel and configured DAC pair.
+This change was software/dry-run tested only; physical state remains as below.
+[Production workflow](PRODUCTION_WORKFLOW.md).
+
 Latest PM2 normal20MHz fine balance: P-only100uV command steps,450 valid
 buffers. Sampled-pair balance A d~8.1–8.2mV, B~1.8–1.9mV; independent
 returns nearzero. Common translation±10mV moves both changes similarly; no

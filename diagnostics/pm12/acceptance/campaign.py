@@ -73,6 +73,8 @@ def initialize(root, board_uid, serial, protocol=None):
         raise ValueError('Canonical factory-DNA board UID required')
     spec = read(protocol or HERE / 'profiles/campaign-four-cfd.json')
     tests = spec['tests']
+    if spec.get('mode')=='PRODUCTION' and any(t['id']=='integrator-reset' for t in tests):
+        raise ValueError('CPLD reset reprogramming is diagnostic only; excluded from production')
     if not tests or not any(t.get('required',True) for t in tests):
         raise ValueError('A campaign needs a nonempty required test scope')
     if len({t['id'] for t in tests}) != len(tests) or any(t['scope'] not in ('board', 'channel') for t in tests):

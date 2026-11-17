@@ -42,9 +42,10 @@ selecting one output; pass the complete inventory to the SMU runner.
 Board-wide JTAG, MCU, I2C, HDMI and Ethernet results can be collected once for
 the board; each fitting still requires a fresh board identity. Per-channel
 coverage includes CFD monitor, DAC B/C/D, gate phase, TDC, ADC response and
-adjacent-bit checks, and integrator balance. New campaigns also require continuous-reset A/B resistance
-characterization with paired normal A/B amplitudes; see [procedure](INTEGRATOR_RESET.md).
-Existing sealed protocols retain their original scope. A/B observables are required for
+adjacent-bit checks, and integrator balance. Production campaigns exclude CPLD-programming reset/slow-gate diagnostics.
+Normal-gate tests are automated per board/channel; see [production workflow](PRODUCTION_WORKFLOW.md).
+Explicit optional reset diagnostics use their separate protocol. Existing sealed
+protocols retain their original scope. A/B observables are required for
 the ADC/integrator cases; internal B/C/D DAC curves remain separate observables.
 
 ```

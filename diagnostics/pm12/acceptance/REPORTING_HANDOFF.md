@@ -265,3 +265,12 @@ resistances and normal A/B amplitudes on the same channel-row table. Values are
 conditional on nominal ADC gain/input resistors; no numerical R_ON acceptance
 limits exist. PASS means completed validated characterization/restoration.
 Keep that distinct from resistance tolerance acceptance. See INTEGRATOR_RESET.md.
+
+## Owner correction: production excludes CPLD programming
+
+This supersedes the earlier mandatory reset-characterization addition. Routine
+production scope does not include held-reset or2MHz CPLD reprogramming. Keep
+those results in explicit diagnostic evidence, not required production coverage.
+The default new production protocol excludes integrator-reset; sealed earlier
+protocols stay unchanged. See PRODUCTION_WORKFLOW.md for board/channel entry
+points and configured routing. No automatic gateware fallback on a difficult scan.
