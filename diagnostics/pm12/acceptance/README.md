@@ -1,3 +1,8 @@
+Latest fitting1–4 (2026-11-17): TDC/phase/monitor/internal-DAC results in the linked table.
+Channel4 ADC/bits: **PASS/PASS**; integrator: **INCOMPLETE**. USB remains4, analog1–3 pending.
+Slot7 ports0/1/2/3→PM4/3/2/1 verified. Integrator6 remains INCOMPLETE.
+[Group1–4 evidence and common plots](evidence-group01-04-20261117/README.md).
+
 Latest channel6 integrator repeat after pressing CFD board (2026-11-17): **INCOMPLETE**.
 Fresh13-point coarse sweep reproduces the bankB template ambiguity; fine/returns did not run.
 No change to thresholds. Pressing did not remove the symptom; no hardware fault established.
@@ -24,7 +29,7 @@ Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/m
 
 [Latest2026-11-17: fitting5–8 and corrected-USB channel8 analog tests](evidence-group05-08-20261117/README.md).
 TDC/phase/monitors/internal DACs5–8 PASS; ADC/integrators8 PASS. Both USB remain8, next7.
-[Current98-page editable report](evidence-campaign-assembly-20261113/report.pdf).
+[Current104-page editable report](evidence-campaign-assembly-20261113/report.pdf).
 
 [Latest: TDC and DAC-A phase tests on9–12](evidence-campaign-timing-20261113/README.md), with[repeat procedure](TIMING_CAMPAIGN.md).
 

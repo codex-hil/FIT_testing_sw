@@ -1,0 +1,6 @@
+{
+  "pass_": false,
+  "physical_channel": 4,
+  "status": "INCOMPLETE",
+  "reason": "Two post-reboot J6 coarse attempts lack an unambiguous bank-B crossing; fine/returns not run, thresholds unchanged"
+}

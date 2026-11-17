@@ -1,0 +1,259 @@
+{
+  "mode": "LIVE",
+  "test": "tdc",
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "channel": 3,
+  "fixture_id": "CFD02",
+  "measured_utc": "2026-11-17T14:09:57.136685+00:00",
+  "status": "PASS",
+  "protocol": {
+    "method": "finite-OSERDES-TDC-phase-v1",
+    "hardware_configuration": {
+      "pm_build": "ff2f746c",
+      "kasli_build": {
+        "ABI": "CFD4",
+        "expected_bit_sha256": "a71a08a258620b0e5a52c5d03aefd8c69040c9d15e8de6391c484ac182b7173b"
+      },
+      "clock_profile": {
+        "reference_mhz": 40.0787,
+        "adc_rate": "2x reference",
+        "kasli_rate": "3x reference"
+      },
+      "cpld_gate_mode": "original INTA/INTB enabled, nominal20MHz"
+    },
+    "phase_slots": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "sample_hz": 961888800.0,
+    "events_per_phase": 128,
+    "discovery_events": 16,
+    "response_slope_window": [
+      -60,
+      -20
+    ],
+    "maximum_residual_fine_codes": 10
+  },
+  "source_files": [
+    "acquisition/sources/__main__.py",
+    "acquisition/sources/lease.py",
+    "acquisition/sources/identity.py",
+    "acquisition/sources/station.py",
+    "acquisition/sources/pm12_console_regression.py",
+    "acquisition/sources/pm12_power.py",
+    "acquisition/sources/host.py",
+    "acquisition/sources/host.device.py",
+    "acquisition/sources/host.analysis.py",
+    "acquisition/sources/host.lvds8.py",
+    "acquisition/sources/host.lvds8_device.py",
+    "acquisition/sources/host.gate_phase_device.py",
+    "acquisition/sources/host.gate_phase_ipbus.py",
+    "acquisition/sources/host.lvds8_dio.py",
+    "acquisition/sources/host.hdmi_check.py",
+    "acquisition/sources/host.gate_phase_dio.py",
+    "acquisition/sources/host.cfd_pattern.py",
+    "acquisition/sources/adc_decode.py",
+    "acquisition/sources/client.py",
+    "acquisition/sources/client_tdc.py",
+    "acquisition/sources/host.pm_tdc_test.py",
+    "acquisition/sources/host.pm_system_test.py",
+    "acquisition/sources/hold_spi.py",
+    "analysis-sources/campaign_timing_adapter.py",
+    "analysis-sources/phase_estimator.py",
+    "analysis-sources/hdmi_check.py",
+    "analysis-sources/analyze.py"
+  ],
+  "validation": [
+    {
+      "file": "validation.json",
+      "key": "pass_",
+      "equals": true
+    }
+  ],
+  "channel_checks": [
+    {
+      "file": "validation.json",
+      "key": "physical_channel"
+    },
+    {
+      "file": "acquisition/status.json",
+      "key": "expected_channels"
+    }
+  ],
+  "connections": {
+    "slot": 7,
+    "rj45_port": 1,
+    "phase_lanes": [
+      10,
+      11
+    ],
+    "stimulus_dio": 4
+  },
+  "metrics": [
+    {
+      "name": "slope",
+      "value": -46.18407504834719,
+      "unit": "fine code/ns"
+    },
+    {
+      "name": "max_fit_residual",
+      "value": 1.9466817244163792,
+      "unit": "fine code"
+    },
+    {
+      "name": "max_circular_spread",
+      "value": 1.3585441069002657,
+      "unit": "fine code"
+    },
+    {
+      "name": "events",
+      "value": 3200,
+      "unit": "event"
+    }
+  ],
+  "curves": [
+    {
+      "name": "tdc_response",
+      "x": [
+        0.0,
+        1.0396212119321901,
+        2.0792424238643803,
+        3.11886363579657,
+        4.158484847728761,
+        5.19810605966095,
+        6.23772727159314,
+        7.277348483525331,
+        8.316969695457521,
+        9.35659090738971,
+        10.3962121193219,
+        11.43583333125409,
+        12.47545454318628,
+        13.51507575511847,
+        14.554696967050662,
+        15.594318178982853,
+        16.633939390915042,
+        17.673560602847232,
+        18.71318181477942,
+        19.75280302671161,
+        20.7924242386438,
+        21.83204545057599,
+        22.87166666250818,
+        23.911287874440372,
+        24.95090908637256
+      ],
+      "y": [
+        0.0,
+        -48.53105116631797,
+        -96.6086517829689,
+        -142.92962333217045,
+        -191.21843203046095,
+        -237.7420440146486,
+        -288.6403077996629,
+        -335.19514924545217,
+        -384.39831875902365,
+        -431.9450237526831,
+        -480.4997685912313,
+        -525.8982435202383,
+        -575.7732835921391,
+        -623.0074127273601,
+        -672.4996978610998,
+        -719.4607428981078,
+        -768.3905116690632,
+        -816.4059117345957,
+        -864.6247410642773,
+        -911.1950548244279,
+        -959.7186073520954,
+        -1007.2417993653146,
+        -1056.5779088743184,
+        -1104.1639886920766,
+        -1151.9920817296277
+      ],
+      "x_unit": "ns",
+      "y_unit": "fine code"
+    },
+    {
+      "name": "tdc_spread",
+      "x": [
+        0.0,
+        1.0396212119321901,
+        2.0792424238643803,
+        3.11886363579657,
+        4.158484847728761,
+        5.19810605966095,
+        6.23772727159314,
+        7.277348483525331,
+        8.316969695457521,
+        9.35659090738971,
+        10.3962121193219,
+        11.43583333125409,
+        12.47545454318628,
+        13.51507575511847,
+        14.554696967050662,
+        15.594318178982853,
+        16.633939390915042,
+        17.673560602847232,
+        18.71318181477942,
+        19.75280302671161,
+        20.7924242386438,
+        21.83204545057599,
+        22.87166666250818,
+        23.911287874440372,
+        24.95090908637256
+      ],
+      "y": [
+        1.090368679851776,
+        1.3585441069002657,
+        1.236820266664748,
+        1.1035277352650195,
+        1.1936262654199687,
+        1.0928567809683203,
+        1.0825035675940333,
+        1.0220947792934332,
+        1.0752906633650843,
+        1.0259094691019432,
+        1.1564347403451276,
+        1.1592023122823931,
+        1.1592023139532688,
+        1.0733590456501456,
+        1.1221480806789064,
+        1.0364452473556085,
+        1.0364158078268737,
+        1.1541101456518765,
+        1.0229006231973197,
+        1.1716666486795282,
+        1.1638003087664401,
+        1.0928567907132698,
+        1.0583270535999794,
+        1.1038595388085666,
+        1.2275324643667314
+      ],
+      "x_unit": "ns",
+      "y_unit": "fine code"
+    }
+  ],
+  "limits": "Fine modulo128 unwrapped by nearest continuation; coarse fields retained without repair. Programmed slot1.0396ns assumes40.0787MHz; not calibrated TDC timing or intrinsic jitter",
+  "notes": []
+}

@@ -1,3 +1,18 @@
+Latest setup: CFD1–4, slot7 RJ45 ports0/1/2/3→4/3/2/1; both USB4, DAC01→J8,23→J6.
+FPGA ff2f746c SRAM restored after initial not-ready state and again after owner-reported reboot;
+MCU/CPLD/flash/PLL unchanged. TDC/phase completed before reboot, monitor/DAC restarted afterwards.
+Interrupted/raw no-response attempts retained; no acquisition merged across reboot.
+Final SMU OFF/HIZ/0A/auto-on OFF; monitors inhibited/TCA0, internal exercised DACs0000.
+Slot6 HDMI SPI stays driven. Kasli outputs/directions preserved; leases released.
+Final external DAC01=1/1V,23=1.024/2.048V; all1–4 amps/bypass inhibited.
+Integrator4 INCOMPLETE; integrator6 INCOMPLETE. Analog1–3 pending.
+Earlier dated setup states below are historical.
+
+Latest fitting1–4 (2026-11-17): TDC/phase/monitor/internal-DAC results in the linked table.
+Channel4 ADC/bits: **PASS/PASS**; integrator: **INCOMPLETE**. USB remains4, analog1–3 pending.
+Slot7 ports0/1/2/3→PM4/3/2/1 verified. Integrator6 remains INCOMPLETE.
+[Group1–4 evidence and common plots](evidence-group01-04-20261117/README.md).
+
 Final after integrator6 repeat: DAC2/3→J6 channel6 confirmed; direct ADC USB route not freshly confirmed.
 External DAC0/1=1/1V,2/3=1.024/2.048V. All5–8 amps/bypass/monitor outputs inhibited; TCA masks0.
 Kasli outputs/directions unchanged, leases released. No programming/PLL changes or SMU access.

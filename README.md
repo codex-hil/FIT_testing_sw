@@ -1,3 +1,8 @@
+Latest fitting1–4 (2026-11-17): TDC/phase/monitor/internal-DAC results in the linked table.
+Channel4 ADC/bits: **PASS/PASS**; integrator: **INCOMPLETE**. USB remains4, analog1–3 pending.
+Slot7 ports0/1/2/3→PM4/3/2/1 verified. Integrator6 remains INCOMPLETE.
+[Group1–4 evidence and common plots](diagnostics/pm12/acceptance/evidence-group01-04-20261117/README.md).
+
 Latest channel6 integrator repeat after pressing CFD board (2026-11-17): **INCOMPLETE**.
 Fresh13-point coarse sweep reproduces the bankB template ambiguity; fine/returns did not run.
 No change to thresholds. Pressing did not remove the symptom; no hardware fault established.
@@ -25,7 +30,7 @@ Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/m
 Latest PM12 results (2026-11-17): TDC, gate-phase, monitor voltages and internal
 DAC B/C/D tests on5–8 PASS; ADC A/B and integrators8 PASS after verified USB correction.
 Both USB remain on8; ADC/integrators5–7 await their cable moves.
-[98-page editable acceptance report](diagnostics/pm12/acceptance/evidence-campaign-assembly-20261113/report.pdf),
+[104-page editable acceptance report](diagnostics/pm12/acceptance/evidence-campaign-assembly-20261113/report.pdf),
 [group raw/normalized evidence](diagnostics/pm12/acceptance/evidence-group05-08-20261117/README.md).
 Current diagnostic SRAM ff2f746c; original MCU and external PLL profile preserved.
 

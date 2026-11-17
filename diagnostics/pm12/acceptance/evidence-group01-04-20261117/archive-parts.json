@@ -1,0 +1,23 @@
+{
+  "compressed_archive": "group14-delta.tar.gz",
+  "bytes": 116610029,
+  "sha256": "d4acb8d45bd88f2b1bce547f41218440b7a14bd8beb93e982a8038879984d280",
+  "parts": [
+    {
+      "file": "group14-delta.tar.gz.part001",
+      "bytes": 41943040,
+      "sha256": "90f643e42f74856d1a9022c1736cd163ed8f95cfa9af427d187a164d618d3111"
+    },
+    {
+      "file": "group14-delta.tar.gz.part002",
+      "bytes": 41943040,
+      "sha256": "571aa82009ffc5e06c1f266d941a9ad6bc306a1cd9084816f6cb32a8cc2450bb"
+    },
+    {
+      "file": "group14-delta.tar.gz.part003",
+      "bytes": 32723949,
+      "sha256": "4b0d96d1e498eb109328dd4ed07c7c504efc3c9ceae27c0971f5108ec1b34477"
+    }
+  ],
+  "instructions": "Concatenate part001,part002,part003 in order to reconstruct group14-delta.tar.gz. Extract original base into a NEW directory, then overlay reconstructed delta. Do not overwrite live data."
+}

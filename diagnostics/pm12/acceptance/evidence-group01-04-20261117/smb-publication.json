@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "latest_alias_updated": false,
+  "host": "192.168.2.6",
+  "share": "codex-hil",
+  "path": "/ALICE/PM12-test-reports/PM12-K7-3A17A1B402212223/PM12-report-20261117T150240Z-104pages-113bd242.pdf",
+  "dated_copy": "/ALICE/PM12-test-reports/PM12-K7-3A17A1B402212223/PM12-report-20261117T150240Z-104pages-113bd242.pdf",
+  "pages": 104,
+  "bytes": 10444293,
+  "sha256": "113bd2427106752da94f2c2a8f25fbea1eefc945688968b3b73c07f8fff9c7d1",
+  "readback_verified": true,
+  "utc": "20261117T150240Z",
+  "scope": "Group1\u20134 TDC/phase/monitor/internal-DAC PASS; ADC4 PASS, integrator4 and6 INCOMPLETE; analog1\u20133 pending. Previous and interrupted measurements retained.",
+  "convenience_copy": "/ALICE/PM12-test-reports/PM12-K7-3A17A1B402212223/PM12-report-104pages.pdf"
+}

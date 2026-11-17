@@ -1,0 +1,188 @@
+{
+  "mode": "LIVE",
+  "test": "cfd-monitor",
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "channel": 4,
+  "fixture_id": "CFD01",
+  "measured_utc": "2026-11-17T14:35:49.689279+00:00",
+  "status": "PASS",
+  "protocol": {
+    "method": "eight-monitor-assembly-v1",
+    "hardware_configuration": {
+      "pm_build": "ff2f746c",
+      "kasli_build": {
+        "ABI": "CFD4",
+        "expected_bit_sha256": "a71a08a258620b0e5a52c5d03aefd8c69040c9d15e8de6391c484ac182b7173b"
+      },
+      "clock_profile": {
+        "reference_mhz": 40.0787,
+        "adc_rate": "2x reference",
+        "kasli_rate": "3x reference"
+      },
+      "cpld_gate_mode": "original INTA/INTB enabled, nominal20MHz"
+    },
+    "windows_V": [
+      [
+        0.98,
+        1.08
+      ],
+      [
+        -0.02,
+        0.04
+      ],
+      [
+        0.97,
+        1.08
+      ],
+      [
+        0.99,
+        1.1
+      ],
+      [
+        1.45,
+        1.62
+      ],
+      [
+        -6.05,
+        -4.95
+      ],
+      [
+        1.17,
+        1.43
+      ],
+      [
+        4.95,
+        6.05
+      ]
+    ],
+    "relative_offset_windows_V": [
+      [
+        0.005,
+        0.016
+      ],
+      [
+        0.012,
+        0.03
+      ]
+    ],
+    "vocm_ratio_window": [
+      1.45,
+      1.55
+    ],
+    "raw_repeat_std_limit_V": 0.002,
+    "divider_correction": 1.606060606060606,
+    "settle_s": 0.2,
+    "samples_per_input": 3,
+    "source_current_A": 0,
+    "sense": "local Force HI/LO",
+    "nplc": 1,
+    "range_V": 20
+  },
+  "source_files": [
+    "acquisition/sources/__main__.py",
+    "acquisition/sources/lease.py",
+    "acquisition/sources/station.py",
+    "acquisition/sources/console.py",
+    "acquisition/sources/mcp23017.py",
+    "acquisition/sources/control.py",
+    "acquisition/sources/pm12_power.py",
+    "acquisition/sources/pm12_console_regression.py",
+    "acquisition/sources/channel_settings.py",
+    "acquisition/sources/labinstruments.transport.py",
+    "acquisition/sources/labinstruments.drivers.py",
+    "acquisition/sources/smu_voltage.py",
+    "analysis-sources/campaign_monitor_adapter.py"
+  ],
+  "validation": [
+    {
+      "file": "validation.json",
+      "key": "pass_",
+      "equals": true
+    }
+  ],
+  "channel_checks": [
+    {
+      "file": "validation.json",
+      "key": "physical_channel"
+    }
+  ],
+  "connections": {
+    "shared_monitor_channels": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "selection": "one of four muxes active at a time"
+  },
+  "metrics": [
+    {
+      "name": "CFD_OFFSET",
+      "value": 1.0346133333333334,
+      "unit": "V"
+    },
+    {
+      "name": "CFD_CMP_OFFSET",
+      "value": 0.005223333333333333,
+      "unit": "V"
+    },
+    {
+      "name": "BUFFER_OFFSET",
+      "value": 1.0243433333333334,
+      "unit": "V"
+    },
+    {
+      "name": "DRV_OFFSET",
+      "value": 1.04431,
+      "unit": "V"
+    },
+    {
+      "name": "DRV_VOCM",
+      "value": 1.5363633333333333,
+      "unit": "V"
+    },
+    {
+      "name": "N5V5_PM12",
+      "value": -5.503364747474747,
+      "unit": "V"
+    },
+    {
+      "name": "P1V3",
+      "value": 1.3009133333333334,
+      "unit": "V"
+    },
+    {
+      "name": "P5V5_PM12",
+      "value": 5.467854747474747,
+      "unit": "V"
+    }
+  ],
+  "curves": [
+    {
+      "name": "monitor_voltages",
+      "x": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "y": [
+        1.0346133333333334,
+        0.005223333333333333,
+        1.0243433333333334,
+        1.04431,
+        1.5363633333333333,
+        -5.503364747474747,
+        1.3009133333333334,
+        5.467854747474747
+      ],
+      "x_unit": "monitor input",
+      "y_unit": "V"
+    }
+  ],
+  "limits": "Functional assembly windows and relative reference checks; negative/positive supply dividers corrected by53/33. Three fresh0A-SMU voltage readings per input; no traceable voltage calibration or analog off-resistance claim"
+}

@@ -1,0 +1,70 @@
+{
+  "pass_": true,
+  "physical_channel": 4,
+  "values": [
+    {
+      "signal": "CFD_OFFSET",
+      "volts_at_mux": 1.0346133333333334,
+      "volts": 1.0346133333333334,
+      "divider_scale": 1
+    },
+    {
+      "signal": "CFD_CMP_OFFSET",
+      "volts_at_mux": 0.005223333333333333,
+      "volts": 0.005223333333333333,
+      "divider_scale": 1
+    },
+    {
+      "signal": "BUFFER_OFFSET",
+      "volts_at_mux": 1.0243433333333334,
+      "volts": 1.0243433333333334,
+      "divider_scale": 1
+    },
+    {
+      "signal": "DRV_OFFSET",
+      "volts_at_mux": 1.04431,
+      "volts": 1.04431,
+      "divider_scale": 1
+    },
+    {
+      "signal": "DRV_VOCM",
+      "volts_at_mux": 1.5363633333333333,
+      "volts": 1.5363633333333333,
+      "divider_scale": 1
+    },
+    {
+      "signal": "N5V5_PM12",
+      "volts_at_mux": -3.4266233333333336,
+      "volts": -5.503364747474747,
+      "divider_scale": 1.606060606060606
+    },
+    {
+      "signal": "P1V3",
+      "volts_at_mux": 1.3009133333333334,
+      "volts": 1.3009133333333334,
+      "divider_scale": 1
+    },
+    {
+      "signal": "P5V5_PM12",
+      "volts_at_mux": 3.404513333333333,
+      "volts": 5.467854747474747,
+      "divider_scale": 1.606060606060606
+    }
+  ],
+  "checks": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "max_raw_repeat_std_V": 8.621678104240372e-05,
+  "raw_samples": 96,
+  "control_preservation": true
+}

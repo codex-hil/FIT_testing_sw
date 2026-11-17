@@ -1,0 +1,12 @@
+{
+  "pass_": true,
+  "physical_channel": 2,
+  "raw": {
+    "raw_valid": true,
+    "captures": 404,
+    "sampled_bits": 105880320,
+    "checked_phase_records": 4411680,
+    "estimator_errors": [],
+    "all_eight_valid": true
+  }
+}
