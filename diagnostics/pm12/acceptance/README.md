@@ -1,3 +1,9 @@
+Latest channel6 integrator repeat after pressing CFD board (2026-11-17): **INCOMPLETE**.
+Fresh13-point coarse sweep reproduces the bankB template ambiguity; fine/returns did not run.
+No change to thresholds. Pressing did not remove the symptom; no hardware fault established.
+ADC5–12 and integrators5,7–12 retain PASS; previous incomplete and diagnostics preserved.
+[Repeat raw data and before/after comparison](evidence-ch06-reseat-20261117/README.md).
+
 Latest channel5 follow-up (2026-11-17): ADC A/B transfer, adjacent-bit exercise,
 and integrator balance/sign/revisits **PASS**, matching the frozen channel8 contracts.
 Both USB now5: DAC0/1→J8 ADC, DAC2/3→J6 integrator, verified by active/inhibited probes.
@@ -18,7 +24,7 @@ Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/m
 
 [Latest2026-11-17: fitting5–8 and corrected-USB channel8 analog tests](evidence-group05-08-20261117/README.md).
 TDC/phase/monitors/internal DACs5–8 PASS; ADC/integrators8 PASS. Both USB remain8, next7.
-[Current97-page editable report](evidence-campaign-assembly-20261113/report.pdf).
+[Current98-page editable report](evidence-campaign-assembly-20261113/report.pdf).
 
 [Latest: TDC and DAC-A phase tests on9–12](evidence-campaign-timing-20261113/README.md), with[repeat procedure](TIMING_CAMPAIGN.md).
 

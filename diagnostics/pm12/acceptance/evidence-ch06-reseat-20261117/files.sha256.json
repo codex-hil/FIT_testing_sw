@@ -1,0 +1,16 @@
+{
+  "README.md": "78a582de5962900d6eddae427612ab9de506e1c1d476cb14cf7c790e34d21cc8",
+  "archive-validation.json": "9baaf4c04d04930077363c6c94957e86df2ca908cff1ff63cc0cd62cd56db8e6",
+  "before-after.png": "dfeb24dcd8c92ed4f2a26ad4b684ebe18c94c7fda017c01af28903dbb9ed71f5",
+  "campaign-result.json": "c7b0c845b7ff06eec488d7e40f97b613a0b633299c584202208d35c1dd391891",
+  "comparison.json": "d1902ef283bd588e48bc80200517846c6872917d157fb633cb68ce296310f08c",
+  "coverage.json": "a5c4d9989b2acb4ced35adc4220a6e3b4369ac3e9daeb034c9e21f9a629051cb",
+  "delta-provenance.json": "2ed7335a0243bc27ee72d34066f2838c50d2cc9201b8ca60b8b724a3722696d0",
+  "executed-export.py": "4805428b4fcee2490afadef070344c558bbd60651bf3f43e7aed8eac6294729e",
+  "executed-report-finisher.py": "2cbcb21b8de71a70fc42c042d30f043be1597a96cb8e774843b4d43f6b8b809a",
+  "operator-reseat.json": "147ad335db6eeda1563a34e237edaada1f0f76ab52fc17f8f559f73c3e43aee1",
+  "reseat-delta.tar.gz": "2534a31488cc1348f8d0a85354cf483c35004c4ec58357ca5378d7d47f06cd1b",
+  "selection-change.json": "b8218ec4d1ab0ad70fcce54b8e875f04ea6d0564e48717ff993c741bbbe03e72",
+  "summary.json": "2f2541948ab93ddf297dcbd77e2f9fed575c67a817855e6c852acedf5d7a6f8b",
+  "validation.json": "bea412057c1ce1b92b06a71ebdadf826714829f4360e24457f3fc802ceb56ff7"
+}

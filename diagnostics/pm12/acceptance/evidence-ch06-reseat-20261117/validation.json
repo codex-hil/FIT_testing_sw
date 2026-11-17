@@ -1,0 +1,6 @@
+{
+  "pass_": false,
+  "status": "INCOMPLETE",
+  "physical_channel": 6,
+  "reason": "Repeat after pressing CFD6 reproduces bank-B template ambiguity near balance; stopped before fine scan and returns. Thresholds unchanged. No new phase scan."
+}

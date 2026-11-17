@@ -1,3 +1,9 @@
+Latest channel6 integrator repeat after pressing CFD board (2026-11-17): **INCOMPLETE**.
+Fresh13-point coarse sweep reproduces the bankB template ambiguity; fine/returns did not run.
+No change to thresholds. Pressing did not remove the symptom; no hardware fault established.
+ADC5–12 and integrators5,7–12 retain PASS; previous incomplete and diagnostics preserved.
+[Repeat raw data and before/after comparison](../evidence-ch06-reseat-20261117/README.md).
+
 Latest channel5 follow-up (2026-11-17): ADC A/B transfer, adjacent-bit exercise,
 and integrator balance/sign/revisits **PASS**, matching the frozen channel8 contracts.
 Both USB now5: DAC0/1→J8 ADC, DAC2/3→J6 integrator, verified by active/inhibited probes.
@@ -19,7 +25,7 @@ Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/m
 Latest fitting5–8: [group evidence and USB correction](../evidence-group05-08-20261117/README.md).
 All four TDC/phase/monitor/internal-DAC cases PASS; ADC/integrators8 PASS,5–7 await USB.
 Both USB now8, verified0/1→J8 and2/3→J6; original selector map[0,1].
-Current97-page report includes common8–12 analog and5–12 timing/DAC overlays.
+Current98-page report includes common8–12 analog and5–12 timing/DAC overlays.
 Earlier sizes/coverage below describe their dated cohorts.
 
 Latest repair verification2026-11-17: **CFD02/PM11 monitor PASS after fitting missing33kohm R3**.
@@ -37,7 +43,7 @@ Original MCU/AUTO-PRIMARY and ff2f746c unchanged; ADC12/12 PASS.
 Before/after observation, not proof of a HEC shield defect or completed A/B/A.
 [Raw comparison](../../system/evidence-hdmi-cable-20261116/README.md).
 
-[Current 97-page PDF](report.pdf).
+[Current 98-page PDF](report.pdf).
 
 Latest resident state: **ff2f746c**, recovered-RX clock counter, original MCU/AUTO-PRIMARY.
 [Raw counter/status evidence](../../system/evidence-rx-clock-counter-20261115/README.md).

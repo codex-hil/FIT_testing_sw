@@ -1,3 +1,14 @@
+Final after integrator6 repeat: DAC2/3→J6 channel6 confirmed; direct ADC USB route not freshly confirmed.
+External DAC0/1=1/1V,2/3=1.024/2.048V. All5–8 amps/bypass/monitor outputs inhibited; TCA masks0.
+Kasli outputs/directions unchanged, leases released. No programming/PLL changes or SMU access.
+Latest integrator6 selected INCOMPLETE; previous attempts retained. Earlier dated states below historical.
+
+Latest channel6 integrator repeat after pressing CFD board (2026-11-17): **INCOMPLETE**.
+Fresh13-point coarse sweep reproduces the bankB template ambiguity; fine/returns did not run.
+No change to thresholds. Pressing did not remove the symptom; no hardware fault established.
+ADC5–12 and integrators5,7–12 retain PASS; previous incomplete and diagnostics preserved.
+[Repeat raw data and before/after comparison](evidence-ch06-reseat-20261117/README.md).
+
 Final channel5 settings: DAC0/1=1.0000/1.0000V,2/3=1.0268/2.0452V;5 amplifiers enabled, ADC bypass isolated.
 All four monitor muxes inhibited/TCA0; other fitted channels isolated at preflight.
 Kasli outputs/directions unchanged; leases released. No programming or clock changes.

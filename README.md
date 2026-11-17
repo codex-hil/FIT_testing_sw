@@ -1,3 +1,9 @@
+Latest channel6 integrator repeat after pressing CFD board (2026-11-17): **INCOMPLETE**.
+Fresh13-point coarse sweep reproduces the bankB template ambiguity; fine/returns did not run.
+No change to thresholds. Pressing did not remove the symptom; no hardware fault established.
+ADC5–12 and integrators5,7–12 retain PASS; previous incomplete and diagnostics preserved.
+[Repeat raw data and before/after comparison](diagnostics/pm12/acceptance/evidence-ch06-reseat-20261117/README.md).
+
 Latest channel5 follow-up (2026-11-17): ADC A/B transfer, adjacent-bit exercise,
 and integrator balance/sign/revisits **PASS**, matching the frozen channel8 contracts.
 Both USB now5: DAC0/1→J8 ADC, DAC2/3→J6 integrator, verified by active/inhibited probes.
@@ -19,7 +25,7 @@ Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/m
 Latest PM12 results (2026-11-17): TDC, gate-phase, monitor voltages and internal
 DAC B/C/D tests on5–8 PASS; ADC A/B and integrators8 PASS after verified USB correction.
 Both USB remain on8; ADC/integrators5–7 await their cable moves.
-[97-page editable acceptance report](diagnostics/pm12/acceptance/evidence-campaign-assembly-20261113/report.pdf),
+[98-page editable acceptance report](diagnostics/pm12/acceptance/evidence-campaign-assembly-20261113/report.pdf),
 [group raw/normalized evidence](diagnostics/pm12/acceptance/evidence-group05-08-20261117/README.md).
 Current diagnostic SRAM ff2f746c; original MCU and external PLL profile preserved.
 

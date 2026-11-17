@@ -1,0 +1,7 @@
+{
+  "recorded_utc": "2026-11-17T13:40:21.270672+00:00",
+  "operator_note": "Pressed CFD board; possible intermittent contact; repeat integrator6 requested",
+  "USB_route": "User confirmed DAC2/3 -> J6 channel6; direct ADC pair not required for integrator",
+  "ADC_method": "Previous ADC6 PASS retained; do not repeat full ADC scan",
+  "confirmed_utc": "2026-11-17T13:42:12.468768+00:00"
+}
