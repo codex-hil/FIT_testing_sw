@@ -41,3 +41,7 @@ Final amplitudes average each buffer's own span, and displayed folded curves
 use the first buffer's period means, aligned on the largest positive step.
 This is waveform alignment, not a physical gate timestamp. Raw captures and
 all intermediate outputs remain in the evidence archive.
+
+For two complete contiguous periods instead of the folded display, run
+`python plot_two_periods.py --run ORIGINAL_RUN --out NEW_OUTPUT`. It shows81
+unchanged consecutive samples per trace, including both period endpoints.

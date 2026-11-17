@@ -1,0 +1,78 @@
+{
+  "sample_rate_Hz_assumed": 80157400,
+  "gate_period_samples": 40,
+  "sources": [
+    {
+      "bank": "A",
+      "delta_V": 0.0,
+      "file": "point001-bank0-0.bin",
+      "sha256": "fb8572b4e815fc67bc5be9625db090468329273cf86ec699b2f4acd5d9b55d31",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 0,
+      "plotted_samples": 81
+    },
+    {
+      "bank": "B",
+      "delta_V": 0.0,
+      "file": "point001-bank1-0.bin",
+      "sha256": "92edd8e7f5f7e7e0ed4c04953dc80fa37741c6ac4da41c5f107a0b8a04ed4fe7",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 0,
+      "plotted_samples": 81
+    },
+    {
+      "bank": "A",
+      "delta_V": 0.004,
+      "file": "point002-bank0-0.bin",
+      "sha256": "57745ce840ffd8ecc0ed35c23bdb7a46352bf58c9363588780fbd2699742f601",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 14,
+      "plotted_samples": 81
+    },
+    {
+      "bank": "B",
+      "delta_V": 0.004,
+      "file": "point002-bank1-0.bin",
+      "sha256": "a5ec2f5f6d35865c1b9137c5c7963b863a407b1200db6a95d504ba8f667b9be3",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 30,
+      "plotted_samples": 81
+    },
+    {
+      "bank": "A",
+      "delta_V": 0.008,
+      "file": "point003-bank0-0.bin",
+      "sha256": "a3e3aa23a3a5ec803ac8ce8fa5e1402a45d4bf9f4c22261d63936e132afbcfb0",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 36,
+      "plotted_samples": 81
+    },
+    {
+      "bank": "B",
+      "delta_V": 0.008,
+      "file": "point003-bank1-0.bin",
+      "sha256": "b4d057d4123f892c7a3c66d5d30a21553aedd9c607007c4d16914702a00095df",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 20,
+      "plotted_samples": 81
+    },
+    {
+      "bank": "A",
+      "delta_V": 0.012,
+      "file": "point004-bank0-0.bin",
+      "sha256": "6a30c239ce5d6886f06f308974a51170380720d22494832b9a89345fc89276de",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 28,
+      "plotted_samples": 81
+    },
+    {
+      "bank": "B",
+      "delta_V": 0.012,
+      "file": "point004-bank1-0.bin",
+      "sha256": "b95013bdd93b30d4d9c5ce4221e103e0c0cb20cfd984725c85ef9af017fc0a22",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 34,
+      "plotted_samples": 81
+    }
+  ]
+}
