@@ -1,3 +1,12 @@
+Latest diagnostic: J6 DAC23 is on physical2, found by reversible delta response.
+J8 DAC01 route is currently unknown (last qualified ADC3). Common sweep2 completed
+at DAC-A2=32768 for coherent B capture; restored0 afterwards. At0, ADC B2 needs
+sampling-coherency attention before qualification. DAC23=1.024/2.048V; fitted amps,
+bypass and monitor muxes inhibited/TCA0. Kasli directions held, leases released.
+No selected qualification changes, no report regeneration. Production ADC/integrator1–2
+coverage remains pending; integrators3/4/6 retain INCOMPLETE.
+[Common-shift diagnostic](../cfd_simulator/evidence-common-shift-20261117/README.md).
+
 Workflow split: this thread owns hardware acquisition, diagnostics and evidence receipts.
 Whole-dossier LaTeX/figure assembly moves to an offline reporting thread; see
 [reporting handoff](REPORTING_HANDOFF.md). Preserve the107-page working dossier;

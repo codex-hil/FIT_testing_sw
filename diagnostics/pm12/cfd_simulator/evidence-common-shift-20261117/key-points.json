@@ -1,0 +1,47 @@
+[
+  {
+    "common_shift_V": -0.1,
+    "banks": {
+      "A": {
+        "phase_amplitude_code": 172.99411764705883,
+        "mean_code": 81.40102639296188,
+        "clip_percent": 25.024437927663733
+      },
+      "B": {
+        "phase_amplitude_code": 79.13039215686274,
+        "mean_code": 28.822091886608014,
+        "clip_percent": 43.89051808406647
+      }
+    }
+  },
+  {
+    "common_shift_V": 0,
+    "banks": {
+      "A": {
+        "phase_amplitude_code": 154.8235294117647,
+        "mean_code": 150.9907135874878,
+        "clip_percent": 0.0
+      },
+      "B": {
+        "phase_amplitude_code": 70.06666666666666,
+        "mean_code": 97.76930596285435,
+        "clip_percent": 0.0
+      }
+    }
+  },
+  {
+    "common_shift_V": 0.1,
+    "banks": {
+      "A": {
+        "phase_amplitude_code": 193.21666666666667,
+        "mean_code": 212.0549853372434,
+        "clip_percent": 0.0
+      },
+      "B": {
+        "phase_amplitude_code": 97.69313725490196,
+        "mean_code": 156.202834799609,
+        "clip_percent": 0.0
+      }
+    }
+  }
+]

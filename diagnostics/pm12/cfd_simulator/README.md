@@ -1,3 +1,14 @@
+# Integrator common-shift diagnostic —2026-11-17
+
+Physical channel 2: hold the relative differential stimulus at 20 mV and
+sweep both commanded DAC voltages together over ±100 mV. The run retains
+200 validated ADC buffers, baseline/return controls and an English plot.
+[Results, limits and reproduction commands](evidence-common-shift-20261117/README.md).
+Use `integrator_common_mode.py` for acquisition and
+`plot_integrator_common_mode.py` for offline analysis. Cable discovery and
+ADC sampling-phase diagnostics are separate helpers; this experiment does
+not change production qualification results.
+
 # Repaired DIO return paths —2026-11-10
 
 INTA from PM10/8 now has edges and follows DAC-A after the owner repaired

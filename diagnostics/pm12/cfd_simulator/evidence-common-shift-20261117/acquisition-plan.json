@@ -1,0 +1,515 @@
+{
+  "mode": "LIVE_DIAGNOSTIC",
+  "physical_channel": 2,
+  "started_utc": "2026-11-17T16:55:33.691438+00:00",
+  "points": [
+    {
+      "index": 0,
+      "stage": "baseline-start",
+      "common_shift_V": 0.0,
+      "relative_delta_V": 0.0,
+      "DAC2_V": 1.024,
+      "DAC3_V": 2.048,
+      "commanded_common_V": 1.536,
+      "commanded_DAC2_minus_DAC3_V": -1.024
+    },
+    {
+      "index": 1,
+      "stage": "delta-start",
+      "common_shift_V": 0.0,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.034,
+      "DAC3_V": 2.038,
+      "commanded_common_V": 1.536,
+      "commanded_DAC2_minus_DAC3_V": -1.0039999999999998
+    },
+    {
+      "index": 2,
+      "stage": "sweep",
+      "common_shift_V": -0.1,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 0.934,
+      "DAC3_V": 1.938,
+      "commanded_common_V": 1.436,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 3,
+      "stage": "sweep",
+      "common_shift_V": -0.09000000000000001,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 0.944,
+      "DAC3_V": 1.948,
+      "commanded_common_V": 1.446,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 4,
+      "stage": "sweep",
+      "common_shift_V": -0.08,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 0.954,
+      "DAC3_V": 1.958,
+      "commanded_common_V": 1.456,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 5,
+      "stage": "sweep",
+      "common_shift_V": -0.07,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 0.964,
+      "DAC3_V": 1.968,
+      "commanded_common_V": 1.466,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 6,
+      "stage": "sweep",
+      "common_shift_V": -0.060000000000000005,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 0.974,
+      "DAC3_V": 1.978,
+      "commanded_common_V": 1.476,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 7,
+      "stage": "sweep",
+      "common_shift_V": -0.05,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 0.984,
+      "DAC3_V": 1.988,
+      "commanded_common_V": 1.486,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 8,
+      "stage": "sweep",
+      "common_shift_V": -0.04000000000000001,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 0.994,
+      "DAC3_V": 1.998,
+      "commanded_common_V": 1.496,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 9,
+      "stage": "sweep",
+      "common_shift_V": -0.03,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.004,
+      "DAC3_V": 2.008,
+      "commanded_common_V": 1.506,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 10,
+      "stage": "sweep",
+      "common_shift_V": -0.020000000000000004,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.014,
+      "DAC3_V": 2.018,
+      "commanded_common_V": 1.516,
+      "commanded_DAC2_minus_DAC3_V": -1.0039999999999998
+    },
+    {
+      "index": 11,
+      "stage": "sweep",
+      "common_shift_V": -0.010000000000000009,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.024,
+      "DAC3_V": 2.028,
+      "commanded_common_V": 1.526,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 12,
+      "stage": "sweep",
+      "common_shift_V": 0.0,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.034,
+      "DAC3_V": 2.038,
+      "commanded_common_V": 1.536,
+      "commanded_DAC2_minus_DAC3_V": -1.0039999999999998
+    },
+    {
+      "index": 13,
+      "stage": "sweep",
+      "common_shift_V": 0.009999999999999995,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.044,
+      "DAC3_V": 2.048,
+      "commanded_common_V": 1.546,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 14,
+      "stage": "sweep",
+      "common_shift_V": 0.01999999999999999,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.054,
+      "DAC3_V": 2.058,
+      "commanded_common_V": 1.556,
+      "commanded_DAC2_minus_DAC3_V": -1.0039999999999998
+    },
+    {
+      "index": 15,
+      "stage": "sweep",
+      "common_shift_V": 0.03,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.064,
+      "DAC3_V": 2.068,
+      "commanded_common_V": 1.566,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 16,
+      "stage": "sweep",
+      "common_shift_V": 0.04000000000000001,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.074,
+      "DAC3_V": 2.078,
+      "commanded_common_V": 1.576,
+      "commanded_DAC2_minus_DAC3_V": -1.0039999999999998
+    },
+    {
+      "index": 17,
+      "stage": "sweep",
+      "common_shift_V": 0.04999999999999999,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.084,
+      "DAC3_V": 2.088,
+      "commanded_common_V": 1.586,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 18,
+      "stage": "sweep",
+      "common_shift_V": 0.06,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.094,
+      "DAC3_V": 2.098,
+      "commanded_common_V": 1.596,
+      "commanded_DAC2_minus_DAC3_V": -1.0039999999999998
+    },
+    {
+      "index": 19,
+      "stage": "sweep",
+      "common_shift_V": 0.07,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.104,
+      "DAC3_V": 2.108,
+      "commanded_common_V": 1.606,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 20,
+      "stage": "sweep",
+      "common_shift_V": 0.07999999999999999,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.114,
+      "DAC3_V": 2.118,
+      "commanded_common_V": 1.616,
+      "commanded_DAC2_minus_DAC3_V": -1.0039999999999998
+    },
+    {
+      "index": 21,
+      "stage": "sweep",
+      "common_shift_V": 0.09,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.124,
+      "DAC3_V": 2.128,
+      "commanded_common_V": 1.6260000000000001,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 22,
+      "stage": "sweep",
+      "common_shift_V": 0.1,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.134,
+      "DAC3_V": 2.138,
+      "commanded_common_V": 1.636,
+      "commanded_DAC2_minus_DAC3_V": -1.004
+    },
+    {
+      "index": 23,
+      "stage": "delta-return",
+      "common_shift_V": 0.0,
+      "relative_delta_V": 0.02,
+      "DAC2_V": 1.034,
+      "DAC3_V": 2.038,
+      "commanded_common_V": 1.536,
+      "commanded_DAC2_minus_DAC3_V": -1.0039999999999998
+    },
+    {
+      "index": 24,
+      "stage": "baseline-return",
+      "common_shift_V": 0.0,
+      "relative_delta_V": 0.0,
+      "DAC2_V": 1.024,
+      "DAC3_V": 2.048,
+      "commanded_common_V": 1.536,
+      "commanded_DAC2_minus_DAC3_V": -1.024
+    }
+  ],
+  "command": [
+    "/home/codex-hil/kasli-diot-bringup/.venv/bin/python",
+    "/home/codex-hil/fit-testing-publish/diagnostics/pm12/cfd_simulator/integrator_scan.py",
+    "--afe",
+    "2",
+    "--expected-build",
+    "ff2f746c",
+    "--board-serial",
+    "1803",
+    "--dac-channels",
+    "2",
+    "3",
+    "--base",
+    "1.024",
+    "2.048",
+    "--offsets",
+    "0",
+    "--pairs",
+    "1.0240:2.0480",
+    "1.0340:2.0380",
+    "0.9340:1.9380",
+    "0.9440:1.9480",
+    "0.9540:1.9580",
+    "0.9640:1.9680",
+    "0.9740:1.9780",
+    "0.9840:1.9880",
+    "0.9940:1.9980",
+    "1.0040:2.0080",
+    "1.0140:2.0180",
+    "1.0240:2.0280",
+    "1.0340:2.0380",
+    "1.0440:2.0480",
+    "1.0540:2.0580",
+    "1.0640:2.0680",
+    "1.0740:2.0780",
+    "1.0840:2.0880",
+    "1.0940:2.0980",
+    "1.1040:2.1080",
+    "1.1140:2.1180",
+    "1.1240:2.1280",
+    "1.1340:2.1380",
+    "1.0340:2.0380",
+    "1.0240:2.0480",
+    "--repeats",
+    "4",
+    "--park",
+    "1.024",
+    "2.048",
+    "--out",
+    "/srv/codex-hil-nvme/pm12-integrator-common-shift-20261117/run03-ch02-phase32768/native"
+  ],
+  "acquisition_complete": true,
+  "adc_phase_code": 32768,
+  "limits": "ADC differential observables only; individual output saturation and actual analog DAC common voltage are not measured",
+  "phase_source_sha256": "0c8b9d5731f4eeab9a83ad3f055ff050fde82bd73f6d4e9ec07df602a72e89b6",
+  "phase_uart": [
+    {
+      "command": "@DAC 2 W A 0000",
+      "reply": "DAC SENT A 0000\r\n",
+      "duration_s": 0.2108
+    },
+    {
+      "command": "@DAC 2 W A 8000",
+      "reply": "DAC SENT A 8000\r\n",
+      "duration_s": 0.2109
+    },
+    {
+      "command": "@DAC 2 W A 0000",
+      "reply": "DAC SENT A 0000\r\n",
+      "duration_s": 0.2117
+    }
+  ],
+  "phase_pgood": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000000700660103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2107
+  },
+  "phase_mcu": {
+    "command": "RS",
+    "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    35.8 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+    "duration_s": 0.2108
+  },
+  "pgood_cleanup": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000000701660103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2113
+  },
+  "mcu_cleanup": {
+    "command": "RS",
+    "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    35.8 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+    "duration_s": 0.2111
+  },
+  "adc_phase_restored": 0,
+  "final_gpio": {
+    "0": 112,
+    "1": 223,
+    "18": 140,
+    "19": 32,
+    "20": 140,
+    "21": 32
+  },
+  "tca_final": {
+    "112": 0,
+    "113": 0
+  },
+  "cleanup_i2c": [
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2113
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.211
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2109
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2114
+    },
+    {
+      "command": "@I2C W 70 02",
+      "reply": "I2C ADDR=70 TX=02 RX=\r\n",
+      "duration_s": 0.2113
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=02\r\n",
+      "duration_s": 0.2111
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=0C\r\n",
+      "duration_s": 0.2111
+    },
+    {
+      "command": "@I2C W 20 14 8C",
+      "reply": "I2C ADDR=20 TX=148C RX=\r\n",
+      "duration_s": 0.2111
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=20\r\n",
+      "duration_s": 0.2112
+    },
+    {
+      "command": "@I2C W 20 15 20",
+      "reply": "I2C ADDR=20 TX=1520 RX=\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=8C\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=20\r\n",
+      "duration_s": 0.2111
+    },
+    {
+      "command": "@I2C WR 20 01 00",
+      "reply": "I2C ADDR=20 TX=00 RX=70\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C WR 20 01 01",
+      "reply": "I2C ADDR=20 TX=01 RX=DF\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=8C\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=20\r\n",
+      "duration_s": 0.2112
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=20\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2112
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2113
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2114
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2114
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2109
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2117
+    }
+  ],
+  "finished_utc": "2026-11-17T16:56:16.856033+00:00"
+}

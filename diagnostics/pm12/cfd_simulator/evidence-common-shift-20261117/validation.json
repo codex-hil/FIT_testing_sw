@@ -1,0 +1,11 @@
+{
+  "status": "DIAGNOSTIC_COMPLETE",
+  "physical_channel": 2,
+  "stimulus_response_confirmed": true,
+  "raw_buffers_validated": 200,
+  "raw_files_verified": 592,
+  "phase_code_during_measurement": 32768,
+  "phase_code_restored": 0,
+  "qualification_results_changed": false,
+  "limits": "Differential ADC observables only; physical DAC voltages and individual output-to-ground saturation not measured"
+}

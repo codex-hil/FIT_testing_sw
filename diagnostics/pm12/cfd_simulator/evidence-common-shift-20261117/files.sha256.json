@@ -1,0 +1,15 @@
+{
+  "README.md": "b632ecce2e34f246151cce5c7d8c18089dce4377e97037679ab48a37506e169e",
+  "acquisition-plan.json": "b54c009049eb87305e3183b71a945c9dddfffb9d99fc68404002df3240849185",
+  "adc-phase-probe.json": "aa82f2ad85cf90c7987ce0b500e174ad76fa360dcb613eb060d6cd9f57ef7c68",
+  "analysis.json": "5baf0f2876de4be9581dbf867f2be6d3081e47d65f3886eee05c629e8a4d27f0",
+  "common-shift.csv": "832c10cc29946eea4c00281a6db73292da1c6c6ffd3e44128d36ce0490c4fa91",
+  "common-shift.pdf": "fa97a0262e7a8a92849c9882aca0fa01872c8891995ea3583cb9efdeb29e9cd2",
+  "common-shift.png": "f93c1bc0879bafb82e0b0100a7876c0b58c06252259c43567cc5d0026f5b9862",
+  "executed-packager.py": "8907dd5dc3138d7008e0083559e6768632eda0754d6f861a8700e4bd88b60f6e",
+  "experiment-raw.tar.gz": "fd8965cec132f6a251454889804a19b2feffb1722fc7163696c5304929299046",
+  "key-points.json": "e407b17d508e0eb98a6721b037352a8111328b12b293f9d304bab79f8ac92127",
+  "raw-manifest.json": "11442ec7801f317fac392b09d2b1977447d814c4c4ee08964f8e7fbfef9d7260",
+  "stimulus-discovery.json": "9b491b807c9f3847e90195076a5bffaadf3d39608d64e92195eaa828fb819db9",
+  "validation.json": "97c1caf9ee22cadd62fa4192564da283a72066cf9f9a76a667afdc1954444f72"
+}

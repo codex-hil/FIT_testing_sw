@@ -1,0 +1,777 @@
+{
+  "physical_channel": 2,
+  "mode": "LIVE_DIAGNOSTIC",
+  "points": [
+    {
+      "code": 0,
+      "captures": [
+        {
+          "bank": 0,
+          "file": "phase00000-bank0-0.bin",
+          "generation": 1993,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "EDGE_QUANTIZED",
+            "rising_edges": 1024,
+            "falling_edges": 1023,
+            "interval_counts": {
+              "5": 251,
+              "3": 250,
+              "4": 522
+            },
+            "rising_phase_span_samples": 1,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase00000-bank0-1.bin",
+          "generation": 1994,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "EDGE_QUANTIZED",
+            "rising_edges": 1024,
+            "falling_edges": 1023,
+            "interval_counts": {
+              "4": 547,
+              "3": 238,
+              "5": 238
+            },
+            "rising_phase_span_samples": 1,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase00000-bank0-2.bin",
+          "generation": 1995,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "EDGE_QUANTIZED",
+            "rising_edges": 1024,
+            "falling_edges": 1023,
+            "interval_counts": {
+              "4": 565,
+              "3": 229,
+              "5": 229
+            },
+            "rising_phase_span_samples": 1,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase00000-bank1-0.bin",
+          "generation": 1996,
+          "hardware_status": 45,
+          "valid": false,
+          "decode_error": "ADC word lacks two-sample stability at 33 selected positions; first=[85, 165, 197, 485, 533, 549, 597, 629]"
+        },
+        {
+          "bank": 1,
+          "file": "phase00000-bank1-1.bin",
+          "generation": 1997,
+          "hardware_status": 45,
+          "valid": false,
+          "decode_error": "ADC word lacks two-sample stability at 55 selected positions; first=[277, 293, 357, 421, 437, 517, 613, 789]"
+        },
+        {
+          "bank": 1,
+          "file": "phase00000-bank1-2.bin",
+          "generation": 1998,
+          "hardware_status": 45,
+          "valid": false,
+          "decode_error": "ADC word lacks two-sample stability at 45 selected positions; first=[173, 189, 205, 221, 237, 285, 381, 445]"
+        }
+      ],
+      "uptime_before": [
+        3828008583,
+        82
+      ],
+      "uptime_after": [
+        3846041422,
+        82
+      ]
+    },
+    {
+      "code": 16384,
+      "captures": [
+        {
+          "bank": 0,
+          "file": "phase16384-bank0-0.bin",
+          "generation": 1999,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase16384-bank0-1.bin",
+          "generation": 2000,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase16384-bank0-2.bin",
+          "generation": 2001,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase16384-bank1-0.bin",
+          "generation": 2002,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase16384-bank1-1.bin",
+          "generation": 2003,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase16384-bank1-2.bin",
+          "generation": 2004,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        }
+      ],
+      "uptime_before": [
+        3854546366,
+        82
+      ],
+      "uptime_after": [
+        3872745386,
+        82
+      ]
+    },
+    {
+      "code": 32768,
+      "captures": [
+        {
+          "bank": 0,
+          "file": "phase32768-bank0-0.bin",
+          "generation": 2005,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase32768-bank0-1.bin",
+          "generation": 2006,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase32768-bank0-2.bin",
+          "generation": 2007,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase32768-bank1-0.bin",
+          "generation": 2008,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase32768-bank1-1.bin",
+          "generation": 2009,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase32768-bank1-2.bin",
+          "generation": 2010,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 0,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        }
+      ],
+      "uptime_before": [
+        3881235504,
+        82
+      ],
+      "uptime_after": [
+        3899368020,
+        82
+      ]
+    },
+    {
+      "code": 49152,
+      "captures": [
+        {
+          "bank": 0,
+          "file": "phase49152-bank0-0.bin",
+          "generation": 2011,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase49152-bank0-1.bin",
+          "generation": 2012,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase49152-bank0-2.bin",
+          "generation": 2013,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase49152-bank1-0.bin",
+          "generation": 2014,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase49152-bank1-1.bin",
+          "generation": 2015,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase49152-bank1-2.bin",
+          "generation": 2016,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        }
+      ],
+      "uptime_before": [
+        3907882084,
+        82
+      ],
+      "uptime_after": [
+        3926086228,
+        82
+      ]
+    },
+    {
+      "code": 65535,
+      "captures": [
+        {
+          "bank": 0,
+          "file": "phase65535-bank0-0.bin",
+          "generation": 2017,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase65535-bank0-1.bin",
+          "generation": 2018,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 0,
+          "file": "phase65535-bank0-2.bin",
+          "generation": 2019,
+          "hardware_status": 13,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase65535-bank1-0.bin",
+          "generation": 2020,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase65535-bank1-1.bin",
+          "generation": 2021,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        },
+        {
+          "bank": 1,
+          "file": "phase65535-bank1-2.bin",
+          "generation": 2022,
+          "hardware_status": 45,
+          "valid": true,
+          "timing": {
+            "status": "ALIGNED",
+            "rising_edges": 1024,
+            "falling_edges": 1024,
+            "interval_counts": {
+              "4": 1023
+            },
+            "rising_phase_span_samples": 0,
+            "falling_phase_span_samples": 1,
+            "selected_words_stable": true,
+            "selected_word_rule": "sample before STR rising, equal to its preceding ADC-data sample",
+            "scope": "4x sampled timing/coherency; not physical clock-jitter qualification"
+          }
+        }
+      ],
+      "uptime_before": [
+        3934574634,
+        82
+      ],
+      "uptime_after": [
+        3952847880,
+        82
+      ]
+    }
+  ],
+  "uart": [
+    {
+      "command": "@DAC 2 W A 0000",
+      "reply": "DAC SENT A 0000\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@DAC 2 W A 4000",
+      "reply": "DAC SENT A 4000\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@DAC 2 W A 8000",
+      "reply": "DAC SENT A 8000\r\n",
+      "duration_s": 0.2113
+    },
+    {
+      "command": "@DAC 2 W A C000",
+      "reply": "DAC SENT A C000\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@DAC 2 W A FFFF",
+      "reply": "DAC SENT A FFFF\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@DAC 2 W A 0000",
+      "reply": "DAC SENT A 0000\r\n",
+      "duration_s": 0.2119
+    }
+  ],
+  "complete": true,
+  "started_utc": "2026-11-17T16:53:23.663747+00:00",
+  "sources": {
+    "sources/__main__.py": "027dcab771363522c19781b8f3153f3b287ec1d5ca8353c2e3339a304f1a6667",
+    "sources/lease.py": "2e1eeed74526a4b6cf698987cb013a9958be038c67c421d25e7d5cec535a5892",
+    "sources/station.py": "031f290d18b102b05febd6d56989c6ac02e94213142b649eaa30f563bf6d11df",
+    "sources/console.py": "757d528c6370179d00dd7794b5c6171886d19cb79c379bb99e9ff3e192894a76",
+    "sources/mcp23017.py": "00006bc448b63a802e4af2c6489d7e8917ddc7545d867264c76c40cf24173a59",
+    "sources/phase_scan.py": "0c8b9d5731f4eeab9a83ad3f055ff050fde82bd73f6d4e9ec07df602a72e89b6",
+    "sources/pm12_console_regression.py": "f73c275fa1fbad7de8079ccae9ba47b37123ae1809da006631791bd03a9cf7bd",
+    "sources/pm12_power.py": "804f408bb5efd1dc479e26f845eca3bee95c7f91e27db333e56caed7c024573b",
+    "sources/channel_settings.py": "da68e766c51262c222d016c4b5274de2a6a9b3bb91bb34d7bb738e42193b27ed",
+    "sources/mod_dac28.py": "1475f00514f61e74debfff55c25225efcdc511cf8abf99395af6585eca66ff28",
+    "sources/client.py": "05be13b9f17797cb910e20950aa7456dc79d0f2f1364012a43f08c3eb8bc45f9",
+    "sources/adc_decode.py": "0e660c6891960f467a8b31c12e06406d878cbb48b8ebe0986ab8d7eb89afddaa"
+  },
+  "pgood": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000000800670103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000002602660103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000005B00660103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000007802660103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2118
+    }
+  ],
+  "mcu": {
+    "command": "RS",
+    "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    35.8 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+    "duration_s": 0.2122
+  },
+  "fpga": [
+    1347228162,
+    65538,
+    4281300076
+  ],
+  "valid_codes": [
+    16384,
+    32768,
+    49152,
+    65535
+  ],
+  "restored_phase_code": 0,
+  "final_gpio": {
+    "0": 112,
+    "1": 223,
+    "18": 140,
+    "19": 32,
+    "20": 140,
+    "21": 32
+  },
+  "tca_final": {
+    "112": 0,
+    "113": 0
+  },
+  "scpi": [
+    {
+      "command": "*IDN?",
+      "reply": "MODULIQ,MOD-DAC-28,FIT-CTRL-6825DD4C49E4,1.0"
+    },
+    {
+      "command": "STAT:READ?",
+      "reply": "1"
+    },
+    {
+      "command": "SYST:PROJ?",
+      "reply": "28"
+    },
+    {
+      "command": "SYST:REV?",
+      "reply": "16"
+    },
+    {
+      "command": "SOUR:TWO:VOLT 1.0240"
+    },
+    {
+      "command": "SOUR:TWO:VOLT?",
+      "reply": "1.02400005"
+    },
+    {
+      "command": "SOUR:THR:VOLT 2.0480"
+    },
+    {
+      "command": "SOUR:THR:VOLT?",
+      "reply": "2.0480001"
+    },
+    {
+      "command": "SYST:ERR?",
+      "reply": "0,\"No error\""
+    }
+  ],
+  "finished_utc": "2026-11-17T16:53:42.310533+00:00"
+}
