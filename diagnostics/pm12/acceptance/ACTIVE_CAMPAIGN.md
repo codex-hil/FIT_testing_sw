@@ -1,3 +1,15 @@
+## Current2026-11-17 — CFD11 R3 repair verified
+
+Owner fitted missing R3=33kohm on CFD02/PM11. All eight monitor voltages PASS;
+MUX7 raw3.405970/3.406098V, corrected+5.470194/+5.470400V. New current monitor11
+result is registered in clock40 revision; original failed data remain historical.
+[Repair evidence](evidence-cfd11-r3-repair-20261117/README.md).
+MCU1803/power/PRIMARY/PLL healthy; MCU reports FPGA not ready, IPbus unavailable.
+The test used MCU/I2C only; no FPGA/MCU/CPLD/clock or DAC writes. All four muxes
+inhibited, TCA0/0, SMU OFF/HIZ/0A/auto-on OFF, analog GPIO upper controls preserved.
+Kasli outputs untouched. All leases released. Previous resident FPGA build is
+historical, not confirmed resident today. USB routing last declared on9 unchanged.
+
 ## Current2026-11-16 — analog USB on physical9, group9–12 complete
 
 Owner moved both USB pairs10→9; voltage-response probe confirmed both ADC paths.

@@ -1,0 +1,34 @@
+{
+  "pass_": true,
+  "physical_channel": 11,
+  "checks": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "monitor7_repeats": [
+    {
+      "signal": "P5V5_PM12",
+      "volts_at_mux": 3.40597,
+      "volts": 5.470194242424242,
+      "divider_scale": 1.606060606060606
+    },
+    {
+      "signal": "P5V5_PM12",
+      "volts_at_mux": 3.406098,
+      "volts": 5.470399818181818,
+      "divider_scale": 1.606060606060606
+    }
+  ],
+  "samples": 45,
+  "smu_safe_final": true,
+  "repair_confirmed_by_owner": "Missing R3=33kohm fitted"
+}

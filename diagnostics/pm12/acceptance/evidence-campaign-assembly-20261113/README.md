@@ -1,3 +1,9 @@
+Latest repair verification2026-11-17: **CFD02/PM11 monitor PASS after fitting missing33kohm R3**.
+MUX7 raw3.405970/3.406098V, corrected+5.470194/+5.470400V; all eight inputs PASS.
+[Raw/normalized repair evidence](../evidence-cfd11-r3-repair-20261117/README.md).
+The old divider FAIL is superseded for this repaired fixture; historical data preserved.
+Current report83pages. MCU-only measurement: FPGA reports not ready/IPbus unavailable; no programming.
+
 Latest analog completion: [physical9 ADC/integrators PASS](../evidence-campaign-ch09-20261116/README.md).
 Group9–12 analog functional coverage now complete across explicitly labelled FPGA revisions.
 Current report82pages; earlier coverage tables remain dated historical snapshots.
@@ -7,7 +13,7 @@ Original MCU/AUTO-PRIMARY and ff2f746c unchanged; ADC12/12 PASS.
 Before/after observation, not proof of a HEC shield defect or completed A/B/A.
 [Raw comparison](../../system/evidence-hdmi-cable-20261116/README.md).
 
-[Current 82-page PDF](report.pdf).
+[Current 83-page PDF](report.pdf).
 
 Latest resident state: **ff2f746c**, recovered-RX clock counter, original MCU/AUTO-PRIMARY.
 [Raw counter/status evidence](../../system/evidence-rx-clock-counter-20261115/README.md).

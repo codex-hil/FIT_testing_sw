@@ -1,0 +1,37 @@
+\clearpage
+\section{CFD fixture on channel 11: missing R3 repaired, 17 November 2026}
+The owner confirmed that the 33 kohm resistor R3 was missing and fitted it.
+This closes the previously documented positive-supply divider assembly finding
+for provisional fixture CFD02, physical PM channel11. The original faulty
+measurement remains preserved as historical evidence.
+\begin{center}\begin{tabular}{lrr}\toprule
+Condition & MUX7 raw voltage (V) & Divider-corrected rail (V)\\\midrule
+Before repair & 5.479 & Invalid divider: do not convert\\
+After repair, visit1 & 3.405970 & 5.470194\\
+After repair, visit2 & 3.406098 & 5.470400\\\bottomrule
+\end{tabular}\end{center}
+Five fresh samples were acquired per visit. After repair the nominal divider
+factor is 53/33. All eight monitor inputs and the relative reference checks pass.
+\begin{center}\begin{tabular}{rlrr}\toprule
+Input & Signal & Raw voltage (V) & Converted voltage (V)\\\midrule
+0 & \texttt{CFD\_OFFSET} & 1.034134 & 1.034134 \\
+1 & \texttt{CFD\_CMP\_OFFSET} & 0.004000 & 0.004000 \\
+2 & \texttt{BUFFER\_OFFSET} & 1.023886 & 1.023886 \\
+3 & \texttt{DRV\_OFFSET} & 1.043962 & 1.043962 \\
+4 & \texttt{DRV\_VOCM} & 1.535840 & 1.535840 \\
+5 & \texttt{N5V5\_PM12} & -3.428492 & -5.506366 \\
+6 & \texttt{P1V3} & 1.304536 & 1.304536 \\
+7 & \texttt{P5V5\_PM12} & 3.405970 & 5.470194 \\
+\bottomrule\end{tabular}\end{center}
+Measurement used Keysight B2910BL MY63320299 as a 0A voltmeter, Force HI/LO
+local sensing,20V range,1PLC. Exactly one shared monitor mux was active at a time.
+Final state: SMU OFF/HIZ/0A, auto-on disabled; all four muxes inhibited and both
+TCA masks zero. Upper analog GPIO controls were preserved. No DAC, firmware,
+gateware, flash or clock-profile writes were made; Kasli outputs were untouched.
+
+MCU1803 confirmed healthy power and PRIMARY/PLL LOCKED. It reported FPGA not
+ready and IPbus did not respond. The first attempt stopped on its FPGA guard;
+the selected second attempt used the independent MCU/I2C route. This PASS applies
+to the repaired DC monitor, not FPGA/Ethernet or a new ADC/integrator/TDC test.
+Other findings and historical test conditions are unchanged. Raw data and both
+attempts are retained in the dated CFD11 repair evidence archive.

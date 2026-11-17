@@ -1,0 +1,67 @@
+{
+  "channel": 11,
+  "fixture": "CFD02",
+  "repair": "Owner confirmed missing R3=33kohm and fitted it",
+  "old_mux7_raw_V": 5.479,
+  "after_mux7_raw_V": [
+    3.40597,
+    3.406098
+  ],
+  "after_positive_rail_V": [
+    5.470194242424242,
+    5.470399818181818
+  ],
+  "all_eight_checks_pass": true,
+  "values": [
+    {
+      "signal": "CFD_OFFSET",
+      "volts_at_mux": 1.0341339999999999,
+      "volts": 1.0341339999999999,
+      "divider_scale": 1
+    },
+    {
+      "signal": "CFD_CMP_OFFSET",
+      "volts_at_mux": 0.003999999999999999,
+      "volts": 0.003999999999999999,
+      "divider_scale": 1
+    },
+    {
+      "signal": "BUFFER_OFFSET",
+      "volts_at_mux": 1.0238859999999999,
+      "volts": 1.0238859999999999,
+      "divider_scale": 1
+    },
+    {
+      "signal": "DRV_OFFSET",
+      "volts_at_mux": 1.043962,
+      "volts": 1.043962,
+      "divider_scale": 1
+    },
+    {
+      "signal": "DRV_VOCM",
+      "volts_at_mux": 1.5358399999999999,
+      "volts": 1.5358399999999999,
+      "divider_scale": 1
+    },
+    {
+      "signal": "N5V5_PM12",
+      "volts_at_mux": -3.428492,
+      "volts": -5.506365939393939,
+      "divider_scale": 1.606060606060606
+    },
+    {
+      "signal": "P1V3",
+      "volts_at_mux": 1.3045360000000001,
+      "volts": 1.3045360000000001,
+      "divider_scale": 1
+    },
+    {
+      "signal": "P5V5_PM12",
+      "volts_at_mux": 3.40597,
+      "volts": 5.470194242424242,
+      "divider_scale": 1.606060606060606
+    }
+  ],
+  "fpga_status": "IPbus timeout; MCU-only monitor measurement, no FPGA programming",
+  "no_programming": true
+}

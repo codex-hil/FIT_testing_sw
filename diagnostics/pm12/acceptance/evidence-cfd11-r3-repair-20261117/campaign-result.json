@@ -1,0 +1,130 @@
+{
+  "mode": "LIVE",
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "test": "cfd-monitor",
+  "channel": 11,
+  "fixture_id": "CFD02",
+  "measured_utc": "2026-11-17T09:40:10.105169+00:00",
+  "status": "PASS",
+  "protocol": {
+    "method": "MCU-only-repaired-monitor-v1",
+    "hardware_configuration": {
+      "pm_build": "NOT USED: MCU-only monitor; FPGA not ready and IPbus unavailable",
+      "kasli_build": "NOT USED: Kasli outputs untouched",
+      "clock_profile": "MCU reports PRIMARY/PLL LOCKED; monitor DC measurement independent of FPGA clocks",
+      "cpld_gate_mode": "NOT USED for DC monitor"
+    },
+    "samples_per_input": 5,
+    "mux7_revisits": 2,
+    "source_current_A": 0,
+    "sense": "local Force HI/LO",
+    "divider_correction": 1.606060606060606
+  },
+  "source_files": [
+    "acquisition/sources/__main__.py",
+    "acquisition/sources/lease.py",
+    "acquisition/sources/station.py",
+    "acquisition/sources/console.py",
+    "acquisition/sources/mcp23017.py",
+    "acquisition/sources/channel_settings.py",
+    "acquisition/sources/pm12_power.py",
+    "acquisition/sources/pm12_console_regression.py",
+    "acquisition/sources/client.py",
+    "acquisition/sources/campaign_monitor_adapter.py",
+    "acquisition/sources/smu_voltage.py",
+    "acquisition/sources/labinstruments.transport.py",
+    "acquisition/sources/labinstruments.drivers.py"
+  ],
+  "validation": [
+    {
+      "file": "validation.json",
+      "key": "pass_",
+      "equals": true
+    }
+  ],
+  "channel_checks": [
+    {
+      "file": "validation.json",
+      "key": "physical_channel"
+    }
+  ],
+  "connections": {
+    "shared_monitor_channels": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "selection": "One mux active, others inhibited"
+  },
+  "metrics": [
+    {
+      "name": "CFD_OFFSET",
+      "value": 1.0341339999999999,
+      "unit": "V"
+    },
+    {
+      "name": "CFD_CMP_OFFSET",
+      "value": 0.003999999999999999,
+      "unit": "V"
+    },
+    {
+      "name": "BUFFER_OFFSET",
+      "value": 1.0238859999999999,
+      "unit": "V"
+    },
+    {
+      "name": "DRV_OFFSET",
+      "value": 1.043962,
+      "unit": "V"
+    },
+    {
+      "name": "DRV_VOCM",
+      "value": 1.5358399999999999,
+      "unit": "V"
+    },
+    {
+      "name": "N5V5_PM12",
+      "value": -5.506365939393939,
+      "unit": "V"
+    },
+    {
+      "name": "P1V3",
+      "value": 1.3045360000000001,
+      "unit": "V"
+    },
+    {
+      "name": "P5V5_PM12",
+      "value": 5.470194242424242,
+      "unit": "V"
+    }
+  ],
+  "curves": [
+    {
+      "name": "monitor_voltages",
+      "x": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "y": [
+        1.0341339999999999,
+        0.003999999999999999,
+        1.0238859999999999,
+        1.043962,
+        1.5358399999999999,
+        -5.506365939393939,
+        1.3045360000000001,
+        5.470194242424242
+      ],
+      "x_unit": "monitor input",
+      "y_unit": "V"
+    }
+  ],
+  "limits": "Postrepair DC functional check, MCU-only; does not qualify FPGA/IPbus or repeat ADC/integrator/TDC. Owner confirmed fitted33kohm; nominal divider ratio, no traceable calibration."
+}
