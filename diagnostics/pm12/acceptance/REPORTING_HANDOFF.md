@@ -30,7 +30,9 @@ build the replacement in a separate output directory.
 Organize the replacement by test and physical channel, with one current coverage
 matrix and one equipment/connections table. Group comparable channel curves on
 shared axes. Put superseded attempts, reboot interruptions, cable investigations,
-fixture repairs and rejected analyses in a clearly referenced diagnostic appendix.
+fixture repairs and rejected analyses in a separate engineering dossier, outside
+the production report. The owner's production-format requirements below supersede
+the earlier suggestion of a diagnostic appendix in that report.
 Do not present successive chapter status tables as simultaneous current states.
 Keep LaTeX editable and figures reproducible from identified raw inputs. Length
 should follow the evidence; do not add pages merely to reach 200 pages.
@@ -39,6 +41,65 @@ Each plotted series/result needs board UID, physical PM channel, fixture label,
 acquisition timestamp, hardware/source/method version and raw-data provenance.
 Different source/clock epochs may be shown together only with explicit labels;
 their overlay does not constitute a fresh common-protocol retest.
+
+## Mandatory production report format — owner clarification
+
+Produce a short, factual production acceptance report, not a development journal.
+The workflow is: connect the board, automatically acquire its hardware identity,
+record the station/configuration, run the defined test sequence, and generate one
+report plus its linked machine-readable evidence package.
+
+The PDF contains measured results, acceptance limits and statuses. It contains
+no hypotheses, troubleshooting narrative, chronological attempts, conversations,
+reboot history or repeated follow-up chapters. Retain those separately for
+engineering traceability; exclude them from the production PDF entirely.
+
+Suggested test order / contents:
+
+1. Board identity: hardware UID/DNA, MCU identity and readable factory IDs,
+   hardware revision where available, firmware/gateware identifiers, timestamp,
+   test-run ID and overall disposition. Mark unread identities explicitly.
+2. One tester block diagram and one equipment/connections/configuration table.
+3. Continuity/interconnect testing: JTAG/boundary scan and relevant chip-to-chip
+   connections, with checked coverage and exception counts.
+4. Communication interfaces: CPU–FPGA and applicable SPI, I2C, Ethernet/IPbus,
+   HDMI/LVDS and other implemented links, each with measured checks/status.
+5. Power, voltage/current/temperature sensors and monitoring muxes.
+6. ADC, DAC, integrator, TDC and phase-shifter characterization.
+7. All fitted relays/switching/control outputs and other production checks
+   actually present on the board/fixture; enumerate them from the design/test
+   specification. Do not assume a relay exists or was tested from this checklist.
+8. One compact final coverage/disposition table and evidence-package reference.
+
+Voltage presentation is specifically **one page**, not a sequence of spread
+plots. Use one matrix with physical channels1–12 down the rows and monitored
+rails/nodes across the columns, e.g. +5.5V, negative rail with its actual nominal
+label, +3.3V and the other applicable signals. Show units and acceptance ranges
+once in headers/legend; show values and any exception status in the cells.
+Include corrected node voltages after known dividers, not unexplained raw mux
+voltages. A board-wide rail measured only once belongs in a separate small
+board-wide table, not copied into12 independently measured channel cells.
+Use equivalent compact matrices for currents/temperatures when applicable.
+
+Characterization plots should normally combine the12 comparable channels on
+shared axes. Use compact numerical tables for offset/gain/noise, ranges,
+linearity/monotonicity, timing response and applicable limits. Add plots only
+when they convey information the table does not. Do not print each raw capture,
+individual voltage distribution, channel or scan attempt on its own page.
+Detailed raw buffers, histograms, per-point readings and optional detailed
+figures remain in the evidence package, referenced by run ID/hash.
+
+Report missing coverage as NOT TESTED and an unfinished/ambiguous analysis as
+INCOMPLETE (or the project's equivalent controlled status), without speculating
+about its cause. Separate these from a measured FAIL. Missing required tests
+prevent a whole-board PASS/release. Include a concise factual reason, such as
+"insufficient valid samples for balance estimate", rather than a fault hypothesis.
+
+Keep the English LaTeX template editable, with stable section names and data
+tables generated from the selected receipts for this identified board/test run.
+Do not silently combine incompatible versions or present old measurements as
+newly acquired. Historical validated evidence, when used, needs a compact source
+date/configuration field, not a retelling of its acquisition history.
 
 ## Board and bench
 
