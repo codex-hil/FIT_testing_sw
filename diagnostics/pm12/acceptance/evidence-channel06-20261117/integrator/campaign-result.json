@@ -1,0 +1,77 @@
+{
+  "mode": "LIVE",
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "test": "integrator",
+  "channel": 6,
+  "fixture_id": "CFD03",
+  "measured_utc": "2026-11-17T12:43:09.666387+00:00",
+  "status": "INCOMPLETE",
+  "protocol": {
+    "method": "signed-integration-pair-v1",
+    "hardware_configuration": {
+      "pm_build": "ff2f746c",
+      "kasli_build": {
+        "ABI": "CFD4",
+        "expected_bit_sha256": "a71a08a258620b0e5a52c5d03aefd8c69040c9d15e8de6391c484ac182b7173b"
+      },
+      "clock_profile": {
+        "reference_mhz": 40.0787,
+        "adc_rate": "2x reference",
+        "kasli_rate": "3x reference"
+      },
+      "cpld_gate_mode": "original INTA/INTB enabled, nominal20MHz"
+    },
+    "dac_channels": [
+      2,
+      3
+    ],
+    "base_V": [
+      1.024,
+      2.048
+    ],
+    "coarse_offsets_V": [
+      -0.09999999999999987,
+      -0.08000000000000007,
+      -0.05999999999999983,
+      -0.040000000000000036,
+      -0.019999999999999796,
+      -0.010000000000000009,
+      0.0,
+      0.009999999999999787,
+      0.02000000000000024,
+      0.040000000000000036,
+      0.060000000000000275,
+      0.08000000000000007,
+      0.10000000000000009
+    ],
+    "fine_method": "26 points,0.4mV step around coarse estimate",
+    "return_method": "two candidate revisits and +/-5mV offsets;near-zero <=2codes; signed response >4codes"
+  },
+  "source_files": [
+    "executed-controller.py",
+    "acquisition/sweep01/sources/__main__.py",
+    "acquisition/sweep01/sources/adc_decode.py",
+    "acquisition/sweep01/sources/channel_settings.py",
+    "acquisition/sweep01/sources/client.py",
+    "acquisition/sweep01/sources/console.py",
+    "acquisition/sweep01/sources/control.py",
+    "acquisition/sweep01/sources/lease.py",
+    "acquisition/sweep01/sources/mcp23017.py",
+    "acquisition/sweep01/sources/mod_dac28.py",
+    "acquisition/sweep01/sources/pm12_console_regression.py",
+    "acquisition/sweep01/sources/pm12_power.py",
+    "acquisition/sweep01/sources/station.py"
+  ],
+  "connections": {
+    "usb_input": "J6",
+    "stimulus_channel": 6,
+    "dac_channels": [
+      2,
+      3
+    ]
+  },
+  "metrics": [],
+  "curves": [],
+  "limits": "No qualified bank-B signed crossing; coarse acquisition complete, fine and returns not run. Waveform ambiguity is not proof of hardware defect.",
+  "reason": "Bank B lacks an unambiguous integration/reset template near zero; four DAC-A phase diagnostics did not resolve it. Threshold unchanged; DAC-A restored0."
+}

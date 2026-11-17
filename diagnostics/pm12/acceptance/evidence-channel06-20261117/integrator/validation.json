@@ -1,0 +1,6 @@
+{
+  "pass_": false,
+  "physical_channel": 6,
+  "status": "INCOMPLETE",
+  "reason": "Bank B lacks an unambiguous integration/reset template near zero; four DAC-A phase diagnostics did not resolve it. Threshold unchanged; DAC-A restored0."
+}
