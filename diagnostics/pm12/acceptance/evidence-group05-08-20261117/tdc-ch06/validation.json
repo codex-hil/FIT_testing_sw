@@ -1,0 +1,12 @@
+{
+  "pass_": true,
+  "physical_channel": 6,
+  "raw": {
+    "raw_valid": true,
+    "captures": 128,
+    "quiet_windows": 8,
+    "phase_events": 12800,
+    "discovery_events": 64,
+    "total_events": 19268
+  }
+}

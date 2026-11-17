@@ -1,3 +1,7 @@
+[Latest2026-11-17: fitting5–8 and corrected-USB channel8 analog tests](evidence-group05-08-20261117/README.md).
+TDC/phase/monitors/internal DACs5–8 PASS; ADC/integrators8 PASS. Both USB remain8, next7.
+[Current88-page editable report](evidence-campaign-assembly-20261113/report.pdf).
+
 [Latest: TDC and DAC-A phase tests on9–12](evidence-campaign-timing-20261113/README.md), with[repeat procedure](TIMING_CAMPAIGN.md).
 
 [Latest: channel10 ADC/integrators, compared with11and12](evidence-campaign-ch10-20261113/README.md).

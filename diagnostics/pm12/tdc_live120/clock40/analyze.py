@@ -19,7 +19,7 @@ def load_words(base,row,ch):
  return list(struct.unpack('<%dH'%(len(b)//2),b))
 def curves(path,legacy=False):
  r=json.loads(path.read_text());base=path.parent;result={}
- for ch in [9,10,11,12]:
+ for ch in sorted(r['expected_channels']):
   points=sorted([x for x in r['statistics'] if x['channel']==ch],key=lambda x:x['phase_bin']);assert len(points)==25
   raw=[load_words(base,row,ch) for row in points];assert all(len(w)==128 and all(v<8192 for v in w) for w in raw)
   occupied=sorted(set(w>>7 for words in raw for w in words));_,cut=max((b-a if b>a else b+64-a,b) for a,b in zip(occupied,occupied[1:]+occupied[:1]));span=max((x-cut)%64 for x in occupied)
@@ -55,19 +55,20 @@ def main():
  import matplotlib
  matplotlib.use('Agg')
  import matplotlib.pyplot as plt
- from matplotlib.lines import Line2D
+ channels=sorted(new);build=r.get('expected_build','clock40')
  fig,ax=plt.subplots(2,1,figsize=(10,8),layout='constrained');colors=['#1971c2','#e67700','#2b8a3e','#9c36b5']
- for color,ch in zip(colors,[9,10,11,12]):
-  row=new[ch];ax[0].plot(row['delay_ns'],row['fine_relative'],'o-',ms=3,color=color,label=f'PM {ch}')
-  if ch in old:ax[0].plot(old[ch]['delay_ns'],old[ch]['fine_relative'],'--',color=color,alpha=.55)
+ for color,ch in zip(colors,channels):
+  row=new[ch];ax[0].plot(row['delay_ns'],row['fine_relative'],'o-',ms=3,color=color,label=f'PM {ch} ({build})')
+  if ch in old:ax[0].plot(old[ch]['delay_ns'],old[ch]['fine_relative'],'--',color=color,alpha=.55,label=f'PM {ch} historical')
   ax[1].plot(row['delay_ns'],row['coarse_fold10_relative'],'o-',ms=3,color=color,label=f'PM {ch}')
- x=new[9]['delay_ns'];ax[1].plot(x,[v*1.202361 for v in x],':',color='black',label='Clock-ratio prediction')
- for aa in ax:aa.grid(alpha=.25);aa.set_xlabel('Programmed relative delay (ns; nominal 961.8888 MS/s)');aa.legend(loc='best',ncol=3)
- handles,labels=ax[0].get_legend_handles_labels();handles += [Line2D([0],[0],color='grey',ls='-'),Line2D([0],[0],color='grey',ls='--')];labels+=['c7531465 / MCLK40','c7c42d28 / historical'];ax[0].legend(handles,labels,ncol=3)
- ax[0].set(title='TDC fine response: corrected-clock repeat and historical captures',ylabel='Relative fine code (unwrapped modulo 128)');ax[1].set(title='FPGA coarse response, folded modulo one Kasli word',ylabel='Relative coarse code (unwrapped after fold10)')
+ x=new[channels[0]]['delay_ns'];ax[1].plot(x,[v*1.202361 for v in x],':',color='black',label='Clock-ratio prediction')
+ for aa in ax:aa.grid(alpha=.25);aa.set_xlabel('Programmed relative delay (ns; nominal 961.8888 MS/s)');aa.legend(loc='best',ncol=2)
+ ax[0].set(title='TDC fine response: relative phase sweep',ylabel='Relative fine code (unwrapped modulo 128)');ax[1].set(title='FPGA coarse response, folded modulo one Kasli word',ylabel='Relative coarse code (unwrapped after fold10)')
  for ext in ['png','pdf']:fig.savefig(a.out/f'tdc-clock40-phase.{ext}',dpi=180)
  plt.close(fig)
- fig,ax=plt.subplots(figsize=(8,4),layout='constrained');xx=list(range(4));ax.bar([x-.2 for x in xx],[old[ch]['coarse_raw_span'] for ch in [9,10,11,12]],width=.4,label='c7c42d28 historical',color='#adb5bd');ax.bar([x+.2 for x in xx],[new[ch]['coarse_raw_span'] for ch in [9,10,11,12]],width=.4,label='c7531465 MCLK40',color='#1971c2');ax.set(xticks=xx,xticklabels=[9,10,11,12],xlabel='Physical PM channel',ylabel='Observed raw coarse-code arc span',title='Raw coarse spread across the phase sweep');ax.legend();ax.grid(axis='y',alpha=.2)
+ fig,ax=plt.subplots(figsize=(8,4),layout='constrained');xx=list(range(len(channels)))
+ if old:ax.bar([x-.2 for x in xx],[old[ch]['coarse_raw_span'] for ch in channels],width=.4,label='historical',color='#adb5bd')
+ ax.bar([x+.2 if old else x for x in xx],[new[ch]['coarse_raw_span'] for ch in channels],width=.4 if old else .6,label=build+' MCLK40',color='#1971c2');ax.set(xticks=xx,xticklabels=channels,xlabel='Physical PM channel',ylabel='Observed raw coarse-code arc span',title='Raw coarse spread across the phase sweep');ax.legend();ax.grid(axis='y',alpha=.2)
  for ext in ['png','pdf']:fig.savefig(a.out/f'tdc-coarse-span.{ext}',dpi=180)
  print(json.dumps(summary,indent=2))
 if __name__=='__main__':main()

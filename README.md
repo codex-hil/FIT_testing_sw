@@ -1,7 +1,9 @@
-Latest PM12 result (2026-11-14): corrected-clock TDC9–12 repeat PASS,
-19,268 events; [66-page editable acceptance report](diagnostics/pm12/acceptance/evidence-campaign-assembly-20261113/report.pdf)
-and [raw evidence](diagnostics/pm12/tdc_live120/evidence-clock40-20261114/README.md).
-Current diagnostic c7531465; HDMI/SPI reset remains an open finding.
+Latest PM12 results (2026-11-17): TDC, gate-phase, monitor voltages and internal
+DAC B/C/D tests on5–8 PASS; ADC A/B and integrators8 PASS after verified USB correction.
+Both USB remain on8; ADC/integrators5–7 await their cable moves.
+[88-page editable acceptance report](diagnostics/pm12/acceptance/evidence-campaign-assembly-20261113/report.pdf),
+[group raw/normalized evidence](diagnostics/pm12/acceptance/evidence-group05-08-20261117/README.md).
+Current diagnostic SRAM ff2f746c; original MCU and external PLL profile preserved.
 
 # FIT hardware testing and characterization
 

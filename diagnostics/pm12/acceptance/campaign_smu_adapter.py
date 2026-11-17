@@ -80,7 +80,7 @@ def normalize(source,output,root,bid):
                 metrics.append(dict(name='dac_'+dac+'_'+name,value=result[name],unit='%' if name.endswith('percent') else 'V'))
         checks=dict(pass_=all(a['pass_'] for a in analysis.values()),physical_channel=ch,native=native,curves=analysis)
         write(destination/'validation.json',checks)
-        hardware=dict(pm_build='c7c42d28',kasli_build=dict(ABI='CFD4',expected_bit_sha256=cfg['measurement_configuration']['kasli_bit_sha256']),
+        hardware=dict(pm_build=f"{read(directory/'identity.json')['identity']['fpga_ipbus_identity'][2]:08x}",kasli_build=dict(ABI='CFD4',expected_bit_sha256=cfg['measurement_configuration']['kasli_bit_sha256']),
                       clock_profile=dict(reference_mhz=cfg['measurement_configuration']['reference_mhz'],adc_rate='2x reference',kasli_rate='3x reference'),cpld_gate_mode='original INTA/INTB enabled, nominal20MHz')
         receipt=dict(mode='LIVE',test='cfd-dacs',board_uid=uid,channel=ch,fixture_id=assignments[str(ch)],measured_utc=report['started_utc'],status='PASS' if checks['pass_'] else 'FAIL',
                      protocol=dict(method='shared-monitor-SMU-BCD-v1',hardware_configuration=hardware,instrument_identity=report['identity'],sense='Force HI/LO, local',source_current_A=0,source_range_A=1e-6,voltage_range_V=20,nplc=1,settling_s=.1,points=101,repeats=3,limits=LIMITS,post_scan_verification='SMU OFF/HIZ, four monitor muxes inhibited, explicit TCA masks0'),

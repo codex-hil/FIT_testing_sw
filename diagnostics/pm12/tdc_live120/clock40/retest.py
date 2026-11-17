@@ -111,8 +111,9 @@ def run(d,c,u,out,expected_build,channels=(12,11,10,9)):
  return r
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--expected-build',type=lambda s:int(s,16),required=True);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--channels',type=int,nargs=4,default=[12,11,10,9]);p.add_argument('--expected-build',type=lambda s:int(s,16),required=True);a=p.parse_args()
+ if len(set(a.channels))!=4 or any(ch not in range(1,13) for ch in a.channels):p.error('Four distinct physical channels1..12 required')
  with contextlib.ExitStack() as st:
   for name in sorted(['atmel-ice-J41800043065','kasli-diot-00001','pm12-210249A73E43']):st.enter_context(lease(Path.home()/'.cache'/(name+'.lock')))
-  u=st.enter_context(console({'uart':'/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0'}));d=GatePhaseIPbusDevice();st.callback(d.close);c=Client();st.callback(c.close);run(d,c,u,a.out,a.expected_build)
+  u=st.enter_context(console({'uart':'/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0'}));d=GatePhaseIPbusDevice();st.callback(d.close);c=Client();st.callback(c.close);run(d,c,u,a.out,a.expected_build,a.channels)
 if __name__=='__main__':main()

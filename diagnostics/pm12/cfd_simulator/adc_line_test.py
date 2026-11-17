@@ -89,17 +89,20 @@ def main():
     modes.add_argument('--acquire',action='store_true',help='Run existing guarded external DAC scan first')
     modes.add_argument('--report',type=Path,help='Analyze an existing status.json; no hardware access')
     p.add_argument('--out',type=Path,required=True);p.add_argument('--afe',type=int,choices=range(1,13),default=12)
-    p.add_argument('--points',type=int,default=257)
-    p.add_argument('--board-serial',default='1803');p.add_argument('--expected-build',type=lambda v:int(v,16))
-    p.add_argument('--dac-channels',type=int,nargs=2,default=[0,1])
+    p.add_argument('--points',type=int,default=257);p.add_argument('--span',type=float,default=1.2,help='Symmetric requested differential half-span; Vcm1V, each leg remains0..2V')
+    p.add_argument('--board-serial',default='1803');p.add_argument('--mux-select-map',type=int,nargs=2,default=[0,1]);p.add_argument('--expected-build',type=lambda v:int(v,16))
+    p.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);p.add_argument('--integrator-dac-channels',type=int,nargs=2,default=[2,3])
     a=p.parse_args()
+    if not 0<a.span<=2:p.error('Differential half-span must be>0 and<=2V at Vcm1V')
     if not 17<=a.points<=4097:p.error('points must be17..4097')
     a.out.mkdir(parents=True,exist_ok=False)
     source=a.report
     if a.acquire:
-        grid=[round(-1.2+2.4*i/(a.points-1),7) for i in range(a.points)]
+        grid=[round(-a.span+2*a.span*i/(a.points-1),7) for i in range(a.points)]
         command=[sys.executable,str(Path(__file__).with_name('adc_dc_scan.py')),'--afe',str(a.afe),
                  '--board-serial',a.board_serial,'--dac-channels',*[str(c) for c in a.dac_channels],'--out',str(a.out/'scan'),'--differences',*[str(x) for x in grid]]
+        command+=['--integrator-dac-channels',*[str(v) for v in a.integrator_dac_channels]]
+        command+=['--mux-select-map',*[str(v) for v in a.mux_select_map]]
         if a.expected_build is not None:command+=['--expected-build',f'{a.expected_build:08x}']
         sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'acceptance'))
         from lease import ENV

@@ -47,6 +47,7 @@ def analysis_sources(output):
 
 def adc(source,output,root,bid,kind):
     report=read(source/'scan/status.json');channel=report['channel']
+    if report.get('bypass_inhibited'):raise ValueError('Inhibited-bypass diagnostic is not an ADC transfer qualification')
     uid,fixture,hardware=context(root,bid,channel,report['fpga_identity'][2])
     raw_check=validate_adc_raw(source/'scan')
     line=analyze_report(report)
@@ -93,10 +94,10 @@ def adc(source,output,root,bid,kind):
                 measured_utc=report['started_utc'],status='PASS' if passed else 'FAIL',
                 protocol=dict(method='direct-ADC-DC-v1' if kind=='adc-dc' else 'adjacent-pair-states-v1',hardware_configuration=hardware,
                               stimulus_points_per_bank=len(rows),commanded_range_V=[rows[0]['diff_setpoint_v'],rows[-1]['diff_setpoint_v']],common_mode_V=report['common_mode_v'],dac_channels=report['dac_channels'],
-                              fit_interval_V=[-.8,.8],fft_sample_rate_assumed_Hz=80157400,integrator_input_parked_V=report['dac_initial_setpoints'][2:4]),
+                              fit_interval_V=[-.8,.8],fft_sample_rate_assumed_Hz=80157400,integrator_input_dac_channels=report.get('integrator_dac_channels',[2,3]),integrator_input_parked_V=[report['dac_initial_setpoints'][i] for i in report.get('integrator_dac_channels',[2,3])]),
                 source_files=source_files,validation=[dict(file='validation.json',key='adc_dc_pass' if kind=='adc-dc' else 'adc_line_pass',equals=True)],
                 channel_checks=[dict(file='acquisition/scan/status.json',key='channel')],
-                connections=dict(usb_input='J8',stimulus_channel=channel,dac_channels=report['dac_channels']),metrics=metrics,curves=curves,
+                connections=dict(usb_input='J8',stimulus_channel=channel,dac_channels=report['dac_channels'],mux_select_map=report.get('mux_select_map',[0,1])),metrics=metrics,curves=curves,
                 limits='Commanded DAC voltages, whole connected chain; not calibrated ADC-only INL/noise or electrical continuity proof')
     write(output/'campaign-result.json',result)
     return result

@@ -225,3 +225,32 @@ Channel9 acquired2026-11-16 uses ff2f746c and the independent
 `four-cfd-clock40-20261116` registry. Its same-fitting metadata/identity are retained
 verbatim from the original9-12 fitting; live preflight and the new USB routing
 receipt are archived. Earlier10-12 measurements remain in the original registry.
+
+## Fitting5–8, corrected USB routing — 2026-11-17
+
+The new `four-cfd-clock40-20261117` registry retains the original board UID and
+predecessor data separately. Slot7 ports0/1/2/3→8/7/6/5 are verified by finite
+TDC pulses. Both USB are currently8; after operator correction0/1→J8,2/3→J6.
+Use the active handoff and existing leases for the next move8→7. Preserve the
+new per-method source contracts; do not silently import earlier diagnostic
+scans as direct ADC qualification.
+
+`adc_dc_scan.py --bypass-inhibited` is a diagnostic route check; the normalizer
+rejects it as a transfer qualification. Compare enabled/inhibited response to
+verify the actual DAC pair. An apparent cross-bank response can arise from
+swapped USB paths; establish the input route before changing `--mux-select-map`.
+`--integrator-dac-channels` records the other parked pair. `adc_line_test.py
+--span` changes the requested differential half-span at fixed1V common mode;
+it is validated before hardware access. Selected data here use the standard1.2V
+half-span. The wider diagnostic was interrupted on operator rewiring and excluded.
+
+Current TDC runner is `tdc_live120/clock40/retest.py --expected-build ff2f746c
+--channels 8 7 6 5 --out NEW`. Gate phase uses `scan_four_phase.py` with the same
+channel order/build. Both hold slot6 HDMI SPI driven; only slot7 buffers are
+serviced. Historical runners that call global stop/input_cards on both slots
+are not suitable for the present held-SPI bench.
+
+Offline reproduction: extract `campaign-raw.tar.gz` to a new directory, then run
+`campaign_report.py --root EXTRACTED/campaign --out NEW-REPORT --latex /path/to/tectonic`.
+The cumulative LaTeX includes separately labelled historical overlays and remains
+editable; exact executed group generator and all source snapshots are archived.

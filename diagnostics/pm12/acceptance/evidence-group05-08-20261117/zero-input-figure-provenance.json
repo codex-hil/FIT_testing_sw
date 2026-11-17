@@ -1,0 +1,19 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "channels": [
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "inputs_sha256": {
+    "pm08.json": "b0154cb613a3b12fecf64bbe12b97ad197207a3a05b5cd49aeb82754778d748e",
+    "pm09.json": "7c296b2139ded63512304cc03cbfa4896870c250c1b29e40cb7d35cd1c5a2a9c",
+    "pm10.json": "220f67341697c6dcbe00fc21aac85adc919ffe29e1859c2b04c331bad75cc4ce",
+    "pm11.json": "57305b9fa17b4eb3ddcee0982d2b99071aa42f45aaa271aff4676832a019bf89",
+    "pm12.json": "dcbfcf30f17a9ee78c7eded9fb1e56dbdd444a24577454c6b7f36ec5f460c019"
+  },
+  "scope": "Explicit PASS receipts; local capture origins, assumed80.1574MS/s, whole-chain code fluctuations, no intrinsic ADC noise/jitter claim",
+  "generator_sha256": "126e353f95263b8de67d5b37c025583f3836d358efb89e2936890b011b728539"
+}

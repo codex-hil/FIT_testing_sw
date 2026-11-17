@@ -1,3 +1,5 @@
+Current USB8 integrator PASS uses DAC2/3, base1.024/2.048V and `--expected-build ff2f746c`. [Group5–8 evidence](../acceptance/evidence-group05-08-20261117/README.md). The original single-pair channel12 experiment below uses a different cable/polarity coordinate.
+
 # Integrator balance and signed ramp response
 
 Measured on physical **PM12 channel12**, 2026-11-13. The owner moved the

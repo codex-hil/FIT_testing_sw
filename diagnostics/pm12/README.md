@@ -1,7 +1,7 @@
 # PM12 board acceptance and evidence
 
 The current entry point is the [sequential acceptance runner and LaTeX reports](acceptance/README.md).
-It separates up-to-three-channel CFD batches, offline chapter generation and final
+It organizes four-channel CFD batches, offline chapter generation and final
 report assembly, with factory-DNA identities, raw-data hashes and editable templates.
 The2026-11-07 post-reconfiguration STR finding was traced to an invalid exact4-tick
 criterion for asynchronous sampling; see the [diagnosis and controlled repeats](acceptance/ADC_STROBE_DEBUG.md).

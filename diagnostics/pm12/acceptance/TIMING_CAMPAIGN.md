@@ -1,3 +1,5 @@
+Current fitting5–8: use clock40/retest.py with `--channels 8 7 6 5 --expected-build ff2f746c`; scan_four_phase.py accepts the same order/build. Both preserve slot6 SPI drive and service slot7 only. [Current results](evidence-group05-08-20261117/README.md). Earlier procedures below are dated history.
+
 # Four-CFD timing tests in the campaign
 
 Latest [channels9–12 measurements, raw buffers and39-page PDF](evidence-campaign-timing-20261113/README.md).

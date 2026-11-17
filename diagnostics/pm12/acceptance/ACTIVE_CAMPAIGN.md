@@ -1,3 +1,31 @@
+## Current2026-11-17 — fitting5–8, both USB on8, verified routing
+
+BoardPM12-K7-3A17A1B402212223/MCU1803, qualified SRAM ff2f746c restored and retained.
+Slot7 ports0/1/2/3 map to PM8/7/6/5, confirmed by finite TDC discovery.
+All four shared monitors connected to Keysight B2910BL MY63320299 Force HI/LO.
+**PASS on5,6,7,8: TDC, DAC-A/gate phase, eight monitor voltages, internal DAC B/C/D.**
+**PASS on8: ADC A/B transfer/adjacent-bit exercise and integrator balance/sign/returns.**
+ADC/integrators5–7 await the next USB moves. Earlier9–12 results remain preserved.
+
+Initial USB pairs were swapped. Active/inhibited bypass probes identified the
+routes; the owner corrected them. Selected analog results are all after the fix:
+**DAC0/1→J8 direct ADC; DAC2/3→J6 integrator; normal selector map[0,1].**
+Temporary map[1,0], lower driver-path gain, insufficient-range and interrupted
+wider-range measurements remain diagnostic history, excluded from qualification.
+They do not establish a board bank inversion or ADC gain fault.
+Selected ADC:257points/bank, Vdiff±1.2V, Vcm1V, outputs0.4..1.6V.
+Integrator:13coarse/26fine0.4mV points and independent revisits/±5mV controls.
+
+Final DAC0/1=1/1V,2/3=1.0272/2.0448V;8 amps enabled, direct bypass inhibited,
+all four monitor muxes inhibited and both TCA masks0. Final SMU OFF/HIZ/0A,
+auto-on OFF. Internal exercised B/C/D and phase DAC-A restored0000.
+Kasli slot6 SPI held driven, only slot7 directions serviced. Leases released.
+No MCU/CPLD/flash/PLL writes; FPGA load was SRAM only. Active registry:
+`/srv/codex-hil-nvme/pm12-campaigns/PM12-K7-3A17A1B402212223/four-cfd-clock40-20261117`.
+[Raw/normalized group evidence](evidence-group05-08-20261117/README.md),
+[88-page cumulative report](evidence-campaign-assembly-20261113/report.pdf).
+Earlier wiring/current-image statements below are dated history.
+
 ## Current2026-11-17 — CFD11 R3 repair verified
 
 Owner fitted missing R3=33kohm on CFD02/PM11. All eight monitor voltages PASS;

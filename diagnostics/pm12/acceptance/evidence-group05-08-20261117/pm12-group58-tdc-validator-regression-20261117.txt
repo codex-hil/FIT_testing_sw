@@ -1,0 +1,1 @@
+{'raw_valid': True, 'captures': 128, 'quiet_windows': 8, 'phase_events': 12800, 'discovery_events': 64}

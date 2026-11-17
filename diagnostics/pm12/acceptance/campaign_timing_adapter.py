@@ -26,15 +26,20 @@ def fine_statistics(words):
 
 
 def validate_tdc(source,report):
+    clock40='expected_build' in report
     mapping=report['expected_channels'];statistics_by_label={p['label']:p for p in report['statistics']}
-    if len(mapping)!=4 or len(set(mapping))!=4 or len(report['captures'])!=112 or len(statistics_by_label)!=100:raise ValueError('Incomplete four-port TDC scan')
+    if len(mapping)!=4 or len(set(mapping))!=4 or len(report['captures'])!=(128 if clock40 else 112) or len(statistics_by_label)!=100:raise ValueError('Incomplete four-port TDC scan')
+    if clock40:
+        expected_labels=[]
+        for port in range(4):expected_labels += [f'p{port}-quiet-before',f'p{port}-discover']+[f'p{port}-count{n}' for n in [1,64,512,1024]]+[f'p{port}-phase{n:02d}' for n in range(24,49)]+[f'p{port}-quiet-after']
+        if [row['label'] for row in report['captures']]!=expected_labels:raise ValueError('Missing/duplicate clock40 count/phase controls')
     previous=None;quiet=events=0
     for row in report['captures']:
         label=row['label'];summary=read(source/label/'summary.json')
         if any(row[k]!=v for k,v in summary.items()):raise ValueError('Capture summary differs from native receipt')
         port=int(label.split('-')[0][1:]);channel=mapping[port];expected=[0]*12
         if '-quiet-' in label:quiet+=1
-        else:expected[channel-1]=16 if label.endswith('discover') else 128
+        else:expected[channel-1]=(int(label.split('count')[1]) if '-count' in label else (16 if label.endswith('discover') else 128))
         if row['counts']!=expected or row['status']&0x23!=1:raise ValueError('TDC count/crosstalk/freeze error')
         if previous is not None and row['generation']!=(previous+1)&0xffffffff:raise ValueError('Discontinuous TDC generations')
         previous=row['generation']
@@ -54,10 +59,15 @@ def validate_tdc(source,report):
             events+=len(selected)
     if quiet!=8 or events!=12800:raise ValueError('Missing quiet/phase acquisitions')
     final=report['final']
-    if final['cfd_enabled'] or final['selected_port'] or final['pm_build']!=0xc7c42d28:raise ValueError('TDC restoration mismatch')
-    for row in report['directions_final'].values():
-        if row['after']!=[0,0]:raise ValueError('DIO not in input mode')
-    return dict(raw_valid=True,captures=112,quiet_windows=quiet,phase_events=events,discovery_events=64)
+    if final['cfd_enabled'] or final['selected_port'] or final['pm_build']!=(int(report['expected_build'],16) if clock40 else 0xc7c42d28):raise ValueError('TDC restoration mismatch')
+    if clock40:
+        if final['frontend_ready']!=0xfff or final['kasli_hdmi_enable']!=1 or final['kasli_hdmi_state']&15!=9:raise ValueError('Clock40 frontend/SPI state mismatch')
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('tdc_clock40_analysis',P/'tdc_live120/clock40/analyze.py');module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);module.curves(source/'status.json')
+    else:
+        for row in report['directions_final'].values():
+            if row['after']!=[0,0]:raise ValueError('DIO not in input mode')
+    return dict(raw_valid=True,captures=len(report['captures']),quiet_windows=quiet,phase_events=events,discovery_events=64,total_events=sum(sum(x['counts']) for x in report['captures']))
 
 
 def validate_gate(source,report):
@@ -85,6 +95,13 @@ def validate_gate(source,report):
 
 def normalize(kind,source,output,root,bid):
     report=read(source/'status.json')
+    clock40=kind=='tdc' and 'expected_build' in report
+    if clock40:
+        report['pass_']=report['pass'];report['normalization_schema']='clock40 aliases; native status retained separately'
+        report['executed_sources']={'sources/'+name+'.py':v['sha256'] for name,v in report['source_versions'].items()}
+        report['final']['cfd_enabled']=report['final']['cfd_enable'];report['final']['selected_port']=report['final']['cfd_port']
+        for point in report['statistics']:
+            point.update(fine_mean_circular=point['fine']['mean_circular'],fine_std_circular=point['fine']['std_circular'],fine_histogram=point['fine']['histogram'],coarse_histogram=point['coarse']['histogram'])
     if not report['pass_'] or not report.get('finished_utc'):raise ValueError('Native acquisition incomplete')
     c=Campaign(root)
     with c.locked():
@@ -96,13 +113,13 @@ def normalize(kind,source,output,root,bid):
     validation=validate_tdc(source,report) if kind=='tdc' else validate_gate(source,report)
     for name,expected in report['executed_sources'].items():
         if digest(source/name)!=expected:raise ValueError('Executed source snapshot mismatch')
-    hardware=dict(pm_build='c7c42d28',kasli_build=dict(ABI='CFD4',expected_bit_sha256=cfg['measurement_configuration']['kasli_bit_sha256']),clock_profile=dict(reference_mhz=cfg['measurement_configuration']['reference_mhz'],adc_rate='2x reference',kasli_rate='3x reference'),cpld_gate_mode='original INTA/INTB enabled, nominal20MHz')
+    hardware=dict(pm_build=f"{(report['final']['pm_build'] if kind=='tdc' else report['pm_identity'][2]):08x}",kasli_build=dict(ABI='CFD4',expected_bit_sha256=cfg['measurement_configuration']['kasli_bit_sha256']),clock_profile=dict(reference_mhz=cfg['measurement_configuration']['reference_mhz'],adc_rate='2x reference',kasli_rate='3x reference'),cpld_gate_mode='original INTA/INTB enabled, nominal20MHz')
     output.mkdir(parents=True,exist_ok=False)
     for port,ch in enumerate(channels):
-        out=output/f'ch{ch:02d}';acq=out/'acquisition';acq.mkdir(parents=True);shutil.copy2(source/'status.json',acq/'status.json');shutil.copytree(source/'sources',acq/'sources')
+        out=output/f'ch{ch:02d}';acq=out/'acquisition';acq.mkdir(parents=True);shutil.copy2(source/'status.json',acq/'native-status.json');write(acq/'status.json',report);shutil.copytree(source/'sources',acq/'sources')
         sources=['acquisition/'+name for name in report['executed_sources']]
         (out/'analysis-sources').mkdir()
-        for name in [Path(__file__),P/'cfd_simulator/phase_estimator.py',Path('/home/codex-hil/kasli-phase-tester/host/hdmi_check.py')]:
+        for name in [Path(__file__),P/'cfd_simulator/phase_estimator.py',Path('/home/codex-hil/kasli-phase-tester/host/hdmi_check.py')]+([P/'tdc_live120/clock40/analyze.py'] if clock40 else []):
             shutil.copy2(name,out/'analysis-sources'/name.name);sources.append('analysis-sources/'+name.name)
         metrics=[];curves=[];notes=[];passed=True
         if kind=='tdc':

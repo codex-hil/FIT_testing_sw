@@ -1,3 +1,5 @@
+Current fitting5–8/USB8: use explicit `--expected-build ff2f746c`, corrected0/1→J8 and2/3→J6. Verify active/inhibited bypass response before qualification. [Current group evidence](../acceptance/evidence-group05-08-20261117/README.md). Older measurements below retain their dated images/settings.
+
 # External differential DAC characterization of PM12 channel12
 
 Physical test PASS, 2026-11-06. Same PM12 S/N1803 channel12/CFD_SIM used for TDC.
