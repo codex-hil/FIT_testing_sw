@@ -1,0 +1,268 @@
+{
+  "validated_buffers": 42,
+  "physical_channel": 2,
+  "gate_divider": 40,
+  "gate_frequency_Hz_assumed": 2003935.0,
+  "adc_sample_rate_Hz_assumed": 80157400,
+  "clock_scope": "Relative period measured by Kasli; absolute scale uses supplied LHC nominal frequency",
+  "gate_measurements": {
+    "normal-before-gates": [
+      {
+        "logical": 12,
+        "rising_edges": 682,
+        "period_samples_median": 48,
+        "period_samples_range": [
+          48,
+          48
+        ],
+        "high_fraction": 0.5422771672771672,
+        "sample_hz_nominal": 960000000
+      },
+      {
+        "logical": 13,
+        "rising_edges": 683,
+        "period_samples_median": 48.0,
+        "period_samples_range": [
+          48,
+          48
+        ],
+        "high_fraction": 0.5622710622710623,
+        "sample_hz_nominal": 960000000
+      }
+    ],
+    "slow-gates": [
+      {
+        "logical": 12,
+        "rising_edges": 68,
+        "period_samples_median": 480,
+        "period_samples_range": [
+          480,
+          480
+        ],
+        "high_fraction": 0.505982905982906,
+        "sample_hz_nominal": 960000000
+      },
+      {
+        "logical": 13,
+        "rising_edges": 68,
+        "period_samples_median": 480,
+        "period_samples_range": [
+          480,
+          480
+        ],
+        "high_fraction": 0.5043956043956044,
+        "sample_hz_nominal": 960000000
+      }
+    ],
+    "normal-after-gates": [
+      {
+        "logical": 12,
+        "rising_edges": 682,
+        "period_samples_median": 48,
+        "period_samples_range": [
+          48,
+          48
+        ],
+        "high_fraction": 0.5451159951159951,
+        "sample_hz_nominal": 960000000
+      },
+      {
+        "logical": 13,
+        "rising_edges": 683,
+        "period_samples_median": 48.0,
+        "period_samples_range": [
+          47,
+          49
+        ],
+        "high_fraction": 0.5622405372405372,
+        "sample_hz_nominal": 960000000
+      }
+    ]
+  },
+  "measurements": [
+    {
+      "stage": "normal-before",
+      "delta_V": 0.0,
+      "bank": "A",
+      "period_samples": 4,
+      "mean_code": 189.83708048224176,
+      "phase_amplitude_code": 203.86274509803923,
+      "clip_percent": 0.0,
+      "buffers": 3
+    },
+    {
+      "stage": "normal-before",
+      "delta_V": 0.0,
+      "bank": "B",
+      "period_samples": 4,
+      "mean_code": 134.83708048224176,
+      "phase_amplitude_code": 106.87189542483658,
+      "clip_percent": 0.0,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-baseline",
+      "delta_V": 0.0,
+      "bank": "A",
+      "period_samples": 40,
+      "mean_code": 180.92342782665364,
+      "phase_amplitude_code": 182.18666666666664,
+      "clip_percent": 0.0,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-baseline",
+      "delta_V": 0.0,
+      "bank": "B",
+      "period_samples": 40,
+      "mean_code": 135.475073313783,
+      "phase_amplitude_code": 102.84000000000002,
+      "clip_percent": 0.0,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-stimulus",
+      "delta_V": 0.004,
+      "bank": "A",
+      "period_samples": 40,
+      "mean_code": 128.14825676115998,
+      "phase_amplitude_code": 212.10666666666668,
+      "clip_percent": 0.0,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-stimulus",
+      "delta_V": 0.004,
+      "bank": "B",
+      "period_samples": 40,
+      "mean_code": 85.95047246660151,
+      "phase_amplitude_code": 173.90666666666667,
+      "clip_percent": 5.734767025089605,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-stimulus",
+      "delta_V": 0.008,
+      "bank": "A",
+      "period_samples": 40,
+      "mean_code": 91.77549690452916,
+      "phase_amplitude_code": 263.18666666666667,
+      "clip_percent": 17.790811339198434,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-stimulus",
+      "delta_V": 0.008,
+      "bank": "B",
+      "period_samples": 40,
+      "mean_code": 66.32388400130336,
+      "phase_amplitude_code": 169.20000000000002,
+      "clip_percent": 27.077223851417397,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-stimulus",
+      "delta_V": 0.012,
+      "bank": "A",
+      "period_samples": 40,
+      "mean_code": 75.94330400782013,
+      "phase_amplitude_code": 257.94666666666666,
+      "clip_percent": 27.891821440208535,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-stimulus",
+      "delta_V": 0.012,
+      "bank": "B",
+      "period_samples": 40,
+      "mean_code": 58.17953730856957,
+      "phase_amplitude_code": 164.9466666666667,
+      "clip_percent": 35.060280221570544,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-return",
+      "delta_V": 0.0,
+      "bank": "A",
+      "period_samples": 40,
+      "mean_code": 180.35679374389053,
+      "phase_amplitude_code": 182.5066666666667,
+      "clip_percent": 0.0,
+      "buffers": 3
+    },
+    {
+      "stage": "slow-return",
+      "delta_V": 0.0,
+      "bank": "B",
+      "period_samples": 40,
+      "mean_code": 135.5881394591072,
+      "phase_amplitude_code": 102.50666666666666,
+      "clip_percent": 0.0,
+      "buffers": 3
+    },
+    {
+      "stage": "normal-after",
+      "delta_V": 0.0,
+      "bank": "A",
+      "period_samples": 4,
+      "mean_code": 189.89736070381232,
+      "phase_amplitude_code": 204.35294117647058,
+      "clip_percent": 0.0,
+      "buffers": 3
+    },
+    {
+      "stage": "normal-after",
+      "delta_V": 0.0,
+      "bank": "B",
+      "period_samples": 4,
+      "mean_code": 135.22091886608018,
+      "phase_amplitude_code": 106.37647058823529,
+      "clip_percent": 0.0,
+      "buffers": 3
+    }
+  ],
+  "raw_sha256": {
+    "point000-bank0-0.bin": "cc0a9db3af189c5e8d842e0e8bb32a13a046aab2492937dbc0b64dfeb3e88a33",
+    "point000-bank0-1.bin": "c175cfd8215197e202434bb4dc286d57cdd7adde102443dd57231e43924db884",
+    "point000-bank0-2.bin": "12f888d9f74ef79f03e7aa4a54a4d6dbe47997af34c070afc6118bc74f0ce59f",
+    "point000-bank1-0.bin": "a7b21cdeefdadbbacdb25331969da697b2fd3c582a2a0c751e694eb05554372a",
+    "point000-bank1-1.bin": "269b2ba48847efbc3fd315b4fe71780bba5e0d385e81b9c6962d91b78678d385",
+    "point000-bank1-2.bin": "faa951a5f4a42684a9ffb124f0c7cc931788a39ea5e86cdb3fa85430bab28e42",
+    "point001-bank0-0.bin": "fb8572b4e815fc67bc5be9625db090468329273cf86ec699b2f4acd5d9b55d31",
+    "point001-bank0-1.bin": "36863db0eac739e4d6ba7f2a0da9ec2e1a8e1c1a202069359cd3fdde3d31a2c0",
+    "point001-bank0-2.bin": "4f32597065accfc0ca615aa7558fac7810da6c41f0d6d2085763b0638c3e1d52",
+    "point001-bank1-0.bin": "92edd8e7f5f7e7e0ed4c04953dc80fa37741c6ac4da41c5f107a0b8a04ed4fe7",
+    "point001-bank1-1.bin": "9354a32d5ff2760b59ba88813c4fdc64385228239e17bd7182b961477d7ed711",
+    "point001-bank1-2.bin": "a74d12ee9b053be211ceba0c84d6c7ad78dcdc6d2a9a0052a2137079fa168bc1",
+    "point002-bank0-0.bin": "57745ce840ffd8ecc0ed35c23bdb7a46352bf58c9363588780fbd2699742f601",
+    "point002-bank0-1.bin": "693c315ddb5a258b180792ecd5c6631d2eef4f0101089d433f921ce876fd3e31",
+    "point002-bank0-2.bin": "e42074dfef59bf248b62ea11d82a1449c1b430226a74870e6f385ae70061d946",
+    "point002-bank1-0.bin": "a5ec2f5f6d35865c1b9137c5c7963b863a407b1200db6a95d504ba8f667b9be3",
+    "point002-bank1-1.bin": "75ece05d829fdf44a7817148020cd27a138ca526095426d21a14b82f76d8277a",
+    "point002-bank1-2.bin": "977e951f28d4bda10359fea5f899a2f51e100a8adf3e40c97547b22558857dc9",
+    "point003-bank0-0.bin": "a3e3aa23a3a5ec803ac8ce8fa5e1402a45d4bf9f4c22261d63936e132afbcfb0",
+    "point003-bank0-1.bin": "d2d6f9080ecf0e0c71fc2fbf7ac63cefa7053016cc577a1bb94092ed0d540183",
+    "point003-bank0-2.bin": "e5923445308a43e3bb10f9ea0e2bc71e2a830832104dcea25edaac24ef05f5ed",
+    "point003-bank1-0.bin": "b4d057d4123f892c7a3c66d5d30a21553aedd9c607007c4d16914702a00095df",
+    "point003-bank1-1.bin": "f3c03cd5833e0358f7fb8de4f2c6210eafd604c9be9bee4ce528132b948179ec",
+    "point003-bank1-2.bin": "b8b7ab56076a8de56382520e037d593466696e88ba52c211db56500e254abd94",
+    "point004-bank0-0.bin": "6a30c239ce5d6886f06f308974a51170380720d22494832b9a89345fc89276de",
+    "point004-bank0-1.bin": "2870e9d5c45ed4c7efc5617291a3624b8ebfff9234df8193f4d7bc556c6b6c43",
+    "point004-bank0-2.bin": "4b2cf13abf0df30d70bbc2badef808772ba6d5ba26b15eaf0fa59fe73a3a244f",
+    "point004-bank1-0.bin": "b95013bdd93b30d4d9c5ce4221e103e0c0cb20cfd984725c85ef9af017fc0a22",
+    "point004-bank1-1.bin": "ad15f17b66521cba7191bf2ffb39eb21a2c95837cf34364197e5b1d21c330a88",
+    "point004-bank1-2.bin": "8ba96a2169b193530c109cd24e140cb2ac37c989e70610855076fcb47c4ee65e",
+    "point005-bank0-0.bin": "1759471c558f6bb0c6e61ebd82123129d7468a0724e3e7ffc3e58a1272b7d0cb",
+    "point005-bank0-1.bin": "e05862a5954c3361123c86e1570f78a99bc0355d352e1394636ca038b74392cd",
+    "point005-bank0-2.bin": "dc1521e16e46f30ea42949d822fc4fc437de16a2405e419ecca689cabfc04de1",
+    "point005-bank1-0.bin": "ccf6c3e28040500fb9b4070e9db79847eb3f629c0e4f4f0752d7e8ceab80ec4c",
+    "point005-bank1-1.bin": "33b4331e3966be11397ef97bba9c68be4fa49a2cb31e5b3fbb96bd99ac5f995d",
+    "point005-bank1-2.bin": "b12a1eb019c60fce7c100d0488785b65a13f066c0ecee5f1078beb273ba153f1",
+    "point006-bank0-0.bin": "f60c82bbdd49ea1670bec21f8fb4bcf115fc15d25b745d8ef3fdfb0d6e4d685b",
+    "point006-bank0-1.bin": "f5a5058fdb55e2e6b1e97694b30fc28cfbc2cb2f62637d141e1ae4343487273c",
+    "point006-bank0-2.bin": "db2dc06fcca8352f0f75f6f14f61dd780f6c69d36906338e72ca7020403b3e0b",
+    "point006-bank1-0.bin": "73623539bd3d40f745fe4c027a814283c95defe27552c9d976726fb364317f02",
+    "point006-bank1-1.bin": "d49b4de3f648ac8b721006ada86391c09fc6c1fd13b46890163977048e3ebcaf",
+    "point006-bank1-2.bin": "56fd17cc69f4b43abee7a6b6c8aca81926a5286a91f4164062c27775d9602af1"
+  }
+}

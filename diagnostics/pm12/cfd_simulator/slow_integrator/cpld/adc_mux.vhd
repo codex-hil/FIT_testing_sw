@@ -1,0 +1,48 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+entity adc_mux is
+ generic (INTB_ENABLE : boolean := true; GATE_DIV : positive := 4);
+ port(CLK80, STR, ENA, EV : in std_logic;
+      ADC0, ADC1 : in std_logic_vector(11 downto 0);
+      DOUT : out std_logic_vector(12 downto 0);
+      CLK40, CLK20_P, CLK20_N, DV, EV_out : out std_logic);
+end;
+architecture rtl of adc_mux is
+ signal count : unsigned(1 downto 0) := "11";
+ signal clk20n_reg : std_logic := '0';
+ signal slow_count : natural range 0 to GATE_DIV-1 := GATE_DIV-1;
+ signal slow_a : std_logic;
+begin
+ assert GATE_DIV >= 4 and GATE_DIV mod 2 = 0 report "GATE_DIV must be even and >=4" severity failure;
+ -- Preserve original charge-integrator drive and gate-clock behavior.
+ process(CLK80) begin
+  if falling_edge(CLK80) then
+   count <= count + 1;
+   clk20n_reg <= not(count(1) xor count(0));
+  end if;
+ end process;
+ CLK40 <= count(0);
+ normal_gates: if GATE_DIV=4 generate
+ CLK20_P <= count(1);
+ CLK20_N <= clk20n_reg when INTB_ENABLE else '0';
+ end generate;
+ slow_gates: if GATE_DIV>4 generate
+ process(CLK80) begin
+  if falling_edge(CLK80) then
+   if slow_count=GATE_DIV-1 then slow_count <= 0;
+   else slow_count <= slow_count+1; end if;
+  end if;
+ end process;
+ slow_a <= '0' when slow_count<GATE_DIV/2 else '1';
+ CLK20_P <= slow_a;
+ CLK20_N <= not slow_a when INTB_ENABLE else '0';
+ end generate;
+
+ -- EV is a stable global selector passed down the twelve-CPLD chain.
+ EV_out <= EV;
+ DOUT(11 downto 0) <= ADC0 when EV='0' else ADC1;
+ DOUT(12) <= EV;
+ -- STR1/P82 carries the actual local ADC sampling clock.
+ DV <= CLK80;
+end;

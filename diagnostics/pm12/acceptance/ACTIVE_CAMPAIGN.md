@@ -1,3 +1,11 @@
+Latest slow-gate diagnostic PM2: complementary divide40 gates verified by
+Kasli periods480 bins versus48 normal; all42 ADC buffers coherent at unchanged
+STR rate. Long ramps/reset plateaux visible; larger deltas clip. Original CPLD
+restored and all984 rows verified; normal20MHz gates retained, phase0, external
+23=1.024/2.048V, amps/bypass/monitor inhibited, TCA0, leases released.
+No selected qualification changes.
+[Slow-gate evidence](../cfd_simulator/evidence-slow-gates-20261117/README.md).
+
 Latest end-to-end reset standard repeat: PM2 complete,324 buffers validated,
 selected integrator-reset:2 in separate reset-standard-20261117 campaign.
 R A(P/N)=76.59/141.68, B=68.64/137.97ohm nominal; matched normal amplitudes

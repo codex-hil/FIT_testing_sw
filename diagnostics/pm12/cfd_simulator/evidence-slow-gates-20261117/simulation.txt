@@ -1,0 +1,2 @@
+../tb.vhd:19:1:@12001ns:(report note): DIV40_COMPLEMENTARY_50PCT_AND_CLOCK_PRESERVATION_PASS
+simulation stopped @12001ns

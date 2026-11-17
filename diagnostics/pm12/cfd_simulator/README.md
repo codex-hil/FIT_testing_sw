@@ -1,3 +1,10 @@
+# Slow complementary integrator gates —2026-11-17
+
+PM2 divide40 mode: about2.004MHz gates,20 ADC samples per half-cycle.
+Kasli gate periods and all42 ADC buffers verified; normal image restored.
+[Waveforms/data](evidence-slow-gates-20261117/README.md),
+[source and repeat procedure](slow_integrator/README.md).
+
 # Standard reset characterization and continuous reset A —2026-11-17
 
 PM2 ADC strobes remain valid with either integrator held in reset. Nominal P/N
