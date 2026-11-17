@@ -257,3 +257,11 @@ hardware settings or treating diagnostic data as qualification.
 Next hardware step is USB move to2; analog1–2 remains unmeasured. New measurement
 receipts should be incorporated by the reporting thread without duplicating the
 entire test narrative in the final report.
+
+## Reset-resistance characterization added 2026-11-17
+
+New campaign profiles require integrator-reset. Show all four A/B-branch effective
+resistances and normal A/B amplitudes on the same channel-row table. Values are
+conditional on nominal ADC gain/input resistors; no numerical R_ON acceptance
+limits exist. PASS means completed validated characterization/restoration.
+Keep that distinct from resistance tolerance acceptance. See INTEGRATOR_RESET.md.

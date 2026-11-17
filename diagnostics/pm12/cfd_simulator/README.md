@@ -1,3 +1,10 @@
+# Standard reset characterization and continuous reset A —2026-11-17
+
+PM2 ADC strobes remain valid with either integrator held in reset. Nominal P/N
+resistances: A77.1/141.8 ohm, B68.5/137.2 ohm. Original CPLD images restored.
+[Reset A data](evidence-resetA-rdson-20261117/README.md);
+[standard per-channel procedure](../acceptance/INTEGRATOR_RESET.md).
+
 # Continuous-reset resistance diagnostic —2026-11-17
 
 PM2 integrator B: separate P/N sweeps with reset held high. Conditional effective

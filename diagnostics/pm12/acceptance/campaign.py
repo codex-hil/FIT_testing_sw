@@ -275,9 +275,9 @@ class Campaign:
                     raise ValueError('Photo must be an evidence-local PNG/JPEG/PDF')
             # Measurement conditions (USB route, DAC pair, epoch) belong to this
             # individual record, never to the frozen comparison contract.
-            if incoming['test'] in ('integrator','adc-dc','adc-lines'):
+            if incoming['test'] in ('integrator','integrator-reset','adc-dc','adc-lines'):
                 route=incoming.get('connections',{})
-                expected='J6' if incoming['test']=='integrator' else 'J8'
+                expected='J6' if incoming['test'] in ('integrator','integrator-reset') else 'J8'
                 if route.get('usb_input')!=expected or route.get('stimulus_channel')!=channel:
                     raise ValueError('Analog stimulus routing is not confirmed for this channel')
             if incoming['status']=='PASS':

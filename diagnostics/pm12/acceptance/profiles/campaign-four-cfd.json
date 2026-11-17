@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "name": "PM12 twelve-channel characterization, three fittings of four CFDs",
+  "name": "PM12 twelve-channel characterization, three fittings of four CFDs; continuous-reset A/B characterization v1",
   "groups": [
     [
       1,
@@ -137,6 +137,38 @@
         },
         {
           "name": "ramp_response",
+          "bank": "B"
+        }
+      ]
+    },
+    {
+      "id": "integrator-reset",
+      "scope": "channel",
+      "title": "Integrator A/B reset resistance and normal waveform correlation",
+      "required": true,
+      "required_observables": [
+        {
+          "name": "reset_R_P",
+          "bank": "A"
+        },
+        {
+          "name": "reset_R_N",
+          "bank": "A"
+        },
+        {
+          "name": "reset_R_P",
+          "bank": "B"
+        },
+        {
+          "name": "reset_R_N",
+          "bank": "B"
+        },
+        {
+          "name": "during_reset_A_normal-before_amplitude",
+          "bank": "A"
+        },
+        {
+          "name": "during_reset_A_normal-before_amplitude",
           "bank": "B"
         }
       ]

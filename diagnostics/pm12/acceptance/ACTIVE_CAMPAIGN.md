@@ -1,3 +1,11 @@
+Latest PM2 reset characterization: either A or B held HIGH independently; ADC
+strobes remain valid in both cases. Conditional effective P/N resistance A77.1/141.8,
+B68.5/137.2 ohm. Both original-image restorations verified across all984 rows.
+Phase0 and external23=1.024/2.048V restored; amps/bypass/monitor inhibited,
+TCA0, leases released. Standard procedure now covers both banks; no old selected
+qualification or sealed campaign changes.
+[Reset A evidence](../cfd_simulator/evidence-resetA-rdson-20261117/README.md).
+
 Latest diagnostic: PM2 INTB held HIGH for two independent P/N DC sweeps.
 Nominal effective B reset resistance P68.5/N137.2 ohm (430-ohm input, nominal
 2000code/V ADC). All162 buffers decode. Only CPLD2 altered, then original
