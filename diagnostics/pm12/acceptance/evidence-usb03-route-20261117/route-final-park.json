@@ -1,0 +1,83 @@
+{
+  "pass_": true,
+  "utc": "2026-11-17T15:11:52.947806+00:00",
+  "setpoints": [
+    1.0,
+    1.0,
+    1.02400005,
+    2.0480001,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "scpi": [
+    {
+      "command": "*IDN?",
+      "reply": "MODULIQ,MOD-DAC-28,FIT-CTRL-6825DD4C49E4,1.0"
+    },
+    {
+      "command": "STAT:READ?",
+      "reply": "1"
+    },
+    {
+      "command": "SYST:PROJ?",
+      "reply": "28"
+    },
+    {
+      "command": "SYST:REV?",
+      "reply": "16"
+    },
+    {
+      "command": "SOUR:TWO:VOLT 1.0240"
+    },
+    {
+      "command": "SOUR:TWO:VOLT?",
+      "reply": "1.02400005"
+    },
+    {
+      "command": "SOUR:THR:VOLT 2.0480"
+    },
+    {
+      "command": "SOUR:THR:VOLT?",
+      "reply": "2.0480001"
+    },
+    {
+      "command": "SYST:ERR?",
+      "reply": "0,\"No error\""
+    },
+    {
+      "command": "SOUR:ZERO:VOLT?",
+      "reply": "1"
+    },
+    {
+      "command": "SOUR:ONE:VOLT?",
+      "reply": "1"
+    },
+    {
+      "command": "SOUR:TWO:VOLT?",
+      "reply": "1.02400005"
+    },
+    {
+      "command": "SOUR:THR:VOLT?",
+      "reply": "2.0480001"
+    },
+    {
+      "command": "SOUR:FOUR:VOLT?",
+      "reply": "0"
+    },
+    {
+      "command": "SOUR:FIVE:VOLT?",
+      "reply": "0"
+    },
+    {
+      "command": "SOUR:SIX:VOLT?",
+      "reply": "0"
+    },
+    {
+      "command": "SOUR:SEV:VOLT?",
+      "reply": "0"
+    }
+  ],
+  "note": "Only restore DAC23 to previous safe park; no GPIO/Kasli/clock/FPGA changes. Native route probes restored bypass/monitor inhibits."
+}

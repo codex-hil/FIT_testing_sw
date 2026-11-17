@@ -1,3 +1,9 @@
+Latest route check before requested analog3: DAC01 still observed on ADC4, not3.
+Gains A/B:4=-1776.83/-1761.33code/V;3=-1.15/-0.39code/V. Full3 scans not started.
+Both USB move to3 pending; DAC01→J8,23→J6. Safe park01=1/1V,23=1.024/2.048V.
+Prior selected results unchanged;104-page report remains current. No programming/clock/Kasli changes.
+[Route diagnostic and raw captures](evidence-usb03-route-20261117/README.md).
+
 Latest setup: CFD1–4, slot7 RJ45 ports0/1/2/3→4/3/2/1; both USB4, DAC01→J8,23→J6.
 FPGA ff2f746c SRAM restored after initial not-ready state and again after owner-reported reboot;
 MCU/CPLD/flash/PLL unchanged. TDC/phase completed before reboot, monitor/DAC restarted afterwards.

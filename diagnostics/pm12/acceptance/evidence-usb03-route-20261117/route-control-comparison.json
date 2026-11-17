@@ -1,0 +1,18 @@
+{
+  "3": {
+    "gains_code_per_V": [
+      -1.1497064579202743,
+      -0.3913894324853118
+    ],
+    "acquisition_complete": true,
+    "source": "corrected-usb-probe-active/status.json"
+  },
+  "4": {
+    "gains_code_per_V": [
+      -1776.834637964771,
+      -1761.3258317025497
+    ],
+    "acquisition_complete": true,
+    "source": "route-control-pm04/status.json"
+  }
+}
