@@ -1,3 +1,8 @@
+Workflow split: this thread owns hardware acquisition, diagnostics and evidence receipts.
+Whole-dossier LaTeX/figure assembly moves to an offline reporting thread; see
+[reporting handoff](REPORTING_HANDOFF.md). Preserve the107-page working dossier;
+do not append another report chapter after each cable move.
+
 Final setup: CFD1–4 retained; both USB3, DAC01→J8 ADC,23→J6 integrator.
 ADC3 PASS, adjacent bits PASS, integrator3 INCOMPLETE. Earlier timing/monitor/internal-DAC1–4 unchanged.
 All1–4 amps/bypass/monitor muxes inhibited; TCA0. External01=1.0000/1.0000V,23=1.0240/2.0480V.

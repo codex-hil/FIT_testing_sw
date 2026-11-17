@@ -1,3 +1,6 @@
+[Separate reporting-thread assignment and evidence handoff](REPORTING_HANDOFF.md).
+Hardware acquisition publishes receipts; report assembly is an offline task.
+
 Latest channel3 after confirmed USB move: ADC A/B transfer and adjacent bits **PASS**; integrator **INCOMPLETE**.
 Fresh active/inhibited probes verified the J8 route; earlier failed routing checks retained.
 ADC3–12 now available; analog1–2 awaits USB moves. Integrator4/6 remain INCOMPLETE.
