@@ -1,6 +1,12 @@
+Latest channel7 follow-up (2026-11-17): ADC A/B transfer, adjacent-bit exercise,
+and integrator balance/sign/revisits **PASS**, matching the frozen channel8 contracts.
+Both USB now7: DAC0/1→J8 direct ADC, DAC2/3→J6 integrator, verified by active/inhibited probes.
+Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/monitor/internal-DAC PASS unchanged.
+[Channel7 raw data and common plots](evidence-channel07-20261117/README.md).
+
 [Latest2026-11-17: fitting5–8 and corrected-USB channel8 analog tests](evidence-group05-08-20261117/README.md).
 TDC/phase/monitors/internal DACs5–8 PASS; ADC/integrators8 PASS. Both USB remain8, next7.
-[Current88-page editable report](evidence-campaign-assembly-20261113/report.pdf).
+[Current91-page editable report](evidence-campaign-assembly-20261113/report.pdf).
 
 [Latest: TDC and DAC-A phase tests on9–12](evidence-campaign-timing-20261113/README.md), with[repeat procedure](TIMING_CAMPAIGN.md).
 

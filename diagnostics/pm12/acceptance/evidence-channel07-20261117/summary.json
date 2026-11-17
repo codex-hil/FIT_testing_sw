@@ -1,0 +1,117 @@
+{
+  "channel": 7,
+  "adc": [
+    {
+      "name": "gain",
+      "bank": "A",
+      "value": -1780.8766207130616,
+      "unit": "code/V"
+    },
+    {
+      "name": "zero_mean",
+      "bank": "A",
+      "value": 2174.1105675146773,
+      "unit": "code"
+    },
+    {
+      "name": "zero_total_rms",
+      "bank": "A",
+      "value": 57.29194048119358,
+      "unit": "code"
+    },
+    {
+      "name": "zero_four_phase_removed_rms",
+      "bank": "A",
+      "value": 0.5581110008531962,
+      "unit": "code"
+    },
+    {
+      "name": "gain",
+      "bank": "B",
+      "value": -1777.820076053873,
+      "unit": "code/V"
+    },
+    {
+      "name": "zero_mean",
+      "bank": "B",
+      "value": 2165.762230919765,
+      "unit": "code"
+    },
+    {
+      "name": "zero_total_rms",
+      "bank": "B",
+      "value": 68.94693797748482,
+      "unit": "code"
+    },
+    {
+      "name": "zero_four_phase_removed_rms",
+      "bank": "B",
+      "value": 0.5538721130100027,
+      "unit": "code"
+    }
+  ],
+  "integrator": {
+    "pass_": true,
+    "physical_channel": 7,
+    "banks": {
+      "A": {
+        "balance_delta": 0.0056698533880539335,
+        "gain": -2683.042808280175,
+        "returned_change_codes": [
+          0.362882121352478,
+          0.24302146055272503,
+          0.30321136328547166,
+          0.15019878029952138
+        ],
+        "candidate_offset_V": 0.005600000000000049
+      },
+      "B": {
+        "balance_delta": 0.004304647472869139,
+        "gain": -2612.822512004986,
+        "returned_change_codes": [
+          -0.17942527404662653,
+          -0.2601879728269261,
+          -0.33905743399722094,
+          -0.36019376254438784
+        ],
+        "candidate_offset_V": 0.0044000000000001815
+      }
+    },
+    "raw_buffers": 552,
+    "raw_ADC_samples": 564144
+  },
+  "final_dac": [
+    1.0,
+    1.0,
+    1.02649999,
+    2.04550004,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "route": {
+    "measured_utc": "2026-11-17T12:01:47.704742+00:00",
+    "direct_adc_dac_channels": [
+      0,
+      1
+    ],
+    "integrator_dac_channels": [
+      2,
+      3
+    ],
+    "mux_select_map": [
+      0,
+      1
+    ],
+    "active_gain_code_per_V": [
+      -1770.6702544031373,
+      -1765.2641878669215
+    ],
+    "inhibited_gain_code_per_V": [
+      2.764187866921475,
+      0.5381604696708564
+    ],
+    "operator_note": "Both USB moved8->7; owner confirmed Juz"
+  }
+}

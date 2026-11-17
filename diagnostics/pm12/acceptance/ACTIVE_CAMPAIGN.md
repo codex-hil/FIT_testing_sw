@@ -1,3 +1,15 @@
+Current final settings7: DAC0/1=1/1V,2/3=1.0265/2.0455V; channel7 amplifiers enabled,
+direct ADC bypass isolated, all four monitor muxes inhibited/TCA0. Channel8 isolated at preflight.
+Kasli outputs/directions unchanged, leases released. SMU untouched in this follow-up;
+its preceding recorded state is OFF/HIZ/0A/auto-on OFF. No programming or clock changes.
+Earlier dated states below are historical.
+
+Latest channel7 follow-up (2026-11-17): ADC A/B transfer, adjacent-bit exercise,
+and integrator balance/sign/revisits **PASS**, matching the frozen channel8 contracts.
+Both USB now7: DAC0/1→J8 direct ADC, DAC2/3→J6 integrator, verified by active/inhibited probes.
+Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/monitor/internal-DAC PASS unchanged.
+[Channel7 raw data and common plots](evidence-channel07-20261117/README.md).
+
 ## Current2026-11-17 — fitting5–8, both USB on8, verified routing
 
 BoardPM12-K7-3A17A1B402212223/MCU1803, qualified SRAM ff2f746c restored and retained.
