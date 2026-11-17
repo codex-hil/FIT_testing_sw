@@ -75,3 +75,7 @@ python plot_reset_correlation.py --root CAMPAIGN --out NEW_CORRELATION_DIR
 Only selected, integrity-checked results enter the plots. Each bank's amplitude
 comes from its own immediately preceding normal-gate control. No correlation
 coefficient is inferred automatically from sparse coverage.
+
+The complete orchestrator was physically repeated on PM2:324 buffers, immutable
+campaign registration and correlation export passed.
+[End-to-end evidence](../cfd_simulator/evidence-reset-standard-20261117/README.md).

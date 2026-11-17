@@ -1,7 +1,7 @@
 """Offline regression using archived PM2 captures; never opens hardware."""
 import json
 from pathlib import Path
-import sys,tarfile,tempfile,unittest
+import shutil,subprocess,sys,tarfile,tempfile,unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from campaign_reset_adapter import validate
 class ResetEvidenceTests(unittest.TestCase):
@@ -36,4 +36,17 @@ class ResetEvidenceTests(unittest.TestCase):
    p.write_text(old.replace('ARRAY 1 A 0 ', 'INVALID 1 A 0 ',1))
    with self.assertRaises(ValueError):validate(self.source)
   finally:p.write_text(old)
+ def test_plot_selects_requested_bank_from_real_captures(self):
+  script=Path(__file__).resolve().parents[2]/'cfd_simulator/plot_reset_rdson.py'
+  # B archive contains valid samples for both banks. Verify selection explicitly;
+  # labelling its A samples here is a software replay, not an A-reset experiment.
+  for bank in 'AB':
+   with tempfile.TemporaryDirectory() as temp:
+    root=Path(temp);shutil.copytree(self.source/'hardware',root/'hardware')
+    p=root/'hardware/status.json';r=json.loads(p.read_text());r['reset_bank']=bank;p.write_text(json.dumps(r))
+    subprocess.run([sys.executable,str(script),'--root',str(root)],stdout=subprocess.DEVNULL,check=True)
+    result=json.loads((root/'analysis/summary.json').read_text())
+    self.assertEqual(result['reset_bank'],bank)
+    self.assertEqual(result['validated_buffers'],162)
+    if bank=='B':self.assertAlmostEqual(result['fits']['P']['nominal_R_on_ohm'],68.5396805,places=5)
 if __name__=='__main__':unittest.main()

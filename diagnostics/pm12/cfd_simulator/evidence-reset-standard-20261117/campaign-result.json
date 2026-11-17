@@ -1,0 +1,354 @@
+{
+  "mode": "LIVE",
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "test": "integrator-reset",
+  "channel": 2,
+  "fixture_id": "CFD03",
+  "measured_utc": "2026-11-17T18:36:44.981718+00:00",
+  "status": "PASS",
+  "protocol": {
+    "method": "continuous-reset-AB-v1",
+    "base_V": [
+      1.024,
+      2.048
+    ],
+    "offsets_V": [
+      -0.1,
+      -0.08,
+      -0.06,
+      -0.04,
+      -0.02,
+      0.0,
+      0.02,
+      0.04,
+      0.06,
+      0.08,
+      0.1
+    ],
+    "repeats_per_bank": 3,
+    "adc_phase_code": 32768,
+    "input_R_ohm": 430,
+    "adc_codes_per_V": 2000,
+    "acceptance": "Characterization completion only; no numerical R_ON acceptance limits",
+    "hardware_configuration": {
+      "pm_build": "ff2f746c",
+      "kasli_build": {
+        "ABI": "CFD4",
+        "expected_bit_sha256": "a71a08a258620b0e5a52c5d03aefd8c69040c9d15e8de6391c484ac182b7173b"
+      },
+      "clock_profile": {
+        "reference_mhz": 40.0787,
+        "adc_rate": "2x reference",
+        "kasli_rate": "3x reference"
+      },
+      "cpld_gate_mode": "Each bank reset HIGH separately; other gate retained; original restored"
+    }
+  },
+  "source_files": [
+    "executed-adapter.py",
+    "A/analysis/executed-analysis.py",
+    "A/analysis/adc_decode.py",
+    "A/acquisition/sources/__main__.py",
+    "A/acquisition/sources/lease.py",
+    "A/acquisition/sources/station.py",
+    "A/acquisition/sources/console.py",
+    "A/acquisition/sources/mcp23017.py",
+    "A/acquisition/sources/phase_scan.py",
+    "A/acquisition/sources/pm12_console_regression.py",
+    "A/acquisition/sources/pm12_power.py",
+    "A/acquisition/sources/channel_settings.py",
+    "A/acquisition/sources/mod_dac28.py",
+    "A/acquisition/sources/client.py",
+    "A/acquisition/sources/adc_decode.py",
+    "A/acquisition/sources/prepare_reset_vectors.py",
+    "B/analysis/executed-analysis.py",
+    "B/analysis/adc_decode.py",
+    "B/acquisition/sources/__main__.py",
+    "B/acquisition/sources/lease.py",
+    "B/acquisition/sources/station.py",
+    "B/acquisition/sources/console.py",
+    "B/acquisition/sources/mcp23017.py",
+    "B/acquisition/sources/phase_scan.py",
+    "B/acquisition/sources/pm12_console_regression.py",
+    "B/acquisition/sources/pm12_power.py",
+    "B/acquisition/sources/channel_settings.py",
+    "B/acquisition/sources/mod_dac28.py",
+    "B/acquisition/sources/client.py",
+    "B/acquisition/sources/adc_decode.py",
+    "B/acquisition/sources/prepare_reset_vectors.py"
+  ],
+  "validation": [
+    {
+      "file": "validation.json",
+      "key": "pass_",
+      "equals": true
+    }
+  ],
+  "channel_checks": [
+    {
+      "file": "validation.json",
+      "key": "physical_channel"
+    }
+  ],
+  "connections": {
+    "usb_input": "J6",
+    "stimulus_channel": 2,
+    "dac_channels": [
+      2,
+      3
+    ]
+  },
+  "metrics": [
+    {
+      "name": "reset_R_P",
+      "bank": "A",
+      "value": 76.58917251695844,
+      "unit": "ohm (nominal)"
+    },
+    {
+      "name": "reset_slope_P",
+      "bank": "A",
+      "value": -356.228709381202,
+      "unit": "code/commanded V"
+    },
+    {
+      "name": "reset_R_N",
+      "bank": "A",
+      "value": 141.67852942918924,
+      "unit": "ohm (nominal)"
+    },
+    {
+      "name": "reset_slope_N",
+      "bank": "A",
+      "value": 658.9699043218104,
+      "unit": "code/commanded V"
+    },
+    {
+      "name": "during_reset_A_normal-before_amplitude",
+      "bank": "A",
+      "value": 204.69019607843137,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_A_normal-before_amplitude",
+      "bank": "B",
+      "value": 106.67450980392158,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_A_normal-after_amplitude",
+      "bank": "A",
+      "value": 204.2797385620915,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_A_normal-after_amplitude",
+      "bank": "B",
+      "value": 106.22875816993465,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_A_reset-baseline_amplitude",
+      "bank": "A",
+      "value": 6.887581699346408,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_A_reset-baseline_amplitude",
+      "bank": "B",
+      "value": 100.92941176470588,
+      "unit": "code"
+    },
+    {
+      "name": "reset_R_P",
+      "bank": "B",
+      "value": 68.641834029444,
+      "unit": "ohm (nominal)"
+    },
+    {
+      "name": "reset_slope_P",
+      "bank": "B",
+      "value": -319.2643443229953,
+      "unit": "code/commanded V"
+    },
+    {
+      "name": "reset_R_N",
+      "bank": "B",
+      "value": 137.97412764003673,
+      "unit": "ohm (nominal)"
+    },
+    {
+      "name": "reset_slope_N",
+      "bank": "B",
+      "value": 641.7401285583103,
+      "unit": "code/commanded V"
+    },
+    {
+      "name": "during_reset_B_normal-before_amplitude",
+      "bank": "A",
+      "value": 203.77908496732027,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_B_normal-before_amplitude",
+      "bank": "B",
+      "value": 106.71111111111112,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_B_normal-after_amplitude",
+      "bank": "A",
+      "value": 204.5032679738562,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_B_normal-after_amplitude",
+      "bank": "B",
+      "value": 106.25228758169935,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_B_reset-baseline_amplitude",
+      "bank": "A",
+      "value": 208.41307189542485,
+      "unit": "code"
+    },
+    {
+      "name": "during_reset_B_reset-baseline_amplitude",
+      "bank": "B",
+      "value": 3.7843137254901933,
+      "unit": "code"
+    }
+  ],
+  "curves": [
+    {
+      "name": "reset_response_P",
+      "bank": "A",
+      "x": [
+        -0.1,
+        -0.08,
+        -0.06,
+        -0.04,
+        -0.02,
+        0.0,
+        0.02,
+        0.04,
+        0.06,
+        0.08,
+        0.1
+      ],
+      "y": [
+        136.84099055066798,
+        130.58390355164548,
+        123.2098403388726,
+        116.04626914304333,
+        108.89475399152819,
+        102.08927989573151,
+        94.30824372759857,
+        86.99152818507658,
+        80.19126751384816,
+        73.19028999674161,
+        66.36559139784946
+      ],
+      "x_unit": "commanded V offset",
+      "y_unit": "code"
+    },
+    {
+      "name": "reset_response_N",
+      "bank": "A",
+      "x": [
+        -0.1,
+        -0.08,
+        -0.06,
+        -0.04,
+        -0.02,
+        0.0,
+        0.02,
+        0.04,
+        0.06,
+        0.08,
+        0.1
+      ],
+      "y": [
+        33.0237862495927,
+        47.00358422939068,
+        60.88530465949821,
+        74.25904203323557,
+        87.45910720104268,
+        101.54806125773868,
+        115.35320951449984,
+        128.40664711632454,
+        139.93548387096774,
+        151.76311502117954,
+        164.49494949494948
+      ],
+      "x_unit": "commanded V offset",
+      "y_unit": "code"
+    },
+    {
+      "name": "reset_response_P",
+      "bank": "B",
+      "x": [
+        -0.1,
+        -0.08,
+        -0.06,
+        -0.04,
+        -0.02,
+        0.0,
+        0.02,
+        0.04,
+        0.06,
+        0.08,
+        0.1
+      ],
+      "y": [
+        127.09384164222874,
+        120.71652003910069,
+        114.23851417399804,
+        107.53176930596285,
+        101.14727924405344,
+        94.92505702183121,
+        88.05702183121538,
+        81.92147279244054,
+        75.60964483545129,
+        69.59172368849788,
+        63.556858911697624
+      ],
+      "x_unit": "commanded V offset",
+      "y_unit": "code"
+    },
+    {
+      "name": "reset_response_N",
+      "bank": "B",
+      "x": [
+        -0.1,
+        -0.08,
+        -0.06,
+        -0.04,
+        -0.02,
+        0.0,
+        0.02,
+        0.04,
+        0.06,
+        0.08,
+        0.1
+      ],
+      "y": [
+        28.856304985337243,
+        42.148256761159985,
+        55.76604757249918,
+        68.57869012707722,
+        81.41870316063864,
+        94.55197132616487,
+        107.46823069403715,
+        120.98077549690453,
+        133.55034213098727,
+        145.57412838058,
+        155.63994786575432
+      ],
+      "x_unit": "commanded V offset",
+      "y_unit": "code"
+    }
+  ],
+  "limits": "Conditional effective A/B branch R; nominal ADC/input resistance, commanded DAC voltage. PASS means completed characterization, not resistance tolerance."
+}

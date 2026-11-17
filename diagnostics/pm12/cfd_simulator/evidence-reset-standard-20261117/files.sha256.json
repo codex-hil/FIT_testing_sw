@@ -1,0 +1,19 @@
+{
+  "A-reset-transfer.pdf": "fd9cb8a2f55ba6b7ce87b7a1a65507a4d9a38142fb4f7975deba4525b1bb0b97",
+  "A-reset-transfer.png": "8edd43d9b5b6732c01559ccc7d2582fd911e4625b70574971bdb3ed51f616ba2",
+  "A-summary.json": "9074fa16ca95beebf108e3973dc920b90f34173c558f90b4918fda3b8197174f",
+  "B-reset-transfer.pdf": "ef549de619089ea5f7a4b16d25f3f609fa9577f42c9de27c9e13d490f02b50f5",
+  "B-reset-transfer.png": "bf21c6fa3be899e8c581b41765ac2aef2acdf73d9c06cf22758f938cfa6bd507",
+  "B-summary.json": "7f3752c49b9cf6e6b9311239318dbed49274683ea7a9716d3c6d9d5a0b9bbe8c",
+  "README.md": "49fc9ea44fd4b672e05d30ba06c42edad44b5fa0e264b58bc6745a002a2529b8",
+  "campaign-result.json": "43976df4156a387adb38b5877017137b783c201c46dc7134dfa3bc2ee2646fc9",
+  "coverage.json": "ce338658c8b4082c4f617bc446d13ca8d300b519ca9c9f78c0ac373e8f164065",
+  "executed-packager.py": "e5715b88d28e92467d859e037874728ef921592020566035b03e9d58ef36752d",
+  "raw-manifest.json": "1b2429c73db63c743aea7baac886cae4539613c6e7e6b56b4a36a433e8f1543d",
+  "raw-standard-run.tar.gz": "87aaf2b6085551f1f9e91a1b56972113f624c5a9b3109d4d66b7935d84f23882",
+  "reset-correlation.csv": "ff844673f4636f02d4b65a61d367df0fa7318f904900a07e921d9dac64643662",
+  "reset-correlation.pdf": "0ad3dd165b3034f2d1ce7363838d6ee37248075b9e2cac09e752068d4efd0eb8",
+  "reset-correlation.png": "28ba4ae98e52e1a90baa362413541d1cf5c6542b3eec6e8fff6777815f0d2faf",
+  "software-tests.txt": "3bdc34bab2d859de7e70a57fb91db602eef8c3b42a63660926185382967d8d12",
+  "validation.json": "8b138c9a5255712e492b0333efb80da11f47770a66741175637f4903e55e7ac0"
+}

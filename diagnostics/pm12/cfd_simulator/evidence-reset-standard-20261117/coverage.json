@@ -1,0 +1,60 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "channels": [
+    {
+      "channel": 1,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 2,
+      "status": "PASS",
+      "result_id": "result-4816bb98fca8436db06fb8f926e41a9e",
+      "R_A_P_ohm": 76.58917251695844,
+      "R_A_N_ohm": 141.67852942918924,
+      "amplitude_A_code": 204.69019607843137,
+      "R_B_P_ohm": 68.641834029444,
+      "R_B_N_ohm": 137.97412764003673,
+      "amplitude_B_code": 106.71111111111112
+    },
+    {
+      "channel": 3,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 4,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 5,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 6,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 7,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 8,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 9,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 10,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 11,
+      "status": "NOT_MEASURED"
+    },
+    {
+      "channel": 12,
+      "status": "NOT_MEASURED"
+    }
+  ]
+}

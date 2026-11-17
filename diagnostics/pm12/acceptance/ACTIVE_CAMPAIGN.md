@@ -1,3 +1,11 @@
+Latest end-to-end reset standard repeat: PM2 complete,324 buffers validated,
+selected integrator-reset:2 in separate reset-standard-20261117 campaign.
+R A(P/N)=76.59/141.68, B=68.64/137.97ohm nominal; matched normal amplitudes
+A204.69/B106.71code. All CPLD arrays restored, phase0/DAC23=1.024/2.048V;
+amps/bypass/monitor inhibited, TCA0, leases released. Existing full-board
+campaign selections unchanged; other channels in new protocol unmeasured.
+[Standard repeat evidence](../cfd_simulator/evidence-reset-standard-20261117/README.md).
+
 Latest PM2 reset characterization: either A or B held HIGH independently; ADC
 strobes remain valid in both cases. Conditional effective P/N resistance A77.1/141.8,
 B68.5/137.2 ohm. Both original-image restorations verified across all984 rows.
