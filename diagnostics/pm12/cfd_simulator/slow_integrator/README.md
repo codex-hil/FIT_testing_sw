@@ -45,3 +45,10 @@ all intermediate outputs remain in the evidence archive.
 For two complete contiguous periods instead of the folded display, run
 `python plot_two_periods.py --run ORIGINAL_RUN --out NEW_OUTPUT`. It shows81
 unchanged consecutive samples per trace, including both period endpoints.
+
+Signed offsets can be selected with `--deltas-mv -4 -8 -12 -20`.
+`--adc-phase-code` defaults32768; any alternate setting must be retained and
+labelled. `plot_two_periods.py --supplement EXPLICIT_REPEAT` may replace a whole
+point if either bank has no valid capture, preserving the repeat run/phase in
+every trace provenance. Invalid raw captures remain archived and are not plotted.
+[Negative-offset results](../evidence-slow-negative-20261117/README.md).

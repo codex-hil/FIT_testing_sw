@@ -1,11 +1,16 @@
-"""PM2 continuous INTB reset; separate DAC input sweeps with verified rollback."""
-import argparse,contextlib,hashlib,json,re,statistics,struct,subprocess,sys,time
+"""PM2 slow complementary integrator gates and signed input offsets, with rollback."""
+import argparse,contextlib,hashlib,json,math,re,statistics,struct,subprocess,sys,time
 from pathlib import Path
 parser=argparse.ArgumentParser(description='PM2-only slow gate diagnostic with verified rollback')
 parser.add_argument('--out',type=Path,required=True)
 parser.add_argument('--vectors',type=Path,required=True)
 parser.add_argument('--station',type=Path,required=True)
+parser.add_argument('--adc-phase-code',type=int,default=32768)
+parser.add_argument('--deltas-mv',type=float,nargs='+',default=[4,8,12])
 args=parser.parse_args()
+if not 0<=args.adc_phase_code<=65535:parser.error('ADC phase code must be0..65535')
+if not all(math.isfinite(v) and 0<=1.024+v/2000<=3.3 and 0<=2.048-v/2000<=3.3 for v in args.deltas_mv):
+ parser.error('All symmetric DAC setpoints must be finite and within0..3.3V')
 ROOT=args.out.resolve();ROOT.mkdir(parents=True,exist_ok=False)
 BUILD=args.vectors.resolve()
 QUALIFIED={'program.tcl': 'b06de99eb23c452a19c909a46dc3dd62bbf95cb8d51c1efd4c05525cbf9a8c64', 'restore.tcl': 'a21fbc28d21d6612d24dd2834ab801a30f07a3a12219006c109b1b714b0ba1d2', 'verify-original.tcl': '8a659e773644da5a201ed96e153c1024778d53300205253f4a62b7fe133ca766'}
@@ -30,7 +35,7 @@ CFG=json.loads(args.station.read_text())
 assert CFG['board_uid']=='PM12-K7-3A17A1B402212223'
 assert CFG['stimulated_channel']==2 and CFG['channels']['2'].get('integrator_connected'), 'Confirm J6 on PM2'
 CFG['jtag_workspace']=str(ROOT/'jtag-work')
-r=dict(physical_channel=2,complete=False,points=[],uart=[],change='Gate A/B complementary divide40; CLK40 and ADC CLK80 preserved')
+r=dict(adc_phase_code=args.adc_phase_code,requested_deltas_mV=args.deltas_mv,physical_channel=2,complete=False,points=[],uart=[],change='Gate A/B complementary divide40; CLK40 and ADC CLK80 preserved')
 r['sources']=snapshot_sources(OUT,['host.gate_phase_ipbus','host.gate_phase_device','host.lvds8_device','host.device','__main__','lease','station','console','mcp23017','phase_scan','pm12_console_regression','pm12_power','channel_settings','mod_dac28','client','adc_decode'])
 def save():(OUT/'status.json').write_text(json.dumps(r,indent=2)+'\n')
 def rows(text):
@@ -84,7 +89,7 @@ with contextlib.ExitStack() as st:
   try:
    before=rows(tcl('unused','before-nv',True));tcl(BUILD/'verify-original.tcl','verify-original')
    r['original_verified']=True;save()
-   dac.park(1.024,2.048);phase.set_code(32768)
+   dac.park(1.024,2.048);phase.set_code(args.adc_phase_code)
    with bus.routed(*afe_route(2)):
     regs=Registers(bus);assert regs.read(10)==regs.read(11) and not regs.read(10)&128
     regs.write(0x15,regs.read(0x15)|0x20);regs.write(1,regs.read(1)&~0x20)
@@ -97,7 +102,7 @@ with contextlib.ExitStack() as st:
    collect('slow-baseline')
    assert all(cap['valid'] for cap in r['points'][-1]['captures']), 'ADC clock/coherency changed at slow gates'
    gates('slow',480)
-   for delta in [.004,.008,.012]:
+   for delta in [v/1000 for v in args.deltas_mv]:
     collect('slow-stimulus','differential',delta,(round(1.024+delta/2,4),round(2.048-delta/2,4)))
    collect('slow-return')
    r['scan_complete']=True

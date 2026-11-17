@@ -1,3 +1,12 @@
+Latest PM2 slow negative-offset scan: delta0/-4/-8/-12/-20mV gives rising
+unclipped ramps.75/78 buffers coherent; three A/-12mV buffers rejected at
+phase32768, point repeated coherently at49152, explicitly labelled. Both
+CPLD2 restorations match all984 rows. Final normal gates20MHz, phase0,
+DAC23=1.024/2.048V; amps/bypass/monitor inhibited, TCA0, leases released.
+No qualification changes. Sampling at original phase32768/-12mV remains
+a diagnostic finding, not marked repaired.
+[Negative scan](../cfd_simulator/evidence-slow-negative-20261117/README.md).
+
 Latest slow-gate diagnostic PM2: complementary divide40 gates verified by
 Kasli periods480 bins versus48 normal; all42 ADC buffers coherent at unchanged
 STR rate. Long ramps/reset plateaux visible; larger deltas clip. Original CPLD

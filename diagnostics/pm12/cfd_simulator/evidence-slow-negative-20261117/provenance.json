@@ -1,0 +1,126 @@
+{
+  "sample_rate_Hz_assumed": 80157400,
+  "gate_period_samples": 40,
+  "sources": [
+    {
+      "run_directory": "pm12-slow-negative-20261117-run01",
+      "repeated_point": false,
+      "adc_phase_code": 32768,
+      "bank": "A",
+      "delta_V": 0.0,
+      "file": "point001-bank0-0.bin",
+      "sha256": "3c127691d8a2dcef8a5b835b7d7e0fd3bda9e1d4859c3549a6e0366447da1f99",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 32,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run01",
+      "repeated_point": false,
+      "adc_phase_code": 32768,
+      "bank": "B",
+      "delta_V": 0.0,
+      "file": "point001-bank1-0.bin",
+      "sha256": "308f02636922b55c96de705e6aa531671b7a6dc21d0ca9bf093fdd5b303ffafe",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 22,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run01",
+      "repeated_point": false,
+      "adc_phase_code": 32768,
+      "bank": "A",
+      "delta_V": -0.004,
+      "file": "point002-bank0-0.bin",
+      "sha256": "a1c25556ecdb24e0cd310435d8888244ad55caf632c2b4fcd6ab8d781e6fb920",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 12,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run01",
+      "repeated_point": false,
+      "adc_phase_code": 32768,
+      "bank": "B",
+      "delta_V": -0.004,
+      "file": "point002-bank1-0.bin",
+      "sha256": "b339c9818bd5b58e58fa8de5d57300de5e879bd40760a0b649259733992536bc",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 0,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run01",
+      "repeated_point": false,
+      "adc_phase_code": 32768,
+      "bank": "A",
+      "delta_V": -0.008,
+      "file": "point003-bank0-0.bin",
+      "sha256": "97a893334d3faf244a87de4a6532d663ef6195ce205cd3cf67ccebddc16ebc2f",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 32,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run01",
+      "repeated_point": false,
+      "adc_phase_code": 32768,
+      "bank": "B",
+      "delta_V": -0.008,
+      "file": "point003-bank1-0.bin",
+      "sha256": "8c297659b994cfbaa728d644d472d434b38770577e8dd1ae5e91dc06a765cacc",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 38,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run02-phase49152",
+      "repeated_point": true,
+      "adc_phase_code": 49152,
+      "bank": "A",
+      "delta_V": -0.012,
+      "file": "point002-bank0-0.bin",
+      "sha256": "8a8eb7de9e0755287ccc78ca59a3ffdd497a7d62a64a86c0fc48f6ac1aa7ba0e",
+      "decoded_samples_in_buffer": 1022,
+      "start_index": 9,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run02-phase49152",
+      "repeated_point": true,
+      "adc_phase_code": 49152,
+      "bank": "B",
+      "delta_V": -0.012,
+      "file": "point002-bank1-0.bin",
+      "sha256": "6fab281d4fcd7f89591284d4d626c45acb133ad857866fb3e2fca062cfec0332",
+      "decoded_samples_in_buffer": 1022,
+      "start_index": 33,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run01",
+      "repeated_point": false,
+      "adc_phase_code": 32768,
+      "bank": "A",
+      "delta_V": -0.02,
+      "file": "point005-bank0-0.bin",
+      "sha256": "3e524646ed43706cac2573fb8af848977767cbf012e9ec16027188156a1472c7",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 4,
+      "plotted_samples": 81
+    },
+    {
+      "run_directory": "pm12-slow-negative-20261117-run01",
+      "repeated_point": false,
+      "adc_phase_code": 32768,
+      "bank": "B",
+      "delta_V": -0.02,
+      "file": "point005-bank1-0.bin",
+      "sha256": "eb1308f5e5457475c06a00e0d4fccf578d4a48f1bcfad1b7148e2d2f89e86397",
+      "decoded_samples_in_buffer": 1023,
+      "start_index": 32,
+      "plotted_samples": 81
+    }
+  ]
+}

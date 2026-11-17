@@ -1,0 +1,850 @@
+{
+  "runs": [
+    {
+      "run": "pm12-slow-negative-20261117-run01",
+      "adc_phase_code": 32768,
+      "valid": 45,
+      "rejected": [
+        {
+          "file": "point004-bank0-0.bin",
+          "delta_V": -0.012,
+          "bank": "A",
+          "reason": "ADC word lacks two-sample stability at 5 selected positions; first=[341, 821, 1461, 2101, 2581]",
+          "sha256": "dcf48be81f0252f92673946bbae1147ed29cd5c205107ed55e462caf575d0281"
+        },
+        {
+          "file": "point004-bank0-1.bin",
+          "delta_V": -0.012,
+          "bank": "A",
+          "reason": "ADC word lacks two-sample stability at 4 selected positions; first=[1269, 2229, 2869, 3029]",
+          "sha256": "cd54661a54d481e53ef81bda697c3de96624bd0c22ff2f5863b048f55e37af58"
+        },
+        {
+          "file": "point004-bank0-2.bin",
+          "delta_V": -0.012,
+          "bank": "A",
+          "reason": "ADC word lacks two-sample stability at 5 selected positions; first=[469, 949, 1909, 2389, 2869]",
+          "sha256": "fb20b5146723d3a443312199d4d969f95e80e940780c012f9b3ea32cf8f43d6f"
+        }
+      ],
+      "points": [
+        {
+          "stage": "normal-before",
+          "delta_V": 0.0,
+          "setpoints_V": [
+            1.024,
+            2.048
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point000-bank0-0.bin",
+              "minimum": 85,
+              "maximum": 301,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "59c1553ad7258a35a6c3920bab661ec7831e4359ce9aa151ba9bcf4a2fe927a7"
+            },
+            {
+              "bank": "A",
+              "file": "point000-bank0-1.bin",
+              "minimum": 85,
+              "maximum": 300,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "8109a7891f134aa491587d49ea790699d447db3e455fd1a56b1cac0f7f5c0367"
+            },
+            {
+              "bank": "A",
+              "file": "point000-bank0-2.bin",
+              "minimum": 88,
+              "maximum": 301,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "12e39857fc3acd3378544511146031906c5998cb685627d4d84abf03bfcf110c"
+            },
+            {
+              "bank": "B",
+              "file": "point000-bank1-0.bin",
+              "minimum": 74,
+              "maximum": 191,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "aa773f582a82d39a601497d3aa471e1e5085497a1255c5eb21d666e3fa53d836"
+            },
+            {
+              "bank": "B",
+              "file": "point000-bank1-1.bin",
+              "minimum": 73,
+              "maximum": 191,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "71dfff5d35df243b12b7ce0e9e5ec6fe1b962af79cae16e173e1b4aee6c0d65d"
+            },
+            {
+              "bank": "B",
+              "file": "point000-bank1-2.bin",
+              "minimum": 73,
+              "maximum": 190,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "caa4a7be38e704d84916c82fd84aa18e4f29cab0529fa6e8ded17264d85d0d1c"
+            }
+          ]
+        },
+        {
+          "stage": "slow-baseline",
+          "delta_V": 0.0,
+          "setpoints_V": [
+            1.024,
+            2.048
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point001-bank0-0.bin",
+              "minimum": 91,
+              "maximum": 292,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "3c127691d8a2dcef8a5b835b7d7e0fd3bda9e1d4859c3549a6e0366447da1f99"
+            },
+            {
+              "bank": "A",
+              "file": "point001-bank0-1.bin",
+              "minimum": 74,
+              "maximum": 298,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "9c8d1c3a55ed764a6049f46c1d82380b62cf17fda1ee0eea840b8735d9167a3c"
+            },
+            {
+              "bank": "A",
+              "file": "point001-bank0-2.bin",
+              "minimum": 89,
+              "maximum": 290,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "9119be60d001f031f6c8695998f7f2d1ec2156a343be602ed54845dec2d99a4e"
+            },
+            {
+              "bank": "B",
+              "file": "point001-bank1-0.bin",
+              "minimum": 88,
+              "maximum": 204,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "308f02636922b55c96de705e6aa531671b7a6dc21d0ca9bf093fdd5b303ffafe"
+            },
+            {
+              "bank": "B",
+              "file": "point001-bank1-1.bin",
+              "minimum": 85,
+              "maximum": 221,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "0dbaa5bf8879586a1c3cab34ac47ff7cc059ce623cb0756fa9a06e93f0f26d9c"
+            },
+            {
+              "bank": "B",
+              "file": "point001-bank1-2.bin",
+              "minimum": 89,
+              "maximum": 206,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "8b9d331b0bf73339419aadfa5af8a2b9265581955d76e93102bc02a6d791a0c1"
+            }
+          ]
+        },
+        {
+          "stage": "slow-stimulus",
+          "delta_V": -0.004,
+          "setpoints_V": [
+            1.022,
+            2.05
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point002-bank0-0.bin",
+              "minimum": 91,
+              "maximum": 476,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "a1c25556ecdb24e0cd310435d8888244ad55caf632c2b4fcd6ab8d781e6fb920"
+            },
+            {
+              "bank": "A",
+              "file": "point002-bank0-1.bin",
+              "minimum": 92,
+              "maximum": 489,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "a934e35ce3f7bdafff9543d6d8ff4a1ec3dd3f27b42d40a281eafa69d8f3468d"
+            },
+            {
+              "bank": "A",
+              "file": "point002-bank0-2.bin",
+              "minimum": 92,
+              "maximum": 480,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "c0e399bbddbadc04bb89a6d75b5df678713405e83d007dade8d0ea0ceeba4a28"
+            },
+            {
+              "bank": "B",
+              "file": "point002-bank1-0.bin",
+              "minimum": 90,
+              "maximum": 407,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "b339c9818bd5b58e58fa8de5d57300de5e879bd40760a0b649259733992536bc"
+            },
+            {
+              "bank": "B",
+              "file": "point002-bank1-1.bin",
+              "minimum": 89,
+              "maximum": 405,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "13a2399c4d8d9d2ba560c9cee3defa132221203e29ba359defeff394a4feb70a"
+            },
+            {
+              "bank": "B",
+              "file": "point002-bank1-2.bin",
+              "minimum": 90,
+              "maximum": 402,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "6e71f7afa907a1d9a7b2bde99e0b71da26ecec34fa137656c50017ecacb36a7a"
+            }
+          ]
+        },
+        {
+          "stage": "slow-stimulus",
+          "delta_V": -0.008,
+          "setpoints_V": [
+            1.02,
+            2.052
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point003-bank0-0.bin",
+              "minimum": 92,
+              "maximum": 689,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "97a893334d3faf244a87de4a6532d663ef6195ce205cd3cf67ccebddc16ebc2f"
+            },
+            {
+              "bank": "A",
+              "file": "point003-bank0-1.bin",
+              "minimum": 92,
+              "maximum": 667,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "606c03b78db03892e56fd3f9f8f6bfed3e2fa567cbb5a40dd7181092d8dfde88"
+            },
+            {
+              "bank": "A",
+              "file": "point003-bank0-2.bin",
+              "minimum": 89,
+              "maximum": 674,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "f75c65e95e94a9f1b0c832bdaae595fb848c826d27b7629686c085232c3fa6be"
+            },
+            {
+              "bank": "B",
+              "file": "point003-bank1-0.bin",
+              "minimum": 90,
+              "maximum": 587,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "8c297659b994cfbaa728d644d472d434b38770577e8dd1ae5e91dc06a765cacc"
+            },
+            {
+              "bank": "B",
+              "file": "point003-bank1-1.bin",
+              "minimum": 88,
+              "maximum": 591,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "c5793cc090da2ad7242536833488e74a55e6592f30f16b252e69568bc0325f07"
+            },
+            {
+              "bank": "B",
+              "file": "point003-bank1-2.bin",
+              "minimum": 91,
+              "maximum": 581,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "1d2b74d26f8be9febcdc58048a371e22c3e41a14c3e39a053bc9e3908f35d113"
+            }
+          ]
+        },
+        {
+          "stage": "slow-stimulus",
+          "delta_V": -0.012,
+          "setpoints_V": [
+            1.018,
+            2.054
+          ],
+          "captures": [
+            {
+              "bank": "B",
+              "file": "point004-bank1-0.bin",
+              "minimum": 92,
+              "maximum": 786,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "fed47c2c3fff30d4df719c1e00e6c92580e2a0af8607ad3ef108ccdcf6b1704f"
+            },
+            {
+              "bank": "B",
+              "file": "point004-bank1-1.bin",
+              "minimum": 91,
+              "maximum": 782,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "114052bcc9521f7b2ccdf1316d7db5bd33e9fa4687489298f56602525e8cedb5"
+            },
+            {
+              "bank": "B",
+              "file": "point004-bank1-2.bin",
+              "minimum": 91,
+              "maximum": 788,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "9eae68d1886c5dafb43c53a098a59dd61fcafef8f801f76228fff9756aac8c44"
+            }
+          ]
+        },
+        {
+          "stage": "slow-stimulus",
+          "delta_V": -0.02,
+          "setpoints_V": [
+            1.014,
+            2.058
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point005-bank0-0.bin",
+              "minimum": 97,
+              "maximum": 1245,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "3e524646ed43706cac2573fb8af848977767cbf012e9ec16027188156a1472c7"
+            },
+            {
+              "bank": "A",
+              "file": "point005-bank0-1.bin",
+              "minimum": 98,
+              "maximum": 1247,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "7f5e169d5160f5281fc748242b0251bd23387d6a9eb5ef9f9b5ff489921e8757"
+            },
+            {
+              "bank": "A",
+              "file": "point005-bank0-2.bin",
+              "minimum": 97,
+              "maximum": 1275,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "f2bdbaeac9e98d5e7fbdeb9df1fb7a17209be30fd6f451865b5be82ddcdd1951"
+            },
+            {
+              "bank": "B",
+              "file": "point005-bank1-0.bin",
+              "minimum": 95,
+              "maximum": 1165,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "eb1308f5e5457475c06a00e0d4fccf578d4a48f1bcfad1b7148e2d2f89e86397"
+            },
+            {
+              "bank": "B",
+              "file": "point005-bank1-1.bin",
+              "minimum": 93,
+              "maximum": 1172,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "948ad50ca7293d072b97903922b224b0640c1b69e471e835eef0b5079060d7f6"
+            },
+            {
+              "bank": "B",
+              "file": "point005-bank1-2.bin",
+              "minimum": 94,
+              "maximum": 1181,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "2dfe37f753c7559d74981810721bf1fbfb9922ce9c424897d1074e1c60806f15"
+            }
+          ]
+        },
+        {
+          "stage": "slow-return",
+          "delta_V": 0.0,
+          "setpoints_V": [
+            1.024,
+            2.048
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point006-bank0-0.bin",
+              "minimum": 88,
+              "maximum": 295,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "fb8e24309ab2ab842704f338bb6959790c84b19959d4d0b14c9b8e455ed4aa25"
+            },
+            {
+              "bank": "A",
+              "file": "point006-bank0-1.bin",
+              "minimum": 89,
+              "maximum": 280,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "06bb6c787f5394c5c4f91842e97c526b7b923272f5b7d3186292e4c0beeeb3c2"
+            },
+            {
+              "bank": "A",
+              "file": "point006-bank0-2.bin",
+              "minimum": 87,
+              "maximum": 301,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "3f41a7b2f3b14626532db050bed04350a7c96c3de0400baaf75abb458a2b2c43"
+            },
+            {
+              "bank": "B",
+              "file": "point006-bank1-0.bin",
+              "minimum": 88,
+              "maximum": 207,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "588298494cafcd49212bc83e9b229934b5bbc517e8ad9f383b792ca0278ed50d"
+            },
+            {
+              "bank": "B",
+              "file": "point006-bank1-1.bin",
+              "minimum": 87,
+              "maximum": 223,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "f6c35cd8840f9076c6e0a9a6c2a1cf0ff812e9bc0a04a85d42699d38aa70b5f0"
+            },
+            {
+              "bank": "B",
+              "file": "point006-bank1-2.bin",
+              "minimum": 89,
+              "maximum": 201,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "df7b1754ef6fa79188958e09760cb53e0c436a0de03535f92520862fbf9e1ee9"
+            }
+          ]
+        },
+        {
+          "stage": "normal-after",
+          "delta_V": 0.0,
+          "setpoints_V": [
+            1.024,
+            2.048
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point007-bank0-0.bin",
+              "minimum": 86,
+              "maximum": 302,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "30898ea717ade03cef9352a78d85c069ceaabc3eede8212a6b06c2f61d55c533"
+            },
+            {
+              "bank": "A",
+              "file": "point007-bank0-1.bin",
+              "minimum": 87,
+              "maximum": 300,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "cde675327c492702696657fe9e3a3eb7e4df1d99a7a4079d5603f25440513d26"
+            },
+            {
+              "bank": "A",
+              "file": "point007-bank0-2.bin",
+              "minimum": 82,
+              "maximum": 302,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "d203a6c88997f2dd433dac78e9dc909359fb3e76d59e2f64cb5c33f344a77dd9"
+            },
+            {
+              "bank": "B",
+              "file": "point007-bank1-0.bin",
+              "minimum": 72,
+              "maximum": 191,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "500509c486191bbade8411fedfb2b652bdf1054139d9e410f48d8386e8f8122a"
+            },
+            {
+              "bank": "B",
+              "file": "point007-bank1-1.bin",
+              "minimum": 73,
+              "maximum": 189,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "41cb5ce7c5ee34248bfdcdfebc79d58cec729b46bbc27f45031497e843323feb"
+            },
+            {
+              "bank": "B",
+              "file": "point007-bank1-2.bin",
+              "minimum": 73,
+              "maximum": 190,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "810cfb4ea903d372e7a2124cb5e9afacab7e3fb09c1eea597e9e0e168a2fe7d9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run": "pm12-slow-negative-20261117-run02-phase49152",
+      "adc_phase_code": 49152,
+      "valid": 30,
+      "rejected": [],
+      "points": [
+        {
+          "stage": "normal-before",
+          "delta_V": 0.0,
+          "setpoints_V": [
+            1.024,
+            2.048
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point000-bank0-0.bin",
+              "minimum": 86,
+              "maximum": 301,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "d005669c2cd9352ef085772bd5f1d1ba54706541b724354cbb40233b3014df1d"
+            },
+            {
+              "bank": "A",
+              "file": "point000-bank0-1.bin",
+              "minimum": 82,
+              "maximum": 305,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "f19b08eda495ad876596db358502acac43516cc3ad09c7603dcb8b1e0ec05b1c"
+            },
+            {
+              "bank": "A",
+              "file": "point000-bank0-2.bin",
+              "minimum": 87,
+              "maximum": 302,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "5e2e1c2e293e806be83d9c8100c85f8c5199729e669c993628da518b2d035a8d"
+            },
+            {
+              "bank": "B",
+              "file": "point000-bank1-0.bin",
+              "minimum": 71,
+              "maximum": 189,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "4ba86cf0c94764a22890c6ac043e952c24fcae43eb7517ef92aaae497c901ee1"
+            },
+            {
+              "bank": "B",
+              "file": "point000-bank1-1.bin",
+              "minimum": 72,
+              "maximum": 191,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "c043a7fcaca174ed10eef62d9ccce32318911e7a8c5bbf9785830e1966c3b2fb"
+            },
+            {
+              "bank": "B",
+              "file": "point000-bank1-2.bin",
+              "minimum": 71,
+              "maximum": 188,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "7b58b645d57437d99ca25fa02ee36e4412e65d59dfa9bedb6ad8b6687058ff77"
+            }
+          ]
+        },
+        {
+          "stage": "slow-baseline",
+          "delta_V": 0.0,
+          "setpoints_V": [
+            1.024,
+            2.048
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point001-bank0-0.bin",
+              "minimum": 86,
+              "maximum": 298,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "490c5de4efa92a6bc76ad4bf4801a1caeea073db6f97a08b555e0e3a68821b25"
+            },
+            {
+              "bank": "A",
+              "file": "point001-bank0-1.bin",
+              "minimum": 90,
+              "maximum": 285,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "5e32d33ca7ebd4020beac7511cc48e05f084f12144903c3620b8f748e327328f"
+            },
+            {
+              "bank": "A",
+              "file": "point001-bank0-2.bin",
+              "minimum": 86,
+              "maximum": 302,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "a814f9962efc1b136d0dfbd9c8b0e2fd7e262031c60c07aa9cb66da6ae0bbfdd"
+            },
+            {
+              "bank": "B",
+              "file": "point001-bank1-0.bin",
+              "minimum": 85,
+              "maximum": 202,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "32a7d234d52953552fdfa5b6830ac9cd3882276574809b8037fd8bbd2a9a4f2a"
+            },
+            {
+              "bank": "B",
+              "file": "point001-bank1-1.bin",
+              "minimum": 86,
+              "maximum": 207,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "e901da261f76007f8848a1af2240a513627dfb56406e47213045f98e0ea09d02"
+            },
+            {
+              "bank": "B",
+              "file": "point001-bank1-2.bin",
+              "minimum": 83,
+              "maximum": 222,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "d4cf199bbd78e914ebb6a8f503b0eb386708c105ce1e4e98709c1e3d51c0e84d"
+            }
+          ]
+        },
+        {
+          "stage": "slow-stimulus",
+          "delta_V": -0.012,
+          "setpoints_V": [
+            1.018,
+            2.054
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point002-bank0-0.bin",
+              "minimum": 93,
+              "maximum": 869,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "8a8eb7de9e0755287ccc78ca59a3ffdd497a7d62a64a86c0fc48f6ac1aa7ba0e"
+            },
+            {
+              "bank": "A",
+              "file": "point002-bank0-1.bin",
+              "minimum": 93,
+              "maximum": 868,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "41c01f18985b9b0a21012c0ce3b61b1e330cb1d32d76c2a1e9102e8c34d1ef8a"
+            },
+            {
+              "bank": "A",
+              "file": "point002-bank0-2.bin",
+              "minimum": 90,
+              "maximum": 864,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "22f8290294b8bcd9f284725643b9afbf52341b46c2e4c1ef29c445079d28428d"
+            },
+            {
+              "bank": "B",
+              "file": "point002-bank1-0.bin",
+              "minimum": 90,
+              "maximum": 780,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "6fab281d4fcd7f89591284d4d626c45acb133ad857866fb3e2fca062cfec0332"
+            },
+            {
+              "bank": "B",
+              "file": "point002-bank1-1.bin",
+              "minimum": 90,
+              "maximum": 783,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "210e30a8efaa878dcaef04cf428714539b316a0a8499d17213cb88815058e528"
+            },
+            {
+              "bank": "B",
+              "file": "point002-bank1-2.bin",
+              "minimum": 90,
+              "maximum": 770,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "e1e0e874cb0102fbe28d2288d9c036b7dd653ee9b3f97e7c30368c6660a18147"
+            }
+          ]
+        },
+        {
+          "stage": "slow-return",
+          "delta_V": 0.0,
+          "setpoints_V": [
+            1.024,
+            2.048
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point003-bank0-0.bin",
+              "minimum": 87,
+              "maximum": 283,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "2a5e15a8d6688c5cac3f59e76a2b7765c7ae3f008f55d2feb4279eec737bb6f8"
+            },
+            {
+              "bank": "A",
+              "file": "point003-bank0-1.bin",
+              "minimum": 87,
+              "maximum": 293,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "9d0310f541079b9037358225086b40d5c1273ae177fc0d8c552f472529fd2861"
+            },
+            {
+              "bank": "A",
+              "file": "point003-bank0-2.bin",
+              "minimum": 90,
+              "maximum": 292,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "3cda3902c7ff5d76d90ce88a53fe689207b62d8cc4c15fa45fea6d1ecfe3e5be"
+            },
+            {
+              "bank": "B",
+              "file": "point003-bank1-0.bin",
+              "minimum": 86,
+              "maximum": 204,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "5d85754fc97a2a7a1e2d36b38a33f94ad9f646f1fb9cef2e7e0a92aa84142c15"
+            },
+            {
+              "bank": "B",
+              "file": "point003-bank1-1.bin",
+              "minimum": 84,
+              "maximum": 213,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "1c69159c81420ac64edc9e83ec9516e04801fac10affbc7e365384a61bdbed73"
+            },
+            {
+              "bank": "B",
+              "file": "point003-bank1-2.bin",
+              "minimum": 84,
+              "maximum": 224,
+              "rail_samples": 0,
+              "samples": 1022,
+              "sha256": "2b59ca00eddbb4655caf2a93126ef1dd563db819a5da211bbb12d7f054fdebe6"
+            }
+          ]
+        },
+        {
+          "stage": "normal-after",
+          "delta_V": 0.0,
+          "setpoints_V": [
+            1.024,
+            2.048
+          ],
+          "captures": [
+            {
+              "bank": "A",
+              "file": "point004-bank0-0.bin",
+              "minimum": 87,
+              "maximum": 301,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "53f6b69c2fb72fef46144445ab4899e725f8dccceac547e2e16a3634a9f04b49"
+            },
+            {
+              "bank": "A",
+              "file": "point004-bank0-1.bin",
+              "minimum": 85,
+              "maximum": 301,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "70f7818eed7a826acd67e6f5a0c9d134a2c59e4ea7513f94a325feb03264bc62"
+            },
+            {
+              "bank": "A",
+              "file": "point004-bank0-2.bin",
+              "minimum": 86,
+              "maximum": 300,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "c59447df2d26f6f4d726e79a20530b5990631dd54b369e124349f593b40955d5"
+            },
+            {
+              "bank": "B",
+              "file": "point004-bank1-0.bin",
+              "minimum": 71,
+              "maximum": 186,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "143e03a8d27799bbb2afef500a7c29f07350c371c0d0425395a37aea1da9c489"
+            },
+            {
+              "bank": "B",
+              "file": "point004-bank1-1.bin",
+              "minimum": 74,
+              "maximum": 189,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "fcafb6b32a028038c2912890f18a60c0859269d7a7c534807e1b7358f05f7ec2"
+            },
+            {
+              "bank": "B",
+              "file": "point004-bank1-2.bin",
+              "minimum": 72,
+              "maximum": 189,
+              "rail_samples": 0,
+              "samples": 1023,
+              "sha256": "ed0d07fbf6cb24ed5ab8b88ea8c2a75ccbcc4c0922e7e0aa19cf6621078aeb01"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "valid_buffers": 75,
+  "rejected_buffers": 3,
+  "scope": "Diagnostic; not production qualification"
+}
