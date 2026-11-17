@@ -1,3 +1,8 @@
+Latest channel3 after confirmed USB move: ADC A/B transfer and adjacent bits **PASS**; integrator **INCOMPLETE**.
+Fresh active/inhibited probes verified the J8 route; earlier failed routing checks retained.
+ADC3–12 now available; analog1–2 awaits USB moves. Integrator4/6 remain INCOMPLETE.
+[Channel3 evidence and common plots](diagnostics/pm12/acceptance/evidence-channel03-20261117/README.md).
+
 Latest fitting1–4 (2026-11-17): TDC/phase/monitor/internal-DAC results in the linked table.
 Channel4 ADC/bits: **PASS/PASS**; integrator: **INCOMPLETE**. USB remains4, analog1–3 pending.
 Slot7 ports0/1/2/3→PM4/3/2/1 verified. Integrator6 remains INCOMPLETE.
@@ -30,7 +35,7 @@ Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/m
 Latest PM12 results (2026-11-17): TDC, gate-phase, monitor voltages and internal
 DAC B/C/D tests on5–8 PASS; ADC A/B and integrators8 PASS after verified USB correction.
 Both USB remain on8; ADC/integrators5–7 await their cable moves.
-[104-page editable acceptance report](diagnostics/pm12/acceptance/evidence-campaign-assembly-20261113/report.pdf),
+[107-page editable acceptance report](diagnostics/pm12/acceptance/evidence-campaign-assembly-20261113/report.pdf),
 [group raw/normalized evidence](diagnostics/pm12/acceptance/evidence-group05-08-20261117/README.md).
 Current diagnostic SRAM ff2f746c; original MCU and external PLL profile preserved.
 

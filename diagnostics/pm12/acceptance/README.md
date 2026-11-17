@@ -1,3 +1,8 @@
+Latest channel3 after confirmed USB move: ADC A/B transfer and adjacent bits **PASS**; integrator **INCOMPLETE**.
+Fresh active/inhibited probes verified the J8 route; earlier failed routing checks retained.
+ADC3–12 now available; analog1–2 awaits USB moves. Integrator4/6 remain INCOMPLETE.
+[Channel3 evidence and common plots](evidence-channel03-20261117/README.md).
+
 Latest fitting1–4 (2026-11-17): TDC/phase/monitor/internal-DAC results in the linked table.
 Channel4 ADC/bits: **PASS/PASS**; integrator: **INCOMPLETE**. USB remains4, analog1–3 pending.
 Slot7 ports0/1/2/3→PM4/3/2/1 verified. Integrator6 remains INCOMPLETE.
@@ -29,7 +34,7 @@ Analog7–12 observations available;5–6 await USB moves. Fitting5–8 timing/m
 
 [Latest2026-11-17: fitting5–8 and corrected-USB channel8 analog tests](evidence-group05-08-20261117/README.md).
 TDC/phase/monitors/internal DACs5–8 PASS; ADC/integrators8 PASS. Both USB remain8, next7.
-[Current104-page editable report](evidence-campaign-assembly-20261113/report.pdf).
+[Current107-page editable report](evidence-campaign-assembly-20261113/report.pdf).
 
 [Latest: TDC and DAC-A phase tests on9–12](evidence-campaign-timing-20261113/README.md), with[repeat procedure](TIMING_CAMPAIGN.md).
 

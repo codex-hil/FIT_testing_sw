@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "convenience_copy": "/ALICE/PM12-test-reports/PM12-K7-3A17A1B402212223/PM12-report-107pages.pdf",
+  "latest_alias_updated": false,
+  "host": "192.168.2.6",
+  "share": "codex-hil",
+  "path": "/ALICE/PM12-test-reports/PM12-K7-3A17A1B402212223/PM12-report-20261117T154330Z-107pages-09139c3f.pdf",
+  "dated_copy": "/ALICE/PM12-test-reports/PM12-K7-3A17A1B402212223/PM12-report-20261117T154330Z-107pages-09139c3f.pdf",
+  "pages": 107,
+  "bytes": 12079506,
+  "sha256": "09139c3f3979f6eef76fe92c3c55fb11f6c294a5b45f9f97938c8c82e4b2c0da",
+  "readback_verified": true,
+  "utc": "20261117T154330Z",
+  "scope": "ADC3-12 PASS; integrator3 fine scan incomplete: A26/26 versus B1/26 usable points at unchanged30code threshold; integrators4/6 also incomplete; analog1-2 pending; no previous results overwritten."
+}

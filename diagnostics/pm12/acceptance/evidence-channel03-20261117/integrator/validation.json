@@ -1,0 +1,6 @@
+{
+  "pass_": false,
+  "status": "INCOMPLETE",
+  "physical_channel": 3,
+  "reason": "Channel3 coarse13 and fine26 acquisitions completed; bankB fine scan retained only one unambiguous point, so signed crossing/return qualification did not run"
+}

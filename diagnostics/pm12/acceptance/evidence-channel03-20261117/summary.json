@@ -1,0 +1,130 @@
+{
+  "channel": 3,
+  "ADC": "PASS",
+  "ADC_lines": "PASS",
+  "integrator": "INCOMPLETE",
+  "adc_metrics": [
+    {
+      "name": "gain",
+      "bank": "A",
+      "value": -1781.831504346008,
+      "unit": "code/V"
+    },
+    {
+      "name": "zero_mean",
+      "bank": "A",
+      "value": 2162.0185909980432,
+      "unit": "code"
+    },
+    {
+      "name": "zero_total_rms",
+      "bank": "A",
+      "value": 62.07058861812277,
+      "unit": "code"
+    },
+    {
+      "name": "zero_four_phase_removed_rms",
+      "bank": "A",
+      "value": 0.5345502264864156,
+      "unit": "code"
+    },
+    {
+      "name": "gain",
+      "bank": "B",
+      "value": -1780.0124763307176,
+      "unit": "code/V"
+    },
+    {
+      "name": "zero_mean",
+      "bank": "B",
+      "value": 2149.3424657534247,
+      "unit": "code"
+    },
+    {
+      "name": "zero_total_rms",
+      "bank": "B",
+      "value": 67.59943127421387,
+      "unit": "code"
+    },
+    {
+      "name": "zero_four_phase_removed_rms",
+      "bank": "B",
+      "value": 0.5086336492584974,
+      "unit": "code"
+    }
+  ],
+  "integrator_validation": {
+    "pass_": false,
+    "status": "INCOMPLETE",
+    "physical_channel": 3,
+    "reason": "Channel3 coarse13 and fine26 acquisitions completed; bankB fine scan retained only one unambiguous point, so signed crossing/return qualification did not run"
+  },
+  "final_park": [
+    1.0,
+    1.0,
+    1.02400005,
+    2.0480001,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "final_gpio": {
+    "1": {
+      "0": 112,
+      "1": 223,
+      "18": 236,
+      "19": 32,
+      "20": 140,
+      "21": 32
+    },
+    "2": {
+      "0": 112,
+      "1": 223,
+      "18": 140,
+      "19": 32,
+      "20": 140,
+      "21": 32
+    },
+    "3": {
+      "0": 112,
+      "1": 31,
+      "18": 140,
+      "19": 224,
+      "20": 140,
+      "21": 224
+    },
+    "4": {
+      "0": 112,
+      "1": 31,
+      "18": 140,
+      "19": 224,
+      "20": 140,
+      "21": 224
+    }
+  },
+  "route": {
+    "measured_utc": "2026-11-17T15:29:17.410012+00:00",
+    "direct_adc_dac_channels": [
+      0,
+      1
+    ],
+    "integrator_dac_channels": [
+      2,
+      3
+    ],
+    "mux_select_map": [
+      0,
+      1
+    ],
+    "active_gain_code_per_V": [
+      -1786.1301369862986,
+      -1775.415851272021
+    ],
+    "inhibited_gain_code_per_V": [
+      1.565557729941247,
+      -6.213307240705035
+    ],
+    "operator_note": "Owner confirmed Przepialem after route check showed ADC4; fresh channel3 verification"
+  }
+}

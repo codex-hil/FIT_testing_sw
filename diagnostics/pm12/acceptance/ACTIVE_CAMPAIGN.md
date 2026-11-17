@@ -1,3 +1,15 @@
+Final setup: CFD1–4 retained; both USB3, DAC01→J8 ADC,23→J6 integrator.
+ADC3 PASS, adjacent bits PASS, integrator3 INCOMPLETE. Earlier timing/monitor/internal-DAC1–4 unchanged.
+All1–4 amps/bypass/monitor muxes inhibited; TCA0. External01=1.0000/1.0000V,23=1.0240/2.0480V.
+No programming/clock/Kasli direction changes, no SMU access. Slot6 SPI stays held; leases released.
+Analog1–2 awaits USB moves; integrators4/6 remain INCOMPLETE. Previous selected cases unchanged.
+Earlier dated states below are historical.
+
+Latest channel3 after confirmed USB move: ADC A/B transfer and adjacent bits **PASS**; integrator **INCOMPLETE**.
+Fresh active/inhibited probes verified the J8 route; earlier failed routing checks retained.
+ADC3–12 now available; analog1–2 awaits USB moves. Integrator4/6 remain INCOMPLETE.
+[Channel3 evidence and common plots](evidence-channel03-20261117/README.md).
+
 Latest route check before requested analog3: DAC01 still observed on ADC4, not3.
 Gains A/B:4=-1776.83/-1761.33code/V;3=-1.15/-0.39code/V. Full3 scans not started.
 Both USB move to3 pending; DAC01→J8,23→J6. Safe park01=1/1V,23=1.024/2.048V.
