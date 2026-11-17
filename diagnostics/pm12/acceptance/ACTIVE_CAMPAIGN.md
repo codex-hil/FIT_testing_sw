@@ -1,3 +1,9 @@
+Latest phase-shape diagnostic: PM2, ten DAC-A codes 0..65535 at fixed
+DAC23=1.034/2.038V; all60 buffers coherent, no ADC clipping. Amplitude A
+154.09..156.15/B67.00..71.56 codes. Restored phase0 and DAC23=1.024/2.048V;
+amps/bypass/monitor inhibited, TCA0, leases released. No qualification changes.
+[Phase-shape evidence](../cfd_simulator/evidence-phase-shape-20261117/README.md).
+
 Latest diagnostic: J6 DAC23 is on physical2, found by reversible delta response.
 J8 DAC01 route is currently unknown (last qualified ADC3). Common sweep2 completed
 at DAC-A2=32768 for coherent B capture; restored0 afterwards. At0, ADC B2 needs

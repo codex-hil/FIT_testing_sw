@@ -29,11 +29,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--afe', type=int, choices=range(1, 13), required=True)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--codes', type=int, nargs='+', default=[0, 16384, 32768, 49152, 65535])
+    parser.add_argument('--delta-v', type=float, default=0.0,
+                        help='Relative differential offset from DAC2/3=1.024/2.048 V')
     args = parser.parse_args()
+    if any(not 0 <= code <= 65535 for code in args.codes):
+        parser.error('Phase codes must be 0..65535')
+    voltages = [round(1.024 + args.delta_v/2, 4), round(2.048 - args.delta_v/2, 4)]
+    if not all(0 <= v <= 3.3 for v in voltages):
+        parser.error('External DAC setpoints must be 0..3.3 V')
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
     r = dict(physical_channel=args.afe, mode='LIVE_DIAGNOSTIC', points=[], uart=[],
              complete=False, started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat())
+    r.update(requested_phase_codes=args.codes, external_setpoints_V=voltages,
+             relative_delta_V=args.delta_v)
     r['sources'] = snapshot_sources(out, ['__main__', 'lease', 'station', 'console',
         'mcp23017', 'phase_scan', 'pm12_console_regression', 'pm12_power',
         'channel_settings', 'mod_dac28', 'client', 'adc_decode'])
@@ -55,10 +65,10 @@ def main():
         remote = stack.enter_context(remote_lease())
         dac = DAC(remote, channels=[2, 3])
         stack.callback(dac.close)
-        dac.park(1.024, 2.048)
         bus = ConsoleI2C(u, capture)
         phase = ConsoleDAC(u, args.afe, capture, r['uart'].append)
         try:
+            dac.park(*voltages)
             with bus.routed(*afe_route(args.afe)):
                 regs = Registers(bus)
                 assert regs.read(10) == regs.read(11) and not regs.read(10) & 128
@@ -67,7 +77,7 @@ def main():
                 regs.write(0x14, regs.read(0x14) | 0x88)
                 regs.write(0, regs.read(0) & ~0x88)
                 regs.write(0x14, (regs.read(0x14) & ~0x80) | 8)
-                for code in [0, 16384, 32768, 49152, 65535]:
+                for code in args.codes:
                     require_power_good(u, capture)
                     before = c.read(5, 2)
                     phase.set_code(code)
@@ -98,6 +108,8 @@ def main():
             r['complete'] = True
         finally:
             try:
+                dac.park(1.024, 2.048)
+                r['restored_external_setpoints_V'] = [1.024, 2.048]
                 require_power_good(u, capture)
                 phase.set_code(0)
                 r['restored_phase_code'] = 0
