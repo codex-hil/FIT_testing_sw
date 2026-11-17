@@ -1,3 +1,15 @@
+Final channel5 settings: DAC0/1=1.0000/1.0000V,2/3=1.0268/2.0452V;5 amplifiers enabled, ADC bypass isolated.
+All four monitor muxes inhibited/TCA0; other fitted channels isolated at preflight.
+Kasli outputs/directions unchanged; leases released. No programming or clock changes.
+SMU not accessed; preceding recorded state OFF/HIZ/0A/auto-on OFF.
+Earlier dated states below are historical.
+
+Latest channel5 follow-up (2026-11-17): ADC A/B transfer, adjacent-bit exercise,
+and integrator balance/sign/revisits **PASS**, matching the frozen channel8 contracts.
+Both USB now5: DAC0/1→J8 ADC, DAC2/3→J6 integrator, verified by active/inhibited probes.
+ADC5–12 complete; integrator5 and7–12 PASS,6 remains INCOMPLETE.
+[Channel5 raw data and common plots](evidence-channel05-20261117/README.md).
+
 Final channel6 settings: DAC0/1=1.0000/1.0000V,2/3=1.0240/2.0480V;6 amplifiers disabled, ADC bypass isolated.
 All four monitor muxes inhibited/TCA0; other fitted channels isolated at preflight.
 Kasli outputs/directions unchanged; leases released. No programming or clock changes.

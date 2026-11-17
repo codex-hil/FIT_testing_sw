@@ -1,0 +1,119 @@
+{
+  "channel": 5,
+  "adc": [
+    {
+      "name": "gain",
+      "bank": "A",
+      "value": -1778.6064115870633,
+      "unit": "code/V"
+    },
+    {
+      "name": "zero_mean",
+      "bank": "A",
+      "value": 2172.614481409002,
+      "unit": "code"
+    },
+    {
+      "name": "zero_total_rms",
+      "bank": "A",
+      "value": 61.232035231775434,
+      "unit": "code"
+    },
+    {
+      "name": "zero_four_phase_removed_rms",
+      "bank": "A",
+      "value": 0.6211138312643889,
+      "unit": "code"
+    },
+    {
+      "name": "gain",
+      "bank": "B",
+      "value": -1790.0407903116422,
+      "unit": "code/V"
+    },
+    {
+      "name": "zero_mean",
+      "bank": "B",
+      "value": 2165.954011741683,
+      "unit": "code"
+    },
+    {
+      "name": "zero_total_rms",
+      "bank": "B",
+      "value": 60.135128645519416,
+      "unit": "code"
+    },
+    {
+      "name": "zero_four_phase_removed_rms",
+      "bank": "B",
+      "value": 0.5568558408851197,
+      "unit": "code"
+    }
+  ],
+  "integrator": {
+    "pass_": true,
+    "physical_channel": 5,
+    "banks": {
+      "A": {
+        "balance_delta": 0.0032445086958425564,
+        "gain": -2592.35080013566,
+        "returned_change_codes": [
+          0.07449436467500385,
+          0.008254207194688898,
+          0.03332175389840976,
+          0.0392156862745098,
+          0.10316697545159796
+        ],
+        "candidate_offset_V": 0.0031999999999998696
+      },
+      "B": {
+        "balance_delta": 0.008228357111339886,
+        "gain": -2635.056491807308,
+        "returned_change_codes": [
+          0.048203257681025166,
+          0.09176895167515825,
+          -0.006389918171993201,
+          0.08418056198857496,
+          0.05455457773660645
+        ],
+        "candidate_offset_V": 0.008200000000000207
+      }
+    },
+    "raw_buffers": 552,
+    "raw_ADC_samples": 564144
+  },
+  "final_dac": [
+    1.0,
+    1.0,
+    1.02680004,
+    2.04520011,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "route": {
+    "measured_utc": "2026-11-17T13:04:18.626569+00:00",
+    "direct_adc_dac_channels": [
+      0,
+      1
+    ],
+    "integrator_dac_channels": [
+      2,
+      3
+    ],
+    "mux_select_map": [
+      0,
+      1
+    ],
+    "active_gain_code_per_V": [
+      -1780.1859099804233,
+      -1787.8180039138897
+    ],
+    "inhibited_gain_code_per_V": [
+      0.7583170254406468,
+      -1.5166340508812937
+    ],
+    "operator_note": "Both USB moved6->5; owner confirmed Juz"
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "mode": "LIVE",
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "test": "integrator",
+  "channel": 5,
+  "fixture_id": "CFD04",
+  "measured_utc": "2026-11-17T13:11:03.798319+00:00",
+  "status": "PASS",
+  "protocol": {
+    "method": "signed-integration-pair-v1",
+    "hardware_configuration": {
+      "pm_build": "ff2f746c",
+      "kasli_build": {
+        "ABI": "CFD4",
+        "expected_bit_sha256": "a71a08a258620b0e5a52c5d03aefd8c69040c9d15e8de6391c484ac182b7173b"
+      },
+      "clock_profile": {
+        "reference_mhz": 40.0787,
+        "adc_rate": "2x reference",
+        "kasli_rate": "3x reference"
+      },
+      "cpld_gate_mode": "original INTA/INTB enabled, nominal20MHz"
+    },
+    "dac_channels": [
+      2,
+      3
+    ],
+    "base_V": [
+      1.024,
+      2.048
+    ],
+    "coarse_offsets_V": [
+      -0.09999999999999987,
+      -0.08000000000000007,
+      -0.05999999999999983,
+      -0.040000000000000036,
+      -0.019999999999999796,
+      -0.010000000000000009,
+      0.0,
+      0.009999999999999787,
+      0.02000000000000024,
+      0.040000000000000036,
+      0.060000000000000275,
+      0.08000000000000007,
+      0.10000000000000009
+    ],
+    "fine_method": "26 points,0.4mV step around coarse estimate",
+    "return_method": "two candidate revisits and +/-5mV offsets;near-zero <=2codes; signed response >4codes"
+  },
+  "source_files": [
+    "acquisition/fine01/sources/__main__.py",
+    "acquisition/fine01/sources/channel_settings.py",
+    "acquisition/fine01/sources/adc_decode.py",
+    "acquisition/fine01/sources/mod_dac28.py",
+    "acquisition/fine01/sources/console.py",
+    "acquisition/fine01/sources/mcp23017.py",
+    "acquisition/fine01/sources/control.py",
+    "acquisition/fine01/sources/client.py",
+    "acquisition/fine01/sources/lease.py",
+    "acquisition/fine01/sources/station.py",
+    "acquisition/fine01/sources/pm12_console_regression.py",
+    "acquisition/fine01/sources/pm12_power.py",
+    "analysis-sources/campaign_adapters.py",
+    "analysis-sources/adc_line_test.py",
+    "analysis-sources/validate_adc_lines.py",
+    "analysis-sources/integrator_analysis.py",
+    "analysis-sources/adc_decode.py"
+  ],
+  "validation": [
+    {
+      "file": "validation.json",
+      "key": "pass_",
+      "equals": true
+    }
+  ],
+  "channel_checks": [
+    {
+      "file": "validation.json",
+      "key": "physical_channel"
+    }
+  ],
+  "connections": {
+    "usb_input": "J6",
+    "stimulus_channel": 5,
+    "dac_channels": [
+      2,
+      3
+    ]
+  },
+  "metrics": [
+    {
+      "name": "balance_delta",
+      "bank": "A",
+      "value": 0.0032445086958425564,
+      "unit": "V"
+    },
+    {
+      "name": "gain",
+      "bank": "A",
+      "value": -2592.35080013566,
+      "unit": "code/V"
+    },
+    {
+      "name": "near_balance_change",
+      "bank": "A",
+      "value": 0.051690597498842056,
+      "unit": "code"
+    },
+    {
+      "name": "balance_delta",
+      "bank": "B",
+      "value": 0.008228357111339886,
+      "unit": "V"
+    },
+    {
+      "name": "gain",
+      "bank": "B",
+      "value": -2635.056491807308,
+      "unit": "code/V"
+    },
+    {
+      "name": "near_balance_change",
+      "bank": "B",
+      "value": 0.05446348618187433,
+      "unit": "code"
+    }
+  ],
+  "curves": [
+    {
+      "name": "ramp_response",
+      "bank": "A",
+      "x_unit": "V",
+      "y_unit": "code",
+      "x": [
+        0.00039999999999995595,
+        0.0007999999999999119,
+        0.0011999999999998678,
+        0.0015999999999998238,
+        0.0019999999999997797,
+        0.0023999999999997357,
+        0.0027999999999999137,
+        0.0031999999999998696,
+        0.0036000000000002697,
+        0.004000000000000226,
+        0.0044000000000001815,
+        0.0048000000000001375,
+        0.0052000000000000934,
+        0.005600000000000049,
+        0.006000000000000005,
+        0.006399999999999961,
+        0.006800000000000139,
+        0.007200000000000095,
+        0.007600000000000051,
+        0.008000000000000007,
+        0.008399999999999963,
+        0.008799999999999919,
+        0.009199999999999875,
+        0.009599999999999831,
+        0.009999999999999787,
+        0.010399999999999743
+      ],
+      "y": [
+        7.5163308630538825,
+        6.25365910143585,
+        5.328751736915239,
+        4.318554114559209,
+        2.873290103442952,
+        2.0666666666666664,
+        1.155210745715609,
+        0.10784313725490197,
+        -0.861343986413463,
+        -1.953863671452833,
+        -3.055071792496526,
+        -4.0478230662343675,
+        -5.1660876949204875,
+        -5.879029643353404,
+        -7.0448703103288555,
+        -8.109016519993824,
+        -9.19559209510576,
+        -10.35236220472441,
+        -11.34776902887139,
+        -12.259803921568627,
+        -13.456692913385826,
+        -14.385467809170912,
+        -15.554901960784314,
+        -16.57300061756986,
+        -17.59242704955998,
+        -18.456337810714835
+      ]
+    },
+    {
+      "name": "ramp_response",
+      "bank": "B",
+      "x_unit": "V",
+      "y_unit": "code",
+      "x": [
+        0.00039999999999995595,
+        0.0007999999999999119,
+        0.0011999999999998678,
+        0.0015999999999998238,
+        0.0019999999999997797,
+        0.0023999999999997357,
+        0.0027999999999999137,
+        0.0031999999999998696,
+        0.0036000000000002697,
+        0.004000000000000226,
+        0.0044000000000001815,
+        0.0048000000000001375,
+        0.0052000000000000934,
+        0.005600000000000049,
+        0.006000000000000005,
+        0.006399999999999961,
+        0.006800000000000139,
+        0.007200000000000095,
+        0.007600000000000051,
+        0.008000000000000007,
+        0.008399999999999963,
+        0.008799999999999919,
+        0.009199999999999875,
+        0.009599999999999831,
+        0.009999999999999787,
+        0.010399999999999743
+      ],
+      "y": [
+        20.858314034275125,
+        19.32972440944882,
+        18.462073490813648,
+        17.61017446348618,
+        16.411637332098195,
+        15.134865678554887,
+        14.218550254747568,
+        13.33235294117647,
+        12.485822911841902,
+        11.109402501157943,
+        10.200690906283773,
+        8.92140265555041,
+        7.748158869847151,
+        6.89523699243477,
+        5.660205341979312,
+        4.817924965261695,
+        3.9184035819052028,
+        2.795958777211672,
+        1.826991662806855,
+        0.6891655087231743,
+        -0.5180060213061602,
+        -1.2990196078431373,
+        -2.785857650146673,
+        -3.7173845916319284,
+        -4.568797282692604,
+        -5.807507333642118
+      ]
+    }
+  ],
+  "limits": "Effective differential whole-chain balance; waveform-based integration pair, not an absolute gate timestamp or calibrated opamp bias"
+}
