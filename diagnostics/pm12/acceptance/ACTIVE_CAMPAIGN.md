@@ -1,3 +1,12 @@
+Latest PM2 normal20MHz fine balance: P-only100uV command steps,450 valid
+buffers. Sampled-pair balance A d~8.1–8.2mV, B~1.8–1.9mV; independent
+returns nearzero. Common translation±10mV moves both changes similarly; no
+simultaneous A/B zero at one shared pair demonstrated. Fixed-reference
+registration used, no physical DC-current-null claim or PM6 retest.
+Final DAC23=1.024/2.048V, phase0, amps/bypass/monitor inhibited, TCA0,
+leases released; normal CPLD gates unchanged, no qualification changes.
+[Fine20MHz diagnostic](../cfd_simulator/evidence-balance20-20261117/README.md).
+
 Latest PM2 slow negative-offset scan: delta0/-4/-8/-12/-20mV gives rising
 unclipped ramps.75/78 buffers coherent; three A/-12mV buffers rejected at
 phase32768, point repeated coherently at49152, explicitly labelled. Both

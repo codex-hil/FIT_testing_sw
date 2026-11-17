@@ -1,3 +1,9 @@
+# Fine20MHz balance and common translation —2026-11-17
+
+PM2:450 valid buffers,100uV single-leg steps, independent nearzero returns for
+A/B and±10mV common-translation checks.
+[Results, limits and repeat commands](evidence-balance20-20261117/README.md).
+
 # Slow complementary integrator gates —2026-11-17
 
 PM2 divide40 mode: about2.004MHz gates,20 ADC samples per half-cycle.
