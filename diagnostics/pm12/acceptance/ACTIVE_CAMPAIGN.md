@@ -1,3 +1,6 @@
+Latest ADC2 corrected-window repeat (2026-11-18): A/B transfer and sampled12-bit/11-adjacent-pair tests PASS with str-rise at phase32768. Independent raw check514captures/2105344words, all STR intervals4. Separate v2 method receipts retained; old frozen campaign selections unchanged. Phase16384 corrected-window attempt still incomplete. Final baseline restored, no programming.
+[Window fix and evidence](evidence-adc02-window-fix-20261118/README.md).
+
 Latest ADC2 timing diagnostic (2026-11-18):144buffers retained. At phase16384/32768, pair ending at STR rise has0disagreements/98112pairs; old earlier pair still fails. Phase0 has no shared clean window. Evidence favors timing/window selection; no hardware fault or production PASS established. Baseline restored, no programming.
 [Timing diagnostic](evidence-adc02-timing-20261118/README.md).
 

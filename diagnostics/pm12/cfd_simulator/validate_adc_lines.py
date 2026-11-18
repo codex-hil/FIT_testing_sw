@@ -19,7 +19,7 @@ def validate(directory):
         path=directory/f'mux{bank}-point{indices[bank]:03d}-bank{bank}.bin';indices[bank]+=1
         raw=[w[0] for w in struct.iter_unpack('<H',path.read_bytes())]
         if len(raw)!=4096 or not all(w<16384 and ((w>>12)&1)==bank for w in raw):raise ValueError('Raw size/tag/reserved-bit error')
-        samples,timing=decode(raw,bank)
+        samples,timing=decode(raw,bank,sample_window=report.get("sample_window","before-str"))
         quantized+=timing['status']=='EDGE_QUANTIZED'
         periods.update(timing['interval_counts'])
         histogram=Counter(samples)

@@ -71,7 +71,7 @@ def adc(source,output,root,bid,kind):
             import numpy as np
             index=report['measurements'].index(zero) % len(rows)
             data=(source/'scan'/f'mux{bank}-point{index:03d}-bank{bank}.bin').read_bytes()
-            samples,_=decode(list(struct.unpack('<4096H',data)),bank)
+            samples,_=decode(list(struct.unpack('<4096H',data)),bank,sample_window=report.get('sample_window','before-str'))
             n=len(samples)//4*4;values=np.asarray(samples[:n],dtype=float);ac=values-values.mean()
             template=np.array([values[i::4].mean() for i in range(4)])
             residual=values-template[np.arange(n)%4]
@@ -99,6 +99,9 @@ def adc(source,output,root,bid,kind):
                 channel_checks=[dict(file='acquisition/scan/status.json',key='channel')],
                 connections=dict(usb_input='J8',stimulus_channel=channel,dac_channels=report['dac_channels'],mux_select_map=report.get('mux_select_map',[0,1])),metrics=metrics,curves=curves,
                 limits='Commanded DAC voltages, whole connected chain; not calibrated ADC-only INL/noise or electrical continuity proof')
+    if report.get('sample_window','before-str')!='before-str':
+        result['protocol']['method']+='-str-rise-v2'
+        result['protocol']['sample_window']=report['sample_window']
     write(output/'campaign-result.json',result)
     return result
 

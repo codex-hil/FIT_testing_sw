@@ -39,11 +39,11 @@ class Injection:
   self.w(0x14,self.saved[0x14]|8);self.w(0,self.saved[0])
   self.w(0x15,self.saved[0x15]|0x20);self.w(1,self.saved[1]);self.w(0x15,self.saved[0x15]);self.w(0x14,self.saved[0x14])
 
-def acquire(c,bank,out,label,channel=12,strict_edges=False):
+def acquire(c,bank,out,label,channel=12,strict_edges=False,sample_window="before-str"):
  ident,state=c.acquire(bank,False);raw=c.block(0x10000+((channel-1)<<12),4096)
  assert c.read(0x12)==[ident] and all(((w>>12)&1)==bank and w<16384 for w in raw)
  (out/(label+'.bin')).write_bytes(struct.pack('<4096H',*raw))
- samples,timing=decode(raw,bank,strict_edges=strict_edges)
+ samples,timing=decode(raw,bank,strict_edges=strict_edges,sample_window=sample_window)
  signed=[n if n<2048 else n-4096 for n in samples]
  return dict(generation=ident,status=state,bank=bank,samples=len(samples),
   centered_mean=statistics.mean(samples)-2048,raw_mean=statistics.mean(samples),raw_median=statistics.median(samples),raw_std=statistics.pstdev(samples),
@@ -52,7 +52,7 @@ def acquire(c,bank,out,label,channel=12,strict_edges=False):
   strobe_period_samples=sum(period*count for period,count in timing['interval_counts'].items())/sum(timing['interval_counts'].values()),strobe_timing=timing)
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--afe',type=int,choices=range(1,13),default=12);p.add_argument('--board-serial',required=False,default='1803');p.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);p.add_argument('--integrator-dac-channels',type=int,nargs=2,default=[2,3],help='Record physical pair parked at integrator during ADC scan');p.add_argument('--strict-edges',action='store_true',help='Separate strict phase-alignment diagnostic; requires all STR intervals4');p.add_argument('--bypass-inhibited',action='store_true',help='Diagnostic only: keep ADC bypass inhibited while varying DAC pair');p.add_argument('--mux-select-map',type=int,nargs=2,default=[0,1],help='Physical MCP selector for logical captured banks0 and1');p.add_argument('--expected-build',type=lambda v:int(v,16),help='Explicitly checked FPGA build; defaults to legacy qualified images');p.add_argument('--probe',action='store_true');p.add_argument('--differences',type=float,nargs='+');a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--afe',type=int,choices=range(1,13),default=12);p.add_argument('--board-serial',required=False,default='1803');p.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);p.add_argument('--integrator-dac-channels',type=int,nargs=2,default=[2,3],help='Record physical pair parked at integrator during ADC scan');p.add_argument('--strict-edges',action='store_true',help='Separate strict phase-alignment diagnostic; requires all STR intervals4');p.add_argument('--bypass-inhibited',action='store_true',help='Diagnostic only: keep ADC bypass inhibited while varying DAC pair');p.add_argument('--mux-select-map',type=int,nargs=2,default=[0,1],help='Physical MCP selector for logical captured banks0 and1');p.add_argument('--expected-build',type=lambda v:int(v,16),help='Explicitly checked FPGA build; defaults to legacy qualified images');p.add_argument('--probe',action='store_true');p.add_argument('--differences',type=float,nargs='+');p.add_argument('--sample-window',choices=['before-str','str-rise'],default='before-str');a=p.parse_args()
  if len(set(a.dac_channels))!=2 or any(c not in range(8) for c in a.dac_channels):p.error('Two distinct DAC channels0..7 required')
  if len(set(a.integrator_dac_channels))!=2 or any(c not in range(8) for c in a.integrator_dac_channels):p.error('Two distinct recorded integrator DAC channels0..7 required')
  if sorted(a.mux_select_map)!=[0,1]:p.error('Mux map must be a permutation of0,1')
@@ -61,7 +61,7 @@ def main():
  for v in differences:
   try:voltage(1+v/2);voltage(1-v/2)
   except (ValueError,TypeError):p.error('Both differential legs must remain within0..3.3V')
- a.out.mkdir(parents=True,exist_ok=False);sources=snapshot_sources(a.out,['__main__','channel_settings','adc_decode','mod_dac28','console','mcp23017','control','client','lease','pm12_console_regression','pm12_power']);report=dict(pass_=False,executed_sources=sources,started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),strict_edges=a.strict_edges,channel=a.afe,integrator_dac_channels=a.integrator_dac_channels,bypass_inhibited=a.bypass_inhibited,mux_select_map=a.mux_select_map,dac_channels=a.dac_channels,common_mode_v=1.0,max_pin_voltage_v=3.3,measurements=[])
+ a.out.mkdir(parents=True,exist_ok=False);sources=snapshot_sources(a.out,['__main__','channel_settings','adc_decode','mod_dac28','console','mcp23017','control','client','lease','pm12_console_regression','pm12_power']);report=dict(pass_=False,executed_sources=sources,started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),strict_edges=a.strict_edges,sample_window=a.sample_window,channel=a.afe,integrator_dac_channels=a.integrator_dac_channels,bypass_inhibited=a.bypass_inhibited,mux_select_map=a.mux_select_map,dac_channels=a.dac_channels,common_mode_v=1.0,max_pin_voltage_v=3.3,measurements=[])
  def save():(a.out/'status.json').write_text(json.dumps(report,indent=2)+'\n')
  with contextlib.ExitStack() as st:
   for n in sorted(['atmel-ice-J41800043065','pm12-210249A73E43','kasli-diot-00001','esp32-6825dd4c49e4','lattice-VER00001']):
@@ -86,13 +86,13 @@ def main():
       require_power_good(u,capture);vp,vn=1+diff/2,1-diff/2;dac.pair(vp,vn);time.sleep(.03)
       banks=[0,1] if a.probe else [bank]
       for read_bank in banks:
-       row=acquire(c,read_bank,a.out,f'mux{bank}-point{index:03d}-bank{read_bank}',a.afe,a.strict_edges)
+       row=acquire(c,read_bank,a.out,f'mux{bank}-point{index:03d}-bank{read_bank}',a.afe,a.strict_edges,a.sample_window)
        row.update(injection_bank=bank,mux_selector=a.mux_select_map[bank],diff_setpoint_v=diff,ch0_setpoint_v=vp,ch1_setpoint_v=vn)
        report['measurements'].append(row);save()
        print('MUX',bank,'READ',read_bank,'DIFF',diff,'RAW',round(row['raw_mean'],3),'RMS',round(row['raw_std'],3),flush=True)
     dac.baseline();inj.select(0)
     if a.bypass_inhibited:inj.inhibit()
-    time.sleep(.05);report['final_zero_capture']=acquire(c,0,a.out,'final-zero-bank0',a.afe,a.strict_edges);report['mcp_final']=inj.snapshot();report['dac_final_setpoints']=dac.snapshot()
+    time.sleep(.05);report['final_zero_capture']=acquire(c,0,a.out,'final-zero-bank0',a.afe,a.strict_edges,a.sample_window);report['mcp_final']=inj.snapshot();report['dac_final_setpoints']=dac.snapshot()
     assert report['mcp_final']['18']&128 and bool(report['mcp_final']['21']&32)==a.bypass_inhibited
     report['pgood_final']=require_power_good(u,capture);success=True
    report['tca_final']={str(n):bus.mux(n) for n in [0x70,0x71]};report['pass_']=True

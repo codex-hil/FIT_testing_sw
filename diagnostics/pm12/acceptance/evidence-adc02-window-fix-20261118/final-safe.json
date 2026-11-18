@@ -1,0 +1,807 @@
+{
+  "scope": "Final analog inhibition and baseline, no programming",
+  "gpio": {
+    "1": {
+      "0": 112,
+      "1": 31,
+      "18": 236,
+      "19": 224,
+      "20": 140,
+      "21": 224
+    },
+    "2": {
+      "0": 112,
+      "1": 31,
+      "18": 140,
+      "19": 224,
+      "20": 140,
+      "21": 224
+    },
+    "3": {
+      "0": 112,
+      "1": 31,
+      "18": 140,
+      "19": 224,
+      "20": 140,
+      "21": 224
+    },
+    "4": {
+      "0": 112,
+      "1": 31,
+      "18": 140,
+      "19": 224,
+      "20": 140,
+      "21": 224
+    }
+  },
+  "phase_uart": [
+    {
+      "command": "@DAC 2 W A 0000",
+      "reply": "DAC SENT A 0000\r\n",
+      "duration_s": 0.2119
+    }
+  ],
+  "power": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=89000001000000B1016E0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2113
+  },
+  "fpga": [
+    1347228162,
+    65538,
+    4281300076
+  ],
+  "phase_code_final": 0,
+  "dac_final": [
+    1.0,
+    1.0,
+    1.02400005,
+    2.0480001,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "scpi": [
+    {
+      "command": "*IDN?",
+      "reply": "MODULIQ,MOD-DAC-28,FIT-CTRL-6825DD4C49E4,1.0"
+    },
+    {
+      "command": "STAT:READ?",
+      "reply": "1"
+    },
+    {
+      "command": "SYST:PROJ?",
+      "reply": "28"
+    },
+    {
+      "command": "SYST:REV?",
+      "reply": "16"
+    },
+    {
+      "command": "SOUR:ZERO:VOLT 1.0000"
+    },
+    {
+      "command": "SOUR:ZERO:VOLT?",
+      "reply": "1"
+    },
+    {
+      "command": "SOUR:ONE:VOLT 1.0000"
+    },
+    {
+      "command": "SOUR:ONE:VOLT?",
+      "reply": "1"
+    },
+    {
+      "command": "SYST:ERR?",
+      "reply": "0,\"No error\""
+    },
+    {
+      "command": "SOUR:TWO:VOLT 1.0240"
+    },
+    {
+      "command": "SOUR:TWO:VOLT?",
+      "reply": "1.02400005"
+    },
+    {
+      "command": "SOUR:THR:VOLT 2.0480"
+    },
+    {
+      "command": "SOUR:THR:VOLT?",
+      "reply": "2.0480001"
+    },
+    {
+      "command": "SYST:ERR?",
+      "reply": "0,\"No error\""
+    },
+    {
+      "command": "SOUR:ZERO:VOLT?",
+      "reply": "1"
+    },
+    {
+      "command": "SOUR:ONE:VOLT?",
+      "reply": "1"
+    },
+    {
+      "command": "SOUR:TWO:VOLT?",
+      "reply": "1.02400005"
+    },
+    {
+      "command": "SOUR:THR:VOLT?",
+      "reply": "2.0480001"
+    },
+    {
+      "command": "SOUR:FOUR:VOLT?",
+      "reply": "0"
+    },
+    {
+      "command": "SOUR:FIVE:VOLT?",
+      "reply": "0"
+    },
+    {
+      "command": "SOUR:SIX:VOLT?",
+      "reply": "0"
+    },
+    {
+      "command": "SOUR:SEV:VOLT?",
+      "reply": "0"
+    }
+  ],
+  "tca_final": {
+    "112": 0,
+    "113": 0
+  },
+  "hdmi": [
+    1,
+    9
+  ],
+  "power_final": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=89000001000000F4026E0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2113
+  },
+  "i2c": [
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2114
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C W 70 01",
+      "reply": "I2C ADDR=70 TX=01 RX=\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=01\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C WR 20 01 0A",
+      "reply": "I2C ADDR=20 TX=0A RX=00\r\n",
+      "duration_s": 0.2127
+    },
+    {
+      "command": "@I2C WR 20 01 0B",
+      "reply": "I2C ADDR=20 TX=0B RX=00\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C WR 20 01 0A",
+      "reply": "I2C ADDR=20 TX=0A RX=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@I2C W 20 14 8C",
+      "reply": "I2C ADDR=20 TX=148C RX=\r\n",
+      "duration_s": 0.2127
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=E0\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C W 20 15 E0",
+      "reply": "I2C ADDR=20 TX=15E0 RX=\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=EC\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=E0\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C WR 20 01 00",
+      "reply": "I2C ADDR=20 TX=00 RX=70\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C WR 20 01 01",
+      "reply": "I2C ADDR=20 TX=01 RX=1F\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=EC\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=E0\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=E0\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2127
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.213
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2114
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2123
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2126
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C W 70 02",
+      "reply": "I2C ADDR=70 TX=02 RX=\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=02\r\n",
+      "duration_s": 0.2127
+    },
+    {
+      "command": "@I2C WR 20 01 0A",
+      "reply": "I2C ADDR=20 TX=0A RX=00\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C WR 20 01 0B",
+      "reply": "I2C ADDR=20 TX=0B RX=00\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C WR 20 01 0A",
+      "reply": "I2C ADDR=20 TX=0A RX=00\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.2126
+    },
+    {
+      "command": "@I2C W 20 14 8C",
+      "reply": "I2C ADDR=20 TX=148C RX=\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=C0\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C W 20 15 E0",
+      "reply": "I2C ADDR=20 TX=15E0 RX=\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=8C\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=E0\r\n",
+      "duration_s": 0.2113
+    },
+    {
+      "command": "@I2C WR 20 01 00",
+      "reply": "I2C ADDR=20 TX=00 RX=70\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C WR 20 01 01",
+      "reply": "I2C ADDR=20 TX=01 RX=1F\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=8C\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=E0\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=E0\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2123
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2111
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2123
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2127
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C W 70 04",
+      "reply": "I2C ADDR=70 TX=04 RX=\r\n",
+      "duration_s": 0.2114
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=04\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C WR 20 01 0A",
+      "reply": "I2C ADDR=20 TX=0A RX=00\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C WR 20 01 0B",
+      "reply": "I2C ADDR=20 TX=0B RX=00\r\n",
+      "duration_s": 0.2123
+    },
+    {
+      "command": "@I2C WR 20 01 0A",
+      "reply": "I2C ADDR=20 TX=0A RX=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C W 20 14 8C",
+      "reply": "I2C ADDR=20 TX=148C RX=\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=E0\r\n",
+      "duration_s": 0.2128
+    },
+    {
+      "command": "@I2C W 20 15 E0",
+      "reply": "I2C ADDR=20 TX=15E0 RX=\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=8C\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=E0\r\n",
+      "duration_s": 0.2108
+    },
+    {
+      "command": "@I2C WR 20 01 00",
+      "reply": "I2C ADDR=20 TX=00 RX=70\r\n",
+      "duration_s": 0.2123
+    },
+    {
+      "command": "@I2C WR 20 01 01",
+      "reply": "I2C ADDR=20 TX=01 RX=1F\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=8C\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=E0\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=E0\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2123
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2129
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "ERR I2C BUSY\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "ERR I2C BUSY\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2127
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C W 70 08",
+      "reply": "I2C ADDR=70 TX=08 RX=\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=08\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C WR 20 01 0A",
+      "reply": "I2C ADDR=20 TX=0A RX=00\r\n",
+      "duration_s": 0.2129
+    },
+    {
+      "command": "@I2C WR 20 01 0B",
+      "reply": "I2C ADDR=20 TX=0B RX=00\r\n",
+      "duration_s": 0.2125
+    },
+    {
+      "command": "@I2C WR 20 01 0A",
+      "reply": "I2C ADDR=20 TX=0A RX=00\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C W 20 14 8C",
+      "reply": "I2C ADDR=20 TX=148C RX=\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=E0\r\n",
+      "duration_s": 0.213
+    },
+    {
+      "command": "@I2C W 20 15 E0",
+      "reply": "I2C ADDR=20 TX=15E0 RX=\r\n",
+      "duration_s": 0.2127
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=8C\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=E0\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@I2C WR 20 01 00",
+      "reply": "I2C ADDR=20 TX=00 RX=70\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@I2C WR 20 01 01",
+      "reply": "I2C ADDR=20 TX=01 RX=1F\r\n",
+      "duration_s": 0.2126
+    },
+    {
+      "command": "@I2C WR 20 01 12",
+      "reply": "I2C ADDR=20 TX=12 RX=8C\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@I2C WR 20 01 13",
+      "reply": "I2C ADDR=20 TX=13 RX=E0\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C WR 20 01 14",
+      "reply": "I2C ADDR=20 TX=14 RX=8C\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C WR 20 01 15",
+      "reply": "I2C ADDR=20 TX=15 RX=E0\r\n",
+      "duration_s": 0.212
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2128
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2112
+    },
+    {
+      "command": "@I2C W 70 00",
+      "reply": "I2C ADDR=70 TX=00 RX=\r\n",
+      "duration_s": 0.2129
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@I2C W 71 00",
+      "reply": "I2C ADDR=71 TX=00 RX=\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@I2C R 70 01",
+      "reply": "I2C ADDR=70 TX= RX=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@I2C R 71 01",
+      "reply": "I2C ADDR=71 TX= RX=00\r\n",
+      "duration_s": 0.2127
+    }
+  ],
+  "pass_": true
+}

@@ -92,6 +92,7 @@ def main():
     p.add_argument('--points',type=int,default=257);p.add_argument('--span',type=float,default=1.2,help='Symmetric requested differential half-span; Vcm1V, each leg remains0..2V')
     p.add_argument('--board-serial',default='1803');p.add_argument('--mux-select-map',type=int,nargs=2,default=[0,1]);p.add_argument('--expected-build',type=lambda v:int(v,16))
     p.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);p.add_argument('--integrator-dac-channels',type=int,nargs=2,default=[2,3])
+    p.add_argument('--sample-window',choices=['before-str','str-rise'],default='before-str')
     a=p.parse_args()
     if not 0<a.span<=2:p.error('Differential half-span must be>0 and<=2V at Vcm1V')
     if not 17<=a.points<=4097:p.error('points must be17..4097')
@@ -102,6 +103,7 @@ def main():
         command=[sys.executable,str(Path(__file__).with_name('adc_dc_scan.py')),'--afe',str(a.afe),
                  '--board-serial',a.board_serial,'--dac-channels',*[str(c) for c in a.dac_channels],'--out',str(a.out/'scan'),'--differences',*[str(x) for x in grid]]
         command+=['--integrator-dac-channels',*[str(v) for v in a.integrator_dac_channels]]
+        command+=['--sample-window',a.sample_window]
         command+=['--mux-select-map',*[str(v) for v in a.mux_select_map]]
         if a.expected_build is not None:command+=['--expected-build',f'{a.expected_build:08x}']
         sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'acceptance'))

@@ -1,0 +1,34 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "channel": 2,
+  "adc_dc": "PASS",
+  "adc_lines": "PASS",
+  "sample_window": "str-rise",
+  "phase_code": 32768,
+  "validated_captures": 514,
+  "raw_words": 2105344,
+  "all_strobe_periods": 4,
+  "cpld_programmed": false,
+  "final_safe": true,
+  "old_campaign_selection_changed": false,
+  "registration": {
+    "results": {
+      "adc-dc": {
+        "status": "PASS",
+        "method": "direct-ADC-DC-v1-str-rise-v2",
+        "selected": false
+      },
+      "adc-lines": {
+        "status": "PASS",
+        "method": "adjacent-pair-states-v1-str-rise-v2",
+        "selected": false
+      }
+    },
+    "selection_status": "New-method receipts validated, not selected into old frozen campaign. New campaign preparation after capture correctly rejected old identity; no timestamps or guards changed.",
+    "original_identity_context": {
+      "root": "/srv/codex-hil-nvme/pm12-campaigns/PM12-K7-3A17A1B402212223/four-cfd-clock40-20261117",
+      "batch": "ch01-04-attempt003",
+      "station": "/srv/codex-hil-nvme/pm12-campaigns/PM12-K7-3A17A1B402212223/four-cfd-clock40-20261117/batches/ch01-04-attempt003/station.json"
+    }
+  }
+}

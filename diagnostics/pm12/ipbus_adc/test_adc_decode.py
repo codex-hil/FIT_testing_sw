@@ -52,6 +52,28 @@ class Decode(unittest.TestCase):
     def test_unstable_selected_adc_word_rejected(self):
         w=clock();w[5]=101|(w[5]&8192)
         with self.assertRaisesRegex(ValueError,'two-sample'):decode(w)
+    def test_recorded_adc2_late_settling_buffers(self):
+        from pathlib import Path
+        import struct
+        paths=list(Path(__file__).with_name('fixtures').glob('adc2-late-settle-*.bin'))
+        self.assertEqual(len(paths),3)
+        for path in paths:
+            w=list(struct.unpack('<4096H',path.read_bytes()));bank=(w[0]>>12)&1
+            with self.assertRaisesRegex(ValueError,'two-sample'):decode(w,bank)
+            samples,timing=decode(w,bank,sample_window='str-rise')
+            self.assertTrue(timing['selected_words_stable'])
+            self.assertGreaterEqual(len(samples),1022)
+    def test_late_settling_requires_explicit_later_window(self):
+        w=clock();w[4]=101|(w[4]&8192)
+        with self.assertRaisesRegex(ValueError,'two-sample'):decode(w)
+        values,timing=decode(w,0,sample_window='str-rise')
+        self.assertEqual(values,[100]*1023)
+        self.assertEqual(timing['sample_window'],'str-rise')
+    def test_later_window_still_rejects_unstable_data(self):
+        w=clock();w[6]=101|(w[6]&8192)
+        with self.assertRaisesRegex(ValueError,'two-sample'):decode(w,0,sample_window='str-rise')
+    def test_unknown_window_rejected(self):
+        with self.assertRaises(ValueError):decode(clock(),sample_window='guess')
     def test_tags_reserved_bits_and_truncation_rejected(self):
         for w in [clock()[:-1],[x|0x4000 for x in clock()],[x|0x1000 for x in clock()]]:
             with self.assertRaises(ValueError):decode(w,0)

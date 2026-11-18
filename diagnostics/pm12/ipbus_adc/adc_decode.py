@@ -1,13 +1,16 @@
 """Validate 4x oversampled ADC buses without treating edge quantization as loss.
 
-STR and data pass through independent two-stage synchronizers. The selected
-word is the last sample BEFORE STR rises, and must match its preceding sample.
+STR and data pass through independent two-stage synchronizers. The legacy selected
+word is the last sample BEFORE STR rises. Explicit str-rise selects the sample
+at the rising edge instead. Both modes require equality to the preceding sample;
+str-rise must be used with a phase independently verified to give a stable window.
 This is a sampled-data integrity check, not a calibrated clock-jitter test.
 """
 from collections import Counter
 
 
-def decode(words, bank=None, strict_edges=False):
+def decode(words, bank=None, strict_edges=False, sample_window="before-str"):
+    if sample_window not in ("before-str", "str-rise"):raise ValueError("Unknown ADC sample window")
     if len(words)!=4096 or any(type(w) is not int or not 0<=w<16384 for w in words):
         raise ValueError('Raw ADC size/reserved-bit error')
     if bank is not None and any(((w>>12)&1)!=bank for w in words):
@@ -28,7 +31,8 @@ def decode(words, bank=None, strict_edges=False):
         raise ValueError('ADC strobe pulse-width error')
     if strict_edges and any(g!=4 for g in gaps):
         raise ValueError('Strict phase-alignment diagnostic: STR intervals are not all4')
-    selected=[edge-1 for edge in rising[1:]]
+    offset=-1 if sample_window=="before-str" else 0
+    selected=[edge+offset for edge in rising[1:]]
     unstable=[index for index in selected if (words[index]^words[index-1])&4095]
     if unstable:
         raise ValueError(f'ADC word lacks two-sample stability at {len(unstable)} selected positions; first={unstable[:8]}')
@@ -36,6 +40,7 @@ def decode(words, bank=None, strict_edges=False):
     timing=dict(status='ALIGNED' if set(counts)=={4} else 'EDGE_QUANTIZED',
                 rising_edges=len(rising),falling_edges=len(falling),interval_counts=dict(counts),
                 rising_phase_span_samples=spans[0],falling_phase_span_samples=spans[1],
-                selected_words_stable=True,selected_word_rule='sample before STR rising, equal to its preceding ADC-data sample',
+                selected_words_stable=True,sample_window=sample_window,
+                selected_word_rule=('sample before STR rising' if offset==-1 else 'sample at STR rising')+', equal to its preceding ADC-data sample',
                 scope='4x sampled timing/coherency; not physical clock-jitter qualification')
     return [words[i]&4095 for i in selected],timing
