@@ -1,0 +1,25 @@
+{
+  "attempt001": {
+    "phase_code": 0,
+    "status": "INCOMPLETE",
+    "reason": "Two-sample stability failed at three selected positions after103 completed measurements",
+    "directory": "adc-lines-attempt001-phase0"
+  },
+  "attempt002": {
+    "phase_code": 32768,
+    "status": "INCOMPLETE",
+    "phase_receipt": "pre-scan-phase32768.json",
+    "directory": "adc-lines-attempt002-phase32768",
+    "reason": "Four unstable selected positions in bankB after390completed buffers"
+  },
+  "cpld_programming": false,
+  "decode_thresholds_changed": false,
+  "attempt003": {
+    "phase_code": 16384,
+    "status": "INCOMPLETE",
+    "directory": "adc-lines-attempt003-phase16384",
+    "phase_receipt": "pre-scan-phase16384.json",
+    "reason": "ValueError('ADC word lacks two-sample stability at 3 selected positions; first=[3768, 3816, 4008]')",
+    "completed_buffers": 164
+  }
+}

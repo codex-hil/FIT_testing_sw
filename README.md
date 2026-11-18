@@ -1,3 +1,6 @@
+Latest channel2 ADC (2026-11-18): INCOMPLETE. Correct J8 response verified; full acquisitions at phase0/32768/16384 stop on two-sample stability. No ADC2 PASS or bit-test acceptance, no qualification changes. Raw failures retained; final baseline restored, no CPLD programming.
+[Channel2 evidence](diagnostics/pm12/acceptance/evidence-channel02-20261118/README.md).
+
 Latest channel1 (2026-11-18): ADC A/B and all12 data bits PASS, selected under the unchanged ADC protocol. Integrator A/B functional balance confirmed at normal20MHz with100µV steps and independent returns; separately labelled diagnostic method. USB remains1; ADC2 pending. No CPLD programming.
 [Channel1 evidence](diagnostics/pm12/acceptance/evidence-channel01-20261118/README.md).
 

@@ -1,0 +1,78 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "physical_channel": 2,
+  "date": "2026-11-18",
+  "adc_status": "INCOMPLETE",
+  "attempts": {
+    "attempt001": {
+      "phase_code": 0,
+      "status": "INCOMPLETE",
+      "completed_buffers": 103,
+      "error": "ValueError('ADC word lacks two-sample stability at 3 selected positions; first=[158, 2142, 3886]')",
+      "failed_buffers": [
+        {
+          "file": "mux0-point103-bank0.bin",
+          "unstable_indices": [
+            158,
+            2142,
+            3886
+          ],
+          "xor_masks": [
+            "0x4",
+            "0x4",
+            "0x4"
+          ]
+        }
+      ]
+    },
+    "attempt002": {
+      "phase_code": 32768,
+      "status": "INCOMPLETE",
+      "completed_buffers": 390,
+      "error": "ValueError('ADC word lacks two-sample stability at 4 selected positions; first=[374, 406, 598, 2742]')",
+      "failed_buffers": [
+        {
+          "file": "mux1-point133-bank1.bin",
+          "unstable_indices": [
+            374,
+            406,
+            598,
+            2742
+          ],
+          "xor_masks": [
+            "0x40",
+            "0x40",
+            "0x40",
+            "0x40"
+          ]
+        }
+      ]
+    },
+    "attempt003": {
+      "phase_code": 16384,
+      "status": "INCOMPLETE",
+      "completed_buffers": 164,
+      "error": "ValueError('ADC word lacks two-sample stability at 3 selected positions; first=[3768, 3816, 4008]')",
+      "failed_buffers": [
+        {
+          "file": "mux0-point164-bank0.bin",
+          "unstable_indices": [
+            3768,
+            3816,
+            4008
+          ],
+          "xor_masks": [
+            "0x40",
+            "0x40",
+            "0x40"
+          ]
+        }
+      ]
+    }
+  },
+  "route_verified": true,
+  "final_safe": true,
+  "cpld_programmed": false,
+  "qualification_changed": false,
+  "integrator_repeated": false
+}

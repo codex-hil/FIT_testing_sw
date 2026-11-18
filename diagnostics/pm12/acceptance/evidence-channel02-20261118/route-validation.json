@@ -1,0 +1,14 @@
+{
+  "physical_channel": 2,
+  "pass_": true,
+  "slopes_code_per_V": {
+    "route-active": {
+      "A": -1777.0912457699865,
+      "B": -1788.7637756263462
+    },
+    "route-inhibited": {
+      "A": 6.728837519822832,
+      "B": 3.7062436753109296
+    }
+  }
+}
