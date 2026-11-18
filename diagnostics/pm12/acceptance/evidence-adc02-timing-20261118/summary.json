@@ -1,0 +1,111 @@
+{
+  "scope": "DIAGNOSTIC, NOT ADC qualification",
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "channel": 2,
+  "buffers": 144,
+  "groups": [
+    {
+      "phase": 0,
+      "bank": "A",
+      "buffers": 24,
+      "offsets": {
+        "-1": {
+          "unstable_pairs": 434,
+          "checked_pairs": 24504,
+          "buffers_with_unstable_pairs": 16
+        },
+        "0": {
+          "unstable_pairs": 257,
+          "checked_pairs": 24504,
+          "buffers_with_unstable_pairs": 19
+        }
+      }
+    },
+    {
+      "phase": 0,
+      "bank": "B",
+      "buffers": 24,
+      "offsets": {
+        "-1": {
+          "unstable_pairs": 0,
+          "checked_pairs": 24515,
+          "buffers_with_unstable_pairs": 0
+        },
+        "0": {
+          "unstable_pairs": 604,
+          "checked_pairs": 24515,
+          "buffers_with_unstable_pairs": 8
+        }
+      }
+    },
+    {
+      "phase": 16384,
+      "bank": "A",
+      "buffers": 24,
+      "offsets": {
+        "-1": {
+          "unstable_pairs": 90,
+          "checked_pairs": 24528,
+          "buffers_with_unstable_pairs": 8
+        },
+        "0": {
+          "unstable_pairs": 0,
+          "checked_pairs": 24528,
+          "buffers_with_unstable_pairs": 0
+        }
+      }
+    },
+    {
+      "phase": 16384,
+      "bank": "B",
+      "buffers": 24,
+      "offsets": {
+        "-1": {
+          "unstable_pairs": 2042,
+          "checked_pairs": 24528,
+          "buffers_with_unstable_pairs": 8
+        },
+        "0": {
+          "unstable_pairs": 0,
+          "checked_pairs": 24528,
+          "buffers_with_unstable_pairs": 0
+        }
+      }
+    },
+    {
+      "phase": 32768,
+      "bank": "A",
+      "buffers": 24,
+      "offsets": {
+        "-1": {
+          "unstable_pairs": 0,
+          "checked_pairs": 24528,
+          "buffers_with_unstable_pairs": 0
+        },
+        "0": {
+          "unstable_pairs": 0,
+          "checked_pairs": 24528,
+          "buffers_with_unstable_pairs": 0
+        }
+      }
+    },
+    {
+      "phase": 32768,
+      "bank": "B",
+      "buffers": 24,
+      "offsets": {
+        "-1": {
+          "unstable_pairs": 5,
+          "checked_pairs": 24528,
+          "buffers_with_unstable_pairs": 4
+        },
+        "0": {
+          "unstable_pairs": 0,
+          "checked_pairs": 24528,
+          "buffers_with_unstable_pairs": 0
+        }
+      }
+    }
+  ],
+  "cleanup_wrapper_error": "Redundant inhibit callback ran after I2C route closed and received NACK; normal routed inhibit already completed. Independent final cleanup exit0/verified safe. Acquisition complete before callback error."
+}

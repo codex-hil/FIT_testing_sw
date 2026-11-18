@@ -1,3 +1,6 @@
+Latest ADC2 timing diagnostic (2026-11-18):144buffers retained. At phase16384/32768, pair ending at STR rise has0disagreements/98112pairs; old earlier pair still fails. Phase0 has no shared clean window. Evidence favors timing/window selection; no hardware fault or production PASS established. Baseline restored, no programming.
+[Timing diagnostic](diagnostics/pm12/acceptance/evidence-adc02-timing-20261118/README.md).
+
 Latest channel2 ADC (2026-11-18): INCOMPLETE. Correct J8 response verified; full acquisitions at phase0/32768/16384 stop on two-sample stability. No ADC2 PASS or bit-test acceptance, no qualification changes. Raw failures retained; final baseline restored, no CPLD programming.
 [Channel2 evidence](diagnostics/pm12/acceptance/evidence-channel02-20261118/README.md).
 
