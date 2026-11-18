@@ -1,0 +1,71 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "physical_channel": 1,
+  "date": "2026-11-18",
+  "adc_registration": {
+    "adc-dc": {
+      "status": "PASS",
+      "record": {
+        "id": "result-3f897074c88947fc804b3c1d1f05ee32",
+        "selected": true,
+        "case": "adc-dc:1"
+      }
+    },
+    "adc-lines": {
+      "status": "PASS",
+      "record": {
+        "id": "result-5dc4bbe7c44848d8a5d49fed8a5fd949",
+        "selected": true,
+        "case": "adc-lines:1"
+      }
+    }
+  },
+  "integrator_status": "PASS_FUNCTIONAL",
+  "integrator_method": "Diagnostic reset-reference alignment, phase DAC0, nominal20MHz; separate from frozen production qualification",
+  "fits": {
+    "A": {
+      "root_V": 0.0028155539995066434,
+      "commanded_delta_100uV": 0.0028,
+      "slope_code_per_V": -2461.783522464114,
+      "residual_rms_code": 0.18245807336773806
+    },
+    "B": {
+      "root_V": 0.003255277773352555,
+      "commanded_delta_100uV": 0.0033,
+      "slope_code_per_V": -2457.0640311623924,
+      "residual_rms_code": 0.16217171068963893
+    }
+  },
+  "validation": {
+    "A": {
+      "pass_": true,
+      "candidate_delta_V": 0.0028,
+      "returns": [
+        -0.3506754670372086,
+        -0.4370541917554423
+      ],
+      "lower": [
+        12.115809788482322
+      ],
+      "upper": [
+        -12.407789099891925
+      ]
+    },
+    "B": {
+      "pass_": true,
+      "candidate_delta_V": 0.0033,
+      "returns": [
+        1.1427165354330708,
+        0.8879766867376871
+      ],
+      "lower": [
+        12.562938088621275
+      ],
+      "upper": [
+        -11.104546858113324
+      ]
+    }
+  },
+  "final_safe": true,
+  "cpld_programmed": false
+}

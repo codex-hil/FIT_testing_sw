@@ -1,0 +1,18 @@
+{
+  "adc-dc": {
+    "status": "PASS",
+    "record": {
+      "id": "result-3f897074c88947fc804b3c1d1f05ee32",
+      "selected": true,
+      "case": "adc-dc:1"
+    }
+  },
+  "adc-lines": {
+    "status": "PASS",
+    "record": {
+      "id": "result-5dc4bbe7c44848d8a5d49fed8a5fd949",
+      "selected": true,
+      "case": "adc-lines:1"
+    }
+  }
+}

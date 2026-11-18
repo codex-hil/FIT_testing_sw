@@ -1,3 +1,6 @@
+Latest channel1 (2026-11-18): ADC A/B and all12 data bits PASS, selected under the unchanged ADC protocol. Integrator A/B functional balance confirmed at normal20MHz with100µV steps and independent returns; separately labelled diagnostic method. USB remains1; ADC2 pending. No CPLD programming.
+[Channel1 evidence](evidence-channel01-20261118/README.md).
+
 Owner policy correction: production tests do not program CPLDs or automatically
 load2MHz/held-reset images. Optional CPLD diagnostics are separate. Default
 production scope excludes integrator-reset; old sealed evidence retained.

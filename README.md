@@ -1,3 +1,6 @@
+Latest channel1 (2026-11-18): ADC A/B and all12 data bits PASS, selected under the unchanged ADC protocol. Integrator A/B functional balance confirmed at normal20MHz with100µV steps and independent returns; separately labelled diagnostic method. USB remains1; ADC2 pending. No CPLD programming.
+[Channel1 evidence](diagnostics/pm12/acceptance/evidence-channel01-20261118/README.md).
+
 Latest channel3 after confirmed USB move: ADC A/B transfer and adjacent bits **PASS**; integrator **INCOMPLETE**.
 Fresh active/inhibited probes verified the J8 route; earlier failed routing checks retained.
 ADC3–12 now available; analog1–2 awaits USB moves. Integrator4/6 remain INCOMPLETE.
