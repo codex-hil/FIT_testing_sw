@@ -1,0 +1,1207 @@
+{
+  "schema": 1,
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "test": "board-final",
+  "channel": null,
+  "started_utc": "2026-11-19T14:04:03.217574+00:00",
+  "status": "PASS",
+  "trials": [
+    {
+      "index": 0,
+      "address": 0,
+      "signature": 18500,
+      "expected": 18500,
+      "registers": [
+        1129073490,
+        74,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-000.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3654531339,
+        54
+      ],
+      "uptime_after": [
+        3658824753,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2107
+      },
+      "pass_": true
+    },
+    {
+      "index": 1,
+      "address": 1,
+      "signature": 19785,
+      "expected": 19785,
+      "registers": [
+        1129073490,
+        66,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-001.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3675757089,
+        54
+      ],
+      "uptime_after": [
+        3680054154,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2106
+      },
+      "pass_": true
+    },
+    {
+      "index": 2,
+      "address": 0,
+      "signature": 18500,
+      "expected": 18500,
+      "registers": [
+        1129073490,
+        74,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-002.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3696986912,
+        54
+      ],
+      "uptime_after": [
+        3701272083,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2107
+      },
+      "pass_": true
+    },
+    {
+      "index": 3,
+      "address": 1,
+      "signature": 19785,
+      "expected": 19785,
+      "registers": [
+        1129073490,
+        66,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-003.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3718211779,
+        54
+      ],
+      "uptime_after": [
+        3722496155,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2108
+      },
+      "pass_": true
+    },
+    {
+      "index": 4,
+      "address": 0,
+      "signature": 18500,
+      "expected": 18500,
+      "registers": [
+        1129073490,
+        74,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-004.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3739431387,
+        54
+      ],
+      "uptime_after": [
+        3743722166,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2108
+      },
+      "pass_": true
+    },
+    {
+      "index": 5,
+      "address": 1,
+      "signature": 19785,
+      "expected": 19785,
+      "registers": [
+        1129073490,
+        66,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-005.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3760670886,
+        54
+      ],
+      "uptime_after": [
+        3764967191,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2107
+      },
+      "pass_": true
+    },
+    {
+      "index": 6,
+      "address": 0,
+      "signature": 18500,
+      "expected": 18500,
+      "registers": [
+        1129073490,
+        74,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-006.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3781902946,
+        54
+      ],
+      "uptime_after": [
+        3786186816,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2107
+      },
+      "pass_": true
+    },
+    {
+      "index": 7,
+      "address": 1,
+      "signature": 19785,
+      "expected": 19785,
+      "registers": [
+        1129073490,
+        66,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-007.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3803120576,
+        54
+      ],
+      "uptime_after": [
+        3807401365,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2107
+      },
+      "pass_": true
+    },
+    {
+      "index": 8,
+      "address": 0,
+      "signature": 18500,
+      "expected": 18500,
+      "registers": [
+        1129073490,
+        74,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-008.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3824338288,
+        54
+      ],
+      "uptime_after": [
+        3828626541,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2107
+      },
+      "pass_": true
+    },
+    {
+      "index": 9,
+      "address": 1,
+      "signature": 19785,
+      "expected": 19785,
+      "registers": [
+        1129073490,
+        66,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-009.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3845560579,
+        54
+      ],
+      "uptime_after": [
+        3849850321,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2108
+      },
+      "pass_": true
+    },
+    {
+      "index": 10,
+      "address": 0,
+      "signature": 18500,
+      "expected": 18500,
+      "registers": [
+        1129073490,
+        74,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-010.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3866795836,
+        54
+      ],
+      "uptime_after": [
+        3871083153,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2107
+      },
+      "pass_": true
+    },
+    {
+      "index": 11,
+      "address": 1,
+      "signature": 19785,
+      "expected": 19785,
+      "registers": [
+        1129073490,
+        66,
+        2048,
+        1320,
+        60118050,
+        384,
+        6011805,
+        15656,
+        16777472,
+        41943680,
+        16777472,
+        6011805,
+        2048
+      ],
+      "raw_file": "hdmi-clock-011.bin",
+      "sys_loss_trigger": false,
+      "uptime_before": [
+        3888020364,
+        54
+      ],
+      "uptime_after": [
+        3892340314,
+        54
+      ],
+      "pll": {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2108
+      },
+      "pass_": true
+    }
+  ],
+  "identity_before": {
+    "uid": "PM12-K7-3A17A1B402212223",
+    "fpga_dna": "3A17A1B402212223",
+    "mcu_eeprom_serial": "1803",
+    "asset_label": "PM12-K7-3A17A1B402212223",
+    "cpu_factory_id": null,
+    "cpu_factory_id_status": "NOT_READ; do not reset MCU for a PDI signature read",
+    "jtag_cable": "210249A73E43",
+    "fpga_ipbus_identity": [
+      1347228162,
+      65538,
+      4281300076
+    ],
+    "pgood": [
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000DA017B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000010007B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000002F027A0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000066007A0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2106
+      }
+    ],
+    "pgood_final": {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000075017B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2108
+    },
+    "mcu_reply": {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    37.9 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2107
+    },
+    "uptime_before": [
+      2911648437,
+      54
+    ],
+    "uptime_after": [
+      3328164708,
+      54
+    ],
+    "observed_utc": "2026-11-19T14:04:15Z"
+  },
+  "mcu": {
+    "status": "PASS",
+    "records": [
+      {
+        "command": "@PING",
+        "reply": "PONG\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "RS",
+        "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    37.9 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000E6037C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@PGTIME",
+        "reply": "PGTIME STATE=00 TICKS=0000 OVF=00 US_NOMINAL=00000000\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@TEMP",
+        "reply": "ADT7311 REG=00 00\r\nADT7311 REG=01 50\r\nADT7311 REG=02 1300\r\nADT7311 REG=03 C3\r\n",
+        "duration_s": 0.2106
+      },
+      {
+        "command": "@TDC 0 83",
+        "reply": "THS788 0 83 8010\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@TDC 1 83",
+        "reply": "THS788 1 83 8010\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@TDC 2 83",
+        "reply": "THS788 2 83 8010\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@PLL",
+        "reply": "CDCE62005 20009D38\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@FPGA",
+        "reply": "FPGA REG=40 0000\r\nFPGA REG=41 504D\r\nFPGA REG=42 5350\r\nFPGA REG=43 0001\r\nFPGA REG=44 0021\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@FPGATEST",
+        "reply": "FPGA TEST PASS 32 RESTORED\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@INA 4",
+        "reply": "INA 4 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 4 CH=1 RAW=0100/03E8 MV=1000 MA=128 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=2 RAW=00B8/04B0 MV=1200 MA=92 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=3 RAW=0008/0700 MV=1792 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\n",
+        "duration_s": 0.2408
+      },
+      {
+        "command": "@INA 5",
+        "reply": "INA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0270/0F50 MV=3920 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03D8/0D00 MV=3328 MA=4920 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=00D8/06F0 MV=1776 MA=1080 STATUS=NOMINAL_UNCALIBRATED\r\n",
+        "duration_s": 0.2407
+      },
+      {
+        "command": "@INA 6",
+        "reply": "INA 6 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 6 CH=1 RAW=0050/03F0 MV=1008 MA=400 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=2 RAW=0030/1578 MV=5496 MA=240 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=3 RAW=0000/0000 MV=0 MA=NA STATUS=NO_SHUNT\r\n",
+        "duration_s": 0.2408
+      },
+      {
+        "command": "@POWER",
+        "reply": "INA 4 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 4 CH=1 RAW=0100/03E8 MV=1000 MA=128 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=2 RAW=00B8/04B0 MV=1200 MA=92 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=3 RAW=0008/0700 MV=1792 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0270/0F50 MV=3920 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03D8/0D00 MV=3328 MA=4920 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=00D0/06F0 MV=1776 MA=1040 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 6 CH=1 RAW=0050/03F0 MV=1008 MA=400 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=2 RAW=0030/1578 MV=5496 MA=240 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=3 RAW=0000/0000 MV=0 MA=NA STATUS=NO_SHUNT\r\n",
+        "duration_s": 0.2708
+      }
+    ],
+    "scope": "MCU UART, chip IDs, scratch SPI and sensor observations; no power transition/flash reset",
+    "pgood": [
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000E6037B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000001D027B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000053007B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000072027B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      }
+    ],
+    "power_checks": [
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000044027C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000A0007C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000E5027C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000043017C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000089037B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000E4017B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2106
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000042007B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000087027B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000C7007B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2106
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000EF027B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000002F017B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2108
+      }
+    ],
+    "pg_timing_acceptance": "NOT_RUN: static PGOOD does not validate EN-to-PG timeout protection",
+    "p3v8_current_readout": {
+      "status": "NOT_REPORTED",
+      "reply": "INA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0270/0F50 MV=3920 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03D8/0D00 MV=3328 MA=4920 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=00D8/06F0 MV=1776 MA=1080 STATUS=NOMINAL_UNCALIBRATED\r\n"
+    },
+    "p3v8_current_acceptance": "Readout recorded; numerical acceptance requires configured limits"
+  },
+  "network": {
+    "status": "PASS",
+    "buffers": [
+      {
+        "channel": 1,
+        "bank": 0,
+        "file": "network-ch01-bank0.bin",
+        "sha256": "70414af0f160b4bd23df26ddd12e7444a441727d85e76f7864f0276e5196cb2e",
+        "generation": 1051
+      },
+      {
+        "channel": 2,
+        "bank": 0,
+        "file": "network-ch02-bank0.bin",
+        "sha256": "30109b1ba9909a9e315a75df51fea7b9563599868e1af288c0f72073074c3832",
+        "generation": 1051
+      },
+      {
+        "channel": 3,
+        "bank": 0,
+        "file": "network-ch03-bank0.bin",
+        "sha256": "f1306aad1a649063d86f31c273b79b2ca1309dcde2d3306cea4f4e77a5fba346",
+        "generation": 1051
+      },
+      {
+        "channel": 4,
+        "bank": 0,
+        "file": "network-ch04-bank0.bin",
+        "sha256": "a5c0761219fcebdc7d9057ea855c18f2e0b701301dd1d3c2d7d705b3d24e0c6a",
+        "generation": 1051
+      },
+      {
+        "channel": 5,
+        "bank": 0,
+        "file": "network-ch05-bank0.bin",
+        "sha256": "ecd0f5556a1fcc81d97cb733e4a7f64cb942ccc6a1b12673a4e23e0ea56c3ad8",
+        "generation": 1051
+      },
+      {
+        "channel": 6,
+        "bank": 0,
+        "file": "network-ch06-bank0.bin",
+        "sha256": "95484ea7615180e0997b3063fd54b6027e39c54b0346962b35eed3130d2b19f2",
+        "generation": 1051
+      },
+      {
+        "channel": 7,
+        "bank": 0,
+        "file": "network-ch07-bank0.bin",
+        "sha256": "c5eb6d47842d1589c67b05eb962ae3eb2833fd4358a6e01077438dce8361f0c9",
+        "generation": 1051
+      },
+      {
+        "channel": 8,
+        "bank": 0,
+        "file": "network-ch08-bank0.bin",
+        "sha256": "0ea021412dc94cae7c43a27b172a0641440fb619d95e13db07addd4100e803ba",
+        "generation": 1051
+      },
+      {
+        "channel": 9,
+        "bank": 0,
+        "file": "network-ch09-bank0.bin",
+        "sha256": "4ceeafd5b6ddbc6c2c9ddd2d445577d0f83e260d8b3bfaf6e762acbcc3b7a6c0",
+        "generation": 1051
+      },
+      {
+        "channel": 10,
+        "bank": 0,
+        "file": "network-ch10-bank0.bin",
+        "sha256": "4f27e219fd266b2e13172a9d9ec57543169604f6a7e02eb9846cf8acbd69e117",
+        "generation": 1051
+      },
+      {
+        "channel": 11,
+        "bank": 0,
+        "file": "network-ch11-bank0.bin",
+        "sha256": "9ef67b3058c2fac4a34c84e1e2f5b15aaacb30e3df9507a9a34966a81f445133",
+        "generation": 1051
+      },
+      {
+        "channel": 12,
+        "bank": 0,
+        "file": "network-ch12-bank0.bin",
+        "sha256": "88fd3ac9a0b77b3d20966395efd24f04d72cf4bd3b6563ec6d3b83dc20c90024",
+        "generation": 1051
+      },
+      {
+        "channel": 1,
+        "bank": 1,
+        "file": "network-ch01-bank1.bin",
+        "sha256": "de61e364854e7cd2af2569bd42dd683083ca033a26f60cffe5335763dc883318",
+        "generation": 1052
+      },
+      {
+        "channel": 2,
+        "bank": 1,
+        "file": "network-ch02-bank1.bin",
+        "sha256": "6bc55919a4074a7d352e84e2c48148667253c96c1f35311d209d1ded8f571b93",
+        "generation": 1052
+      },
+      {
+        "channel": 3,
+        "bank": 1,
+        "file": "network-ch03-bank1.bin",
+        "sha256": "db32e6fb70407877c411f961ecc3003ac0f223b88237b5867c5c3d138688d400",
+        "generation": 1052
+      },
+      {
+        "channel": 4,
+        "bank": 1,
+        "file": "network-ch04-bank1.bin",
+        "sha256": "142d32c74d4e926a60b5b325842ecbe83405d87e6a87ec0fb08d9cdc3b189d39",
+        "generation": 1052
+      },
+      {
+        "channel": 5,
+        "bank": 1,
+        "file": "network-ch05-bank1.bin",
+        "sha256": "d066dcf7b36243be4c6c24a9d8a90b7748f586848ce26111dc3e4b5bcdd0698e",
+        "generation": 1052
+      },
+      {
+        "channel": 6,
+        "bank": 1,
+        "file": "network-ch06-bank1.bin",
+        "sha256": "22e550a0370b6cebff82acd53464292070354bf5f90670f24e254c812fd50ba0",
+        "generation": 1052
+      },
+      {
+        "channel": 7,
+        "bank": 1,
+        "file": "network-ch07-bank1.bin",
+        "sha256": "7c99af54e338ad5ccf140c7addb40f9f8588648fa6d655cdca27fbd14705d129",
+        "generation": 1052
+      },
+      {
+        "channel": 8,
+        "bank": 1,
+        "file": "network-ch08-bank1.bin",
+        "sha256": "6b93e21e2283b6b70b2e823deabf6d464eda252839b571b0fd91245ef9c89320",
+        "generation": 1052
+      },
+      {
+        "channel": 9,
+        "bank": 1,
+        "file": "network-ch09-bank1.bin",
+        "sha256": "4f911d4c3fcb76950042397879f0ab82461d95e33b7b6d11d2bdf394c53d5b44",
+        "generation": 1052
+      },
+      {
+        "channel": 10,
+        "bank": 1,
+        "file": "network-ch10-bank1.bin",
+        "sha256": "5f4442eb0c9385ea0b64b5c5df9a43fbf1ec1042869b071a5383f56c07640732",
+        "generation": 1052
+      },
+      {
+        "channel": 11,
+        "bank": 1,
+        "file": "network-ch11-bank1.bin",
+        "sha256": "b86c89dd904d6800560271ffd04764b39b19600ac73184c7ba6181bf12d16921",
+        "generation": 1052
+      },
+      {
+        "channel": 12,
+        "bank": 1,
+        "file": "network-ch12-bank1.bin",
+        "sha256": "9409d187f50bfbc19bce98b01e674abf55f2bcbea873ee0629cf3ff67f887759",
+        "generation": 1052
+      }
+    ],
+    "bytes_compared": 393216
+  },
+  "hdmi_initial": {
+    "enable": 1,
+    "state": 9,
+    "divider": 600
+  },
+  "power_final": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000C5007C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2108
+  },
+  "hdmi_final": {
+    "enable": 1,
+    "state": 9,
+    "divider": 600
+  },
+  "identity_after": {
+    "uid": "PM12-K7-3A17A1B402212223",
+    "fpga_dna": "3A17A1B402212223",
+    "mcu_eeprom_serial": "1803",
+    "asset_label": "PM12-K7-3A17A1B402212223",
+    "cpu_factory_id": null,
+    "cpu_factory_id_status": "NOT_READ; do not reset MCU for a PDI signature read",
+    "jtag_cable": "210249A73E43",
+    "fpga_ipbus_identity": [
+      1347228162,
+      65538,
+      4281300076
+    ],
+    "pgood": [
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000051037C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000087017C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000A6037C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000DD017C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2107
+      }
+    ],
+    "pgood_final": {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000003007B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    "mcu_reply": {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    38.0 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2107
+    },
+    "uptime_before": [
+      3987251248,
+      54
+    ],
+    "uptime_after": [
+      98476980,
+      55
+    ],
+    "observed_utc": "2026-11-19T14:04:42Z"
+  },
+  "validation": {
+    "board_uid": "PM12-K7-3A17A1B402212223",
+    "status": "PASS",
+    "transport_bytes_compared": 393216,
+    "hdmi_trials": 12,
+    "clock_windows": [
+      {
+        "index": 0,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 1,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 4,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 5,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 6,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 7,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 8,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 9,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 10,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      },
+      {
+        "index": 11,
+        "valid_full_windows": 2047,
+        "ranges": {
+          "mclk": [
+            256,
+            256
+          ],
+          "gtref": [
+            640,
+            640
+          ],
+          "sys": [
+            256,
+            256
+          ]
+        }
+      }
+    ],
+    "scope": "Finite functional check, not analog glitch/jitter, BER or power-fault injection"
+  },
+  "cleanup": {
+    "gpio": {
+      "3": {
+        "0": 119,
+        "1": 223,
+        "18": 136,
+        "19": 32,
+        "20": 136,
+        "21": 32
+      },
+      "4": {
+        "0": 119,
+        "1": 223,
+        "18": 136,
+        "19": 32,
+        "20": 136,
+        "21": 32
+      },
+      "5": {
+        "0": 119,
+        "1": 223,
+        "18": 136,
+        "19": 32,
+        "20": 136,
+        "21": 32
+      },
+      "6": {
+        "0": 119,
+        "1": 223,
+        "18": 136,
+        "19": 32,
+        "20": 136,
+        "21": 32
+      }
+    },
+    "phase_uart": [
+      {
+        "command": "@DAC 6 W A 0000",
+        "reply": "DAC SENT A 0000\r\n",
+        "duration_s": 0.2107
+      }
+    ],
+    "pgood": {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000052027C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    "dac_final": [
+      1.0,
+      1.0,
+      1.02400005,
+      2.0480001,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tca_final": {
+      "112": 0,
+      "113": 0
+    }
+  },
+  "finished_utc": "2026-11-19T14:05:15.031764+00:00"
+}

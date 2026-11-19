@@ -1,3 +1,5 @@
+> Current production entry points and board identity rules: [production workflow](PRODUCTION_WORKFLOW.md). The material below retains historical methods/examples; do not invoke archived hardware commands on a newly connected board.
+
 [Production workflow: automatic board/channel tests without CPLD programming](PRODUCTION_WORKFLOW.md).
 Reset/2MHz image changes are explicit diagnostics only.
 

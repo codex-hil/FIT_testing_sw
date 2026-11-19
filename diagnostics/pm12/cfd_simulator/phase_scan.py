@@ -163,7 +163,9 @@ def main():
     parser.add_argument('--kasli-root', type=Path, default=Path('/home/codex-hil/kasli-phase-tester'))
     parser.add_argument('--console-tools', type=Path, default=Path('/home/codex-hil/FIT_PM_FW_uPC/tools/hardware'))
     parser.add_argument('--board-serial', default='1803')
+    parser.add_argument('--held-slot7',action='store_true',help='Use only slot7 receivers; retain driven HDMI/SPI outputs')
     args = parser.parse_args()
+    if not args.held_slot7 or args.transport!='ipbus':parser.error('Legacy output-release mode retired; use --held-slot7 --transport ipbus through fixture_batch.py')
     try:
         restore = int(args.restore_code,16)
         lanes = [int(v) for v in args.lanes.split(',')]
@@ -225,7 +227,21 @@ def main():
             report['identity'] = capture(uart,'RS')
             if not re.search(r'Board S/N:\s*'+re.escape(args.board_serial)+r'\b', report['identity']['reply']):
                 raise RuntimeError('Wrong PM12 MCU board identity')
-            report['directions'] = input_cards(device);report['kasli_mapping']=device.mapping
+            if args.held_slot7:
+                if args.transport!='ipbus':raise ValueError('Held slot7 requires IPbus')
+                from host.lvds8_dio import dio_directions
+                def hold():
+                    if device.read(0x144)!=1 or device.read(0x150)&15!=9:raise RuntimeError('HDMI SPI must remain driven')
+                class Inputs:
+                    slot=7
+                    def stop(self):device.write(0xe0,0);hold()
+                    def directions(self,mask):
+                        if mask:raise ValueError('Input-only slot7')
+                if any(device.mapping[lane]['slot']!=7 for lane in lanes):raise ValueError('Held capture accepts only slot7 lanes')
+                with dio_directions(Inputs(),0):pass
+                report['directions']={'slot7':'inputs','slot6':'preserved'}
+            else:report['directions'] = input_cards(device)
+            report['kasli_mapping']=device.mapping
             report['initial_status'] = device.status();save()
             if not report['initial_status']['ready']:
                 raise RuntimeError('Kasli sampling clocks are not ready')
@@ -242,7 +258,10 @@ def main():
             report['error']=repr(error)
             raise
         finally:
-            try:device.stop();report['final_status']=device.status()
+            try:
+                if args.held_slot7:hold()
+                else:device.stop()
+                report['final_status']=device.status()
             finally:save()
     print(f'Saved {len(codes)} points to {out}/phase.csv')
 

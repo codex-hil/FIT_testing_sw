@@ -1,0 +1,1300 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "scope": "Functional assembly evidence across labelled method/clock/source epochs; not fault-injection, traceable metrology or throughput/BER qualification",
+  "required_cases": [
+    "jtag:board",
+    "mcu:board",
+    "i2c:board",
+    "hdmi:board",
+    "ethernet:board",
+    "cfd-monitor:1",
+    "cfd-monitor:2",
+    "cfd-monitor:3",
+    "cfd-monitor:4",
+    "cfd-monitor:5",
+    "cfd-monitor:6",
+    "cfd-monitor:7",
+    "cfd-monitor:8",
+    "cfd-monitor:9",
+    "cfd-monitor:10",
+    "cfd-monitor:11",
+    "cfd-monitor:12",
+    "cfd-dacs:1",
+    "cfd-dacs:2",
+    "cfd-dacs:3",
+    "cfd-dacs:4",
+    "cfd-dacs:5",
+    "cfd-dacs:6",
+    "cfd-dacs:7",
+    "cfd-dacs:8",
+    "cfd-dacs:9",
+    "cfd-dacs:10",
+    "cfd-dacs:11",
+    "cfd-dacs:12",
+    "gate-phase:1",
+    "gate-phase:2",
+    "gate-phase:3",
+    "gate-phase:4",
+    "gate-phase:5",
+    "gate-phase:6",
+    "gate-phase:7",
+    "gate-phase:8",
+    "gate-phase:9",
+    "gate-phase:10",
+    "gate-phase:11",
+    "gate-phase:12",
+    "tdc:1",
+    "tdc:2",
+    "tdc:3",
+    "tdc:4",
+    "tdc:5",
+    "tdc:6",
+    "tdc:7",
+    "tdc:8",
+    "tdc:9",
+    "tdc:10",
+    "tdc:11",
+    "tdc:12",
+    "adc-dc:1",
+    "adc-dc:2",
+    "adc-dc:3",
+    "adc-dc:4",
+    "adc-dc:5",
+    "adc-dc:6",
+    "adc-dc:7",
+    "adc-dc:8",
+    "adc-dc:9",
+    "adc-dc:10",
+    "adc-dc:11",
+    "adc-dc:12",
+    "adc-lines:1",
+    "adc-lines:2",
+    "adc-lines:3",
+    "adc-lines:4",
+    "adc-lines:5",
+    "adc-lines:6",
+    "adc-lines:7",
+    "adc-lines:8",
+    "adc-lines:9",
+    "adc-lines:10",
+    "adc-lines:11",
+    "adc-lines:12",
+    "integrator:1",
+    "integrator:2",
+    "integrator:3",
+    "integrator:4",
+    "integrator:5",
+    "integrator:6",
+    "integrator:7",
+    "integrator:8",
+    "integrator:9",
+    "integrator:10",
+    "integrator:11",
+    "integrator:12"
+  ],
+  "selections": [
+    {
+      "case": "adc-dc:1",
+      "test": "adc-dc",
+      "channel": 1,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-1",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-18T11:01:46.835029+00:00"
+    },
+    {
+      "case": "adc-dc:10",
+      "test": "adc-dc",
+      "channel": 10,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-10",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T16:12:12.285134+00:00"
+    },
+    {
+      "case": "adc-dc:11",
+      "test": "adc-dc",
+      "channel": 11,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-11",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T15:54:41.042554+00:00"
+    },
+    {
+      "case": "adc-dc:12",
+      "test": "adc-dc",
+      "channel": 12,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-12",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T14:05:06.865864+00:00"
+    },
+    {
+      "case": "adc-dc:2",
+      "test": "adc-dc",
+      "channel": 2,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-2",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1-str-rise-v2",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-18T13:15:59.264069+00:00"
+    },
+    {
+      "case": "adc-dc:3",
+      "test": "adc-dc",
+      "channel": 3,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-3",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T15:29:17.497750+00:00"
+    },
+    {
+      "case": "adc-dc:4",
+      "test": "adc-dc",
+      "channel": 4,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-4",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:28:12.313828+00:00"
+    },
+    {
+      "case": "adc-dc:5",
+      "test": "adc-dc",
+      "channel": 5,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-5",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T13:04:18.713627+00:00"
+    },
+    {
+      "case": "adc-dc:6",
+      "test": "adc-dc",
+      "channel": 6,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-6",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T12:36:24.665947+00:00"
+    },
+    {
+      "case": "adc-dc:7",
+      "test": "adc-dc",
+      "channel": 7,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-7",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T12:01:47.809147+00:00"
+    },
+    {
+      "case": "adc-dc:8",
+      "test": "adc-dc",
+      "channel": 8,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-8",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T11:00:29.173862+00:00"
+    },
+    {
+      "case": "adc-dc:9",
+      "test": "adc-dc",
+      "channel": 9,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-dc-9",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "direct-ADC-DC-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-16T15:39:35.782813+00:00"
+    },
+    {
+      "case": "adc-lines:1",
+      "test": "adc-lines",
+      "channel": 1,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-1",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-18T11:01:46.835029+00:00"
+    },
+    {
+      "case": "adc-lines:10",
+      "test": "adc-lines",
+      "channel": 10,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-10",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T16:12:12.285134+00:00"
+    },
+    {
+      "case": "adc-lines:11",
+      "test": "adc-lines",
+      "channel": 11,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-11",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T15:54:41.042554+00:00"
+    },
+    {
+      "case": "adc-lines:12",
+      "test": "adc-lines",
+      "channel": 12,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-12",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T14:05:06.865864+00:00"
+    },
+    {
+      "case": "adc-lines:2",
+      "test": "adc-lines",
+      "channel": 2,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-2",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1-str-rise-v2",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-18T13:15:59.264069+00:00"
+    },
+    {
+      "case": "adc-lines:3",
+      "test": "adc-lines",
+      "channel": 3,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-3",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T15:29:17.497750+00:00"
+    },
+    {
+      "case": "adc-lines:4",
+      "test": "adc-lines",
+      "channel": 4,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-4",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:28:12.313828+00:00"
+    },
+    {
+      "case": "adc-lines:5",
+      "test": "adc-lines",
+      "channel": 5,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-5",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T13:04:18.713627+00:00"
+    },
+    {
+      "case": "adc-lines:6",
+      "test": "adc-lines",
+      "channel": 6,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-6",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T12:36:24.665947+00:00"
+    },
+    {
+      "case": "adc-lines:7",
+      "test": "adc-lines",
+      "channel": 7,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-7",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T12:01:47.809147+00:00"
+    },
+    {
+      "case": "adc-lines:8",
+      "test": "adc-lines",
+      "channel": 8,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-8",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T11:00:29.173862+00:00"
+    },
+    {
+      "case": "adc-lines:9",
+      "test": "adc-lines",
+      "channel": 9,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/adc-lines-9",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "adjacent-pair-states-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-16T15:39:35.782813+00:00"
+    },
+    {
+      "case": "cfd-dacs:1",
+      "test": "cfd-dacs",
+      "channel": 1,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-1",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:40:33.532250+00:00"
+    },
+    {
+      "case": "cfd-dacs:10",
+      "test": "cfd-dacs",
+      "channel": 10,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-10",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T15:11:13.402459+00:00"
+    },
+    {
+      "case": "cfd-dacs:11",
+      "test": "cfd-dacs",
+      "channel": 11,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-11",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T15:11:13.402459+00:00"
+    },
+    {
+      "case": "cfd-dacs:12",
+      "test": "cfd-dacs",
+      "channel": 12,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-12",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T15:11:13.402459+00:00"
+    },
+    {
+      "case": "cfd-dacs:2",
+      "test": "cfd-dacs",
+      "channel": 2,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-2",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:40:33.532250+00:00"
+    },
+    {
+      "case": "cfd-dacs:3",
+      "test": "cfd-dacs",
+      "channel": 3,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-3",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:40:33.532250+00:00"
+    },
+    {
+      "case": "cfd-dacs:4",
+      "test": "cfd-dacs",
+      "channel": 4,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-4",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:40:33.532250+00:00"
+    },
+    {
+      "case": "cfd-dacs:5",
+      "test": "cfd-dacs",
+      "channel": 5,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-5",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:19:41.095543+00:00"
+    },
+    {
+      "case": "cfd-dacs:6",
+      "test": "cfd-dacs",
+      "channel": 6,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-6",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:19:41.095543+00:00"
+    },
+    {
+      "case": "cfd-dacs:7",
+      "test": "cfd-dacs",
+      "channel": 7,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-7",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:19:41.095543+00:00"
+    },
+    {
+      "case": "cfd-dacs:8",
+      "test": "cfd-dacs",
+      "channel": 8,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-8",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:19:41.095543+00:00"
+    },
+    {
+      "case": "cfd-dacs:9",
+      "test": "cfd-dacs",
+      "channel": 9,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-dacs-9",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "shared-monitor-SMU-BCD-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T15:11:13.402459+00:00"
+    },
+    {
+      "case": "cfd-monitor:1",
+      "test": "cfd-monitor",
+      "channel": 1,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-1",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:35:49.689279+00:00"
+    },
+    {
+      "case": "cfd-monitor:10",
+      "test": "cfd-monitor",
+      "channel": 10,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-10",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T18:10:24.832883+00:00"
+    },
+    {
+      "case": "cfd-monitor:11",
+      "test": "cfd-monitor",
+      "channel": 11,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-11",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "MCU-only-repaired-monitor-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T09:40:10.105169+00:00"
+    },
+    {
+      "case": "cfd-monitor:12",
+      "test": "cfd-monitor",
+      "channel": 12,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-12",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T18:10:24.832883+00:00"
+    },
+    {
+      "case": "cfd-monitor:2",
+      "test": "cfd-monitor",
+      "channel": 2,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-2",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:35:49.689279+00:00"
+    },
+    {
+      "case": "cfd-monitor:3",
+      "test": "cfd-monitor",
+      "channel": 3,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-3",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:35:49.689279+00:00"
+    },
+    {
+      "case": "cfd-monitor:4",
+      "test": "cfd-monitor",
+      "channel": 4,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-4",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:35:49.689279+00:00"
+    },
+    {
+      "case": "cfd-monitor:5",
+      "test": "cfd-monitor",
+      "channel": 5,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-5",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:08:34.695007+00:00"
+    },
+    {
+      "case": "cfd-monitor:6",
+      "test": "cfd-monitor",
+      "channel": 6,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-6",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:08:34.695007+00:00"
+    },
+    {
+      "case": "cfd-monitor:7",
+      "test": "cfd-monitor",
+      "channel": 7,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-7",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:08:34.695007+00:00"
+    },
+    {
+      "case": "cfd-monitor:8",
+      "test": "cfd-monitor",
+      "channel": 8,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-8",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:08:34.695007+00:00"
+    },
+    {
+      "case": "cfd-monitor:9",
+      "test": "cfd-monitor",
+      "channel": 9,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/cfd-monitor-9",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "eight-monitor-assembly-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T18:10:24.832883+00:00"
+    },
+    {
+      "case": "gate-phase:1",
+      "test": "gate-phase",
+      "channel": 1,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-1",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:12:10.732682+00:00"
+    },
+    {
+      "case": "gate-phase:10",
+      "test": "gate-phase",
+      "channel": 10,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-10",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T17:38:19.121894+00:00"
+    },
+    {
+      "case": "gate-phase:11",
+      "test": "gate-phase",
+      "channel": 11,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-11",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T17:38:19.121894+00:00"
+    },
+    {
+      "case": "gate-phase:12",
+      "test": "gate-phase",
+      "channel": 12,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-12",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T17:38:19.121894+00:00"
+    },
+    {
+      "case": "gate-phase:2",
+      "test": "gate-phase",
+      "channel": 2,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-2",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:12:10.732682+00:00"
+    },
+    {
+      "case": "gate-phase:3",
+      "test": "gate-phase",
+      "channel": 3,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-3",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:12:10.732682+00:00"
+    },
+    {
+      "case": "gate-phase:4",
+      "test": "gate-phase",
+      "channel": 4,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-4",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:12:10.732682+00:00"
+    },
+    {
+      "case": "gate-phase:5",
+      "test": "gate-phase",
+      "channel": 5,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-5",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:13:48.678715+00:00"
+    },
+    {
+      "case": "gate-phase:6",
+      "test": "gate-phase",
+      "channel": 6,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-6",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:13:48.678715+00:00"
+    },
+    {
+      "case": "gate-phase:7",
+      "test": "gate-phase",
+      "channel": 7,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-7",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:13:48.678715+00:00"
+    },
+    {
+      "case": "gate-phase:8",
+      "test": "gate-phase",
+      "channel": 8,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-8",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:13:48.678715+00:00"
+    },
+    {
+      "case": "gate-phase:9",
+      "test": "gate-phase",
+      "channel": 9,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/gate-phase-9",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "DAC-A-ISERDES-gate-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T17:38:19.121894+00:00"
+    },
+    {
+      "case": "integrator:10",
+      "test": "integrator",
+      "channel": 10,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-10",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "signed-integration-pair-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T16:18:58.543630+00:00"
+    },
+    {
+      "case": "integrator:11",
+      "test": "integrator",
+      "channel": 11,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-11",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "signed-integration-pair-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T16:01:27.693263+00:00"
+    },
+    {
+      "case": "integrator:12",
+      "test": "integrator",
+      "channel": 12,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-12",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "signed-integration-pair-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T14:20:56.067043+00:00"
+    },
+    {
+      "case": "integrator:5",
+      "test": "integrator",
+      "channel": 5,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-5",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "signed-integration-pair-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T13:11:03.798319+00:00"
+    },
+    {
+      "case": "integrator:7",
+      "test": "integrator",
+      "channel": 7,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-7",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "signed-integration-pair-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T12:08:33.146879+00:00"
+    },
+    {
+      "case": "integrator:8",
+      "test": "integrator",
+      "channel": 8,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-8",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "signed-integration-pair-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T11:07:14.269858+00:00"
+    },
+    {
+      "case": "integrator:9",
+      "test": "integrator",
+      "channel": 9,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-9",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "signed-integration-pair-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-16T15:46:21.858152+00:00"
+    },
+    {
+      "case": "jtag:board",
+      "test": "jtag",
+      "channel": null,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/jtag-board",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "board-assembly-jtag-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T18:18:10+00:00"
+    },
+    {
+      "case": "tdc:1",
+      "test": "tdc",
+      "channel": 1,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-1",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:09:57.136685+00:00"
+    },
+    {
+      "case": "tdc:10",
+      "test": "tdc",
+      "channel": 10,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-10",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T17:36:38.762269+00:00"
+    },
+    {
+      "case": "tdc:11",
+      "test": "tdc",
+      "channel": 11,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-11",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T17:36:38.762269+00:00"
+    },
+    {
+      "case": "tdc:12",
+      "test": "tdc",
+      "channel": 12,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-12",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T17:36:38.762269+00:00"
+    },
+    {
+      "case": "tdc:2",
+      "test": "tdc",
+      "channel": 2,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-2",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:09:57.136685+00:00"
+    },
+    {
+      "case": "tdc:3",
+      "test": "tdc",
+      "channel": 3,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-3",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:09:57.136685+00:00"
+    },
+    {
+      "case": "tdc:4",
+      "test": "tdc",
+      "channel": 4,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-4",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T14:09:57.136685+00:00"
+    },
+    {
+      "case": "tdc:5",
+      "test": "tdc",
+      "channel": 5,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-5",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:13:17.492609+00:00"
+    },
+    {
+      "case": "tdc:6",
+      "test": "tdc",
+      "channel": 6,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-6",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:13:17.492609+00:00"
+    },
+    {
+      "case": "tdc:7",
+      "test": "tdc",
+      "channel": 7,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-7",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:13:17.492609+00:00"
+    },
+    {
+      "case": "tdc:8",
+      "test": "tdc",
+      "channel": 8,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-8",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-17T10:13:17.492609+00:00"
+    },
+    {
+      "case": "tdc:9",
+      "test": "tdc",
+      "channel": 9,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/tdc-9",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "finite-OSERDES-TDC-phase-v1",
+      "basis": "Original recorded receipt; source/clock epoch retained",
+      "measured_utc": "2026-11-13T17:36:38.762269+00:00"
+    },
+    {
+      "case": "integrator:1",
+      "test": "integrator",
+      "channel": 1,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-1",
+      "receipt": "selected-result.json",
+      "status": "PASS_FUNCTIONAL",
+      "method": "reset-reference-P-only100uV-v1",
+      "basis": "Explicit historical diagnostic import; original summary and raw archive retained",
+      "measured_utc": null
+    },
+    {
+      "case": "integrator:3",
+      "test": "integrator",
+      "channel": 3,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-3",
+      "receipt": "selected-result.json",
+      "status": "PASS_FUNCTIONAL",
+      "method": "reset-reference-P-only100uV-v1",
+      "basis": "Explicit historical diagnostic import; original summary and raw archive retained",
+      "measured_utc": null
+    },
+    {
+      "case": "integrator:4",
+      "test": "integrator",
+      "channel": 4,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-4",
+      "receipt": "selected-result.json",
+      "status": "PASS_FUNCTIONAL",
+      "method": "reset-reference-P-only100uV-v1",
+      "basis": "Explicit historical diagnostic import; original summary and raw archive retained",
+      "measured_utc": null
+    },
+    {
+      "case": "integrator:6",
+      "test": "integrator",
+      "channel": 6,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-6",
+      "receipt": "selected-result.json",
+      "status": "PASS_FUNCTIONAL",
+      "method": "reset-reference-P-only100uV-v1",
+      "basis": "Explicit historical diagnostic import; original summary and raw archive retained",
+      "measured_utc": null
+    },
+    {
+      "case": "integrator:2",
+      "test": "integrator",
+      "channel": 2,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/integrator-2",
+      "receipt": "selected-result.json",
+      "status": "PASS_FUNCTIONAL",
+      "method": "normal20MHz-single-leg-and-common-translation-v1",
+      "basis": "Explicit diagnostic import, reconstructed from450validated buffers and retained return criteria",
+      "measured_utc": null
+    },
+    {
+      "case": "mcu:board",
+      "test": "mcu",
+      "channel": null,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/fresh-final2-mcu",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "identity-guarded-board-final-v1",
+      "basis": "Fresh identity-guarded final check, frozen transport and clock windows independently revalidated",
+      "measured_utc": "2026-11-19T14:04:03.217574+00:00"
+    },
+    {
+      "case": "i2c:board",
+      "test": "i2c",
+      "channel": null,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/fresh-final2-i2c",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "identity-guarded-board-final-v1",
+      "basis": "Fresh identity-guarded final check, frozen transport and clock windows independently revalidated",
+      "measured_utc": "2026-11-19T14:04:03.217574+00:00"
+    },
+    {
+      "case": "ethernet:board",
+      "test": "ethernet",
+      "channel": null,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/fresh-final2-ethernet",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "identity-guarded-board-final-v1",
+      "basis": "Fresh identity-guarded final check, frozen transport and clock windows independently revalidated",
+      "measured_utc": "2026-11-19T14:04:03.217574+00:00"
+    },
+    {
+      "case": "hdmi:board",
+      "test": "hdmi",
+      "channel": null,
+      "source": "/srv/codex-hil-nvme/pm12-consolidation-20261119/sources/fresh-final2-hdmi",
+      "receipt": "selected-result.json",
+      "status": "PASS",
+      "method": "identity-guarded-board-final-v1",
+      "basis": "Fresh identity-guarded final check, frozen transport and clock windows independently revalidated",
+      "measured_utc": "2026-11-19T14:04:03.217574+00:00"
+    }
+  ],
+  "identities": [
+    {
+      "fpga_dna": "3A17A1B402212223",
+      "mcu_eeprom_serial": "1803",
+      "fresh_session": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-3A17A1B402212223/20261119T131232Z-e36741a8"
+    },
+    {
+      "fresh_session_uid": "PM12-K7-3A17A1B402212223",
+      "identity_before": {
+        "uid": "PM12-K7-3A17A1B402212223",
+        "fpga_dna": "3A17A1B402212223",
+        "mcu_eeprom_serial": "1803",
+        "asset_label": "PM12-K7-3A17A1B402212223",
+        "cpu_factory_id": null,
+        "cpu_factory_id_status": "NOT_READ; do not reset MCU for a PDI signature read",
+        "jtag_cable": "210249A73E43",
+        "fpga_ipbus_identity": [
+          1347228162,
+          65538,
+          4281300076
+        ],
+        "pgood": [
+          {
+            "command": "@HW",
+            "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000DA017B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+            "duration_s": 0.2107
+          },
+          {
+            "command": "@HW",
+            "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000010007B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+            "duration_s": 0.2107
+          },
+          {
+            "command": "@HW",
+            "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000002F027A0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+            "duration_s": 0.2107
+          },
+          {
+            "command": "@HW",
+            "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000066007A0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+            "duration_s": 0.2106
+          }
+        ],
+        "pgood_final": {
+          "command": "@HW",
+          "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000075017B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+          "duration_s": 0.2108
+        },
+        "mcu_reply": {
+          "command": "RS",
+          "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    37.9 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+          "duration_s": 0.2107
+        },
+        "uptime_before": [
+          2911648437,
+          54
+        ],
+        "uptime_after": [
+          3328164708,
+          54
+        ],
+        "observed_utc": "2026-11-19T14:04:15Z"
+      },
+      "identity_after": {
+        "uid": "PM12-K7-3A17A1B402212223",
+        "fpga_dna": "3A17A1B402212223",
+        "mcu_eeprom_serial": "1803",
+        "asset_label": "PM12-K7-3A17A1B402212223",
+        "cpu_factory_id": null,
+        "cpu_factory_id_status": "NOT_READ; do not reset MCU for a PDI signature read",
+        "jtag_cable": "210249A73E43",
+        "fpga_ipbus_identity": [
+          1347228162,
+          65538,
+          4281300076
+        ],
+        "pgood": [
+          {
+            "command": "@HW",
+            "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000051037C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+            "duration_s": 0.2107
+          },
+          {
+            "command": "@HW",
+            "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000087017C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+            "duration_s": 0.2107
+          },
+          {
+            "command": "@HW",
+            "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000A6037C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+            "duration_s": 0.2107
+          },
+          {
+            "command": "@HW",
+            "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000DD017C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+            "duration_s": 0.2107
+          }
+        ],
+        "pgood_final": {
+          "command": "@HW",
+          "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000003007B0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+          "duration_s": 0.2107
+        },
+        "mcu_reply": {
+          "command": "RS",
+          "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    38.0 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+          "duration_s": 0.2107
+        },
+        "uptime_before": [
+          3987251248,
+          54
+        ],
+        "uptime_after": [
+          98476980,
+          55
+        ],
+        "observed_utc": "2026-11-19T14:04:42Z"
+      }
+    },
+    {
+      "uid": "PM12-K7-3A17A1B402212223",
+      "fpga_dna": "3A17A1B402212223",
+      "mcu_eeprom_serial": "1803",
+      "asset_label": "PM12-K7-3A17A1B402212223",
+      "cpu_factory_id": null,
+      "cpu_factory_id_status": "NOT_READ; do not reset MCU for a PDI signature read",
+      "jtag_cable": "210249A73E43",
+      "fpga_ipbus_identity": [
+        1347228162,
+        65538,
+        4281300076
+      ],
+      "pgood": [
+        {
+          "command": "@HW",
+          "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000C6037D0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+          "duration_s": 0.2116
+        },
+        {
+          "command": "@HW",
+          "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000FB017D0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+          "duration_s": 0.2122
+        },
+        {
+          "command": "@HW",
+          "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=8900000100000030007D0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+          "duration_s": 0.211
+        },
+        {
+          "command": "@HW",
+          "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=890000010000004E027C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+          "duration_s": 0.2112
+        }
+      ],
+      "pgood_final": {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC7F0F9EFC STATE 2157..2162=89000001000000F1027C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2113
+      },
+      "mcu_reply": {
+        "command": "RS",
+        "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    38.0 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+        "duration_s": 0.2113
+      },
+      "uptime_before": [
+        1535582991,
+        59
+      ],
+      "uptime_after": [
+        1956420404,
+        59
+      ],
+      "observed_utc": "2026-11-19T14:12:37Z",
+      "endpoint_binding": {
+        "jtag_ethernet": {
+          "before": 19812252,
+          "after": 19812352,
+          "issued_register_reads": 25,
+          "strobe_cycles_per_read": 4,
+          "observed_delta": 100
+        },
+        "mcu_ethernet": {
+          "before": [
+            0,
+            66
+          ],
+          "after": [
+            0,
+            99
+          ],
+          "reply": {
+            "command": "@FPGATEST",
+            "reply": "FPGA TEST PASS 32 RESTORED\r\n",
+            "duration_s": 0.2113
+          },
+          "restored": true,
+          "write_delta": 33
+        },
+        "uptime_before": [
+          1965005876,
+          59
+        ],
+        "uptime_after": [
+          2373222542,
+          59
+        ],
+        "status": "PASS"
+      }
+    }
+  ],
+  "open_items": [
+    {
+      "id": "metadata-photos",
+      "status": "NOT_COMPLETE",
+      "scope": "Photographs and all instrument factory IDs not comprehensively verified; do not invent them"
+    }
+  ],
+  "scope_exclusions": [
+    {
+      "id": "outside-production-scope",
+      "status": "NOT_RUN",
+      "scope": "Supply fault injection/EN-to-PG timeout validation, calibrated analog accuracy, Ethernet throughput/BER excluded from this functional report"
+    }
+  ]
+}

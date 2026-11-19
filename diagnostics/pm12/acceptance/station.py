@@ -100,7 +100,9 @@ def identify(cfg, out):
         try:
             uptime_before = c.read(5, 2)
             fpga = c.read(0, 3)
-            if fpga != [0x504d1202, 0x10002, 0xc7c42d28]:
+            expected=cfg.get('expected_build_id','c7c42d28')
+            expected=int(expected,16) if isinstance(expected,str) else expected
+            if fpga != [0x504d1202, 0x10002, expected]:
                 raise RuntimeError('Unexpected integrated FPGA image: '+repr(fpga))
             dna = read_dna(cfg, out)
             after = c.read(5, 2)
@@ -117,6 +119,9 @@ def identify(cfg, out):
                    observed_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))
         if cfg.get('board_uid') and cfg['board_uid'] != row['uid']:
             raise RuntimeError('Hardware DNA does not match enrolled board')
+        if cfg.get('verify_endpoints'):
+            from endpoint_binding import bind
+            row['endpoint_binding']=bind(cfg,out/'endpoint-binding',u)
         return dict(status='PASS', identity=row)
 
 
@@ -160,6 +165,7 @@ def mcu(cfg, out):
 
 
 def integrated(cfg, out):
+    raise RuntimeError('Legacy integrated cleanup releases Kasli outputs; use identity-guarded board_check.py instead')
     from host.pm_system_test import run
     from host.gate_phase_ipbus import GatePhaseIPbusDevice
     from client import Client

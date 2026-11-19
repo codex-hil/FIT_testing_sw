@@ -19,6 +19,7 @@ a.add_argument('--board-serial',default='1803')
 a.add_argument('--connected',nargs=4,type=int,choices=range(1,13),required=True,help='Every fitted CFD sharing the monitor wire')
 a.add_argument('--channels',nargs='+',type=int,choices=range(1,13),help='Subset to scan; defaults to all connected')
 a.add_argument('--confirm-force-voltmeter', action='store_true', required=True)
+a.add_argument('--smu-host',default='192.168.2.19');a.add_argument('--smu-serial',default='MY63320299')
 args = a.parse_args()
 try:args.connected,args.channels=connected_channels(args.connected,args.channels)
 except ValueError as error:a.error(str(error))
@@ -34,7 +35,7 @@ def checkpoint():
     temporary.write_text(json.dumps(report,indent=2)+'\n')
     os.replace(temporary,r/'scan-report.json')
 with contextlib.ExitStack() as st:
-    for n in sorted(['atmel-ice-J41800043065', 'pm12-210249A73E43', 'kasli-diot-00001', 'b2910bl-MY63320299']):
+    for n in sorted(['atmel-ice-J41800043065', 'pm12-210249A73E43', 'kasli-diot-00001', 'b2910bl-'+args.smu_serial]):
         st.enter_context(acquire(Path.home() / '.cache' / (n + '.lock')))
     u = st.enter_context(console({'uart': '/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0'}))
     report['pg'] = wait_power_good(u, capture)
@@ -48,11 +49,11 @@ with contextlib.ExitStack() as st:
                 MCP23017Monitor(regs).initialize_monitor().off()
                 assert regs.read(18) & 8
     # Recover the identified meter to OFF before touching shared monitor routes.
-    with Transport(dict(kind='tcp',host='192.168.2.19',port=5025,timeout=8,delay=.01)) as initial_io:
-        initial_meter=Driver(initial_io,'b2910bl','MY63320299')
+    with Transport(dict(kind='tcp',host=args.smu_host,port=5025,timeout=8,delay=.01)) as initial_io:
+        initial_meter=Driver(initial_io,'b2910bl',args.smu_serial)
         report['recovery_identity']=initial_meter.identify();initial_meter.off()
     off_all()
-    with Transport(dict(kind='tcp', host='192.168.2.19', port=5025, timeout=8, delay=0.01)) as io:
+    with Transport(dict(kind='tcp', host=args.smu_host, port=5025, timeout=8, delay=0.01)) as io:
 
         def query(q):
             a = io.query(q)
@@ -62,7 +63,7 @@ with contextlib.ExitStack() as st:
         def write(w):
             io.write(w)
             report['commands'].append({'write': w})
-        d = Driver(io, 'b2910bl', 'MY63320299')
+        d = Driver(io, 'b2910bl', args.smu_serial)
         report['identity'] = d.identify()
         d.off()
         write('ABOR')

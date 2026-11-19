@@ -1,3 +1,5 @@
+> Current production entry points and board identity rules: [production workflow](../acceptance/PRODUCTION_WORKFLOW.md). The material below retains historical methods/examples; do not invoke archived hardware commands on a newly connected board.
+
 # CFD DAC voltage scans with Keysight SMU2
 
 Instrument identity is B2910BL **MY63320299**, last observed at

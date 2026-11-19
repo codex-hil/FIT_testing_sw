@@ -1,0 +1,35 @@
+{
+  "jtag_ethernet": {
+    "before": 19812252,
+    "after": 19812352,
+    "issued_register_reads": 25,
+    "strobe_cycles_per_read": 4,
+    "observed_delta": 100
+  },
+  "mcu_ethernet": {
+    "before": [
+      0,
+      66
+    ],
+    "after": [
+      0,
+      99
+    ],
+    "reply": {
+      "command": "@FPGATEST",
+      "reply": "FPGA TEST PASS 32 RESTORED\r\n",
+      "duration_s": 0.2113
+    },
+    "restored": true,
+    "write_delta": 33
+  },
+  "uptime_before": [
+    1965005876,
+    59
+  ],
+  "uptime_after": [
+    2373222542,
+    59
+  ],
+  "status": "PASS"
+}

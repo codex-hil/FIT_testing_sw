@@ -15,7 +15,7 @@ from labinstruments.drivers import Driver
 from smu_voltage import parse_voltage
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--connected',nargs=4,type=int,required=True);a=p.parse_args();channels,_=connected_channels(a.connected)
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--connected',nargs=4,type=int,required=True);p.add_argument('--board-serial',required=True);p.add_argument('--smu-host',default='192.168.2.19');p.add_argument('--smu-serial',default='MY63320299');a=p.parse_args();channels,_=connected_channels(a.connected)
  out=a.out;out.mkdir(parents=True,exist_ok=False);r=dict(pass_=False,connected_modules=channels,started_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),readings=[],commands=[],dac_zero=[],gpio_before={},gpio_final={})
  r['executed_sources']=snapshot_sources(out,['__main__','lease','station','console','mcp23017','control','pm12_power','pm12_console_regression','channel_settings','labinstruments.transport','labinstruments.drivers','smu_voltage'])
  def save():
@@ -23,9 +23,9 @@ def main():
  def stop(signum,frame):raise KeyboardInterrupt('Termination signal '+str(signum))
  signal.signal(signal.SIGTERM,stop)
  with contextlib.ExitStack() as st:
-  for name in sorted(['atmel-ice-J41800043065','pm12-210249A73E43','kasli-diot-00001','b2910bl-MY63320299']):st.enter_context(acquire(Path.home()/'.cache'/(name+'.lock')))
-  io=st.enter_context(Transport(dict(kind='tcp',host='192.168.2.19',port=5025,timeout=8,delay=.01)));meter=Driver(io,'b2910bl','MY63320299');r['identity']=meter.identify();meter.off()
-  u=st.enter_context(console(dict(uart='/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0')));r['pgood']=wait_power_good(u,capture);r['mcu']=capture(u,'RS');require_serial_reply(r['mcu']['reply'],'1803');bus=ConsoleI2C(u,capture)
+  for name in sorted(['atmel-ice-J41800043065','pm12-210249A73E43','kasli-diot-00001','b2910bl-'+a.smu_serial]):st.enter_context(acquire(Path.home()/'.cache'/(name+'.lock')))
+  io=st.enter_context(Transport(dict(kind='tcp',host=a.smu_host,port=5025,timeout=8,delay=.01)));meter=Driver(io,'b2910bl',a.smu_serial);r['identity']=meter.identify();meter.off()
+  u=st.enter_context(console(dict(uart='/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0')));r['pgood']=wait_power_good(u,capture);r['mcu']=capture(u,'RS');require_serial_reply(r['mcu']['reply'],a.board_serial);bus=ConsoleI2C(u,capture)
   def q(command):
    value=io.query(command);r['commands'].append(dict(query=command,reply=value));return value
   def w(command):io.write(command);r['commands'].append(dict(write=command))

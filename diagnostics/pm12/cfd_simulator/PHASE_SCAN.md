@@ -1,3 +1,5 @@
+> Current production entry points and board identity rules: [production workflow](../acceptance/PRODUCTION_WORKFLOW.md). The material below retains historical methods/examples; do not invoke archived hardware commands on a newly connected board.
+
 # Repeated ADC-clock phase scans through CFD_SIM
 
 `phase_scan.py` sweeps raw **DAC A** on any selected PM12 channel1..12.

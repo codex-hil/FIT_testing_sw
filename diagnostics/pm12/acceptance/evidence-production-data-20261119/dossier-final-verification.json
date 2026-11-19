@@ -1,0 +1,20 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "integrity": "PASS",
+  "coverage": {
+    "required_cases": 89,
+    "included_cases": 89,
+    "statuses": {
+      "PASS": 84,
+      "PASS_FUNCTIONAL": 5
+    }
+  },
+  "disposition": "REVIEW",
+  "open_items": [
+    {
+      "id": "metadata-photos",
+      "status": "NOT_COMPLETE",
+      "scope": "Photographs and all instrument factory IDs not comprehensively verified; do not invent them"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+...............................................................................
+----------------------------------------------------------------------
+Ran 79 tests in 6.268s
+
+OK
+{"board_uid": "PM12-K7-0000000000000456", "configuration": "/tmp/tmp50j6tiik/enrollment/enrollments/0f5320d5a77c4e94ba1768ec8725a5b0/station-enrolled.json", "note": "Declare actual fitting and USB routing before begin; FPGA diagnostic readiness checked by begin"}
+{"path": "/tmp/tmp1m1zrezg/PM12-K7-0000000000000123/run/measurements/2026-11-19T143238.561781+0000-integrator-ch06-694966", "status": "ERROR"}

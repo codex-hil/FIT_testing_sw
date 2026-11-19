@@ -1,0 +1,173 @@
+{
+  "phase": {
+    "3": {
+      "pass_": true,
+      "raw_data_pass": true,
+      "restore_phase_pass": true,
+      "restore_command_accepted": true,
+      "sweep_points": 11,
+      "captures": 14,
+      "phase_records_exact": 38220,
+      "rising_edges_analyzed": 19110,
+      "estimates_exact": 28,
+      "dac_final_code": 0,
+      "restore_phase_deltas_bins": {
+        "14": 0.0,
+        "15": 0.0
+      }
+    },
+    "4": {
+      "pass_": true,
+      "raw_data_pass": true,
+      "restore_phase_pass": true,
+      "restore_command_accepted": true,
+      "sweep_points": 11,
+      "captures": 14,
+      "phase_records_exact": 38220,
+      "rising_edges_analyzed": 19111,
+      "estimates_exact": 28,
+      "dac_final_code": 0,
+      "restore_phase_deltas_bins": {
+        "12": 0.0,
+        "13": 0.0
+      }
+    },
+    "5": {
+      "pass_": true,
+      "raw_data_pass": true,
+      "restore_phase_pass": true,
+      "restore_command_accepted": true,
+      "sweep_points": 11,
+      "captures": 14,
+      "phase_records_exact": 38220,
+      "rising_edges_analyzed": 19110,
+      "estimates_exact": 28,
+      "dac_final_code": 0,
+      "restore_phase_deltas_bins": {
+        "10": 0.0,
+        "11": 0.0
+      }
+    },
+    "6": {
+      "pass_": true,
+      "raw_data_pass": true,
+      "restore_phase_pass": true,
+      "restore_command_accepted": true,
+      "sweep_points": 11,
+      "captures": 14,
+      "phase_records_exact": 38220,
+      "rising_edges_analyzed": 19109,
+      "estimates_exact": 28,
+      "dac_final_code": 0,
+      "restore_phase_deltas_bins": {
+        "8": 0.0,
+        "9": 0.0
+      }
+    }
+  },
+  "tdc": {
+    "pass_": true,
+    "captures": 128,
+    "mapping": {
+      "0": {
+        "physical_channel": 6,
+        "discovery_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          16,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "1": {
+        "physical_channel": 5,
+        "discovery_counts": [
+          0,
+          0,
+          0,
+          0,
+          16,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "2": {
+        "physical_channel": 4,
+        "discovery_counts": [
+          0,
+          0,
+          0,
+          16,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "3": {
+        "physical_channel": 3,
+        "discovery_counts": [
+          0,
+          0,
+          16,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "scope": "Raw word counts/reserved bits and all12fine histograms independently rebuilt; expected counts derived from protocol labels"
+  },
+  "port_mapping": {
+    "0": {
+      "physical_channel": 6,
+      "phase_lanes": [
+        8,
+        9
+      ]
+    },
+    "1": {
+      "physical_channel": 5,
+      "phase_lanes": [
+        10,
+        11
+      ]
+    },
+    "2": {
+      "physical_channel": 4,
+      "phase_lanes": [
+        12,
+        13
+      ]
+    },
+    "3": {
+      "physical_channel": 3,
+      "phase_lanes": [
+        14,
+        15
+      ]
+    }
+  }
+}

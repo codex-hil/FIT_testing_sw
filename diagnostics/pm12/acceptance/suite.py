@@ -164,6 +164,11 @@ def collect(station_path, plan_path, output, channels):
                                         for name,f in zip(sorted(cfg['run_leases']),leases)})
             st.callback(os.environ.pop, ENV, None)
             fds = tuple(f.fileno() for f in leases)
+            # Even a plan without an identity step cannot bypass physical enrollment.
+            subprocess.run([cfg['python'],str(HERE/'station.py'),'identity','--station',str(output/'station.json'),'--out',str(output/'preflight')],check=True,pass_fds=fds)
+            preflight=json.loads((output/'preflight/result.json').read_text())
+            if preflight['identity']['uid']!=cfg['board_uid']:raise ValueError('Wrong preflight DNA')
+            result['identity']=preflight['identity']
             for spec in plan['steps']:
                 targets = channels if spec.get('per_channel') else [None]
                 for channel in targets:
@@ -238,6 +243,8 @@ def main():
         return 0 if result['status']=='PASS' else 1
     cfg=json.loads(a.station.read_text())
     cfg.pop('board_uid',None)
+    cfg.pop('board_serial',None)
+    if str(cfg.get('asset_label','')).startswith('PM12-K7-'):cfg.pop('asset_label',None)
     a.out.mkdir(parents=True,exist_ok=False)
     write(a.out/'station-input.json',cfg)
     subprocess.run([cfg['python'],str(HERE/'station.py'),'identity','--station',str(a.out/'station-input.json'),

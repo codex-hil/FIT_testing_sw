@@ -58,7 +58,7 @@ def stats(words,mod):
  hist=Counter(w%mod for w in words);x=sum(n*math.cos(2*math.pi*k/mod) for k,n in hist.items());y=sum(n*math.sin(2*math.pi*k/mod) for k,n in hist.items());mean=math.atan2(y,x)*mod/(2*math.pi)%mod
  return {'mean_circular':mean,'std_circular':math.sqrt(sum(n*((k-mean+mod/2)%mod-mod/2)**2 for k,n in hist.items())/len(words)),'histogram':dict(hist)}
 
-def run(d,c,u,out,expected_build,channels=(12,11,10,9)):
+def run(d,c,u,out,expected_build,channels=(12,11,10,9),board_serial='1803'):
  out.mkdir(parents=True,exist_ok=False);(out/'executed-retest.py').write_bytes(Path(__file__).read_bytes())
  r={'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'expected_channels':channels,'expected_build':f'{expected_build:08x}','sample_hz_assumed':40.0787e6*24,'pass':False,'captures':[],'statistics':[],'mapping':{},'scope':'New clock-corrected functional acquisition; no absolute TDC calibration'}
  sources={}
@@ -79,7 +79,7 @@ def run(d,c,u,out,expected_build,channels=(12,11,10,9)):
  try:
   hold();r['identity']=c.read(0,3);assert r['identity']==[0x504d1202,0x10002,expected_build]
   assert d.read(0xd8)==0x43464434 and d.read(0x120)&1
-  r['pgood']=wait_power_good(u,capture);r['mcu']=capture(u,'RS');assert 'Board S/N: 1803' in r['mcu']['reply']
+  r['pgood']=wait_power_good(u,capture);r['mcu']=capture(u,'RS');__import__('channel_settings').require_serial_reply(r['mcu']['reply'],str(board_serial))
   end=time.monotonic()+10
   while c.read(0x205)!=[0xfff]:
    if time.monotonic()>end:raise TimeoutError('TDC frontends not ready')
@@ -111,9 +111,9 @@ def run(d,c,u,out,expected_build,channels=(12,11,10,9)):
  return r
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--channels',type=int,nargs=4,default=[12,11,10,9]);p.add_argument('--expected-build',type=lambda s:int(s,16),required=True);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--channels',type=int,nargs=4,default=[12,11,10,9]);p.add_argument('--expected-build',type=lambda s:int(s,16),required=True);p.add_argument('--board-serial',default='1803');a=p.parse_args()
  if len(set(a.channels))!=4 or any(ch not in range(1,13) for ch in a.channels):p.error('Four distinct physical channels1..12 required')
  with contextlib.ExitStack() as st:
   for name in sorted(['atmel-ice-J41800043065','kasli-diot-00001','pm12-210249A73E43']):st.enter_context(lease(Path.home()/'.cache'/(name+'.lock')))
-  u=st.enter_context(console({'uart':'/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0'}));d=GatePhaseIPbusDevice();st.callback(d.close);c=Client();st.callback(c.close);run(d,c,u,a.out,a.expected_build,a.channels)
+  u=st.enter_context(console({'uart':'/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0'}));d=GatePhaseIPbusDevice();st.callback(d.close);c=Client();st.callback(c.close);run(d,c,u,a.out,a.expected_build,a.channels,a.board_serial)
 if __name__=='__main__':main()

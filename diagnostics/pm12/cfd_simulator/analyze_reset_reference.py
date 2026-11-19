@@ -7,7 +7,9 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'ipbus_adc'))
 from adc_decode import decode
-p=argparse.ArgumentParser();p.add_argument('--phase-code',type=int,required=True);p.add_argument('--coarse',type=Path,required=True);p.add_argument('--fine',type=Path,required=True);p.add_argument('--validation',type=Path);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+from analysis_identity import require_same
+p=argparse.ArgumentParser();p.add_argument('--board-uid');p.add_argument('--phase-code',type=int,required=True);p.add_argument('--coarse',type=Path,required=True);p.add_argument('--fine',type=Path,required=True);p.add_argument('--validation',type=Path);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+bound_uid=require_same([a.coarse,a.fine]+([a.validation] if a.validation else []),a.board_uid,a.phase_code)
 reports={k:json.loads((path/'status.json').read_text()) for k,path in [('coarse',a.coarse),('fine',a.fine)]+([('validation',a.validation)] if a.validation else [])}
 assert all(r['pass_'] for r in reports.values());assert len({r['physical_channel'] for r in reports.values()})==1;assert len({r['fpga'][2] for r in reports.values()})==1
 channel=reports['coarse']['physical_channel']
@@ -97,5 +99,5 @@ fig.suptitle(f'PM{channel}: normal20MHz, phase DAC{a.phase_code}; reset-pair cal
 for ext in ['png','pdf']:fig.savefig(a.out/f'integrator{channel}.{ext}',dpi=160)
 with (a.out/'points.csv').open('w',newline='') as f:
  w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
-summary=dict(status=('PASS_FUNCTIONAL' if passed else 'INCOMPLETE') if a.validation else 'FINE_SCAN_ONLY',physical_channel=channel,phase_code=a.phase_code,sample_window=reports['coarse'].get('sample_window','before-str'),initial_symmetric_models=initial_models,models=models,fits=fits,validation=checks,analysis_rejected=rejected,raw_coherent_buffers=len(cache),raw_sha256=hashes,limits='Independent returns <=2codes, +/-5mV responses beyond +/-4codes; phase assigned by reset model, not external gate timestamp; command voltages uncalibrated')
+summary=dict(status=('PASS_FUNCTIONAL' if passed else 'INCOMPLETE') if a.validation else 'FINE_SCAN_ONLY',board_uid=bound_uid,physical_channel=channel,phase_code=a.phase_code,sample_window=reports['coarse'].get('sample_window','before-str'),initial_symmetric_models=initial_models,models=models,fits=fits,validation=checks,analysis_rejected=rejected,raw_coherent_buffers=len(cache),raw_sha256=hashes,limits='Independent returns <=2codes, +/-5mV responses beyond +/-4codes; phase assigned by reset model, not external gate timestamp; command voltages uncalibrated')
 (a.out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps({k:v for k,v in summary.items() if k not in ['raw_sha256','analysis_rejected']},indent=2));print('ANALYSIS_REJECTED',len(rejected))

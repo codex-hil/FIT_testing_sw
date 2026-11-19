@@ -1,0 +1,30 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "archive": "/srv/codex-hil-nvme/pm12-consolidation-20261119/PM12-K7-3A17A1B402212223-production-data-20261119-v1.tar.gz",
+  "sha256": "3d4cef67236382f2481e564b47e74784cf92cc485a8df5ffa4e55e08219386aa",
+  "bytes": 46694104,
+  "files": 15306,
+  "archive_readback": "PASS",
+  "coverage": {
+    "required_cases": 89,
+    "included_cases": 89,
+    "statuses": {
+      "PASS": 84,
+      "PASS_FUNCTIONAL": 5
+    }
+  },
+  "software_tests": {
+    "acceptance": 79,
+    "cfd": 51,
+    "adc_decoder": 13
+  },
+  "smb": {
+    "host": "192.168.2.6",
+    "share": "codex-hil",
+    "directory": "ALICE/PM12-test-reports/PM12-K7-3A17A1B402212223/production-data-20261119-v1",
+    "archive": "ALICE/PM12-test-reports/PM12-K7-3A17A1B402212223/production-data-20261119-v1/PM12-K7-3A17A1B402212223-production-data-20261119-v1.tar.gz",
+    "sha256": "3d4cef67236382f2481e564b47e74784cf92cc485a8df5ffa4e55e08219386aa",
+    "readback": "PASS",
+    "immutable_new_directory": true
+  }
+}
