@@ -99,4 +99,3 @@ def validate(directory,min_trials=12):
 if __name__=='__main__':
  import argparse
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--session',type=Path,required=True);p.add_argument('--repeats',type=int,default=12);a=p.parse_args();raise SystemExit(0 if run(a.session,a.repeats)['status']=='PASS' else 1)
-
