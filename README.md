@@ -1,3 +1,6 @@
+Latest PM3 integrator repeat (2026-11-19): A/B PASS_FUNCTIONAL at nominal20MHz, phase0/before-str.100µV fine scan, independent returns and±5mV controls pass; four clipped coarse buffers excluded explicitly. Separate reset-reference diagnostic method, old selections unchanged. Final baseline restored, no CPLD changes. Integrators4/6 remain unresolved.
+[PM3 integrator evidence](diagnostics/pm12/acceptance/evidence-integrator03-20261119/README.md).
+
 Latest ADC2 corrected-window repeat (2026-11-18): A/B transfer and sampled12-bit/11-adjacent-pair tests PASS with str-rise at phase32768. Independent raw check514captures/2105344words, all STR intervals4. Separate v2 method receipts retained; old frozen campaign selections unchanged. Phase16384 corrected-window attempt still incomplete. Final baseline restored, no programming.
 [Window fix and evidence](diagnostics/pm12/acceptance/evidence-adc02-window-fix-20261118/README.md).
 

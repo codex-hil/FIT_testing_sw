@@ -12,7 +12,7 @@ from channel_settings import adc_address,require_serial_reply,snapshot_sources
 from console import ConsoleI2C,Registers
 from mcp23017 import afe_route
 from mod_dac28 import DAC,remote_lease,voltage
-ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,required=True);ap.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);ap.add_argument('--afe',type=int,choices=range(1,13),default=12);ap.add_argument('--board-serial',default='1803');ap.add_argument('--offsets',type=float,nargs='+',default=[-.02,-.01,0,.01,.02]);ap.add_argument('--repeats',type=int,default=4);ap.add_argument('--park',type=float,nargs=2);ap.add_argument('--base',type=float,nargs=2,default=[2.048,1.024]);ap.add_argument('--pairs',nargs='+',help='Explicit CH0:CH1 voltages');ap.add_argument('--expected-build',type=lambda v:int(v,16),default=0xc7c42d28);args=ap.parse_args()
+ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,required=True);ap.add_argument('--dac-channels',type=int,nargs=2,default=[0,1]);ap.add_argument('--afe',type=int,choices=range(1,13),default=12);ap.add_argument('--board-serial',default='1803');ap.add_argument('--offsets',type=float,nargs='+',default=[-.02,-.01,0,.01,.02]);ap.add_argument('--repeats',type=int,default=4);ap.add_argument('--park',type=float,nargs=2);ap.add_argument('--base',type=float,nargs=2,default=[2.048,1.024]);ap.add_argument('--pairs',nargs='+',help='Explicit CH0:CH1 voltages');ap.add_argument('--expected-build',type=lambda v:int(v,16),default=0xc7c42d28);ap.add_argument('--sample-window',choices=['before-str','str-rise'],default='before-str');args=ap.parse_args()
 if len(set(args.dac_channels))!=2 or any(c not in range(8) for c in args.dac_channels):ap.error('Two distinct DAC channels0..7 required')
 points=[tuple(map(float,p.split(':'))) for p in args.pairs] if args.pairs else [(round(args.base[0]+d/2,4),round(args.base[1]-d/2,4)) for d in args.offsets]
 for pair in points:
@@ -24,11 +24,11 @@ for off in args.offsets:voltage(args.base[0]+off/2);voltage(args.base[1]-off/2)
 assert 1<=args.repeats<=32
 out=args.out;out.mkdir(exist_ok=False,parents=True);(out/'executed-scan.py').write_text(Path(__file__).read_text())
 sources=snapshot_sources(out,['__main__','channel_settings','adc_decode','mod_dac28','console','mcp23017','control','client','lease','station','pm12_console_regression','pm12_power'])
-r={'pass_':False,'executed_sources':sources,'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'physical_channel':args.afe,'dac_channels':args.dac_channels,'reference_nominal_V':args.base,'offset_definition':f'CH{args.dac_channels[0]}=base0+offset/2; CH{args.dac_channels[1]}=base1-offset/2; physical Vdiff=base0-base1+offset','ADC_rate_assumed_Hz':80157400,'points':[],'changes':'GPA7 LOW enables PM integrator amps; GPB5 HIGH disconnects direct-ADC injection; monitor INH HIGH'}
+r={'pass_':False,'executed_sources':sources,'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'physical_channel':args.afe,'sample_window':args.sample_window,'dac_channels':args.dac_channels,'reference_nominal_V':args.base,'offset_definition':f'CH{args.dac_channels[0]}=base0+offset/2; CH{args.dac_channels[1]}=base1-offset/2; physical Vdiff=base0-base1+offset','ADC_rate_assumed_Hz':80157400,'points':[],'changes':'GPA7 LOW enables PM integrator amps; GPB5 HIGH disconnects direct-ADC injection; monitor INH HIGH'}
 def save():(out/'status.json').write_text(json.dumps(r,indent=2)+'\n')
 def get_adc(c,bank,label):
  ident,status=c.acquire(bank,False);words=c.block(adc_address(args.afe),4096);assert c.read(0x12)==[ident]
- (out/(label+'.bin')).write_bytes(struct.pack('<4096H',*words));samples,timing=decode(words,bank)
+ (out/(label+'.bin')).write_bytes(struct.pack('<4096H',*words));samples,timing=decode(words,bank,sample_window=args.sample_window)
  n=len(samples)//4*4;x=samples[:n];phases=[statistics.mean(x[i::4]) for i in range(4)]
  return dict(file=label+'.bin',generation=ident,status=status,bank=bank,samples=len(samples),mean=statistics.mean(samples),std=statistics.pstdev(samples),minimum=min(samples),maximum=max(samples),clipped_fraction=sum(v in (0,4095) for v in samples)/len(samples),phase_means=phases,phase_std=[statistics.pstdev(x[i::4]) for i in range(4)],timing=timing)
 with contextlib.ExitStack() as st:

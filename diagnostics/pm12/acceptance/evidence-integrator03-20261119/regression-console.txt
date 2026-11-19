@@ -1,0 +1,157 @@
+{
+  "status": "PASS_FUNCTIONAL",
+  "physical_channel": 1,
+  "phase_code": 0,
+  "sample_window": "before-str",
+  "initial_symmetric_models": {
+    "0": {
+      "reset_slopes": [
+        -671.5032679738556,
+        -453.33333333333456
+      ],
+      "reset_intercepts": [
+        91.78431372549021,
+        77.09281045751632
+      ],
+      "seed_templates": [
+        [
+          116.59869281045752,
+          174.5686274509804,
+          105.21437908496732,
+          86.15947712418301
+        ],
+        [
+          95.94117647058823,
+          128.2169934640523,
+          98.49934640522876,
+          81.62614379084967
+        ]
+      ]
+    },
+    "1": {
+      "reset_slopes": [
+        -835.1633986928107,
+        -594.1176470588246
+      ],
+      "reset_intercepts": [
+        81.61830065359477,
+        68.10326797385619
+      ],
+      "seed_templates": [
+        [
+          119.36339869281046,
+          178.3516339869281,
+          98.32156862745099,
+          79.98562091503268
+        ],
+        [
+          97.63529411764706,
+          131.5267973856209,
+          89.96993464052288,
+          74.04444444444444
+        ]
+      ]
+    }
+  },
+  "models": {
+    "0": {
+      "reset_slopes": [
+        -282.6889626818447,
+        -169.58807716634763
+      ],
+      "reset_intercepts": [
+        90.70050205566098,
+        76.21167378241618
+      ],
+      "seed_templates": [
+        [
+          116.59869281045752,
+          174.5686274509804,
+          105.21437908496732,
+          86.15947712418301
+        ],
+        [
+          95.94117647058823,
+          128.2169934640523,
+          98.49934640522876,
+          81.62614379084967
+        ]
+      ],
+      "calibration": "Reset-pair-only fit from fine P-only sweep; no validation inputs used",
+      "calibration_buffers": 124
+    },
+    "1": {
+      "reset_slopes": [
+        -323.2961733080342,
+        -354.1271347248583
+      ],
+      "reset_intercepts": [
+        82.14430344718532,
+        69.20956672991777
+      ],
+      "seed_templates": [
+        [
+          119.36339869281046,
+          178.3516339869281,
+          98.32156862745099,
+          79.98562091503268
+        ],
+        [
+          97.63529411764706,
+          131.5267973856209,
+          89.96993464052288,
+          74.04444444444444
+        ]
+      ],
+      "calibration": "Reset-pair-only fit from fine P-only sweep; no validation inputs used",
+      "calibration_buffers": 124
+    }
+  },
+  "fits": {
+    "A": {
+      "root_V": 0.0028155539995066434,
+      "commanded_delta_100uV": 0.0028,
+      "slope_code_per_V": -2461.783522464114,
+      "residual_rms_code": 0.18245807336773806
+    },
+    "B": {
+      "root_V": 0.003255277773352555,
+      "commanded_delta_100uV": 0.0033,
+      "slope_code_per_V": -2457.0640311623924,
+      "residual_rms_code": 0.16217171068963893
+    }
+  },
+  "validation": {
+    "A": {
+      "pass_": true,
+      "candidate_delta_V": 0.0028,
+      "returns": [
+        -0.3506754670372086,
+        -0.4370541917554423
+      ],
+      "lower": [
+        12.115809788482322
+      ],
+      "upper": [
+        -12.407789099891925
+      ]
+    },
+    "B": {
+      "pass_": true,
+      "candidate_delta_V": 0.0033,
+      "returns": [
+        1.1427165354330708,
+        0.8879766867376871
+      ],
+      "lower": [
+        12.562938088621275
+      ],
+      "upper": [
+        -11.104546858113324
+      ]
+    }
+  },
+  "raw_coherent_buffers": 342,
+  "limits": "Independent returns <=2codes, +/-5mV responses beyond +/-4codes; phase assigned by reset model, not external gate timestamp; command voltages uncalibrated"
+}
+ANALYSIS_REJECTED 6
