@@ -124,6 +124,24 @@ python3 $A/dossier.py extract --root DOSSIER --case adc-lines:2 --out NEW_CASE_D
 ```
 
 Session integrity does not promote COMPLETE to numerical manufacturing acceptance.
+
+For a board-only batch before the analog connections are confirmed, `board_check.py`
+also accepts an enrolled session with no stimulated channel. Cleanup then leaves
+external DACs and phase settings alone. Explicitly select its finished acquisition:
+
+```
+python3 diagnostics/pm12/acceptance/session_board_export.py \
+  --session SESSION --measurement SESSION/measurements/board-final-EXPLICIT_ID \
+  --out NEW_PARTIAL_RELEASE
+```
+
+This offline adapter reuses `board_check.validate`, copies the session/raw buffers
+and analysis sources, and runs the shared dossier builder/exporter. It retains all
+89 cases: three finite board checks may be PASS_FUNCTIONAL, sensor observations
+remain COMPLETE without numerical acceptance, and boundary/channel gaps remain
+NOT_RUN. The partial release is REVIEW. Its 89 included rows mean matrix coverage,
+not 89 completed acquisitions. It never imports prior sealed board measurements.
+
 The dossier requires every declared case, matching UID/channel/status, referenced
 sources and original summaries, and hashes all files. Content-addressed blobs deduplicate
 sources/raw data while keeping full case file maps. Extraction/verification is offline.

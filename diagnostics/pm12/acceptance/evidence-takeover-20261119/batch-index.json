@@ -1,0 +1,57 @@
+{
+  "board_uid": "PM12-K7-3A17A1B402212223",
+  "release": "PARTIAL-v1",
+  "archive": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-3A17A1B402212223/releases/PM12-K7-3A17A1B402212223-20261119T162231Z-board-check-partial-v1.tar.gz",
+  "sha256": "c971973590662bdba2c42d175ea230d2f2e7aeca118bc32674ba1fb5b2e225ed",
+  "bytes": 309046,
+  "files": 324,
+  "archive_readback": "PASS",
+  "session": "20261119T162231Z-88a86499",
+  "measurement": "board-final-699c35c6",
+  "scope": "Only current session; no earlier sealed data imported",
+  "coverage": {
+    "required_cases": 89,
+    "PASS_FUNCTIONAL": 3,
+    "COMPLETE": 1,
+    "NOT_RUN": 85
+  },
+  "smb": "NOT_UPLOADED: partial batch; full acquisition awaits physical connection declaration",
+  "package_manifest": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-3A17A1B402212223/releases/PM12-K7-3A17A1B402212223-20261119T162231Z-board-check-partial-v1.tar.gz.manifest.json",
+  "software_validation": {
+    "board_check_and_partial_export": {
+      "tests": 8,
+      "status": "PASS"
+    },
+    "board_session": {
+      "tests": 11,
+      "status": "PASS"
+    },
+    "dossier": {
+      "tests": 6,
+      "status": "PASS"
+    },
+    "endpoint_binding": {
+      "tests": 4,
+      "status": "PASS"
+    },
+    "full_discovery": {
+      "status": "ENVIRONMENT_ERROR",
+      "errors": 4,
+      "detail": "Missing numpy/matplotlib in system Python; missing matplotlib in hardware Python; plotting/report tests did not run successfully"
+    }
+  },
+  "physical_connections": {
+    "uart": "Prolific by-id, USB topology 2.2, current ttyUSB7",
+    "jtag_cable": "210249A73E43",
+    "endpoint_binding": "PASS JTAG/IPbus challenge and MCU scratch+restore",
+    "fitted_channels": "UNKNOWN; operator declaration pending",
+    "analog_usb": "UNKNOWN",
+    "smu_force_connections": "UNKNOWN",
+    "timing_mapping": "NOT_DISCOVERED"
+  },
+  "open_observations": [
+    "MCU RS reports FPGA not ready; live expected IPbus image and endpoint binding pass",
+    "INA firmware reports R15_NOT_FITTED_BUS_INPUT_ONLY; no fitting/current acceptance inferred",
+    "No previous sealed dataset superseded or imported"
+  ]
+}

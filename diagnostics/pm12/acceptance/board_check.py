@@ -3,6 +3,15 @@ import contextlib,json,sys,time,struct,hashlib,datetime,uuid
 from pathlib import Path
 import board_session as session
 
+def cleanup(cfg):
+ # Board checks may run before analog fitting is declared. Never drive an
+ # undeclared DAC route or select a phase channel from an inherited default.
+ channel=cfg.get('stimulated_channel')
+ route=cfg.get('channels',{}).get(str(channel),{})
+ declared=(channel in cfg.get('fitted_channels',[]) and
+           (route.get('analog_connected') or route.get('integrator_connected')))
+ return session.inhibit(cfg,0 if declared else None,channel if declared else None,park=declared)
+
 def run(root,repeats=12):
  if not 1<=repeats<=100:raise ValueError('repeats1..100')
  root,s,cfg=session.load_session(root);out=root/'measurements'/('board-final-'+uuid.uuid4().hex[:8]);out.mkdir(parents=True)
@@ -62,7 +71,7 @@ def run(root,repeats=12):
   finally:
    try:
     if 'identity_after' not in r:r['identity_cleanup']=session.identity(cfg,out/'identity-cleanup')['identity']
-    r['cleanup']=session.inhibit(cfg,0,cfg['stimulated_channel'],park=True)
+    r['cleanup']=cleanup(cfg)
    except Exception as error:r.update(status='ERROR',cleanup_error=repr(error))
    r['finished_utc']=session.now();save();session.write(out/'files.sha256.json',session.files(out));s['measurements'].append(str(out.relative_to(root)));session.write(root/'session.json',s)
  print(json.dumps({'path':str(out),'status':r['status']}));return r
