@@ -1,3 +1,6 @@
+Latest PM4 integrator repeat (2026-11-19): A/B PASS_FUNCTIONAL, nominal20MHz/phase0/before-str.100µV fine scan and independent±5mV/return controls pass; no rejected/clipped buffers. Separate reset-reference diagnostic, old selections unchanged. Final baseline restored, no programming. Integrator6 remains unresolved.
+[PM4 evidence](diagnostics/pm12/acceptance/evidence-integrator04-20261119/README.md).
+
 Latest PM3 integrator repeat (2026-11-19): A/B PASS_FUNCTIONAL at nominal20MHz, phase0/before-str.100µV fine scan, independent returns and±5mV controls pass; four clipped coarse buffers excluded explicitly. Separate reset-reference diagnostic method, old selections unchanged. Final baseline restored, no CPLD changes. Integrators4/6 remain unresolved.
 [PM3 integrator evidence](diagnostics/pm12/acceptance/evidence-integrator03-20261119/README.md).
 
