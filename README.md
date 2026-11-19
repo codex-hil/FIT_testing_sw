@@ -9,6 +9,7 @@ Use the identity-guarded session entry points there, rather than invoking archiv
 hardware experiments directly. Every newly attached board must be enrolled from
 its FPGA DNA. Cable IDs, IP addresses and mutable MCU serials are not board UIDs.
 
+- [Handoff for the next hardware-testing thread](diagnostics/pm12/acceptance/TESTING_HANDOFF.md)
 - [Current board, fitting and data package](diagnostics/pm12/acceptance/ACTIVE_CAMPAIGN.md)
 - [Frozen data index and verified SMB archive](diagnostics/pm12/acceptance/evidence-production-data-20261119/README.md)
 - [Offline reporting handoff](diagnostics/pm12/acceptance/REPORTING_HANDOFF.md)

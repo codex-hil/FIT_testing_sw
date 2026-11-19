@@ -1,5 +1,8 @@
 # PM12 identity-bound production workflow
 
+For a new hardware-testing thread, read [the operational handoff](TESTING_HANDOFF.md).
+It documents the acquisition/report contract and remaining normalization work.
+
 ## Boundaries
 
 Use these entry points for a newly connected board. Archived scripts are source
