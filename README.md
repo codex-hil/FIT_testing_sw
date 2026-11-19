@@ -1,3 +1,6 @@
+Latest PM6 integrator repeat (2026-11-19): A/B PASS_FUNCTIONAL, phase0/before-str/nominal20MHz.100µV focused scan and independent±5mV/return controls pass. Wide registration ambiguity retained; no relaxed thresholds. Corrected fitting3–6/USB6. Exact ff2f746c restored to SRAM after not-ready state; no Flash/MCU/CPLD/PLL writes. Final baseline/inhibition3–6 verified. Previously unresolved integrators3/4/6 now have successful diagnostic evidence; whole-board audit still required.
+[PM6 evidence](diagnostics/pm12/acceptance/evidence-integrator06-20261119/README.md).
+
 Latest PM4 integrator repeat (2026-11-19): A/B PASS_FUNCTIONAL, nominal20MHz/phase0/before-str.100µV fine scan and independent±5mV/return controls pass; no rejected/clipped buffers. Separate reset-reference diagnostic, old selections unchanged. Final baseline restored, no programming. Integrator6 remains unresolved.
 [PM4 evidence](diagnostics/pm12/acceptance/evidence-integrator04-20261119/README.md).
 

@@ -1,0 +1,45 @@
+{
+  "power": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=0900040100000010017C0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2108
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=090004010000002F037D0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2108
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=0900040100000065017D0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2108
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=0900040100000084037D0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    }
+  ],
+  "serial": {
+    "command": "RS",
+    "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    38.1 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+    "duration_s": 0.2117
+  },
+  "192.168.2.241": {
+    "id": [
+      1380993073,
+      65538,
+      0
+    ],
+    "bridge": [
+      1,
+      1112688433,
+      1,
+      9
+    ]
+  },
+  "192.168.2.240": {
+    "error": "TimeoutError('timed out')"
+  }
+}
