@@ -1,0 +1,11 @@
+{
+  "jtag_ethernet": {
+    "before": 48,
+    "after": 120,
+    "issued_register_reads": 19,
+    "strobe_cycles_per_read": 4,
+    "observed_delta": 72
+  },
+  "status": "ERROR",
+  "error": "ValueError('JTAG/Ethernet endpoint mismatch or concurrent traffic')"
+}

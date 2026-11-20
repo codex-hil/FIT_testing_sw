@@ -1,0 +1,31 @@
+{
+  "board_uid": "PM12-K7-2A17A1B40221242B",
+  "fpga_sram_load": "PASS",
+  "fpga_build_id": "ff2f746c",
+  "bit_sha256": "28fb5747bafe575455bff8bf91484c8ebb5303ea18d3e0a0925fdb0c4283d0b2",
+  "transport_stability": "FAIL",
+  "endpoint_binding": "FAILED_EXACT_COUNT_GUARD; before48 after120,19reads,72observed STROBE cycles versus76expected. Guard was not relaxed.",
+  "kasli_management": {
+    "successful_reads": 50,
+    "timeout_events": 0
+  },
+  "after_private_phy_restart": {
+    "complete_poll_iterations": 14,
+    "failed_poll_iterations": 2,
+    "read_timeout_events": 35,
+    "standard_socket_timeout_s": 1,
+    "sys_counter_restarts_observed_in_successful_polls": 0,
+    "continuous_reset_monitoring": false
+  },
+  "buffer_validation": "NOT_RUN: endpoint binding/poll stability not passed",
+  "no_clock_or_pll_profile_changes": true,
+  "no_nonvolatile_programming": true,
+  "remaining_state": "ff2f746c retained in PM FPGA SRAM; Kasli packet/bridge and HDMI held state preserved; PLL PRIMARY/LOCKED at final read; ADT ID C3; PGOOD good",
+  "raw_setup_paths": {
+    "reload": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/setup/20261120T165108Z-ipbus-reload-e8103915",
+    "read-before-phy": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/setup/20261120T165357Z-read-only-ipbus",
+    "phy-restart": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/setup/20261120T165536Z-phy-retry",
+    "read-after-phy": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/setup/20261120T165622Z-read-only-ipbus"
+  },
+  "diagnosis": "Known FPGA image alone and one Kasli PM PHY restart did not cure intermittent PM IPbus. Kasli management control passed; fault layer not isolated."
+}

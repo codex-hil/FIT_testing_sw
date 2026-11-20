@@ -1,0 +1,307 @@
+{
+  "board_uid": "PM12-K7-2A17A1B40221242B",
+  "scope": "Read-only IPbus diagnosis following guarded SRAM load; endpoint count challenge remains failed, no guard relaxation and no register/ARM writes. Buffer stability is not ADC functional acceptance.",
+  "status": "FAIL_READ_ONLY",
+  "polls": [
+    {
+      "index": 1,
+      "uptime": 3601346595,
+      "counter_restart": false,
+      "latency_s": 0.00037182203959673643,
+      "utc": "2026-11-20T16:53:58.363147+00:00"
+    },
+    {
+      "index": 2,
+      "uptime": 3619431501,
+      "counter_restart": false,
+      "latency_s": 0.3509462120709941,
+      "utc": "2026-11-20T16:53:58.814399+00:00"
+    },
+    {
+      "index": 3,
+      "uptime": 3637521613,
+      "counter_restart": false,
+      "latency_s": 0.3511240950319916,
+      "utc": "2026-11-20T16:53:59.265726+00:00"
+    },
+    {
+      "index": 5,
+      "uptime": 3687777975,
+      "counter_restart": false,
+      "latency_s": 0.0002775690518319607,
+      "utc": "2026-11-20T16:54:00.519678+00:00"
+    },
+    {
+      "index": 6,
+      "uptime": 3705867553,
+      "counter_restart": false,
+      "latency_s": 0.3512815269641578,
+      "utc": "2026-11-20T16:54:00.971076+00:00"
+    },
+    {
+      "index": 9,
+      "uptime": 3816674694,
+      "counter_restart": false,
+      "latency_s": 0.35138675197958946,
+      "utc": "2026-11-20T16:54:03.735877+00:00"
+    },
+    {
+      "index": 10,
+      "uptime": 3834779440,
+      "counter_restart": false,
+      "latency_s": 0.3513357840711251,
+      "utc": "2026-11-20T16:54:04.187624+00:00"
+    }
+  ],
+  "errors": [
+    {
+      "index": 0,
+      "error": "TimeoutError('timed out')"
+    },
+    {
+      "index": 4,
+      "error": "TimeoutError('timed out')"
+    },
+    {
+      "index": 7,
+      "error": "TimeoutError('timed out')"
+    },
+    {
+      "index": 8,
+      "error": "TimeoutError('timed out')"
+    },
+    {
+      "index": 11,
+      "error": "TimeoutError('timed out')"
+    }
+  ],
+  "started_utc": "2026-11-20T16:53:57.208742+00:00",
+  "retry_events": [
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    }
+  ],
+  "buffers": [],
+  "all_retry_events": [
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    }
+  ],
+  "pgood": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000007B025D0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2121
+  },
+  "uart": [
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    34.9 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@TEMP",
+      "reply": "ADT7311 REG=00 00\r\nADT7311 REG=01 50\r\nADT7311 REG=02 1178\r\nADT7311 REG=03 C3\r\n",
+      "duration_s": 0.2116
+    }
+  ],
+  "finished_utc": "2026-11-20T16:54:06.344584+00:00"
+}

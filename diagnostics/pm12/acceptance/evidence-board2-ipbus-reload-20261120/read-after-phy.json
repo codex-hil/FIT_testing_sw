@@ -1,0 +1,494 @@
+{
+  "board_uid": "PM12-K7-2A17A1B40221242B",
+  "scope": "Read-only IPbus after one Kasli PM PHY restart, native1s timeout; following guarded SRAM load; endpoint count challenge remains failed, no guard relaxation and no register/ARM writes. Buffer stability is not ADC functional acceptance.",
+  "status": "FAIL_READ_ONLY",
+  "polls": [
+    {
+      "index": 2,
+      "uptime": 9718867113,
+      "counter_restart": false,
+      "latency_s": 2.0497986839618534,
+      "utc": "2026-11-20T16:56:31.001592+00:00"
+    },
+    {
+      "index": 3,
+      "uptime": 9803133817,
+      "counter_restart": false,
+      "latency_s": 2.0024260140489787,
+      "utc": "2026-11-20T16:56:33.104128+00:00"
+    },
+    {
+      "index": 4,
+      "uptime": 9887357523,
+      "counter_restart": false,
+      "latency_s": 2.001361743081361,
+      "utc": "2026-11-20T16:56:35.205597+00:00"
+    },
+    {
+      "index": 5,
+      "uptime": 9971603112,
+      "counter_restart": false,
+      "latency_s": 2.001900744973682,
+      "utc": "2026-11-20T16:56:37.307605+00:00"
+    },
+    {
+      "index": 6,
+      "uptime": 10055850583,
+      "counter_restart": false,
+      "latency_s": 2.001959554036148,
+      "utc": "2026-11-20T16:56:39.409674+00:00"
+    },
+    {
+      "index": 7,
+      "uptime": 10180218689,
+      "counter_restart": false,
+      "latency_s": 3.003011059947312,
+      "utc": "2026-11-20T16:56:42.512788+00:00"
+    },
+    {
+      "index": 8,
+      "uptime": 10264450683,
+      "counter_restart": false,
+      "latency_s": 2.001575233996846,
+      "utc": "2026-11-20T16:56:44.614469+00:00"
+    },
+    {
+      "index": 9,
+      "uptime": 10348715824,
+      "counter_restart": false,
+      "latency_s": 2.002386546926573,
+      "utc": "2026-11-20T16:56:46.716964+00:00"
+    },
+    {
+      "index": 10,
+      "uptime": 10432979514,
+      "counter_restart": false,
+      "latency_s": 2.0023593460209668,
+      "utc": "2026-11-20T16:56:48.819426+00:00"
+    },
+    {
+      "index": 11,
+      "uptime": 10517243487,
+      "counter_restart": false,
+      "latency_s": 2.0023689509835094,
+      "utc": "2026-11-20T16:56:50.921900+00:00"
+    },
+    {
+      "index": 12,
+      "uptime": 10601509188,
+      "counter_restart": false,
+      "latency_s": 2.002411561086774,
+      "utc": "2026-11-20T16:56:53.024416+00:00"
+    },
+    {
+      "index": 13,
+      "uptime": 10685762094,
+      "counter_restart": false,
+      "latency_s": 2.002124349004589,
+      "utc": "2026-11-20T16:56:55.126623+00:00"
+    },
+    {
+      "index": 14,
+      "uptime": 10770009896,
+      "counter_restart": false,
+      "latency_s": 2.001957911066711,
+      "utc": "2026-11-20T16:56:57.228691+00:00"
+    },
+    {
+      "index": 15,
+      "uptime": 10854275351,
+      "counter_restart": false,
+      "latency_s": 2.0024040380958468,
+      "utc": "2026-11-20T16:56:59.331201+00:00"
+    }
+  ],
+  "errors": [
+    {
+      "index": 0,
+      "error": "TimeoutError('timed out')"
+    },
+    {
+      "index": 1,
+      "error": "TimeoutError('timed out')"
+    }
+  ],
+  "started_utc": "2026-11-20T16:56:22.745375+00:00",
+  "retry_events": [
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 5,
+      "count": 2,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 5,
+      "count": 2,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    }
+  ],
+  "buffers": [],
+  "all_retry_events": [
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 2
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 5,
+      "count": 2,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 5,
+      "count": 2,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 0
+    },
+    {
+      "address": 0,
+      "count": 3,
+      "attempt": 1
+    }
+  ],
+  "pgood": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=89000001000000A8035C0103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2107
+  },
+  "uart": [
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    34.8 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@TEMP",
+      "reply": "ADT7311 REG=00 80\r\nADT7311 REG=01 50\r\nADT7311 REG=02 1170\r\nADT7311 REG=03 C3\r\n",
+      "duration_s": 0.2107
+    }
+  ],
+  "finished_utc": "2026-11-20T16:57:00.415558+00:00"
+}

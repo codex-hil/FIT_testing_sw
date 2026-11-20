@@ -1,0 +1,51 @@
+{
+  "board_uid": "PM12-K7-2A17A1B40221242B",
+  "started_utc": "2026-11-20T16:51:08.535372+00:00",
+  "status": "ERROR",
+  "bit_sha256": "28fb5747bafe575455bff8bf91484c8ebb5303ea18d3e0a0925fdb0c4283d0b2",
+  "build_id": "ff2f746c",
+  "scope": "PM FPGA SRAM only. No MCU/CPLD/Flash/PLL profile writes. Guarded optional Kasli PM PHY restart only; management/HDMI/DIO settings preserved.",
+  "identity_before": {
+    "status": "PASS",
+    "observed_utc": "2026-11-20T16:51:08.536244+00:00",
+    "pgood": [
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=0900040100000034005B0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2124
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=0900040100000050025C0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2121
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=0900040100000085005C0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2118
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=09000401000000A3025C0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2123
+      }
+    ],
+    "mcu_reply": {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    34.8 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2128
+    },
+    "mcu_eeprom_serial": "1803",
+    "fpga_dna": "2A17A1B40221242B",
+    "uid": "PM12-K7-2A17A1B40221242B"
+  },
+  "network_before_error": "TimeoutError('timed out')",
+  "sram_load": "PASS",
+  "network_after": [
+    1347228162,
+    65538,
+    4281300076
+  ],
+  "error": "ValueError('JTAG/Ethernet endpoint mismatch or concurrent traffic')",
+  "finished_utc": "2026-11-20T16:52:53.104794+00:00"
+}

@@ -127,6 +127,20 @@ Pełne lokalne materiały: `/srv/codex-hil-nvme/pm12-board2-mcu-20261120/`.
 Dane pierwszej płyty pozostają zamknięte. Wszystkie zadania sprzętowe tego wątku
 zakończone, rezerwacje zwolnione; nie pozostawiono procesu pomiarowego.
 
+### Najnowszy wynik: znany wsad FPGA i niestabilny IPbus
+
+Potwierdzono fizyczne DNA drugiej płyty: **2A17A1B40221242B**.
+Na żądanie właściciela ponownie wgrano znany ff2f746c do SRAM, hash zgodny,
+LOAD_PASS oraz identyfikacja IPbus poprawne. Komunikacja pozostała niestabilna.
+Kasli management50/50/no timeouts; prywatny PHY zresetowano raz bez zmiany zegarów
+lub wyjść HDMI. Po tym natywny1s timeout dał14pełnych iteracji odczytu/2nieudane,
+35zdarzeń timeout; nie jest to współczynnik utraty pakietów. Dokładny guard
+JTAG/Ethernet nie przeszedł (72vs76STROBE), nie został poluzowany. Testów ADC
+nie wykonano. ff2 pozostaje w SRAM, PLL PRIMARY/LOCKED, ADT C3, PGOOD poprawne.
+Dowody: `evidence-board2-ipbus-reload-20261120/summary.json`; oryginalne rekordy
+w katalogu UID/setup. Starsze wpisy „DNA pending” nie są aktualnym wynikiem JTAG.
+Najpierw wyjaśnij niestabilność transportu, nie przepisuj tych prób jako PASS.
+
 ### Uzupełnienie: pełna mapa PLL po ponownym starcie
 
 20listopada wykonano3pełne odczyty R0..R8 przy użyciu tymczasowego rozszerzenia.
