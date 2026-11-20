@@ -1,0 +1,159 @@
+{
+  "started_utc": "2026-11-20T14:37:39.938183+00:00",
+  "board_uid": null,
+  "operator_label": "board2",
+  "identity_note": "FPGA DNA pending; MCU prodsig f1b955294628e001d491e6117e1ae48886342fed01f4536b8dd731f2b083c11c from prior PDI provisioning; EEPROM serial1803 is copied",
+  "operator_action": "Owner confirmed sensor jumpers soldered",
+  "status": "PASS_COMMUNICATION",
+  "commands": [
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    30.9 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@I2C",
+      "reply": "I2C PF7/PA1 RESET_PB6 LINES=07 OWNER=00 DEFER=00 A_DIR=FB A_OUT=DA A_CTRL1=80 A_CTRL2=18\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@INA 4",
+      "reply": "INA 4 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 4 CH=1 RAW=0008/03E8 MV=1000 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=2 RAW=0020/04B0 MV=1200 MA=16 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=3 RAW=0008/0710 MV=1808 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\n",
+      "duration_s": 0.2408,
+      "trial": 0
+    },
+    {
+      "command": "@INA 5",
+      "reply": "INA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0260/0F40 MV=3904 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03C0/0D00 MV=3328 MA=4800 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=0038/06F8 MV=1784 MA=280 STATUS=NOMINAL_UNCALIBRATED\r\n",
+      "duration_s": 0.2408,
+      "trial": 0
+    },
+    {
+      "command": "@INA 6",
+      "reply": "INA 6 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 6 CH=1 RAW=0010/03F0 MV=1008 MA=80 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=2 RAW=0060/1578 MV=5496 MA=480 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=3 RAW=0000/0000 MV=0 MA=NA STATUS=NO_SHUNT\r\n",
+      "duration_s": 0.2408,
+      "trial": 0
+    },
+    {
+      "command": "@INA 4",
+      "reply": "INA 4 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 4 CH=1 RAW=0008/03E8 MV=1000 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=2 RAW=0020/04B0 MV=1200 MA=16 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=3 RAW=0008/0710 MV=1808 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\n",
+      "duration_s": 0.2407,
+      "trial": 1
+    },
+    {
+      "command": "@INA 5",
+      "reply": "INA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0260/0F40 MV=3904 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03C0/0D00 MV=3328 MA=4800 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=0038/06F8 MV=1784 MA=280 STATUS=NOMINAL_UNCALIBRATED\r\n",
+      "duration_s": 0.2408,
+      "trial": 1
+    },
+    {
+      "command": "@INA 6",
+      "reply": "INA 6 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 6 CH=1 RAW=0010/03F0 MV=1008 MA=80 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=2 RAW=0060/1578 MV=5496 MA=480 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=3 RAW=0000/0000 MV=0 MA=NA STATUS=NO_SHUNT\r\n",
+      "duration_s": 0.2407,
+      "trial": 1
+    },
+    {
+      "command": "@INA 4",
+      "reply": "INA 4 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 4 CH=1 RAW=0008/03E8 MV=1000 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=2 RAW=0020/04B0 MV=1200 MA=16 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=3 RAW=0008/0710 MV=1808 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\n",
+      "duration_s": 0.2407,
+      "trial": 2
+    },
+    {
+      "command": "@INA 5",
+      "reply": "INA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0260/0F40 MV=3904 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03C0/0D00 MV=3328 MA=4800 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=0038/06F8 MV=1784 MA=280 STATUS=NOMINAL_UNCALIBRATED\r\n",
+      "duration_s": 0.2407,
+      "trial": 2
+    },
+    {
+      "command": "@INA 6",
+      "reply": "INA 6 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 6 CH=1 RAW=0010/03F0 MV=1008 MA=80 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=2 RAW=0060/1578 MV=5496 MA=480 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=3 RAW=0000/0000 MV=0 MA=NA STATUS=NO_SHUNT\r\n",
+      "duration_s": 0.2406,
+      "trial": 2
+    },
+    {
+      "command": "@TEMP",
+      "reply": "ADT7311 REG=00 80\r\nADT7311 REG=01 50\r\nADT7311 REG=02 0FA0\r\nADT7311 REG=03 C3\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@I2C",
+      "reply": "I2C PF7/PA1 RESET_PB6 LINES=07 OWNER=00 DEFER=00 A_DIR=FB A_OUT=DA A_CTRL1=80 A_CTRL2=18\r\n",
+      "duration_s": 0.2108
+    }
+  ],
+  "pgood": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=090004010000001300340103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=090004010000003202340103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=090004010000006900340103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=090004010000008502350103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    }
+  ],
+  "sensor_pgood": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=090004010000001100350103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2106
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=090004010000003902360103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=090004010000007800360103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=09000401000000A002360103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=09000401000000E000360103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=090004010000000703370103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=090004010000004701370103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=090004010000006E03370103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=09000401000000AE01370103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    }
+  ],
+  "temperature_pgood": {
+    "command": "@HW",
+    "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=09000401000000D503380103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+    "duration_s": 0.2107
+  },
+  "finished_utc": "2026-11-20T14:37:46.799675+00:00"
+}
