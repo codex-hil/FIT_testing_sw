@@ -1,3 +1,17 @@
+# Current attachment changed20November2026 — board2
+
+MCU diagnostic application, copied board1 EEPROM and fuses are verified.
+EEPROM serial1803 is now intentionally shared. FPGA DNA is PENDING: the expected
+JTAG cable detects no devices. All INA reads are BLOCKED_WIRING (SDA low); owner
+confirms sensor wiring not yet prepared. No new functional measurement campaign
+is enrolled. Do not assign new data to the old UID below.
+
+See [provisioning evidence](../mcu/evidence-board2-20261120/README.md).
+Raw setup receipts: `/srv/codex-hil-nvme/pm12-board2-mcu-20261120/`.
+Identify FPGA DNA and actual fitting before enrollment or further tests.
+
+The remainder is the frozen previous-board state, retained for reporting.
+
 # Active PM12 — consolidated19November2026
 
 - Board UID **PM12-K7-3A17A1B402212223**, FPGA DNA **3A17A1B402212223**, MCU EEPROM1803.
