@@ -1,0 +1,299 @@
+{
+  "started_utc": "2026-11-20T16:47:27.647017+00:00",
+  "status": "PASS",
+  "scope": "Resident original firmware, read-only UART control after exact rollback; no MCU/PLL/FPGA programming",
+  "before": [
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    33.2 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@TEMP",
+      "reply": "ADT7311 REG=00 80\r\nADT7311 REG=01 50\r\nADT7311 REG=02 10A0\r\nADT7311 REG=03 C3\r\n",
+      "duration_s": 0.2113
+    }
+  ],
+  "polls": [
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:47:30.552441+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.212,
+      "utc": "2026-11-20T16:47:31.076774+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:47:31.602107+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:47:32.128379+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2115,
+      "utc": "2026-11-20T16:47:32.653388+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2123,
+      "utc": "2026-11-20T16:47:33.188241+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:47:33.713811+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2115,
+      "utc": "2026-11-20T16:47:34.238887+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2121,
+      "utc": "2026-11-20T16:47:34.764253+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2119,
+      "utc": "2026-11-20T16:47:35.289812+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2121,
+      "utc": "2026-11-20T16:47:35.815200+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:47:36.340287+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.212,
+      "utc": "2026-11-20T16:47:36.865339+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2114,
+      "utc": "2026-11-20T16:47:37.390563+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2126,
+      "utc": "2026-11-20T16:47:37.916995+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2119,
+      "utc": "2026-11-20T16:47:38.451574+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2107,
+      "utc": "2026-11-20T16:47:38.974931+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2119,
+      "utc": "2026-11-20T16:47:39.500337+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2119,
+      "utc": "2026-11-20T16:47:40.026341+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:47:40.552405+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2119,
+      "utc": "2026-11-20T16:47:41.077791+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2115,
+      "utc": "2026-11-20T16:47:41.602907+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:47:42.128497+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:47:42.654875+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2125,
+      "utc": "2026-11-20T16:47:43.181280+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:47:43.715350+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2116,
+      "utc": "2026-11-20T16:47:44.241076+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2114,
+      "utc": "2026-11-20T16:47:44.766793+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:47:45.291689+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2124,
+      "utc": "2026-11-20T16:47:45.817771+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.212,
+      "utc": "2026-11-20T16:47:46.343870+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:47:46.868779+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2116,
+      "utc": "2026-11-20T16:47:47.394733+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2121,
+      "utc": "2026-11-20T16:47:47.920588+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:47:48.445585+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:47:48.979253+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2113,
+      "utc": "2026-11-20T16:47:49.503189+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.212,
+      "utc": "2026-11-20T16:47:50.029576+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.212,
+      "utc": "2026-11-20T16:47:50.555721+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:47:51.080955+00:00"
+    }
+  ],
+  "after": [
+    {
+      "command": "@TEMP",
+      "reply": "ADT7311 REG=00 80\r\nADT7311 REG=01 50\r\nADT7311 REG=02 10D0\r\nADT7311 REG=03 C3\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@POWER",
+      "reply": "INA 4 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 4 CH=1 RAW=0008/03E8 MV=1000 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=2 RAW=0020/04B0 MV=1200 MA=16 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=3 RAW=0008/0710 MV=1808 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0268/0F40 MV=3904 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03B8/0D00 MV=3328 MA=4760 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=0038/06F8 MV=1784 MA=280 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 6 CH=1 RAW=0010/03F0 MV=1008 MA=80 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=2 RAW=0060/1578 MV=5496 MA=480 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=3 RAW=0000/0000 MV=0 MA=NA STATUS=NO_SHUNT\r\n",
+      "duration_s": 0.271
+    },
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    33.6 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2122
+    }
+  ],
+  "pgood": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=09000401000000C1004B0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=09000401000000DE024D0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F076FFC STATE 2157..2162=0900040100000013014D0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2111
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DE7C7F07EFFC STATE 2157..2162=0900040100000031034C0103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2117
+    }
+  ],
+  "finished_utc": "2026-11-20T16:47:52.633069+00:00"
+}

@@ -1,0 +1,124 @@
+{
+  "profile_readback": "PASS",
+  "samples": [
+    {
+      "utc": "2026-11-20T16:44:25.302861+00:00",
+      "registers": {
+        "0": "EB070320",
+        "1": "EB800321",
+        "2": "EB060302",
+        "3": "EB800303",
+        "4": "68840334",
+        "5": "40040FF5",
+        "6": "C4FE0186",
+        "7": "BD42BBF7",
+        "8": "20009D38"
+      },
+      "R0_R7_match_after_auto": true
+    },
+    {
+      "utc": "2026-11-20T16:44:25.729128+00:00",
+      "registers": {
+        "0": "EB070320",
+        "1": "EB800321",
+        "2": "EB060302",
+        "3": "EB800303",
+        "4": "68840334",
+        "5": "40040FF5",
+        "6": "C4FE0186",
+        "7": "BD42BBF7",
+        "8": "20009D38"
+      },
+      "R0_R7_match_after_auto": true
+    },
+    {
+      "utc": "2026-11-20T16:44:26.154541+00:00",
+      "registers": {
+        "0": "EB070320",
+        "1": "EB800321",
+        "2": "EB060302",
+        "3": "EB800303",
+        "4": "68840334",
+        "5": "40040FF5",
+        "6": "C4FE0186",
+        "7": "BD42BBF7",
+        "8": "20009D38"
+      },
+      "R0_R7_match_after_auto": true
+    }
+  ],
+  "expected_R0_R7": {
+    "0": "EB070320",
+    "1": "EB800321",
+    "2": "EB060302",
+    "3": "EB800303",
+    "4": "68840334",
+    "5": "40040FF5",
+    "6": "C4FE0186",
+    "7": "BD42BBF7"
+  },
+  "reference_source": "PRIMARY",
+  "lock_samples": {
+    "CDCE62005 20009D38": 40
+  },
+  "frequency_basis": "Calculated from read-back profile and assumed input40.0787MHz; not a fresh frequency-counter measurement",
+  "profile_decoding_reference": "FIT_testing_sw/diagnostics/pm12/system/evidence-clock-audit-20261114/profile.json",
+  "reference_hz_assumed": 40078700,
+  "pll_input_divide": 2,
+  "feedback_divide": 20,
+  "prescale": 5,
+  "synth_hz": 400787000,
+  "vco_hz": 2003935000,
+  "vco_nominal_range_check": "PASS:1.75..2.356GHz per TI",
+  "outputs": [
+    {
+      "index": 0,
+      "divider_code": 3,
+      "divider_enabled": true,
+      "divider": 10,
+      "frequency_hz": 40078700.0
+    },
+    {
+      "index": 1,
+      "divider_code": 64,
+      "divider_enabled": true,
+      "divider": 2,
+      "frequency_hz": 200393500.0
+    },
+    {
+      "index": 2,
+      "divider_code": 3,
+      "divider_enabled": true,
+      "divider": 10,
+      "frequency_hz": 40078700.0
+    },
+    {
+      "index": 3,
+      "divider_code": 64,
+      "divider_enabled": true,
+      "divider": 2,
+      "frequency_hz": 200393500.0
+    },
+    {
+      "index": 4,
+      "divider_code": 66,
+      "divider_enabled": false,
+      "divider": null,
+      "frequency_hz": null
+    }
+  ],
+  "stability_scope": "Sparse UART R8 polls only; no continuous-loss/jitter/analog measurement; three dumps after MCU restart, not the pre-restart live state",
+  "temporary_firmware_system_acceptance": "REJECTED: ADT7311 returned zero registers",
+  "original_application_restore": "PASS",
+  "protected_memories": "All match pre-audit backup",
+  "final_peripheral_check": "PASS after rollback",
+  "original_control": {
+    "status": "PASS",
+    "samples": 40,
+    "r8_words": {
+      "CDCE62005 20009D38": 40
+    },
+    "adt_id_before_after": "C3",
+    "clock_source_before_after": "PRIMARY/LOCKED"
+  }
+}

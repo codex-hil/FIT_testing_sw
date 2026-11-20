@@ -127,6 +127,20 @@ Pełne lokalne materiały: `/srv/codex-hil-nvme/pm12-board2-mcu-20261120/`.
 Dane pierwszej płyty pozostają zamknięte. Wszystkie zadania sprzętowe tego wątku
 zakończone, rezerwacje zwolnione; nie pozostawiono procesu pomiarowego.
 
+### Uzupełnienie: pełna mapa PLL po ponownym starcie
+
+20listopada wykonano3pełne odczyty R0..R8 przy użyciu tymczasowego rozszerzenia.
+Mapa R0..R7 zgadza się z firmware po przejściu AUTO (R5=40040FF5), VCO obliczone
+2003.935MHz, U0/U2=40.0787MHz,U1/U3=200.3935MHz dla wejścia40.0787MHz.
+To częstotliwości wyliczone, nie zmierzone niezależnie. Obraz pomocniczy odrzucono
+z powodu zerowych odczytów ADT7311; przywrócono dokładnie poprzednią aplikację.
+Kontrola oryginału:40odczytów R8 PRIMARY/LOCKED, ADT C3 przed/po, INA poprawne.
+@PLL ALL nie pozostało w działającym wsadzie; patch jest eksperymentalny.
+PDI reset ponowił oryginalną inicjalizację PLL; nie zachowano stanu sprzed resetu.
+Dowody i ograniczenia: `../mcu/evidence-board2-pll-registers-20261120/README.md`.
+Przyczyna zgłoszonej niestabilności pozostaje otwarta; kodów filtra zgodnych z
+firmware nie traktować jako pomiaru jitteru lub sprawdzenia elementów analogowych.
+
 ### Następny test: istniejący skrypt boundary scan
 
 Wspólny skrypt to `diagnostics/pm12/test_board.py`, wersjonowany w tym repo,

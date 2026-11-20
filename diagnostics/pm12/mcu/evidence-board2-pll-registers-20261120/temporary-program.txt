@@ -1,0 +1,88 @@
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.06s
+
+avrdude: Device signature = 0x1e9742 (probably pm12_full_app)
+avrdude: NOTE: Programmer supports page erase for Xmega devices.
+         Each page will be erased before programming it, but no chip erase is performed.
+         To disable page erases, specify the -D option; for a chip-erase, use the -e option.
+avrdude: reading input file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/audit-application.bin"
+avrdude: writing app_full (131072 bytes):
+
+Writing | ################################################## | 100% 21.96s
+
+avrdude: 131072 bytes of app_full written
+avrdude: verifying app_full memory against /srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/audit-application.bin:
+avrdude: load data app_full data from input file /srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/audit-application.bin:
+avrdude: input file /srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/audit-application.bin contains 131072 bytes
+avrdude: reading on-chip app_full data:
+
+Reading | ################################################## | 100% 18.89s
+
+avrdude: verifying ...
+avrdude: 131072 bytes of app_full verified
+avrdude: reading flash memory:
+
+Reading | ################################################## | 100% 20.19s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/flash.bin"
+avrdude: reading boot memory:
+
+Reading | ################################################## | 100% 1.19s
+
+avrdude: Flash is empty, resulting file has no contents.
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/boot.bin"
+avrdude: reading eeprom memory:
+
+Reading | ################################################## | 100% 0.65s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/eeprom.bin"
+avrdude: reading fuse0 memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/fuse0.bin"
+avrdude: reading fuse1 memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/fuse1.bin"
+avrdude: reading fuse2 memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/fuse2.bin"
+avrdude: reading fuse4 memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/fuse4.bin"
+avrdude: reading fuse5 memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/fuse5.bin"
+avrdude: reading lock memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/lock.bin"
+avrdude: reading usersig memory:
+
+Reading | ################################################## | 100% 0.07s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/usersig.bin"
+avrdude: reading prodsig memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/prodsig.bin"
+avrdude: reading signature memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-pll-register-audit-20261120/hardware/candidate-readback/signature.bin"
+
+avrdude done.  Thank you.
+

@@ -1,0 +1,509 @@
+{
+  "started_utc": "2026-11-20T16:42:52.604343+00:00",
+  "operator_label": "board2",
+  "board_uid": null,
+  "status": "ERROR",
+  "scope": "Temporary application-only extension for R0..R8 read; original application restored. No PLL profile/EEPROM, MCU EEPROM/fuse/boot or FPGA writes.",
+  "pgood_before": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000003E03610103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000007401610103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000009303610103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=89000001000000CA01610103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2106
+    }
+  ],
+  "rs_before": {
+    "command": "RS",
+    "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    35.3 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+    "duration_s": 0.2107
+  },
+  "pll_before": {
+    "command": "@PLL",
+    "reply": "CDCE62005 20009D28\r\n",
+    "duration_s": 0.2107
+  },
+  "backup_sha256": "f1999eb73a6001f88129e209b3dc10800fbc35da9342f8f29823e149959ad3be",
+  "temporary_source_sha256": "4a7408623b2d1de31a00f19de8ba4c7aca5bd3dcc20a05728045cdb77c7aa565",
+  "candidate_unchanged_protected": {
+    "boot": true,
+    "eeprom": true,
+    "fuse0": true,
+    "fuse1": true,
+    "fuse2": true,
+    "fuse4": true,
+    "fuse5": true,
+    "lock": true,
+    "usersig": true,
+    "prodsig": true,
+    "signature": true
+  },
+  "pgood_audit": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=F7000000020C STATE 2157..2162=01000000010E072603000000 GPIOR0=00 A_OUT=F3 TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2121
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=F7000000020C STATE 2157..2162=010000000143055B01000000 GPIOR0=00 A_OUT=F3 TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FF000000020C STATE 2157..2162=010000000179037903000000 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2113
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FF000000020C STATE 2157..2162=0100000001AE01AE01000000 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FF000000060C STATE 2157..2162=0100000002CD03CD03000000 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FFC2F043F7BC STATE 2157..2162=010000000203020302000000 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FFC2F043FFBC STATE 2157..2162=090000000238003800000000 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FFFC7703FF9C STATE 2157..2162=090000000355025502000000 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FFFC7703FF9C STATE 2157..2162=09000000038A008A00000000 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DF7C7F07EFFC STATE 2157..2162=09000401044812A802000003 GPIOR0=00 A_OUT=DB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2112
+    }
+  ],
+  "dumps": [
+    {
+      "command": "@PLL ALL",
+      "reply": "CDCE62005 REG=00 EB070320\r\nCDCE62005 REG=01 EB800321\r\nCDCE62005 REG=02 EB060302\r\nCDCE62005 REG=03 EB800303\r\nCDCE62005 REG=04 68840334\r\nCDCE62005 REG=05 40040FF5\r\nCDCE62005 REG=06 C4FE0186\r\nCDCE62005 REG=07 BD42BBF7\r\nCDCE62005 REG=08 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:44:25.302861+00:00",
+      "registers": {
+        "0": "EB070320",
+        "1": "EB800321",
+        "2": "EB060302",
+        "3": "EB800303",
+        "4": "68840334",
+        "5": "40040FF5",
+        "6": "C4FE0186",
+        "7": "BD42BBF7",
+        "8": "20009D38"
+      }
+    },
+    {
+      "command": "@PLL ALL",
+      "reply": "CDCE62005 REG=00 EB070320\r\nCDCE62005 REG=01 EB800321\r\nCDCE62005 REG=02 EB060302\r\nCDCE62005 REG=03 EB800303\r\nCDCE62005 REG=04 68840334\r\nCDCE62005 REG=05 40040FF5\r\nCDCE62005 REG=06 C4FE0186\r\nCDCE62005 REG=07 BD42BBF7\r\nCDCE62005 REG=08 20009D38\r\n",
+      "duration_s": 0.2119,
+      "utc": "2026-11-20T16:44:25.729128+00:00",
+      "registers": {
+        "0": "EB070320",
+        "1": "EB800321",
+        "2": "EB060302",
+        "3": "EB800303",
+        "4": "68840334",
+        "5": "40040FF5",
+        "6": "C4FE0186",
+        "7": "BD42BBF7",
+        "8": "20009D38"
+      }
+    },
+    {
+      "command": "@PLL ALL",
+      "reply": "CDCE62005 REG=00 EB070320\r\nCDCE62005 REG=01 EB800321\r\nCDCE62005 REG=02 EB060302\r\nCDCE62005 REG=03 EB800303\r\nCDCE62005 REG=04 68840334\r\nCDCE62005 REG=05 40040FF5\r\nCDCE62005 REG=06 C4FE0186\r\nCDCE62005 REG=07 BD42BBF7\r\nCDCE62005 REG=08 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:44:26.154541+00:00",
+      "registers": {
+        "0": "EB070320",
+        "1": "EB800321",
+        "2": "EB060302",
+        "3": "EB800303",
+        "4": "68840334",
+        "5": "40040FF5",
+        "6": "C4FE0186",
+        "7": "BD42BBF7",
+        "8": "20009D38"
+      }
+    }
+  ],
+  "lock_samples": [
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:26.579167+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2121,
+      "utc": "2026-11-20T16:44:27.105431+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2115,
+      "utc": "2026-11-20T16:44:27.631215+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2119,
+      "utc": "2026-11-20T16:44:28.156085+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:28.681515+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2111,
+      "utc": "2026-11-20T16:44:29.206376+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2115,
+      "utc": "2026-11-20T16:44:29.730383+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2116,
+      "utc": "2026-11-20T16:44:30.254955+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2124,
+      "utc": "2026-11-20T16:44:30.781188+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2116,
+      "utc": "2026-11-20T16:44:31.306401+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.212,
+      "utc": "2026-11-20T16:44:31.832808+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2112,
+      "utc": "2026-11-20T16:44:32.358404+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:32.882864+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2116,
+      "utc": "2026-11-20T16:44:33.408628+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:44:33.933077+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:44:34.458160+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2123,
+      "utc": "2026-11-20T16:44:34.992928+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:35.519660+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:36.045740+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2121,
+      "utc": "2026-11-20T16:44:36.571993+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:44:37.098392+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2115,
+      "utc": "2026-11-20T16:44:37.623418+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2126,
+      "utc": "2026-11-20T16:44:38.150017+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2114,
+      "utc": "2026-11-20T16:44:38.675176+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2118,
+      "utc": "2026-11-20T16:44:39.201414+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2123,
+      "utc": "2026-11-20T16:44:39.727168+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:44:40.260060+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2121,
+      "utc": "2026-11-20T16:44:40.785542+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:41.311767+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2116,
+      "utc": "2026-11-20T16:44:41.837557+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:42.362814+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2108,
+      "utc": "2026-11-20T16:44:42.887490+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:43.413010+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:44:43.938736+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2123,
+      "utc": "2026-11-20T16:44:44.464438+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2119,
+      "utc": "2026-11-20T16:44:44.991214+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:45.526836+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:44:46.053465+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2117,
+      "utc": "2026-11-20T16:44:46.579619+00:00"
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2122,
+      "utc": "2026-11-20T16:44:47.106555+00:00"
+    }
+  ],
+  "sensor_checks": [
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature     0.0 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@TEMP",
+      "reply": "ADT7311 REG=00 00\r\nADT7311 REG=01 00\r\nADT7311 REG=02 0000\r\nADT7311 REG=03 00\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@POWER",
+      "reply": "INA 4 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 4 CH=1 RAW=0008/03E8 MV=1000 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=2 RAW=0020/04B0 MV=1200 MA=16 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=3 RAW=0008/0710 MV=1808 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0260/0F40 MV=3904 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03B8/0D00 MV=3328 MA=4760 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=0038/06F8 MV=1784 MA=280 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 6 CH=1 RAW=0010/03F0 MV=1008 MA=80 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=2 RAW=0060/1578 MV=5496 MA=480 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=3 RAW=0000/0000 MV=0 MA=NA STATUS=NO_SHUNT\r\n",
+      "duration_s": 0.2716
+    }
+  ],
+  "error": "AssertionError()",
+  "restored_protected": {
+    "boot": true,
+    "eeprom": true,
+    "fuse0": true,
+    "fuse1": true,
+    "fuse2": true,
+    "fuse4": true,
+    "fuse5": true,
+    "lock": true,
+    "usersig": true,
+    "prodsig": true,
+    "signature": true
+  },
+  "original_application_restored": "PASS",
+  "pgood_restored": [
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=F7000000020C STATE 2157..2162=01000000010C072403000000 GPIOR0=00 A_OUT=F3 TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2118
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=F7000000020C STATE 2157..2162=010000000141055901000000 GPIOR0=00 A_OUT=F3 TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2117
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FF000000020C STATE 2157..2162=010000000177037703800200 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2116
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FF000000020C STATE 2157..2162=0100000001AC01AC01800200 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FF000000060C STATE 2157..2162=0100000002CA03CA03220100 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FFC2F043F7BC STATE 2157..2162=0100000002FF01FF01220100 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2124
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FFC2F043FFBC STATE 2157..2162=090000000234003400220100 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2115
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FFFC7703FF9C STATE 2157..2162=090000000352025202220100 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2119
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=FFFC7703FF9C STATE 2157..2162=090000000387008700220100 GPIOR0=00 A_OUT=FB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2114
+    },
+    {
+      "command": "@HW",
+      "reply": "HW V2 PORTS A..F=DF7C7F07EFFC STATE 2157..2162=09000401044512A502220103 GPIOR0=00 A_OUT=DB TEMPFLAGS=00 TEMPSEEN=00\r\n",
+      "duration_s": 0.2107
+    }
+  ],
+  "post_restore": [
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    29.0 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D38\r\n",
+      "duration_s": 0.2114
+    },
+    {
+      "command": "@TEMP",
+      "reply": "ADT7311 REG=00 00\r\nADT7311 REG=01 50\r\nADT7311 REG=02 0E80\r\nADT7311 REG=03 C3\r\n",
+      "duration_s": 0.2123
+    },
+    {
+      "command": "@POWER",
+      "reply": "INA 4 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 4 CH=1 RAW=0008/03E8 MV=1000 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=2 RAW=0020/04B0 MV=1200 MA=16 STATUS=NOMINAL_UNCALIBRATED\r\nINA 4 CH=3 RAW=0008/0710 MV=1808 MA=4 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 5 CH=1 RAW=0260/0F40 MV=3904 MA=NA STATUS=R15_NOT_FITTED_BUS_INPUT_ONLY\r\nINA 5 CH=2 RAW=03B0/0D08 MV=3336 MA=4720 STATUS=NOMINAL_UNCALIBRATED\r\nINA 5 CH=3 RAW=0038/06F8 MV=1784 MA=280 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 ADDR=40 CONFIG=7127 MASKS_RESTORED=00/00\r\nINA 6 CH=1 RAW=0010/03F0 MV=1008 MA=80 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=2 RAW=0060/1578 MV=5496 MA=480 STATUS=NOMINAL_UNCALIBRATED\r\nINA 6 CH=3 RAW=0000/0000 MV=0 MA=NA STATUS=NO_SHUNT\r\n",
+      "duration_s": 0.2724
+    }
+  ],
+  "post_restore_functional": "PASS",
+  "finished_utc": "2026-11-20T16:45:58.552602+00:00"
+}

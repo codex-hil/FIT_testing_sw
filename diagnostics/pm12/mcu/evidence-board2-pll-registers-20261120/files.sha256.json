@@ -1,0 +1,12 @@
+{
+  "analysis.json": "cce0f00c71e15b2f9859c12b08d7ea7095cdb6d8006d81ee6e25d500e3575db9",
+  "README.md": "4b216e6cf1e7e51c750b185d0a9ec16e2a986487c2ad36600573b9cde3557794",
+  "executed-audit.py": "76265b5bfaf1321751cb669399ccb4bb8dc3dc6304346314f951c3a7e3e4f7bb",
+  "build-tests.txt": "8885010bccef035748696696de03f0676581b5d36a8a4c4adf49c66a11d80577",
+  "read-only-pll-all.patch": "5cd5be75dc10a55629e8a0e860c9e98a31856d8d0296ae26c6b9de32b66b3bf8",
+  "temporary-program.txt": "d21eafa9a4a98542d670fa2e82e5865c572061c60b4a6f6aa142cd751c74d4b9",
+  "executed-original-control.py": "79b9f4878a8561f27f472e3d377df010fd39544085e6ebdfa9916974b5093459",
+  "original-control.json": "16ab8edf8af92113cc263aa4ec3c08bd4a13e369fc228c89cf1fb0f4eee479bc",
+  "original-restore.txt": "e25949ac680e74dedc4a78874c542fe5111197d2d279f4d100634e27baae06c8",
+  "hardware-result.json": "bc4c8f73a663fe93e9378b321afb3ec380ee688b2ace48575eec60d15e9421aa"
+}

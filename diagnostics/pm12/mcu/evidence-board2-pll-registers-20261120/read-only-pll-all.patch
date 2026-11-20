@@ -1,0 +1,102 @@
+--- a/development/src/hw_diag.h
++++ b/development/src/hw_diag.h
+@@ -9,6 +9,7 @@
+ uint8_t pm_diag_temp_init(void);
+ uint8_t pm_diag_tdc(uint8_t chip,uint8_t reg,uint16_t *value);
+ uint8_t pm_diag_pll(uint32_t *value);
++uint8_t pm_diag_pll_register(uint8_t reg,uint32_t *value);
+ uint8_t pm_diag_fpga(uint8_t write,uint8_t address,uint16_t *word);
+ uint8_t pm_diag_config(uint8_t hold);
+ uint8_t pm_diag_flash(uint8_t id,uint32_t address,uint8_t *data,uint8_t count);
+--- a/development/src/hw_commands.c
++++ b/development/src/hw_commands.c
+@@ -48,8 +48,11 @@
+ }
+ void pm_command_pll(const char *args)
+ {
+- if(*args){pm_console_write(earg);return;}uint32_t v=0;if(!result(pm_diag_pll(&v)))return;
+- static const PM_FLASH char label[]="CDCE62005 ";pm_console_write(label);hex(v,8);line();
++ if(!*args){uint32_t v=0;if(!result(pm_diag_pll(&v)))return;
++  static const PM_FLASH char label[]="CDCE62005 ";pm_console_write(label);hex(v,8);line();return;}
++ if(args[0]!='A'||args[1]!='L'||args[2]!='L'||args[3]){pm_console_write(earg);return;}
++ for(uint8_t reg=0;reg<9;++reg){uint32_t v=0;if(!result(pm_diag_pll_register(reg,&v)))return;
++  static const PM_FLASH char label[]="CDCE62005 REG=";pm_console_write(label);hex(reg,2);pm_console_putc(' ');hex(v,8);line();}
+ }
+ 
+ void pm_command_pgtime(const char *args)
+--- a/development/src/hw_drivers.c
++++ b/development/src/hw_drivers.c
+@@ -127,15 +127,16 @@
+  return PM_DIAG_TIMEOUT;
+ }
+ static uint8_t spi_byte(uint8_t tx,uint8_t *rx){return spi_at(PM_SPIC,tx,rx);}
+-uint8_t pm_diag_pll(uint32_t *value)
++uint8_t pm_diag_pll_register(uint8_t reg,uint32_t *value)
+ {
++ if(reg>8)return PM_DIAG_ARGUMENT;
+  uint8_t irq=pm_irq_enter(),result=PM_DIAG_OK,old=pm_read8(PM_SPIC),out=pm_read8(F+OUT),rx=0;
+  if(!powered())result=PM_DIAG_POWER;
+  else if(!(out&16) || (pm_read8(C+OUT)&7)!=7 || !(old&0x40) || !(pm_read8(0x664)&1))result=PM_DIAG_BUSY;
+  else {
+   /* Same 0x8e readback request as recovered FUN_code_001267. No PLL profile writes. */
+   pm_write8(PM_SPIC,0xf1);pm_write8(F+CLR,16);
+-  for(uint8_t n=0;n<4 && result==PM_DIAG_OK;++n)result=spi_byte(n?0:0x8e,&rx);
++  for(uint8_t n=0;n<4 && result==PM_DIAG_OK;++n)result=spi_byte(n?0:(uint8_t)((reg<<4)|0x0e),&rx);
+   pm_write8(F+SET,16);
+   uint32_t v=0;
+   if(result==PM_DIAG_OK){pm_write8(F+CLR,16);for(uint8_t n=0;n<4 && result==PM_DIAG_OK;++n){result=spi_byte(0,&rx);v|=(uint32_t)rx<<(n*8);}}
+@@ -144,6 +145,9 @@
+  }
+  pm_irq_leave(irq);return result;
+ }
++
++/* Preserve existing status-only interface. */
++uint8_t pm_diag_pll(uint32_t *value){return pm_diag_pll_register(8,value);}
+ 
+ uint8_t pm_diag_fpga(uint8_t write,uint8_t address,uint16_t *word)
+ {
+--- a/development/tests/check_commands.c
++++ b/development/tests/check_commands.c
+@@ -43,6 +43,8 @@
+     check("TEMP INIT\r", "ERR POWER\r\n");
+     check("TEMP ALL X\r", "ERR ARGUMENTS\r\n");
+     check("PLL\r", "ERR POWER\r\n");
++    check("PLL ALL\r", "ERR POWER\r\n");
++    check("PLL ALLX\r", "ERR ARGUMENTS\r\n");
+     check("TDC 0 83\r", "ERR POWER\r\n");
+     check("TDC 3 83\r", "ERR ARGUMENTS\r\n");
+     check("TDC 0 8G\r", "ERR ARGUMENTS\r\n");
+--- a/development/tests/check_hw_drivers.c
++++ b/development/tests/check_hw_drivers.c
+@@ -4,6 +4,7 @@
+ #include <string.h>
+ static uint8_t mem[0x2500],irq,timeout,spi_count,bit_count,tx[12],tx_count;
+ static unsigned polls,writes,steps;
++static uint8_t pll_bytes[8];
+ static uint32_t temp_stream;
+ static uint8_t adt_tx[12],adt_bits;
+ uint8_t pm_irq_enter(void){uint8_t s=irq;irq=0;return s;}
+@@ -25,7 +26,7 @@
+  if(a==15){mem[a]=v;return;}
+  ++writes;
+  if(a==0x8c0){mem[a]=v;return;}
+- if(a==0x8c3){++spi_count;mem[a]=v;return;}
++ if(a==0x8c3){if(spi_count<8)pll_bytes[spi_count]=v;++spi_count;mem[a]=v;return;}
+  uint16_t port=a&0xffe0;uint8_t off=a-port;
+  assert((port==0x600 && !(v&~0x1a)) || (port==0x620 && !(v&~0x1f)) || (port==0x6a0 && !(v&~0x10)));
+  assert(off==1||off==2||off==5||off==6);
+@@ -68,6 +69,14 @@
+   init(s);assert(pm_diag_tdc(2,0x83,&v)==PM_DIAG_OK && v==0xa55a && irq==s && mem[0x624]==0xbc && mem[0x620]==0xbf);
+   assert(tx_count==10 && tx[0]==1 && tx[1]==0);
+   for(unsigned n=0;n<8;++n)assert(tx[n+2]==((0x83>>(7-n))&1));
++  for(uint8_t reg=0;reg<9;++reg){
++   init(s);assert(pm_diag_pll_register(reg,&p)==PM_DIAG_OK && p==0x44332211 && irq==s);
++   assert(spi_count==8 && pll_bytes[0]==((reg<<4)|14));
++   for(uint8_t n=1;n<8;++n)assert(pll_bytes[n]==0);
++   assert(mem[0x8c0]==0xd5 && mem[0x6a4]==0xf0);
++   for(uint8_t fail=1;fail<=8;++fail){init(s);timeout=fail;p=0xcafebabe;assert(pm_diag_pll_register(reg,&p)==PM_DIAG_TIMEOUT && p==0xcafebabe && irq==s && mem[0x8c0]==0xd5 && mem[0x6a4]==0xf0);}
++  }
++  for(unsigned reg=9;reg<256;++reg){init(s);p=0xbeef;assert(pm_diag_pll_register(reg,&p)==PM_DIAG_ARGUMENT && p==0xbeef && writes==0 && irq==s);}
+   init(s);assert(pm_diag_pll(&p)==PM_DIAG_OK && p==0x44332211 && irq==s && mem[0x8c0]==0xd5 && mem[0x6a4]==0xf0);
+   for(uint8_t fail=1;fail<=8;++fail){init(s);timeout=fail;p=0xcafebabe;assert(pm_diag_pll(&p)==PM_DIAG_TIMEOUT && polls==127u+fail && spi_count==fail && p==0xcafebabe && irq==s && mem[0x8c0]==0xd5 && mem[0x6a4]==0xf0);}
+   init(s);mem[0x688]=0;assert(pm_diag_temp(3,&v)==PM_DIAG_POWER && writes==0 && irq==s);
