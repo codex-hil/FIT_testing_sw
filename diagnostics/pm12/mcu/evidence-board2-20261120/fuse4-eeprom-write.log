@@ -1,0 +1,74 @@
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.06s
+
+avrdude: Device signature = 0x1e9742 (probably pm12_fuse_raw)
+avrdude: NOTE: Programmer supports page erase for Xmega devices.
+         Each page will be erased before programming it, but no chip erase is performed.
+         To disable page erases, specify the -D option; for a chip-erase, use the -e option.
+avrdude: reading input file "0xf3"
+avrdude: writing fuse4raw (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of fuse4raw written
+avrdude: verifying fuse4raw memory against 0xf3:
+avrdude: load data fuse4raw data from input file 0xf3:
+avrdude: input file 0xf3 contains 1 bytes
+avrdude: reading on-chip fuse4raw data:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse4raw verified
+avrdude: reading input file "/home/codex-hil/fit-bringup/evidence/pm12-fw-validation-2026-10-15/physical-backup/eeprom.bin"
+avrdude: writing eeprom (2048 bytes):
+
+Writing | ################################################## | 100% 2.27s
+
+avrdude: 2048 bytes of eeprom written
+avrdude: verifying eeprom memory against /home/codex-hil/fit-bringup/evidence/pm12-fw-validation-2026-10-15/physical-backup/eeprom.bin:
+avrdude: load data eeprom data from input file /home/codex-hil/fit-bringup/evidence/pm12-fw-validation-2026-10-15/physical-backup/eeprom.bin:
+avrdude: input file /home/codex-hil/fit-bringup/evidence/pm12-fw-validation-2026-10-15/physical-backup/eeprom.bin contains 2048 bytes
+avrdude: reading on-chip eeprom data:
+
+Reading | ################################################## | 100% 0.64s
+
+avrdude: verifying ...
+avrdude: 2048 bytes of eeprom verified
+avrdude: reading flash memory:
+
+Reading | ################################################## | 100% 20.07s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-board2-mcu-20261120/final/flash.bin"
+avrdude: reading boot memory:
+
+Reading | ################################################## | 100% 1.18s
+
+avrdude: Flash is empty, resulting file has no contents.
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-board2-mcu-20261120/final/boot.bin"
+avrdude: reading eeprom memory:
+
+Reading | ################################################## | 100% 0.64s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-board2-mcu-20261120/final/eeprom.bin"
+avrdude: reading fuse0 memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-board2-mcu-20261120/final/fuse0.bin"
+avrdude: reading fuse1 memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-board2-mcu-20261120/final/fuse1.bin"
+avrdude: reading fuse2 memory:
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: writing output file "/srv/codex-hil-nvme/pm12-board2-mcu-20261120/final/fuse2.bin"
+"fuse4" memory type not defined for part "PM12 XMEGA fuse4 raw checked byte"
+
+avrdude done.  Thank you.
+
