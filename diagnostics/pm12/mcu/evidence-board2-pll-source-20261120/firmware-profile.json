@@ -1,0 +1,26 @@
+{
+  "source_full_image_sha256": "f49643c80c6189afebdaa3f7301f4ecebacb55645e60456f66831106d38b9464",
+  "startup_flash_table_address": "0x2916",
+  "startup_words": [
+    "00001808",
+    "EB070320",
+    "EB800321",
+    "EB060302",
+    "EB800303",
+    "68840334",
+    "40040F35",
+    "C0FE0186",
+    "BD42BBF7",
+    "C4FE0186"
+  ],
+  "pll_defaults_in_mcu_eeprom": false,
+  "interrupt_reference_selection_write": "40040FF5",
+  "startup_reference_selection_write": "40040F35",
+  "configuration_status": "Static decoded firmware; no fresh dump of CDCE R0..R7",
+  "source_files": {
+    "recovered_exact/src/pll_defaults_load.c": "8bbf988beddcd2c122a94a515c12a6066621d43654f07f132202098bfedf8961",
+    "recovered_exact/src/pll_status_interrupt.c": "415a3afaa4d2db32435bc82dcd010d0b9b5413c944931d27e72321904f28676e",
+    "recovered_exact/src/pll_console_reset.c": "c907ad0407dc703998322443214c65c16a2093f168a6c0db56a65528b9409000",
+    "development/src/hw_drivers.c": "8f529656ea49e8b69d2e8926f9af0cb34fa4f10292fa33564e8520023045d352"
+  }
+}
