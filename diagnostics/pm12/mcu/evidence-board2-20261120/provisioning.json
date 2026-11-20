@@ -1,0 +1,110 @@
+{
+  "operator_label": "board2",
+  "board_uid": null,
+  "identity_status": "FPGA_DNA_PENDING; JTAG chain not detected; do not associate with previous board UID",
+  "mcu_prodsig_sha256": "f1b955294628e001d491e6117e1ae48886342fed01f4536b8dd731f2b083c11c",
+  "timestamp_utc": "2026-11-20T14:27:14.755763+00:00",
+  "application": {
+    "status": "PASS",
+    "source_full_image_sha256": "f49643c80c6189afebdaa3f7301f4ecebacb55645e60456f66831106d38b9464",
+    "application_sha256": "1514360945afee069229d431ea23cfbd56f0b37e2cd0a00c45af48e1dcfc6dab",
+    "full_application_readback": "PASS",
+    "boot": "Initial erased boot section preserved; only application was installed"
+  },
+  "eeprom": {
+    "status": "PASS",
+    "source": "/home/codex-hil/fit-bringup/evidence/pm12-fw-validation-2026-10-15/physical-backup/eeprom.bin",
+    "sha256": "952d350415c8cc2469b85715fc58338628587aca436785cc7273fdfefdeffc30",
+    "bytes": 2048,
+    "copied_serial": "1803",
+    "authorization": "Owner explicitly requested old-board EEPROM including parameters/calibration and duplicate serial"
+  },
+  "fuses": {
+    "status": "PASS",
+    "readback": {
+      "fuse0": "ff",
+      "fuse1": "00",
+      "fuse2": "fe",
+      "fuse4": "f3",
+      "fuse5": "e8"
+    },
+    "jtag_disabled": true,
+    "note": "Legacy AVRDUDE fuse4 reserved-bit heuristic left FE while reporting verified. Explicit raw alias wrote F3; independent standard-profile PDI read confirmed F3."
+  },
+  "unchanged_regions": {
+    "flash": true,
+    "boot": true,
+    "lock": true,
+    "usersig": true,
+    "prodsig": true,
+    "signature": true
+  },
+  "console": [
+    {
+      "command": "@PING",
+      "reply": "PONG\r\n",
+      "duration_s": 0.2112
+    },
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    30.1 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2122
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D28\r\n",
+      "duration_s": 0.2121
+    }
+  ],
+  "temperature": {
+    "command": "@TEMP",
+    "reply": "ADT7311 REG=00 80\r\nADT7311 REG=01 50\r\nADT7311 REG=02 0F08\r\nADT7311 REG=03 C3\r\n",
+    "duration_s": 0.2121
+  },
+  "power_good": true,
+  "voltage_measurements": {
+    "status": "BLOCKED_WIRING",
+    "readings": null,
+    "raw_commands": [
+      {
+        "command": "RS",
+        "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    32.5 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+        "duration_s": 0.2117
+      },
+      {
+        "command": "@I2C",
+        "reply": "I2C PF7/PA1 RESET_PB6 LINES=06 OWNER=00 DEFER=00 A_DIR=FB A_OUT=DA A_CTRL1=80 A_CTRL2=18\r\n",
+        "duration_s": 0.2119
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=DE7C7F07EF7C STATE 2157..2162=09000401000000F300450103 GPIOR0=02 A_OUT=DA TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2116
+      },
+      {
+        "command": "@INA 4",
+        "reply": "ERR I2C BUS_STUCK\r\n",
+        "duration_s": 0.2115
+      },
+      {
+        "command": "@INA 5",
+        "reply": "ERR I2C BUS_STUCK\r\n",
+        "duration_s": 0.2122
+      },
+      {
+        "command": "@INA 6",
+        "reply": "ERR I2C BUS_STUCK\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@I2C",
+        "reply": "I2C PF7/PA1 RESET_PB6 LINES=06 OWNER=00 DEFER=00 A_DIR=FB A_OUT=DA A_CTRL1=80 A_CTRL2=18\r\n",
+        "duration_s": 0.2113
+      }
+    ],
+    "owner_confirmation": "I2C connections not yet prepared; owner will check",
+    "note": "LINES06: SDA0 SCL1 RESET1; all three INA3221 return BUS_STUCK. Not zero-voltage readings."
+  },
+  "raw_evidence": "/srv/codex-hil-nvme/pm12-board2-mcu-20261120",
+  "no_fpga_cpld_programming": true
+}
