@@ -1,0 +1,30 @@
+{
+  "board_uid": "PM12-K7-2A17A1B40221242B",
+  "direction_implicated": "Kasli TX -> PM RX",
+  "scope": "Direction of failure localized; transmitter vs cable vs receiver vs receive datapath logic not individually isolated",
+  "host_requests_sent_once": 20,
+  "host_good_replies": 7,
+  "pm_rx_error_cycles_during_requests": 102,
+  "pm_tx_frames": 8,
+  "kasli_frames_received_from_pm_and_forwarded_to_lan": 8,
+  "bridge_fifo_drops_during_requests": {
+    "to_pm": 0,
+    "to_lan": 0
+  },
+  "quiet_before_pm_rx_errors": 3,
+  "quiet_after_pm_rx_errors": 22,
+  "pm_link_flag_before": true,
+  "pm_link_flag_after": false,
+  "all_snapshot_pll_mmcm_ready_flags_high": true,
+  "independent_raw_decode": "PASS byte-offset unpack of12raw USER1 records",
+  "limitations": [
+    "RX error is MAC stream error indication counted per valid byte/cycle; not BER or necessarily one event per damaged frame",
+    "MAC error combines PHY/CRC indications; no isolated CRC-only or 8b10b error counter in this resident diagnostic",
+    "Bridge counts include background Ethernet traffic; PM RX139 vs to_PM133 snapshots are not simultaneous and not a per-request loss ratio",
+    "Exact matching on PM TX8 and Kasli good-frame forwarding8 supports return path in this interval; does not qualify lossless TX at all times",
+    "PHY/link flag captured down after traffic despite PLL/MMCM ready flags high; sparse snapshots cannot establish event timing"
+  ],
+  "raw_source": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/setup/20261120T175621Z-rx-tx-5f3255a1",
+  "no_programming_or_phy_reset": true,
+  "no_pcap": "Host has no packet-capture capability; no privilege changes made"
+}

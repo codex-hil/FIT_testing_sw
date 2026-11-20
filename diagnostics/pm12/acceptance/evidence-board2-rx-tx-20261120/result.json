@@ -1,0 +1,705 @@
+{
+  "board_uid": "PM12-K7-2A17A1B40221242B",
+  "status": "OBSERVED",
+  "started_utc": "2026-11-20T17:56:21.413231+00:00",
+  "requests": [
+    {
+      "index": 0,
+      "utc": "2026-11-20T17:56:44.766408+00:00",
+      "reply": [
+        1347228162
+      ],
+      "ok": true,
+      "elapsed_s": 0.00013400905299931765
+    },
+    {
+      "index": 1,
+      "utc": "2026-11-20T17:56:44.866995+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.000573048950173
+    },
+    {
+      "index": 2,
+      "utc": "2026-11-20T17:56:45.969233+00:00",
+      "reply": [
+        1347228162
+      ],
+      "ok": true,
+      "elapsed_s": 0.0003806380555033684
+    },
+    {
+      "index": 3,
+      "utc": "2026-11-20T17:56:46.071241+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.0012058180291206
+    },
+    {
+      "index": 4,
+      "utc": "2026-11-20T17:56:47.174714+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.0008455850183964
+    },
+    {
+      "index": 5,
+      "utc": "2026-11-20T17:56:48.277144+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.0014052789192647
+    },
+    {
+      "index": 6,
+      "utc": "2026-11-20T17:56:49.380515+00:00",
+      "reply": [
+        1347228162
+      ],
+      "ok": true,
+      "elapsed_s": 0.0003856690600514412
+    },
+    {
+      "index": 7,
+      "utc": "2026-11-20T17:56:49.482798+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.00126894202549
+    },
+    {
+      "index": 8,
+      "utc": "2026-11-20T17:56:50.585716+00:00",
+      "reply": [
+        1347228162
+      ],
+      "ok": true,
+      "elapsed_s": 0.00033626402728259563
+    },
+    {
+      "index": 9,
+      "utc": "2026-11-20T17:56:50.687685+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.0006662199739367
+    },
+    {
+      "index": 10,
+      "utc": "2026-11-20T17:56:51.788939+00:00",
+      "reply": [
+        1347228162
+      ],
+      "ok": true,
+      "elapsed_s": 0.0003276079660281539
+    },
+    {
+      "index": 11,
+      "utc": "2026-11-20T17:56:51.891276+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.0012814399087802
+    },
+    {
+      "index": 12,
+      "utc": "2026-11-20T17:56:52.994721+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.001344398013316
+    },
+    {
+      "index": 13,
+      "utc": "2026-11-20T17:56:54.098245+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.001213415991515
+    },
+    {
+      "index": 14,
+      "utc": "2026-11-20T17:56:55.201654+00:00",
+      "reply": [
+        1347228162
+      ],
+      "ok": true,
+      "elapsed_s": 0.00034499308094382286
+    },
+    {
+      "index": 15,
+      "utc": "2026-11-20T17:56:55.304220+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.001312360051088
+    },
+    {
+      "index": 16,
+      "utc": "2026-11-20T17:56:56.406208+00:00",
+      "reply": [
+        1347228162
+      ],
+      "ok": true,
+      "elapsed_s": 0.0003996369196102023
+    },
+    {
+      "index": 17,
+      "utc": "2026-11-20T17:56:56.508889+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.0005898260278627
+    },
+    {
+      "index": 18,
+      "utc": "2026-11-20T17:56:57.611769+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.0012880970025435
+    },
+    {
+      "index": 19,
+      "utc": "2026-11-20T17:56:58.715310+00:00",
+      "ok": false,
+      "error": "TimeoutError('timed out')",
+      "elapsed_s": 1.0010359600419179
+    }
+  ],
+  "stages": {
+    "q0": {
+      "utc": "2026-11-20T17:56:42.643277+00:00",
+      "pm_samples": [
+        {
+          "flags": {
+            "link": true,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 4140009022,
+          "rx_frames": 29670,
+          "tx_frames": 69,
+          "rx_bytes": 9848172,
+          "tx_bytes": 3978,
+          "rx_error_cycles": 19251,
+          "ipbus_strobe_cycles": 552,
+          "net_tick": 3824087095
+        },
+        {
+          "flags": {
+            "link": true,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 4141110849,
+          "rx_frames": 29670,
+          "tx_frames": 69,
+          "rx_bytes": 9848172,
+          "tx_bytes": 3978,
+          "rx_error_cycles": 19251,
+          "ipbus_strobe_cycles": 552,
+          "net_tick": 3827392576
+        },
+        {
+          "flags": {
+            "link": true,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 4142231047,
+          "rx_frames": 29670,
+          "tx_frames": 69,
+          "rx_bytes": 9848172,
+          "tx_bytes": 3978,
+          "rx_error_cycles": 19251,
+          "ipbus_strobe_cycles": 552,
+          "net_tick": 3830753170
+        }
+      ],
+      "pm": {
+        "flags": {
+          "link": true,
+          "cap_lock": true,
+          "net_lock": true,
+          "got_ip": true,
+          "net_reset": false,
+          "gt_pll_lock": true,
+          "tx_ready": true,
+          "rx_ready": true,
+          "tx_mmcm_lock": true,
+          "rx_mmcm_lock": true,
+          "phy_request": false,
+          "startup": false
+        },
+        "sys_tick": 4142231047,
+        "rx_frames": 29670,
+        "tx_frames": 69,
+        "rx_bytes": 9848172,
+        "tx_bytes": 3978,
+        "rx_error_cycles": 19251,
+        "ipbus_strobe_cycles": 552,
+        "net_tick": 3830753170
+      },
+      "kasli": {
+        "enabled": 1,
+        "lan_link": 1,
+        "to_lan": 773867,
+        "to_pm": 4963336,
+        "drop_to_lan": 8541353,
+        "drop_to_pm": 9,
+        "depth": 4096,
+        "abi": 1112688433
+      },
+      "pm_phy_status": 15
+    },
+    "q1": {
+      "utc": "2026-11-20T17:56:44.765938+00:00",
+      "pm_samples": [
+        {
+          "flags": {
+            "link": true,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 4225122105,
+          "rx_frames": 29674,
+          "tx_frames": 69,
+          "rx_bytes": 9848549,
+          "tx_bytes": 3978,
+          "rx_error_cycles": 19254,
+          "ipbus_strobe_cycles": 552,
+          "net_tick": 4079426344
+        },
+        {
+          "flags": {
+            "link": false,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 4226227816,
+          "rx_frames": 29674,
+          "tx_frames": 69,
+          "rx_bytes": 9848549,
+          "tx_bytes": 3978,
+          "rx_error_cycles": 19254,
+          "ipbus_strobe_cycles": 552,
+          "net_tick": 4082743478
+        },
+        {
+          "flags": {
+            "link": true,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 4227294060,
+          "rx_frames": 29674,
+          "tx_frames": 69,
+          "rx_bytes": 9848549,
+          "tx_bytes": 3978,
+          "rx_error_cycles": 19254,
+          "ipbus_strobe_cycles": 552,
+          "net_tick": 4085942210
+        }
+      ],
+      "pm": {
+        "flags": {
+          "link": true,
+          "cap_lock": true,
+          "net_lock": true,
+          "got_ip": true,
+          "net_reset": false,
+          "gt_pll_lock": true,
+          "tx_ready": true,
+          "rx_ready": true,
+          "tx_mmcm_lock": true,
+          "rx_mmcm_lock": true,
+          "phy_request": false,
+          "startup": false
+        },
+        "sys_tick": 4227294060,
+        "rx_frames": 29674,
+        "tx_frames": 69,
+        "rx_bytes": 9848549,
+        "tx_bytes": 3978,
+        "rx_error_cycles": 19254,
+        "ipbus_strobe_cycles": 552,
+        "net_tick": 4085942210
+      },
+      "kasli": {
+        "enabled": 1,
+        "lan_link": 1,
+        "to_lan": 773867,
+        "to_pm": 4963340,
+        "drop_to_lan": 8541353,
+        "drop_to_pm": 9,
+        "depth": 4096,
+        "abi": 1112688433
+      },
+      "pm_phy_status": 15
+    },
+    "q2": {
+      "utc": "2026-11-20T17:57:00.909642+00:00",
+      "pm_samples": [
+        {
+          "flags": {
+            "link": false,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 577864571,
+          "rx_frames": 29813,
+          "tx_frames": 77,
+          "rx_bytes": 9889874,
+          "tx_bytes": 4398,
+          "rx_error_cycles": 19356,
+          "ipbus_strobe_cycles": 580,
+          "net_tick": 1727588335
+        },
+        {
+          "flags": {
+            "link": true,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 578981975,
+          "rx_frames": 29813,
+          "tx_frames": 77,
+          "rx_bytes": 9889874,
+          "tx_bytes": 4398,
+          "rx_error_cycles": 19356,
+          "ipbus_strobe_cycles": 580,
+          "net_tick": 1730940545
+        },
+        {
+          "flags": {
+            "link": false,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 580099734,
+          "rx_frames": 29813,
+          "tx_frames": 77,
+          "rx_bytes": 9889874,
+          "tx_bytes": 4398,
+          "rx_error_cycles": 19356,
+          "ipbus_strobe_cycles": 580,
+          "net_tick": 1734293824
+        }
+      ],
+      "pm": {
+        "flags": {
+          "link": false,
+          "cap_lock": true,
+          "net_lock": true,
+          "got_ip": true,
+          "net_reset": false,
+          "gt_pll_lock": true,
+          "tx_ready": true,
+          "rx_ready": true,
+          "tx_mmcm_lock": true,
+          "rx_mmcm_lock": true,
+          "phy_request": false,
+          "startup": false
+        },
+        "sys_tick": 580099734,
+        "rx_frames": 29813,
+        "tx_frames": 77,
+        "rx_bytes": 9889874,
+        "tx_bytes": 4398,
+        "rx_error_cycles": 19356,
+        "ipbus_strobe_cycles": 580,
+        "net_tick": 1734293824
+      },
+      "kasli": {
+        "enabled": 1,
+        "lan_link": 1,
+        "to_lan": 773875,
+        "to_pm": 4963473,
+        "drop_to_lan": 8541353,
+        "drop_to_pm": 9,
+        "depth": 4096,
+        "abi": 1112688433
+      },
+      "pm_phy_status": 15
+    },
+    "q3": {
+      "utc": "2026-11-20T17:57:03.033586+00:00",
+      "pm_samples": [
+        {
+          "flags": {
+            "link": true,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 661896815,
+          "rx_frames": 29846,
+          "tx_frames": 77,
+          "rx_bytes": 9901606,
+          "tx_bytes": 4398,
+          "rx_error_cycles": 19377,
+          "ipbus_strobe_cycles": 580,
+          "net_tick": 1979685068
+        },
+        {
+          "flags": {
+            "link": true,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 663021676,
+          "rx_frames": 29847,
+          "tx_frames": 77,
+          "rx_bytes": 9901666,
+          "tx_bytes": 4398,
+          "rx_error_cycles": 19378,
+          "ipbus_strobe_cycles": 580,
+          "net_tick": 1983059649
+        },
+        {
+          "flags": {
+            "link": false,
+            "cap_lock": true,
+            "net_lock": true,
+            "got_ip": true,
+            "net_reset": false,
+            "gt_pll_lock": true,
+            "tx_ready": true,
+            "rx_ready": true,
+            "tx_mmcm_lock": true,
+            "rx_mmcm_lock": true,
+            "phy_request": false,
+            "startup": false
+          },
+          "sys_tick": 664121065,
+          "rx_frames": 29847,
+          "tx_frames": 77,
+          "rx_bytes": 9901666,
+          "tx_bytes": 4398,
+          "rx_error_cycles": 19378,
+          "ipbus_strobe_cycles": 580,
+          "net_tick": 1986357818
+        }
+      ],
+      "pm": {
+        "flags": {
+          "link": false,
+          "cap_lock": true,
+          "net_lock": true,
+          "got_ip": true,
+          "net_reset": false,
+          "gt_pll_lock": true,
+          "tx_ready": true,
+          "rx_ready": true,
+          "tx_mmcm_lock": true,
+          "rx_mmcm_lock": true,
+          "phy_request": false,
+          "startup": false
+        },
+        "sys_tick": 664121065,
+        "rx_frames": 29847,
+        "tx_frames": 77,
+        "rx_bytes": 9901666,
+        "tx_bytes": 4398,
+        "rx_error_cycles": 19378,
+        "ipbus_strobe_cycles": 580,
+        "net_tick": 1986357818
+      },
+      "kasli": {
+        "enabled": 1,
+        "lan_link": 1,
+        "to_lan": 773875,
+        "to_pm": 4963508,
+        "drop_to_lan": 8541353,
+        "drop_to_pm": 9,
+        "depth": 4096,
+        "abi": 1112688433
+      },
+      "pm_phy_status": 15
+    }
+  },
+  "scope": "Read-only JTAG/bridge frame counts and single-shot IPbus reads, no host retransmission. Quiet controls expose background traffic; no packet capture privileges.",
+  "physical_identity": {
+    "status": "PASS",
+    "observed_utc": "2026-11-20T17:56:21.421138+00:00",
+    "pgood": [
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000009100590103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=89000001000000AF02590103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2108
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=89000001000000E500590103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.212
+      },
+      {
+        "command": "@HW",
+        "reply": "HW V2 PORTS A..F=9EFC6F0F9EFC STATE 2157..2162=890000010000000303590103 GPIOR0=02 A_OUT=9A TEMPFLAGS=00 TEMPSEEN=00\r\n",
+        "duration_s": 0.2122
+      }
+    ],
+    "mcu_reply": {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    34.5 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2117
+    },
+    "mcu_eeprom_serial": "1803",
+    "fpga_dna": "2A17A1B40221242B",
+    "uid": "PM12-K7-2A17A1B40221242B"
+  },
+  "quiet_before": {
+    "pm": {
+      "sys_tick": 85063013,
+      "rx_frames": 4,
+      "tx_frames": 0,
+      "rx_bytes": 377,
+      "tx_bytes": 0,
+      "rx_error_cycles": 3,
+      "ipbus_strobe_cycles": 0,
+      "net_tick": 255189040
+    },
+    "kasli": {
+      "to_pm": 4,
+      "to_lan": 0,
+      "drop_to_lan": 0,
+      "drop_to_pm": 0
+    }
+  },
+  "traffic": {
+    "pm": {
+      "sys_tick": 647772970,
+      "rx_frames": 139,
+      "tx_frames": 8,
+      "rx_bytes": 41325,
+      "tx_bytes": 420,
+      "rx_error_cycles": 102,
+      "ipbus_strobe_cycles": 28,
+      "net_tick": 1943318910
+    },
+    "kasli": {
+      "to_pm": 133,
+      "to_lan": 8,
+      "drop_to_lan": 0,
+      "drop_to_pm": 0
+    }
+  },
+  "quiet_after": {
+    "pm": {
+      "sys_tick": 84021331,
+      "rx_frames": 34,
+      "tx_frames": 0,
+      "rx_bytes": 11792,
+      "tx_bytes": 0,
+      "rx_error_cycles": 22,
+      "ipbus_strobe_cycles": 0,
+      "net_tick": 252063994
+    },
+    "kasli": {
+      "to_pm": 35,
+      "to_lan": 0,
+      "drop_to_lan": 0,
+      "drop_to_pm": 0
+    }
+  },
+  "host_sent": 20,
+  "host_good_replies": 7,
+  "kasli_read_timeout_events": [],
+  "pm_host_retransmissions": [],
+  "finished_utc": "2026-11-20T17:57:03.613686+00:00"
+}

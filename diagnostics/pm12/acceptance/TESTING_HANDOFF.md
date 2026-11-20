@@ -127,6 +127,18 @@ Pełne lokalne materiały: `/srv/codex-hil-nvme/pm12-board2-mcu-20261120/`.
 Dane pierwszej płyty pozostają zamknięte. Wszystkie zadania sprzętowe tego wątku
 zakończone, rezerwacje zwolnione; nie pozostawiono procesu pomiarowego.
 
+### Izolacja kierunku: Kasli TX→PM RX
+
+Najnowszy test read-only wskazuje kierunek Kasli TX→PM RX:20żądań bez retransmisji,
+7poprawnych odpowiedzi, licznik błędów MAC RX w PM+102. Błędy występują też w ciszy.
+PM nadał8ramek i wszystkie8widać jako poprawnie przekazane do LAN przez Kasli;
+brak nowych dropów FIFO. To nie jest rozstrzygnięcie, czy winny jest nadajnik,
+kabel, odbiornik lub logika RX; MAC error nie jest licznikiem BER/wyłącznieCRC.
+PCS link flag spadł mimo wysokich gotowości PLL/MMCM w snapshotach.
+Dowody: `evidence-board2-rx-tx-20261120/analysis.json`. Wspólny skrypt
+`link_direction.py --station CFG --root ROOT --requests 20` ma także kontrole
+ruchu tła. Nie włącza PRBS, nie resetuje PHY ani nie zmienia wyjść/konfiguracji.
+
 ### Najnowszy wynik: znany wsad FPGA i niestabilny IPbus
 
 Potwierdzono fizyczne DNA drugiej płyty: **2A17A1B40221242B**.

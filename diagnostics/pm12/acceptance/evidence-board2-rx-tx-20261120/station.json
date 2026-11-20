@@ -1,0 +1,284 @@
+{
+  "schema": 1,
+  "jtag_cable": "210249A73E43",
+  "hw_server": "localhost:3121",
+  "python": "/home/codex-hil/kasli-diot-bringup/.venv/bin/python",
+  "uart": "/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0",
+  "kasli_root": "/home/codex-hil/kasli-phase-tester",
+  "console_tools": "/home/codex-hil/FIT_PM_FW_uPC/tools/hardware",
+  "stimulated_channel": 1,
+  "channels": {
+    "1": {
+      "analog_connected": true,
+      "integrator_connected": true,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "2": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "3": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "4": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "5": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "6": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "7": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "8": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "9": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "10": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "11": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    },
+    "12": {
+      "analog_connected": false,
+      "integrator_connected": false,
+      "dac_channels": [
+        0,
+        1
+      ],
+      "integrator_dac_channels": [
+        2,
+        3
+      ],
+      "phase_lanes": []
+    }
+  },
+  "identity_leases": [
+    "atmel-ice-J41800043065",
+    "pm12-210249A73E43",
+    "kasli-diot-00001"
+  ],
+  "run_leases": [
+    "atmel-ice-J41800043065",
+    "pm12-210249A73E43",
+    "kasli-diot-00001",
+    "esp32-6825dd4c49e4",
+    "lattice-VER00001"
+  ],
+  "modules": [
+    {
+      "role": "DUT",
+      "type": "FIT PM12",
+      "photo": null,
+      "hardware_uid": "PM12-K7-2A17A1B40221242B",
+      "eeprom_serial": "1803"
+    },
+    {
+      "role": "Timing and readout",
+      "type": "Kasli-DIOT",
+      "label": "00001",
+      "hardware_uid": null,
+      "photo": null
+    },
+    {
+      "role": "LVDS stimulus/capture",
+      "type": "DIO-LVDS RJ45 slot 6",
+      "hardware_uid": null,
+      "photo": null
+    },
+    {
+      "role": "LVDS stimulus/capture",
+      "type": "DIO-LVDS RJ45 slot 7",
+      "hardware_uid": null,
+      "photo": null
+    },
+    {
+      "role": "Analog stimulus",
+      "type": "MOD-DAC-28",
+      "hardware_uid": "ESP32-MAC-6825DD4C49E4",
+      "identity_source": "SCPI IDN; base MAC, Ethernet MAC differs",
+      "photo": null
+    },
+    {
+      "role": "DC voltage measurement",
+      "type": "Keysight B2910BL",
+      "label": "MY63320299",
+      "hardware_uid": "MY63320299",
+      "photo": null,
+      "identity_source": "Live SCPI IDN checked by measurement scripts; source0A local Force HI/LO"
+    },
+    {
+      "role": "Analog adapter",
+      "type": "Four CFD_SIM adapters",
+      "hardware_uid": null,
+      "photo": null,
+      "label": null,
+      "identity_source": "Declare and discover each fitting"
+    },
+    {
+      "role": "Clock reference",
+      "type": "External LHC generator",
+      "hardware_uid": null,
+      "photo": null
+    }
+  ],
+  "measurement_configuration": {
+    "pm_bit_sha256": "28fb5747bafe575455bff8bf91484c8ebb5303ea18d3e0a0925fdb0c4283d0b2",
+    "kasli_bit_sha256": "a71a08a258620b0e5a52c5d03aefd8c69040c9d15e8de6391c484ac182b7173b",
+    "reference_mhz": 40.0787,
+    "kasli_reference_multiplier": 3,
+    "cpld_gate_mhz": 20,
+    "analog_common_mode_v": 1.0,
+    "dac_legs_max_v": 3.3
+  },
+  "managed_jtag": {
+    "socket": "unix:///run/user/1001/docker-vivado.sock",
+    "image": "codex-vivado-runtime:ubuntu22.04",
+    "vivado_bin": "/srv/codex-hil-data/toolchains/amd/Xilinx/2025.2/Vivado/bin"
+  },
+  "boundary": {
+    "diagnostic_bit": "/srv/codex-hil-nvme/pm12-diagnostic-builds/20261120T150828Z-fd99a24f/artifacts/pm12_link_diag.bit",
+    "diagnostic_sha256": "091501ff3cb1b33a2a38f1d970f0edbdc3e6915101920973add51737f33bc62d",
+    "restore_bit": "/srv/codex-hil-nvme/pm12-rx-clock-counter-20261115/candidate-v2/pm12_ipbus_adc.bit",
+    "build_receipt": "/srv/codex-hil-nvme/pm12-diagnostic-builds/20261120T150828Z-fd99a24f/build.json",
+    "build_receipt_sha256": "3fe450b9d495fb3c73272946845e5650c221ef99ade0a8d6d747055fb0d4537d",
+    "schematic": "/home/codex-hil/fit-bringup/sources/FIT_PM_GW_CPLD_recovery/coolrunner2-recovery/schematic/FIT_PM12.pdf"
+  },
+  "routing_backend": "fixed",
+  "expected_build_id": "ff2f746c",
+  "fitted_channels": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "fitting_note": "Same operator-declared CFD1-4 and dual USB channel1; new independent USER2 clock diagnostic validated in simulation, build on Dell. Original attempts retained. No reference clock/CPLD/MCU configuration changes.",
+  "shared_monitors_connected": false,
+  "smu_sense": null,
+  "smu_host": "192.168.2.19",
+  "smu_serial": "MY63320299",
+  "phase_settle_s": 1.0,
+  "verify_endpoints": true,
+  "jtag_workspace": "/srv/codex-hil-nvme/pm12-board-sessions/enrollments/2c16738a63a04b30be7412203eabec6f/jtag-work",
+  "board_uid": "PM12-K7-2A17A1B40221242B",
+  "board_serial": "1803",
+  "asset_label": "PM12-K7-2A17A1B40221242B",
+  "configuration_declaration": {
+    "created_utc": "2026-11-20T15:12:09.904300+00:00",
+    "enrollment": "/srv/codex-hil-nvme/pm12-board-sessions/enrollments/2c16738a63a04b30be7412203eabec6f/station-enrolled.json",
+    "enrollment_sha256": "34c23d1b3c20dc6aab24afdb072bb016bc4ef2c1d831ee214dfcfc056a2d1a26",
+    "physical_routes": "operator-declared"
+  }
+}
