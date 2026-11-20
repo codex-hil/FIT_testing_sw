@@ -1,0 +1,4 @@
+{
+  "status": "JTAG_UNAVAILABLE",
+  "error": "CalledProcessError(1, ['docker', '-H', 'unix:///run/user/1001/docker-vivado.sock', 'exec', '-e', 'LD_PRELOAD=/lib/x86_64-linux-gnu/libudev.so.1', '-w', '/srv/codex-hil-nvme/pm12-board2-mcu-20261120/jtag-preflight-144015/work', '-e', 'HOME=/srv/codex-hil-nvme/pm12-board2-mcu-20261120/jtag-preflight-144015/work/home', '-e', 'TMPDIR=/srv/codex-hil-nvme/pm12-board2-mcu-20261120/jtag-preflight-144015/work/tmp', 'fit-dna-fc708bf2d903', '/srv/codex-hil-data/toolchains/amd/Xilinx/2025.2/Vivado/bin/vivado', '-mode', 'batch', '-nolog', '-nojournal', '-notrace', '-source', '/home/codex-hil/fit-testing-publish/diagnostics/pm12/acceptance/identity.tcl', '-tclargs', '210249A73E43', 'localhost:3121'])"
+}

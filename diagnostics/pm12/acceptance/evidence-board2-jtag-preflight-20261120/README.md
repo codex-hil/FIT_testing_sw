@@ -1,0 +1,1 @@
+Board2 JTAG preflight20November2026: expected cable210249A73E43 reports no devices. DNA pending. Read-only Vivado identity.tcl, no EXTEST, SRAM or persistent writes. No boundary scan result exists yet. Hardware leases released. Continue with TESTING_HANDOFF.md.

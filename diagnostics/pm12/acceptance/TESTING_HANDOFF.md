@@ -13,6 +13,75 @@ Najpierw przeczytaj `PRODUCTION_WORKFLOW.md`, potem ten dokument.
 `REPORTING_HANDOFF.md` opisuje zamknięty pakiet pierwszej płyty, nie konfigurację
 nowego DUT. Stosuj bieżące AGENTS.md i rezerwacje sprzętu.
 
+## Aktualizacja20listopada2026 — start od drugiej płyty
+
+Użytkownik przenosi dalszy bring-up do nowego wątku. W tym wątku nie wykonano
+boundary scan nowej płyty; wykonano wyłącznie preflight odczytu DNA/łańcucha.
+Ostatni wynik: kabel Digilent210249A73E43 jest widoczny, ale zgłasza **No devices
+detected**. Sprawdź rzeczywiste podłączenie JTAG nowej płyty i właściwy kabel pod
+rezerwacją; nie próbuj programować innych widocznych Digilentów na chybił trafił.
+Łańcuch oczekiwany przez test:12×XC2C128(ID16d8a093)+Kintex7(ID0364c093).
+DNA nowej płyty nadal PENDING; nie wolno przypisać jej starego UID.
+
+MCU nowej płyty miał pusty FLASH/boot i fabryczne fusebity. Zainstalowano
+ostatnią aplikację diagnostyczną z `FIT_PM_FW_uPC/development/build/development.bin`,
+pełny obraz źródłowy SHA256
+`f49643c80c6189afebdaa3f7301f4ecebacb55645e60456f66831106d38b9464`.
+Zapisano tylko application128KiB, niezależny odczyt zgodny. Boot pozostaje pusty.
+Na wyraźne polecenie użytkownika skopiowano EEPROM pierwszej płyty:
+**S/N1803 jest teraz celowo powielony i nie identyfikuje DUT**.
+MCU production-signature SHA256 nowego egzemplarza:
+`f1b955294628e001d491e6117e1ae48886342fed01f4536b8dd731f2b083c11c`.
+Fuse0/1/2/4/5=FF/00/FE/F3/E8, niezależnie odczytane; JTAG MCU wyłączony.
+Stary AVRDUDE błędnie potwierdzał standardowy zapis fuse4, zostawiającFE;
+sprawdzony alias i logi są w `../mcu/evidence-board2-20261120/`.
+Nie powtarzaj programowania w ciemno; jest już zakończone.
+
+Użytkownik zalutował zworki magistrali czujników. I2C LINES07, OWNER00,
+wszystkie trzy INA3221 odpowiadają CONFIG7127, muxy po odczycie00/00.
+Trzy kolejne próby dały te same napięcia: LDO1.000/1.200/1.808V,
+P3V8=3.904V,P3V3=3.328V,P1V8=1.784V,P1V0=1.008V,P5V5=5.496V.
+Temperatura31.25C, PGOOD stabilny, konsola i PLL działają. Nie jest to jeszcze
+kwalifikacja napięć pod obciążeniem FPGA. Obsada symulatorów/USB na tej nowej
+płycie nie została zadeklarowana; nie przenoś deklaracji z pierwszej płyty.
+
+Dowody w repo:
+- `../mcu/evidence-board2-20261120/`: programowanie i odczyty kontrolne;
+- `../mcu/evidence-board2-sensors-20261120/`: surowe odczyty, CSV, źródło akwizycji;
+- `evidence-board2-jtag-preflight-20261120/`: nieudany odczyt JTAG, bez EXTEST
+  i bez jakiegokolwiek programowania FPGA/CPLD.
+
+Pełne lokalne materiały: `/srv/codex-hil-nvme/pm12-board2-mcu-20261120/`.
+`pm12-campaigns/active.json` wskazuje nową płytę jako niepowiązaną (UID null).
+Dane pierwszej płyty pozostają zamknięte. Wszystkie zadania sprzętowe tego wątku
+zakończone, rezerwacje zwolnione; nie pozostawiono procesu pomiarowego.
+
+### Następny test: istniejący skrypt boundary scan
+
+Wspólny skrypt to `diagnostics/pm12/test_board.py`, wersjonowany w tym repo,
+a nie jednorazowy plik z katalogu artifacts. Sprawdza168połączeń data/STR,
+338wektorów walking-one/walking-zero, niezależny odczyt komórek boundary FPGA,
+porównanie z `pinmap.json` i sterowanie reset/freeze/resume diagnostyki.
+Zapisuje surowe logi, `report.json`, `connections.csv`, hashe schematu/bitstreamu.
+CPLD EXTEST jest chwilowy; nie ma zapisu firmware CPLD ani konfiguracji FLASH.
+To nie jest test wszystkich netów płyty ani całego toru analogowego.
+
+Po odzyskaniu łańcucha najpierw odczytaj DNA i przypisz nowy UID. Sprawdź zgodność
+obsady i schematu z mapą oraz hash obrazu testowego. Znany obraz diagnostyczny:
+`/home/codex-hil/fit-bringup/gateware/pm12_link_diag/build/pm12_link_diag.bit`,
+SHA256 `c9fbd02768ce12750dc68b8bb24c34403027a65f9e002661e29bb3d2e2df7a1a`.
+Programowanie FPGA SRAM jest częścią tego testu; stary obraz SRAM zostanie utracony.
+Natywny `test_board.py` przywraca TAP/CPLD do trybu funkcjonalnego, ale **pozostawia
+w FPGA diagnostykę**, nie przywraca IPbus. Ustal jawnie obraz końcowy, sprawdź jego
+hash i przywróć go kontrolowanym loaderem; sprawdź stan końcowy także po błędzie.
+
+Nie uruchamiaj bez poprawek `acceptance/boundary.py`: jego przywracanie wymaga
+starego c7c42d28 i wywołuje wyłączony `station.integrated`; szablon ma też historyczną
+ścieżkę restore. Nowy wątek ma opakować istniejący `test_board.py` w sprawdzanie
+DNA/rezerwacje/konfigurację oraz bezpieczne, jawne zakończenie zgodne z aktualnym
+wsadem, zachowując jeden skrypt testowy dla następnych płyt i reporterów.
+Wyniku nie wpisuj jako PASS, dopóki pełne wektory i kontrola zakończenia nie przejdą.
+
 ## Stan odziedziczony — sprawdź przed użyciem
 
 Ostatnio potwierdzona płyta: **PM12-K7-3A17A1B402212223**, EEPROM MCU1803.
