@@ -15,7 +15,7 @@ def contained(root,relative):
  return p
 
 def build(spec_path,out):
- spec=read(spec_path);uid=spec['board_uid']
+ spec_path=Path(spec_path).resolve();spec=read(spec_path);uid=spec['board_uid']
  if board_uid(uid.removeprefix('PM12-K7-'))!=uid:raise ValueError('Invalid board UID')
  out=Path(out);out.mkdir(parents=True,exist_ok=False);(out/'blobs').mkdir()
  release={'schema':1,'board_uid':uid,'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':spec['scope'],'cases':[],'open_items':spec.get('open_items',[]),'identities':spec.get('identities',[]),'scope_exclusions':spec.get('scope_exclusions',[])}
@@ -23,7 +23,7 @@ def build(spec_path,out):
  for selection in spec['selections']:
   case=selection['case']
   if case in keys:raise ValueError('Duplicate case selection')
-  keys.add(case);src=Path(selection['source']).resolve();record=read(src/selection['receipt'])
+  keys.add(case);src=Path(selection['source']);src=(src if src.is_absolute() else spec_path.parent/src).resolve();record=read(src/selection['receipt'])
   observed=record.get('board_uid',record.get('uid'))
   if observed!=uid:raise ValueError('Wrong/missing board UID in selected receipt: '+case)
   if record.get('status')!=selection['status']:raise ValueError('Selected status differs from receipt')

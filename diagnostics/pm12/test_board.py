@@ -91,6 +91,19 @@ def controls(text):
         t, a = rows[f'RUN_{i}_A']; u, b = rows[f'RUN_{i}_B']
         if u <= t:
             raise ValueError('Invalid host time interval')
+        counter = lambda value: (value >> 32) & 0xffffffff
+        if counter(a) == counter(b):
+            raise ValueError('Monitor clock stopped')
+        _, frozen_a = rows[f'FREEZE_{i}_A']; _, frozen_b = rows[f'FREEZE_{i}_B']
+        if not ((frozen_a >> 1504) & 1 and (frozen_b >> 1504) & 1):
+            raise ValueError('Freeze not acknowledged in raw report')
+        if counter(frozen_a) != counter(frozen_b):
+            raise ValueError('Frozen count changed')
+        _, resumed = rows[f'RESUME_{i}']; _, reset = rows[f'RESET_{i}']
+        if (resumed >> 1504) & 1 or counter(resumed) == counter(frozen_b):
+            raise ValueError('Monitor resume failed')
+        if counter(reset) >= counter(resumed):
+            raise ValueError('Monitor reset failed')
         rates.append((((b >> 32) - (a >> 32)) & 0xffffffff) * 1000 / (u - t))
     return dict(passed=True, repeats=3, approximate_host_timed_clock_hz=rates)
 

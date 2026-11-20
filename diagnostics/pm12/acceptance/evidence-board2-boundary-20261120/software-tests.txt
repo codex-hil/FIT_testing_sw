@@ -1,0 +1,15 @@
+{"path": "/tmp/tmpxglwdgrz/PM12-K7-0000000000000123/setup/test", "board_uid": "PM12-K7-0000000000000123", "status": "ERROR", "restoration": "ERROR"}
+.{"path": "/tmp/tmpco2kq0sf/PM12-K7-0000000000000123/setup/test", "board_uid": "PM12-K7-0000000000000123", "status": "ERROR", "restoration": "ERROR"}
+.{"path": "/tmp/tmpmqqh21xz/PM12-K7-0000000000000123/setup/test", "board_uid": "PM12-K7-0000000000000123", "status": "PASS", "restoration": "PASS"}
+.{"path": "/tmp/tmp0k7p_0v1/PM12-K7-0000000000000123/setup/test", "board_uid": "PM12-K7-0000000000000123", "status": "PASS", "restoration": "PASS"}
+.{"path": "/tmp/tmp1mfsd3lr/PM12-K7-0000000000000123/setup/test", "board_uid": "PM12-K7-0000000000000123", "status": "PASS", "restoration": "PASS"}
+.{"path": "/tmp/tmpfoi7elit/PM12-K7-0000000000000123/setup/test", "board_uid": "PM12-K7-0000000000000123", "status": "ERROR", "restoration": "PASS"}
+.{"path": "/tmp/tmpbrhl1o_9/PM12-K7-0000000000000123/setup/test", "board_uid": "PM12-K7-0000000000000123", "status": "ERROR", "restoration": "NOT_ATTEMPTED"}
+.{"path": "/tmp/tmp53cuey_d/PM12-K7-0000000000000123/setup/test", "board_uid": "PM12-K7-0000000000000123", "status": "ERROR", "restoration": "NOT_ATTEMPTED"}
+.......................................................
+----------------------------------------------------------------------
+Ran 62 tests in 8.111s
+
+OK
+{"board_uid": "PM12-K7-0000000000000456", "configuration": "/tmp/tmp3f6647tw/enrollment/enrollments/6d39078359664baaa321f01e12936ade/station-enrolled.json", "note": "Declare actual fitting and USB routing before begin; FPGA diagnostic readiness checked by begin"}
+{"path": "/tmp/tmpew8tn3dt/PM12-K7-0000000000000123/run/measurements/2026-11-20T152720.265893+0000-integrator-ch06-b4efb6", "status": "ERROR"}

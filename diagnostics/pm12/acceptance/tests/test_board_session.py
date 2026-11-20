@@ -18,6 +18,18 @@ class Sessions(unittest.TestCase):
   with patch.dict(sys.modules,{'pm12_power':power,'pm12_console_regression':console}),patch.object(b,'locks',lambda cfg:contextlib.nullcontext(())),patch.object(station_module,'load_dependencies'),patch.object(station_module,'console',lambda cfg:contextlib.nullcontext(object())),patch.object(station_module,'read_dna',return_value='0000000000000456'):
    out=b.enroll(station,self.root/'enrollment',self.root/'registry.json')
   cfg=b.read(out/'station-enrolled.json');self.assertEqual(cfg['board_uid'],'PM12-K7-0000000000000456');self.assertEqual(cfg['board_serial'],'1804');self.assertIsNone(cfg['stimulated_channel']);self.assertEqual(cfg['fitted_channels'],[]);self.assertFalse(cfg['channels']['6']['integrator_connected'])
+ def test_enrollment_error_preserves_mcu_and_no_guessed_uid(self):
+  import contextlib,types
+  station=self.root/'seed.json';b.write(station,self.cfg)
+  power=types.SimpleNamespace(wait_power_good=lambda *a:[{'reply':'raw PGOOD'}])
+  console=types.SimpleNamespace(capture=lambda *a:{'reply':'Board S/N: 1803\\r\\n'})
+  import station as station_module
+  with patch.dict(sys.modules,{'pm12_power':power,'pm12_console_regression':console}),patch.object(b,'locks',lambda cfg:contextlib.nullcontext(())),patch.object(station_module,'load_dependencies'),patch.object(station_module,'console',lambda cfg:contextlib.nullcontext(object())),patch.object(station_module,'read_dna',side_effect=ValueError('No devices detected')):
+   with self.assertRaises(ValueError):b.enroll(station,self.root/'enrollment',self.root/'registry.json')
+  paths=list((self.root/'enrollment/enrollments').iterdir());self.assertEqual(len(paths),1)
+  record=b.read(paths[0]/'enrollment.json');self.assertEqual(record['status'],'ERROR');self.assertIsNone(record['board_uid'])
+  self.assertIn('1803',record['mcu_reply']['reply']);self.assertFalse((self.root/'registry.json').exists())
+  self.assertEqual(b.read(paths[0]/'files.sha256.json'),b.files(paths[0]))
  def test_legacy_phase_mode_rejected_before_hardware(self):
   import subprocess
   script=Path(__file__).resolve().parents[2]/'cfd_simulator/phase_scan.py'

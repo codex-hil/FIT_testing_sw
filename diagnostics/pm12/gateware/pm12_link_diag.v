@@ -20,9 +20,9 @@ module pm12_link_diag (    input wire [12:0] DI1, input wire STR1,
  wire reset_toggle,freeze_request,frozen;
  link_monitor monitor (.clk(clk),.pins(pins),.reset_toggle(reset_toggle),.freeze_request(freeze_request),.frozen(frozen),.report(monitor_report));
  wire tck, rst1, cap1, sh1, sel1, tdi1, tdo1;
- wire up2, sh2, sel2, tdi2;
+ wire tck2, rst2, cap2, up2, sh2, sel2, tdi2;
  BSCANE2 #(.JTAG_CHAIN(1)) scan_read (.TCK(tck),.RESET(rst1),.CAPTURE(cap1),.SHIFT(sh1),.SEL(sel1),.TDI(tdi1),.TDO(tdo1));
- BSCANE2 #(.JTAG_CHAIN(2)) scan_control (.UPDATE(up2),.SHIFT(sh2),.SEL(sel2),.TDI(tdi2),.TDO(1'b0));
- // Both USER chains share physical TDI; select control input when USER2 selected.
- jtag_report transport (.tck(tck),.reset(rst1),.capture1(cap1),.shift1(sh1),.sel1(sel1),.update2(up2),.sel2(sel2),.shift2(sh2),.tdi(sel2 ? tdi2 : tdi1),.report({24'b0,pins,monitor_report}),.tdo1(tdo1),.reset_toggle(reset_toggle),.freeze_request(freeze_request));
+ BSCANE2 #(.JTAG_CHAIN(2)) scan_control (.TCK(tck2),.RESET(rst2),.CAPTURE(cap2),.UPDATE(up2),.SHIFT(sh2),.SEL(sel2),.TDI(tdi2),.TDO(1'b0));
+ // Keep control shifting and UPDATE in the USER2 BSCANE2 clock domain.
+ jtag_report transport (.tck(tck),.reset(rst1),.capture1(cap1),.shift1(sh1),.sel1(sel1),.tck2(tck2),.reset2(rst2),.capture2(cap2),.update2(up2),.sel2(sel2),.shift2(sh2),.tdi(tdi1),.tdi2(tdi2),.report({24'b0,pins,monitor_report}),.tdo1(tdo1),.reset_toggle(reset_toggle),.freeze_request(freeze_request));
 endmodule

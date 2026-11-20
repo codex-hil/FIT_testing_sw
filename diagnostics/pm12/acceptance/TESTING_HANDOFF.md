@@ -15,6 +15,59 @@ nowego DUT. Stosuj bieżące AGENTS.md i rezerwacje sprzętu.
 
 ## Aktualizacja20listopada2026 — start od drugiej płyty
 
+### Kontynuacja20listopada2026 — identyfikacja i boundary drugiej płyty
+
+Aktualny DUT ma DNA **2A17A1B40221242B**, UID **PM12-K7-2A17A1B40221242B**.
+Operator poprawił podłączenie do właściwego z dwóch złączy JTAG. Kabel
+210249A73E43 następnie odczytał12×XC2C128+XC7K160T. EEPROM1803 pozostaje
+celowo powielony; nie stosować go jako UID. Operator zadeklarował CFD1–4 i oba
+analogowe USB na kanale1. Mapy timingowej nie odkrywano, SMU niepotwierdzony.
+
+Dwa pomiary znanej diagnostyki c9fbd027 dały168/168 połączeń w obu ścieżkach,
+ale błąd freeze. Stary HDL taktował komendy USER2 sygnałem TCK z USER1.
+Symulacja z nieruchomym TCK USER1 odtworzyła błąd starego HDL i potwierdziła
+poprawkę z osobnym TCK/RESET/CAPTURE USER2 oraz blokadą starego UPDATE.
+Nowy obraz zbudowano na Dellu, zachowując starsze źródła i artefakty. SHA256:
+`091501ff3cb1b33a2a38f1d970f0edbdc3e6915101920973add51737f33bc62d`.
+Trzecia akwizycja przeszła oba338-wektorowe tory168/168, wszystkie3cykle
+run/freeze/resume/reset i reset TAP. To **PASS natywnego testu**.
+
+Cały identity-bound wrapper pozostaje **ERROR**: przywrócono SRAM ff2f746c
+z poprawną sygnaturą JTAG, ale kontrola końcowa IPbus miała timeout. Jeden
+jawny reset PHY PM na Kasli nie zmienił profilu zegarów/DIO/HDMI. Późniejszy
+probe odebrał komplet rejestrów ff2f746c, lecz kolejne `begin` znowu miało timeout.
+Sporadyczne odpowiedzi192.168.2.240 **nie zostały powiązane z DNA nowego DUT**;
+nie uznawać ich za PASS Ethernetu. Sprawdź, że tylko jeden DUT jest w torze
+statycznego IP, faktyczny SFP i odniesienie. Nie zmieniaj automatycznie PLL.
+Testy ADC/integratorów/timingu zatrzymano przed pobudzeniem, bo sesja nie ma READY.
+MCU/CPLD/Flash nie programowano ponownie, konfiguracji zegarów nie zmieniano.
+
+Wspólny `boundary.py` jest poprawiony: zaczyna od fizycznego DNA bez wymogu
+IPbus, używa niezmienionych wektorów `test_board.py`, zachowuje surowe logi,
+sprawdza tożsamość przed przywracaniem i korzysta z aktualnego loadera SRAM.
+`test_board.controls` odtwarza kryteria freeze/resume/reset z surowych raportów.
+`station_config.py`, `build_diagnostic.py`, `station_probe.py`,
+`jtag_transport_probe.py`, `link_recovery.py`, `boundary_release.py`,
+`package_release.py` i `publish_release.py` są wspólnymi narzędziami w repo.
+Szablon wskazuje nową sprawdzoną diagnostykę i aktualny obraz przywracania.
+Procedura pozostaje w PRODUCTION_WORKFLOW.md.
+
+Indeks: `evidence-board2-boundary-20261120/index.json`. Dane i pakiet:
+`/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/`.
+Release `releases/20261120-boundary-v1/` zawiera dossier i eksport89pól:
+**1ERROR,88NOT_RUN**, REVIEW. Native PASS jest zachowany jako podwynik;
+nie przenosić go na wynik całej procedury. Manifest/archiwum mają SHA256,
+odczyt offline sprawdzony. SMB:
+`\\192.168.2.6\codex-hil\ALICE\PM12-test-reports\PM12-K7-2A17A1B40221242B\board2-boundary-20261120-v1`.
+Kopia SMB zweryfikowana odczytem; poprzedniej płyty/pakietu nie nadpisano.
+
+W danych próby zegara zachowano błędne pole pochodne zakładające125MHz sys.
+Wspólna analiza `station_probe.analyze_record` jawnie je unieważnia i liczy
+niekalibrowane obserwacje tylko z surowych liczników/czasu hosta. Poprawna
+normalizacja jest w `boundary-evidence/related-analyses/`; nie importuj starego pola.
+
+### Stan wejściowy sprzed powyższych pomiarów (zachowany historycznie)
+
 Użytkownik przenosi dalszy bring-up do nowego wątku. W tym wątku nie wykonano
 boundary scan nowej płyty; wykonano wyłącznie preflight odczytu DNA/łańcucha.
 Ostatni wynik: kabel Digilent210249A73E43 jest widoczny, ale zgłasza **No devices

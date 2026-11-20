@@ -81,7 +81,7 @@ def build(session, measurement, out):
                    'metrics': metrics, 'curves': [],
                    'scope': 'No boundary links, calibrated analog acceptance, BER, jitter or power fault injection'}
         b.write(source / relative, receipt)
-        selections.append(dict(case=case, test=test, channel=channel, source=str(source),
+        selections.append(dict(case=case, test=test, channel=channel, source=str(source.relative_to(out)),
                                receipt=relative, status=status, method=receipt['method'],
                                basis=basis, measured_utc=receipt['measured_utc']))
     gaps = [r['case'] + ': ' + r['status'] for r in selections if r['status'] not in ('PASS', 'PASS_FUNCTIONAL')]

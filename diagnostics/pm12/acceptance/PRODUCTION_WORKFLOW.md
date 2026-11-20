@@ -72,6 +72,56 @@ challenge (the supported bus counts4STROBE cycles/read). MCU/UART is tied to the
 same endpoint by32walking scratch patterns plus restoration, observed as33writes.
 Thus a matching software build or stale IP alone cannot bind a second board.
 
+## Boundary scan before IPbus bring-up (20 November 2026)
+
+After enrollment, create a fresh configuration with `station_config.py` and the
+operator-declared fitting. Use explicit `--restore-bit` and `--schematic` inputs;
+the selected schematic hash must match `pinmap.json`. A duplicated EEPROM S/N
+never substitutes for physical FPGA DNA.
+
+```
+$PY $A/boundary.py --station CONFIG --root "$ROOT"
+python3 $A/boundary.py --verify RETURNED_BOUNDARY_DIRECTORY
+```
+
+The wrapper does not require a working IPbus image before testing. It checks
+DNA/MCU/PGOOD, uses the existing `test_board.py`, repeats physical identity before
+restoration, and calls the shared `board_session.load_sram` loader for the explicit
+final image. A PASS also requires live final image/endpoint binding. It never
+calls `station.integrated`, resets the bridge, changes PLL settings, releases
+Kasli outputs, or programs CPLDs/MCU/Flash. Failures retain both native logs and
+restoration records. Use `--repeat-of PREVIOUS_DIRECTORY --reason TEXT` for a
+justified new attempt. Do not repeat indefinitely to hide an intermittent error.
+
+`station_probe.py` and `jtag_transport_probe.py` provide identity-guarded UART/
+network observations and measured TAP BYPASS latency. These diagnostic setup
+records remain separate from production acceptance cases.
+
+The legacy diagnostic wired USER2 command shifting to USER1 TCK. The corrected
+HDL uses USER2's own TCK/RESET/CAPTURE, with a fresh-payload guard against a stale
+TAP-reset UPDATE. `gateware/tests/run_control.py` reproduces the legacy failure
+with USER1 TCK held low and checks three run/freeze/resume/reset cycles of the
+correction. This simulation is not a physical qualification. `build_diagnostic.py`
+snapshots sources, runs this small local simulation, builds on Dell through the
+shared slot launcher, and explicitly fetches artifacts/logs. Select a completed
+build using `station_config.py --diagnostic-build BUILD_JSON`; its status and
+artifact hash are checked again before hardware access. Existing images are kept.
+
+For an offline partial boundary release, explicitly name all related attempts:
+
+```
+python3 $A/boundary_release.py --boundary SELECTED_DIRECTORY \
+  --related PREVIOUS_DIRECTORY --out NEW_RELEASE
+python3 $A/package_release.py --root NEW_RELEASE --archive NEW_ARCHIVE.tar.gz
+```
+
+This uses the shared dossier builder/exporter and retains all 89 matrix fields.
+ERROR and NOT_RUN stay visible. The release includes raw vectors, restoration
+attempts, sources, and `measurements.json`, `coverage.csv`, `series.csv`. The
+archive is read back file by file and gets a separate SHA256 manifest. Optional
+`publish_release.py` uploads to a new UID-containing SMB directory and checks the
+remote archive hash; credentials are read from a private file and never copied.
+
 ## Measurements
 
 All commands below require the returned `--session SESSION`. They acquire shared

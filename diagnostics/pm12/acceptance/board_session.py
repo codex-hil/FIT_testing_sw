@@ -57,19 +57,28 @@ def enroll(station,root,registry):
  cfg['jtag_workspace']=str(out/'jtag-work');load_dependencies(cfg)
  from pm12_console_regression import capture
  from pm12_power import wait_power_good
- with locks(cfg):
-  with console(cfg) as u:
-   pg=wait_power_good(u,capture);serial=capture(u,'RS');match=re.search(r'Board S/N:\s*(\d+)',serial['reply'])
-   if not match:raise ValueError('No MCU identity')
-  jtag=out/'identity';jtag.mkdir();dna=read_dna(cfg,jtag)
- identity_record=dict(uid=board_uid(dna),fpga_dna=dna,mcu_eeprom_serial=match[1],observed_utc=now(),asset_label=cfg.get('asset_label') or board_uid(dna),mcu_reply=serial,pgood=pg)
- register(registry,identity_record);cfg.update(board_uid=identity_record['uid'],board_serial=match[1],asset_label=identity_record['asset_label'],stimulated_channel=None,fitted_channels=[],shared_monitors_connected=False,smu_sense=None)
- for route in cfg.get('channels',{}).values():route.update(analog_connected=False,integrator_connected=False,phase_lanes=[])
- for module in cfg.get('modules',[]):
-  if module.get('role')=='DUT':module.update(hardware_uid=cfg['board_uid'],eeprom_serial=cfg['board_serial'])
- write(out/'identity.json',identity_record);write(out/'station-enrolled.json',cfg)
- print(json.dumps(dict(board_uid=cfg['board_uid'],configuration=str(out/'station-enrolled.json'),note='Declare actual fitting and USB routing before begin; FPGA diagnostic readiness checked by begin')))
- return out
+ enrollment=dict(status='ERROR',board_uid=None,started_utc=now(),source_station=str(Path(station).resolve()),source_station_sha256=sha(station))
+ try:
+  with locks(cfg):
+   with console(cfg) as u:
+    pg=wait_power_good(u,capture);serial=capture(u,'RS');match=re.search(r'Board S/N:\s*(\d+)',serial['reply'])
+    if not match:raise ValueError('No MCU identity')
+   enrollment.update(pgood=pg,mcu_reply=serial)
+   write(out/'enrollment.json',enrollment)
+   jtag=out/'identity';jtag.mkdir();dna=read_dna(cfg,jtag)
+  identity_record=dict(uid=board_uid(dna),fpga_dna=dna,mcu_eeprom_serial=match[1],observed_utc=now(),asset_label=cfg.get('asset_label') or board_uid(dna),mcu_reply=serial,pgood=pg)
+  register(registry,identity_record);cfg.update(board_uid=identity_record['uid'],board_serial=match[1],asset_label=identity_record['asset_label'],stimulated_channel=None,fitted_channels=[],shared_monitors_connected=False,smu_sense=None)
+  for route in cfg.get('channels',{}).values():route.update(analog_connected=False,integrator_connected=False,phase_lanes=[])
+  for module in cfg.get('modules',[]):
+   if module.get('role')=='DUT':module.update(hardware_uid=cfg['board_uid'],eeprom_serial=cfg['board_serial'])
+  write(out/'identity.json',identity_record);write(out/'station-enrolled.json',cfg)
+  print(json.dumps(dict(board_uid=cfg['board_uid'],configuration=str(out/'station-enrolled.json'),note='Declare actual fitting and USB routing before begin; FPGA diagnostic readiness checked by begin')))
+  enrollment.update(status='PASS',board_uid=cfg['board_uid'])
+  return out
+ except BaseException as error:
+  enrollment['error']=repr(error);raise
+ finally:
+  enrollment['finished_utc']=now();write(out/'enrollment.json',enrollment);write(out/'files.sha256.json',files(out))
 
 
 def load_sram(station,root,bit,expected_sha):

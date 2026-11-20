@@ -1,3 +1,4 @@
+set_param general.maxThreads 4
 set here [file dirname [file normalize [info script]]]
 set candidates [get_parts -quiet *7k160t*ffg676*-3]
 if {[llength $candidates] != 1} {error "Kintex part support missing or ambiguous: $candidates"}

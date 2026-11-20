@@ -247,9 +247,12 @@
     "vivado_bin": "/srv/codex-hil-data/toolchains/amd/Xilinx/2025.2/Vivado/bin"
   },
   "boundary": {
-    "diagnostic_bit": "/home/codex-hil/fit-bringup/gateware/pm12_link_diag/build/pm12_link_diag.bit",
-    "diagnostic_sha256": "c9fbd02768ce12750dc68b8bb24c34403027a65f9e002661e29bb3d2e2df7a1a",
-    "restore_bit": "/srv/codex-hil-nvme/pm12-hdmi-integrated-20261106/pm-final-candidate/pm12_ipbus_adc.bit"
+    "diagnostic_bit": "/srv/codex-hil-nvme/pm12-diagnostic-builds/20261120T150828Z-fd99a24f/artifacts/pm12_link_diag.bit",
+    "diagnostic_sha256": "091501ff3cb1b33a2a38f1d970f0edbdc3e6915101920973add51737f33bc62d",
+    "restore_bit": "/srv/codex-hil-nvme/pm12-rx-clock-counter-20261115/candidate-v2/pm12_ipbus_adc.bit",
+    "schematic": "/home/codex-hil/fit-bringup/sources/FIT_PM_GW_CPLD_recovery/coolrunner2-recovery/schematic/FIT_PM12.pdf",
+    "build_receipt": "/srv/codex-hil-nvme/pm12-diagnostic-builds/20261120T150828Z-fd99a24f/build.json",
+    "build_receipt_sha256": "3fe450b9d495fb3c73272946845e5650c221ef99ade0a8d6d747055fb0d4537d"
   },
   "routing_backend": "fixed",
   "expected_build_id": "ff2f746c",
