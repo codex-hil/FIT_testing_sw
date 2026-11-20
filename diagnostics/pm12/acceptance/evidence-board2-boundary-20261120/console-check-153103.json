@@ -1,0 +1,81 @@
+{
+  "board_uid": "PM12-K7-2A17A1B40221242B",
+  "probe": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/setup/20261120T153103Z-station-probe-ae1c8abd",
+  "result_sha256": "0fcb9329de6975bcb0cb65c8eac9480dfa8ebb1224f600e8593516026bf543a5",
+  "hash_verification": "PASS",
+  "observed_utc": "2026-11-20T15:31:27.928470+00:00",
+  "uart": [
+    {
+      "command": "@PING",
+      "reply": "PONG\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "RS",
+      "reply": "Board S/N: 1803 Flash Timestamp: 852AD92B\r\nExternal power source: OK\r\nTemperature    36.3 NORMAL\r\nBoard power ON, OK\r\nClock source PRIMARY, PLL LOCKED\r\nFPGA not ready\r\n",
+      "duration_s": 0.2106
+    },
+    {
+      "command": "@PLL",
+      "reply": "CDCE62005 20009D28\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@FPGA",
+      "reply": "FPGA REG=40 0000\r\nFPGA REG=41 504D\r\nFPGA REG=42 5350\r\nFPGA REG=43 0001\r\nFPGA REG=44 0021\r\n",
+      "duration_s": 0.2107
+    },
+    {
+      "command": "@FPGATEST",
+      "reply": "FPGA TEST PASS 32 RESTORED\r\n",
+      "duration_s": 0.2106
+    }
+  ],
+  "dna_before": "2A17A1B40221242B",
+  "dna_after": "2A17A1B40221242B",
+  "network_observation": "PM12 registers replied; endpoint association not yet verified",
+  "coverage_change": "None; observation is not full manufacturing acceptance",
+  "subsequent_identity_bound_session": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/20261120T153212Z-6c731db7",
+  "subsequent_endpoint_binding": {
+    "jtag_ethernet": {
+      "before": 264,
+      "after": 372,
+      "issued_register_reads": 27,
+      "strobe_cycles_per_read": 4,
+      "observed_delta": 108
+    },
+    "mcu_ethernet": {
+      "before": [
+        0,
+        66
+      ],
+      "after": [
+        0,
+        99
+      ],
+      "reply": {
+        "command": "@FPGATEST",
+        "reply": "FPGA TEST PASS 32 RESTORED\r\n",
+        "duration_s": 0.2116
+      },
+      "restored": true,
+      "write_delta": 33
+    },
+    "uptime_before": [
+      1024335863,
+      9
+    ],
+    "uptime_after": [
+      1460568410,
+      9
+    ],
+    "status": "PASS"
+  },
+  "subsequent_session_status": "READY",
+  "subsequent_board_check": {
+    "path": "/srv/codex-hil-nvme/pm12-board-sessions/PM12-K7-2A17A1B40221242B/20261120T153212Z-6c731db7/measurements/board-final-471a0b8a",
+    "status": "ERROR",
+    "error": "TimeoutError('timed out')",
+    "scope": "Identity preflight failed before MCU/ADC/HDMI acquisition; no stimulus executed"
+  }
+}

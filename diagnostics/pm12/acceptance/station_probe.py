@@ -51,7 +51,7 @@ def run(cfg,root,window=0):
             from pm12_console_regression import capture
             from pm12_power import require_power_good
             with console(cfg) as uart:
-                r['uart']=[capture(uart,cmd) for cmd in ('RS','@PLL','@FPGA','@FPGATEST')]
+                r['uart']=[capture(uart,cmd) for cmd in ('@PING','RS','@PLL','@FPGA','@FPGATEST')]
                 r['pgood']=require_power_good(uart,capture)
             for name,host,registers in [('kasli',cfg.get('kasli_ip','192.168.2.241'),[0,4,0x74,0xa8,0xac,0xb0,0xd0,0xe0,0x100,0x104,0x108,0x10c,0x110,0x114,0x120,0x124,0x128,0x12c,0x130,0x134,0x138,0x13c,0x144,0x150]),
                                         ('pm12','192.168.2.240',[0,4,8,20,24])]:

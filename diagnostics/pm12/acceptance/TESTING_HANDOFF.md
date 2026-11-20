@@ -15,6 +15,24 @@ nowego DUT. Stosuj bieżące AGENTS.md i rezerwacje sprzętu.
 
 ## Aktualizacja20listopada2026 — start od drugiej płyty
 
+### Konsola20listopada2026,15:31UTC — świeży odczyt
+
+Na prośbę użytkownika sprawdzono konsolę wspólnym `station_probe.py`, dodając
+jawne @PING do stałego zestawu. @PING→PONG, @FPGATEST→PASS32RESTORED, zasilanie
+OK, PLL LOCKED, temperatura36.3C. DNA przed/po=2A17A1B40221242B. RS nadal
+raportuje FPGA not ready; zachowano ten tekst. Surowy zapis:
+`setup/20261120T153103Z-station-probe-ae1c8abd/` pod katalogiem tego UID.
+
+Następnie `begin` przeszedł pełne powiązanie JTAG–Ethernet–UART i utworzył READY:
+`20261120T153212Z-6c731db7`. Była to poprawna pojedyncza kontrola tożsamości,
+nie kwalifikacja stabilności. Uruchomiony potem board_check ponownie zakończył
+się timeoutem w preflight, przed pomiarami MCU/ADC/HDMI. Zachowano ERROR jako
+`measurements/board-final-471a0b8a`. Integralność sesji PASS; UART/SPI odpowiada,
+IPbus pozostaje niestabilny. Nie wykonano pobudzeń analogowych ani programowania.
+Indeks: `evidence-board2-boundary-20261120/console-check-153103.json`.
+Zamknięty pakiet boundary-v1 pozostaje bez zmian; ten zapis jest późniejszą partią.
+
+
 ### Kontynuacja20listopada2026 — identyfikacja i boundary drugiej płyty
 
 Aktualny DUT ma DNA **2A17A1B40221242B**, UID **PM12-K7-2A17A1B40221242B**.
