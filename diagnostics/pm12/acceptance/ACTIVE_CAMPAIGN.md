@@ -1,3 +1,13 @@
+# Latest board2 transport result —20 November2026
+
+Physical UID **PM12-K7-2A17A1B40221242B** confirmed. Known **ff2f746c** SRAM image
+reloaded and signature verified; **PM IPbus stability FAIL**. Kasli management
+50/50read control passed; a private-PHY restart did not cure the PM timeouts.
+Clock profiles and HDMI/DIO state unchanged. Original MCU application retained,
+PLL PRIMARY/LOCKED, ADT C3, PGOOD healthy. No ADC functional acceptance in this run.
+See [reload evidence](evidence-board2-ipbus-reload-20261120/README.md).
+Previous DNA-pending statements below are historical, not current attachment state.
+
 # Current attachment changed20November2026 — board2
 
 MCU diagnostic application, copied board1 EEPROM and fuses are verified.
